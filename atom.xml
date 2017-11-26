@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2017-11-26T08:24:23.894Z</updated>
+  <updated>2017-11-26T08:52:29.485Z</updated>
   <id>/</id>
   
   <author>
@@ -17,18 +17,18 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Useful Git Commands</title>
+    <title>Git Commands</title>
     <link href="/2017/11/26/Useful%20Git%20Commands/"/>
     <id>/2017/11/26/Useful Git Commands/</id>
     <published>2017-11-25T15:36:45.000Z</published>
-    <updated>2017-11-26T08:24:23.894Z</updated>
+    <updated>2017-11-26T08:52:29.485Z</updated>
     
     <content type="html"><![CDATA[<!-- excerpt --></p><p>뭐 별 것도 없네</p><p><code>이런것도 되나?</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Or something like this</div></pre></td></tr></table></figure><p>:smile:</p><h2 id="hahaha"><a href="#hahaha" class="headerlink" title="hahaha"></a>hahaha</h2>]]></content>
     
     <summary type="html">
     
       &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt; 제가 자주 사용하는 깃 명령어들을 정리해봤습니다. 어쩌면 간단한 기본 깃 명령어 튜토리얼 정도가 될 수도 있을 것 같습니다.&lt;br&gt; — Here is a set of Git commands usually I use. It might be a simple tutorial of basic usage of git commands. :)&lt;br&gt;
+&lt;p&gt;Here is a set of Git commands usually I use. It might be a simple tutorial of basic usage of git commands. :)&lt;br&gt; — 제가 자주 사용하는 깃 명령어들을 정리해봤습니다.&lt;br&gt;
     
     </summary>
     

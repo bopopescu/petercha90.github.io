@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>Logarithms - Stand firm Peter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="Deep Learning 논문에서 자주 등장하는 Log. Machine learning 및 통계에서 자주 쓰는 이유!">
+<meta name="keywords" content="machine-learning,ml,logarithm,log">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Logarithms">
+<meta property="og:url" content="http://www.stand-firm-peter.me/2018/09/12/Logarithms/index.html">
+<meta property="og:site_name" content="Stand firm Peter">
+<meta property="og:description" content="Deep Learning 논문에서 자주 등장하는 Log. Machine learning 및 통계에서 자주 쓰는 이유!">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.stand-firm-peter.me/gallery/log_bg.jpg">
+<meta property="og:updated_time" content="2019-07-18T04:28:57.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Logarithms">
+<meta name="twitter:description" content="Deep Learning 논문에서 자주 등장하는 Log. Machine learning 및 통계에서 자주 쓰는 이유!">
+<meta name="twitter:image" content="http://www.stand-firm-peter.me/gallery/log_bg.jpg">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124184693-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-124184693-1');
+</script>
+
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Logarithms" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/gallery/log_bg.jpg" alt="Logarithms">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-09-12T07:38:26.000Z">2018-09-12</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 minutes read (About 833 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Logarithms
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>Deep Learning 논문에서 자주 등장하는 Log.</li>
+<li>Machine learning 및 통계에서 자주 쓰는 이유!</li>
+</ul>
+<a id="more"></a>
+
+
+<h3 id="Log를-왜-쓰는-걸까"><a href="#Log를-왜-쓰는-걸까" class="headerlink" title="Log를 왜 쓰는 걸까"></a>Log를 왜 쓰는 걸까</h3><ul>
+<li><p>많은 딥러닝 논문들을 읽다보면, 하나같이 수식으로 설명하기 시작하는데, 그 때 꼭 나오는 친구가 이 <code>Log</code>다. 이미 아시는 분들에겐 시시한 이야기였겠지만, 대충 어렴풋이 필자와 같이 ‘숫자 크기 작게 해주려고 하는 거겠지..’정도로만 생각하고 있었다면(맞긴 맞다만…), 정확한 의미를 알아보자. </p>
+</li>
+<li><p>아래는 상용로그인 $\text{log}x$와, $\text{ln}x$로 많이 쓰는 자연상수 $e$를 밑으로 하는 $\text{log}_ex$의 그래프다. </p>
+  <img src="/gallery/log.png" width="600">
+</li>
+<li><p>이 그래프를 보면서 할 수 있는 생각은,</p>
+<blockquote>
+<p>‘$x$값이 엄청나게 커진다고 해도, $y$ 증가율은 격하게 변하지 않구나.’</p>
+</blockquote>
+<blockquote>
+<p>$\to$ ‘$x$수치가 낮을 때는 민감하게 반응하고, 높을 때는 둔감하구나.’</p>
+</blockquote>
+<blockquote>
+<p>$\to$ ‘그럼 수치가 대부분 낮을 때는 비교하기 좋을 거 같고, 이상치와 같은 비정상적인 예외 케이스들도 같이 고려할 수 있겠다.’</p>
+</blockquote>
+<p>  정도가 될 것이다. 그럼 이걸 활용하면 아래와 같은 상황에 유용하게 쓸 수 있다.</p>
+</li>
+</ul>
+<br>
+
+<h3 id="log-는-어디에-사용되나요"><a href="#log-는-어디에-사용되나요" class="headerlink" title="$log$는 어디에 사용되나요"></a>$log$는 어디에 사용되나요</h3><ul>
+<li>대표적으로 두 가지의 경우에 많이 사용되는 것 같다. <blockquote>
+<ol>
+<li>데이터들 간의 수치적인 간극이 너무 커, 주어진 수치를 그대로 사용하면 회기분석시에 결과가 왜곡될 수도 있어서.</li>
+<li>비선형적인 데이터의 분포를 선형적으로 쉽게 보기 위해서</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><ul>
+<li><p>아래의 <a href="http://datum.io/tag/log/" target="_blank" rel="noopener">사진</a>은 동물들의 체중별 뇌의 크기를 나타낸 scatter plot이다. </p>
+  <img src="/gallery/log3.png" width="600">
+</li>
+<li><p>파충류같은 작은 동물들 부터, 코끼리, 고래, 공룡까지 다 들어 있다고 생각해보면 그 비교대상들이 서로 가지는 수치적인 차이는 실제로 왼쪽 그림과 같다.</p>
+</li>
+<li><p>오른쪽은 같은 데이터에 상용로그를 취한 것이고 실제로 그 경향성을 더 파악하기 쉬운 형태가 되었다. </p>
+</li>
+<li><p>아래 <a href="https://www.cfa.harvard.edu/~ejchaisson/cosmic_evolution/docs/text/text_cult_3.html" target="_blank" rel="noopener">사진</a>도 그런 방식으로 $\text{log}$를 취해서 파충류부터 고래와 코끼리, 공룡까지 비교한 plot인데, x축과 y축의 수치를 자세히 보면 $\text{log}$를 취한 그래프임을 알 수 있다.</p>
+  <img src="/gallery/brain.png" width="600">
+
+
+</li>
+</ul>
+<h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4><ul>
+<li><p>아래는 $y=2^x$ 그래프와, 이 그래프에 자연로그를 취한 $\text{ln}2^x$의 그래프다. 비선형 그래프인 $y=2^x$를 선형으로 만들어 주고 있다. </p>
+<img src="/gallery/log2.png" width="600">
+</li>
+<li><p>이처럼, 로그는 복잡한 비선형인 수식들을 간소화 시켜주는 역할을 한다. 곱셈과 나눗셈이 log연산이 되면서 +, -로 바뀌기 때문에 아무래도, Model에서 computation을 많이 해야하는 부담도 좀더 줄어 들지 않을까?! 이런 이점 때문에도 많이 쓰는 것 같다.</p>
+</li>
+</ul>
+<hr>
+
+<ul>
+<li>이상, $\text{log}$를 왜 쓰는지 한 번 알아 보았다.</li>
+</ul>
+<h5 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h5><ul>
+<li><a href="http://igija.tistory.com/172" target="_blank" rel="noopener">blog1</a>, <a href="http://datum.io/tag/log/" target="_blank" rel="noopener">blog2</a></li>
+<li><a href="https://www.desmos.com/calculator" target="_blank" rel="noopener">Desmos</a>(그래프 그려주는 사이트) </li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+        
+        <div id="bmc" align="center">
+            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+        </div>
+        
+        
+            <p><br></p>
+            <div class="level is-size-7 is-uppercase">
+                <div class="level-start">
+                    <div class="level-item">
+                        <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                        <a class="has-link-grey -link" href="/tags/log/">log</a>, <a class="has-link-grey -link" href="/tags/logarithm/">logarithm</a>, <a class="has-link-grey -link" href="/tags/machine-learning/">machine-learning</a>, <a class="has-link-grey -link" href="/tags/ml/">ml</a>
+                    </div>
+                </div>
+            </div>
+            
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/09/24/l1l2/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">L1 &amp; L2</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/09/07/tf-identity/">
+                <span class="level-item">tf.identity()</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- <div class="fb-comments" data-width="100%" data-href="http://www.stand-firm-peter.me/2018/09/12/Logarithms/" data-num-posts="5"></div> -->
+<div class="fb-comments" data-href="http://www.stand-firm-peter.me/2018/09/12/Logarithms/" data-width="700" data-numposts="5"></div>
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <figure class="image is-128x128 has-mb-6">
+                            <img class="is-rounded" src="/images/avatar.jpeg" alt="Peter Cha">
+                        </figure>
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Peter Cha
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        A novice AI developer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Cheonan - Korea</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        15
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        40
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.instagram.com/______pamo/" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="linkedin" href="https://www.linkedin.com/in/peter-cha-022927134/">
+                
+                <i class="fab fa-linkedin"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/PeterCha90">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Instagram" href="https://www.instagram.com/______pamo/">
+                
+                <i class="fab fa-instagram"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Essay/">
+            <span class="level-start">
+                <span class="level-item">Essay</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Machine-Learning/">
+            <span class="level-start">
+                <span class="level-item">Machine Learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Tutorial/">
+            <span class="level-start">
+                <span class="level-item">Tutorial</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/06/12/keras_101/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/keras1.jpg" alt="Hi, Keras! :) (1)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-12T14:03:01.000Z">2019-06-12</time></div>
+                    <a href="/2019/06/12/keras_101/" class="has-link-black-ter is-size-6">Hi, Keras! :) (1)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/12/Colab_tutorial/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/colabimg3.jpg" alt="Hi, Colab! :)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-12T12:31:02.000Z">2019-06-12</time></div>
+                    <a href="/2019/06/12/Colab_tutorial/" class="has-link-black-ter is-size-6">Hi, Colab! :)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/25/docker-103/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/docker1_5.jpg" alt="Hi, Docker! :) (3)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-25T06:26:56.000Z">2019-05-25</time></div>
+                    <a href="/2019/05/25/docker-103/" class="has-link-black-ter is-size-6">Hi, Docker! :) (3)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/09/docker-102/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/dk1.jpg" alt="Hi, Docker! :) (2)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-09T06:26:56.000Z">2019-05-09</time></div>
+                    <a href="/2019/05/09/docker-102/" class="has-link-black-ter is-size-6">Hi, Docker! :) (2)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/24/docker-intro/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/docker1.jpg" alt="Hi, Docker! :) (1)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T06:26:56.000Z">2019-04-24</time></div>
+                    <a href="/2019/04/24/docker-intro/" class="has-link-black-ter is-size-6">Hi, Docker! :) (1)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Back-propagation/" style="font-size: 10px;">Back propagation</a> <a href="/tags/Batch/" style="font-size: 10px;">Batch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Colab/" style="font-size: 10px;">Colab</a> <a href="/tags/Docker/" style="font-size: 14px;">Docker</a> <a href="/tags/Epoch/" style="font-size: 10px;">Epoch</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/L1/" style="font-size: 10px;">L1</a> <a href="/tags/L2/" style="font-size: 10px;">L2</a> <a href="/tags/Lasso/" style="font-size: 10px;">Lasso</a> <a href="/tags/Loss-function/" style="font-size: 10px;">Loss function</a> <a href="/tags/Optimizer/" style="font-size: 10px;">Optimizer</a> <a href="/tags/Padding/" style="font-size: 10px;">Padding</a> <a href="/tags/Pooling/" style="font-size: 10px;">Pooling</a> <a href="/tags/Ridge/" style="font-size: 10px;">Ridge</a> <a href="/tags/basic/" style="font-size: 12px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/container-ssh/" style="font-size: 10px;">container ssh</a> <a href="/tags/convex-optimisation/" style="font-size: 10px;">convex_optimisation</a> <a href="/tags/dataframe/" style="font-size: 10px;">dataframe</a> <a href="/tags/deep-learning/" style="font-size: 18px;">deep_learning</a> <a href="/tags/docker/" style="font-size: 14px;">docker</a> <a href="/tags/essay/" style="font-size: 10px;">essay</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/keras/" style="font-size: 10px;">keras</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/logarithm/" style="font-size: 10px;">logarithm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/machine-learning/" style="font-size: 14px;">machine-learning</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine_learning</a> <a href="/tags/ml/" style="font-size: 20px;">ml</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pseudo-label/" style="font-size: 10px;">pseudo-label</a> <a href="/tags/regularization/" style="font-size: 10px;">regularization</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tensorflow/" style="font-size: 12px;">tensorflow</a> <a href="/tags/tensorpack/" style="font-size: 10px;">tensorpack</a> <a href="/tags/tutorial/" style="font-size: 18px;">tutorial</a> <a href="/tags/useful-info/" style="font-size: 16px;">useful-info</a>
+    </div>
+</div>
+
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/06/12/keras_101/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/keras1.jpg" alt="Hi, Keras! :) (1)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-12T14:03:01.000Z">2019-06-12</time></div>
+                    <a href="/2019/06/12/keras_101/" class="has-link-black-ter is-size-6">Hi, Keras! :) (1)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/12/Colab_tutorial/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/colabimg3.jpg" alt="Hi, Colab! :)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-12T12:31:02.000Z">2019-06-12</time></div>
+                    <a href="/2019/06/12/Colab_tutorial/" class="has-link-black-ter is-size-6">Hi, Colab! :)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/25/docker-103/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/docker1_5.jpg" alt="Hi, Docker! :) (3)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-25T06:26:56.000Z">2019-05-25</time></div>
+                    <a href="/2019/05/25/docker-103/" class="has-link-black-ter is-size-6">Hi, Docker! :) (3)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/09/docker-102/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/dk1.jpg" alt="Hi, Docker! :) (2)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-09T06:26:56.000Z">2019-05-09</time></div>
+                    <a href="/2019/05/09/docker-102/" class="has-link-black-ter is-size-6">Hi, Docker! :) (2)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/24/docker-intro/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/docker1.jpg" alt="Hi, Docker! :) (1)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T06:26:56.000Z">2019-04-24</time></div>
+                    <a href="/2019/04/24/docker-intro/" class="has-link-black-ter is-size-6">Hi, Docker! :) (1)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Back-propagation/" style="font-size: 10px;">Back propagation</a> <a href="/tags/Batch/" style="font-size: 10px;">Batch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Colab/" style="font-size: 10px;">Colab</a> <a href="/tags/Docker/" style="font-size: 14px;">Docker</a> <a href="/tags/Epoch/" style="font-size: 10px;">Epoch</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/L1/" style="font-size: 10px;">L1</a> <a href="/tags/L2/" style="font-size: 10px;">L2</a> <a href="/tags/Lasso/" style="font-size: 10px;">Lasso</a> <a href="/tags/Loss-function/" style="font-size: 10px;">Loss function</a> <a href="/tags/Optimizer/" style="font-size: 10px;">Optimizer</a> <a href="/tags/Padding/" style="font-size: 10px;">Padding</a> <a href="/tags/Pooling/" style="font-size: 10px;">Pooling</a> <a href="/tags/Ridge/" style="font-size: 10px;">Ridge</a> <a href="/tags/basic/" style="font-size: 12px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/container-ssh/" style="font-size: 10px;">container ssh</a> <a href="/tags/convex-optimisation/" style="font-size: 10px;">convex_optimisation</a> <a href="/tags/dataframe/" style="font-size: 10px;">dataframe</a> <a href="/tags/deep-learning/" style="font-size: 18px;">deep_learning</a> <a href="/tags/docker/" style="font-size: 14px;">docker</a> <a href="/tags/essay/" style="font-size: 10px;">essay</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/keras/" style="font-size: 10px;">keras</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/logarithm/" style="font-size: 10px;">logarithm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/machine-learning/" style="font-size: 14px;">machine-learning</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine_learning</a> <a href="/tags/ml/" style="font-size: 20px;">ml</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pseudo-label/" style="font-size: 10px;">pseudo-label</a> <a href="/tags/regularization/" style="font-size: 10px;">regularization</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tensorflow/" style="font-size: 12px;">tensorflow</a> <a href="/tags/tensorpack/" style="font-size: 10px;">tensorpack</a> <a href="/tags/tutorial/" style="font-size: 18px;">tutorial</a> <a href="/tags/useful-info/" style="font-size: 16px;">useful-info</a>
+    </div>
+</div>
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Logarithms" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Peter Cha&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

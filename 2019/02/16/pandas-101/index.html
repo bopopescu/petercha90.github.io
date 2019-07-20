@@ -17,7 +17,7 @@
 <meta property="og:description" content="Pandas의 Dataframe 관련 기능정리. Cheat Sheet for Pandas Dataframe.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.stand-firm-peter.me/gallery/pandas.jpg">
-<meta property="og:updated_time" content="2019-07-18T03:03:26.249Z">
+<meta property="og:updated_time" content="2019-07-20T12:41:20.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pandas Cheat Sheet">
 <meta name="twitter:description" content="Pandas의 Dataframe 관련 기능정리. Cheat Sheet for Pandas Dataframe.">
@@ -95,7 +95,7 @@
 
 <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="is-3-column">
+<body class="is-2-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -135,7 +135,7 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
     
     <div class="card-image">
         <span class="image is-7by1">
@@ -176,99 +176,124 @@
 <li>Cheat Sheet for Pandas Dataframe.</li>
 </ul>
 <a id="more"></a>
-
-
-<h2 id="0-Start"><a href="#0-Start" class="headerlink" title="0. Start"></a>0. Start</h2><ul>
-<li>Import pandas<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br></pre></td></tr></tbody></table></figure>
-
+<h2 id="0-start"><a class="markdownIt-Anchor" href="#0-start"></a> 0. Start</h2>
+<ul>
+<li>Import pandas</li>
+</ul>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="1-creating-a-dataframe"><a class="markdownIt-Anchor" href="#1-creating-a-dataframe"></a> 1. Creating a dataframe</h2>
+<ul>
+<li>
+<h5 id="dictionary-style"><a class="markdownIt-Anchor" href="#dictionary-style"></a> Dictionary Style:</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(</span><br><span class="line">    {<span class="hljs-string">"a"</span> : [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>],</span><br><span class="line">     <span class="hljs-string">"b"</span> : [<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>],</span><br><span class="line">     <span class="hljs-string">"c"</span> : [<span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>]},</span><br><span class="line">     index = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<h5 id="array-style"><a class="markdownIt-Anchor" href="#array-style"></a> Array Style:</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(</span><br><span class="line">          [[<span class="hljs-number">4</span>, <span class="hljs-number">7</span>, <span class="hljs-number">10</span>],</span><br><span class="line">          [<span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">11</span>],</span><br><span class="line">          [<span class="hljs-number">6</span>, <span class="hljs-number">9</span>, <span class="hljs-number">12</span>]],</span><br><span class="line">          index=[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>],</span><br><span class="line">          columns=[<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>])</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
-<h2 id="1-Creating-a-dataframe"><a href="#1-Creating-a-dataframe" class="headerlink" title="1. Creating a dataframe"></a>1. Creating a dataframe</h2><ul>
-<li><h5 id="Dictionary-Style"><a href="#Dictionary-Style" class="headerlink" title="Dictionary Style:"></a>Dictionary Style:</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(</span><br><span class="line">    {<span class="hljs-string">"a"</span> : [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>],</span><br><span class="line">     <span class="hljs-string">"b"</span> : [<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>],</span><br><span class="line">     <span class="hljs-string">"c"</span> : [<span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>]},</span><br><span class="line">     index = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><h5 id="Array-Style"><a href="#Array-Style" class="headerlink" title="Array Style:"></a>Array Style:</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(</span><br><span class="line">          [[<span class="hljs-number">4</span>, <span class="hljs-number">7</span>, <span class="hljs-number">10</span>],</span><br><span class="line">          [<span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">11</span>],</span><br><span class="line">          [<span class="hljs-number">6</span>, <span class="hljs-number">9</span>, <span class="hljs-number">12</span>]],</span><br><span class="line">          index=[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>],</span><br><span class="line">          columns=[<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>])</span><br></pre></td></tr></tbody></table></figure>
-
-</li>
-</ul>
-<h2 id="2-Select-an-row-or-column"><a href="#2-Select-an-row-or-column" class="headerlink" title="2. Select an row or column"></a>2. Select an row or column</h2><ul>
-<li><h5 id="There-are-5-ways-to-access-the-value-that-is-at-index-0-in-column-‘a’"><a href="#There-are-5-ways-to-access-the-value-that-is-at-index-0-in-column-‘a’" class="headerlink" title="There are 5 ways to access the value that is at index 0, in column ‘a’."></a>There are 5 ways to access the value that is at <code>index 0</code>, in <code>column ‘a’</code>.</h5><p><code>loc</code> selects the value by label, not index.<br><code>iloc</code> accesses to the value using row and column index.</p>
+<h2 id="2-select-an-row-or-column"><a class="markdownIt-Anchor" href="#2-select-an-row-or-column"></a> 2. Select an row or column</h2>
+<ul>
+<li>
+<h5 id="there-are-5-ways-to-access-the-value-that-is-at-index-0-in-column-a"><a class="markdownIt-Anchor" href="#there-are-5-ways-to-access-the-value-that-is-at-index-0-in-column-a"></a> There are 5 ways to access the value that is at <code>index 0</code>, in <code>column ‘a’</code>.</h5>
+<p><code>loc</code> selects the value by label, not index.<br>
+<code>iloc</code> accesses to the value using row and column index.</p>
 <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.loc[<span class="hljs-number">0</span>][<span class="hljs-string">'a'</span>]</span><br><span class="line">df.iloc[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]</span><br></pre></td></tr></tbody></table></figure>
-
-<p><code>at</code> selects the value by label, not index.<br><code>iat</code> accesses to the value using row and column index.</p>
+<p><code>at</code> selects the value by label, not index.<br>
+<code>iat</code> accesses to the value using row and column index.</p>
 <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.at[<span class="hljs-number">0</span>, <span class="hljs-string">'a'</span>]</span><br><span class="line">df.iat[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]</span><br></pre></td></tr></tbody></table></figure>
-
 <p><code>ix</code> can use both label and index.</p>
 <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.ix[<span class="hljs-number">0</span>, <span class="hljs-string">'a'</span>]</span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><p><strong>The difference between <code>loc</code> and <code>at</code> is the return type</strong>.<br> <code>loc</code> can return more than one row, it means <code>loc</code> can return a scalar, a Serise or a Dataframe. On the other hand, <code>at</code> <strong>only can access to a cell of certain position</strong>, it means it <strong>returns a scalar only</strong>. Actually it returns a scalar faster than <code>loc</code>, so if you have to deal with great amount of data, it would be more suitable.</p>
+<li>
+<p><strong>The difference between <code>loc</code> and <code>at</code> is the return type</strong>.<br>
+<code>loc</code> can return more than one row, it means <code>loc</code> can return a scalar, a Serise or a Dataframe. On the other hand, <code>at</code> <strong>only can access to a cell of certain position</strong>, it means it <strong>returns a scalar only</strong>. Actually it returns a scalar faster than <code>loc</code>, so if you have to deal with great amount of data, it would be more suitable.</p>
   <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">df.at[<span class="hljs-number">2</span>, <span class="hljs-string">'b'</span>]		<span class="hljs-comment">#  A scalar.</span></span><br><span class="line">df.iat[<span class="hljs-number">2</span>, <span class="hljs-number">2</span>]</span><br><span class="line">df.loc[<span class="hljs-number">2</span>][<span class="hljs-string">'b'</span>]</span><br><span class="line">df.iloc[<span class="hljs-number">2</span>][<span class="hljs-number">2</span>]</span><br><span class="line">df.ix[<span class="hljs-number">2</span>, <span class="hljs-string">'b'</span>]  		</span><br><span class="line"></span><br><span class="line">df.loc[<span class="hljs-number">2</span>][:<span class="hljs-string">'b'</span>]		<span class="hljs-comment">#  A Series.</span></span><br><span class="line">df.iloc[<span class="hljs-number">2</span>][:<span class="hljs-number">2</span>]</span><br><span class="line">df.ix[<span class="hljs-number">2</span>, :<span class="hljs-string">'b'</span>]		</span><br><span class="line"></span><br><span class="line">df.iloc[:<span class="hljs-number">2</span>][:<span class="hljs-number">2</span>] 		<span class="hljs-comment">#  A dataframe.</span></span><br><span class="line">df.ix[:<span class="hljs-number">2</span>, :<span class="hljs-string">'b'</span>]</span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>If you want to retrieve the value(s) from a series,</p>
+<li>
+<p>If you want to retrieve the value(s) from a series,</p>
   <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sr = df.b</span><br><span class="line">sr.values()</span><br></pre></td></tr></tbody></table></figure>
-
-
-
+</li>
+<li>
+<h5 id="select-multiple-rows-or-columns"><a class="markdownIt-Anchor" href="#select-multiple-rows-or-columns"></a> Select multiple rows or columns</h5>
+  <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># rows</span></span><br><span class="line">df.iloc[[<span class="hljs-number">0</span>, <span class="hljs-number">2</span>]]		</span><br><span class="line">df.loc[[<span class="hljs-number">1</span>, <span class="hljs-number">3</span>]]		<span class="hljs-comment"># row names</span></span><br><span class="line">	</span><br><span class="line"><span class="hljs-comment"># columns</span></span><br><span class="line">df.iloc[:, [<span class="hljs-number">0</span>, <span class="hljs-number">2</span>]]</span><br><span class="line">df[[<span class="hljs-string">"a"</span>, <span class="hljs-string">"c"</span>]]		<span class="hljs-comment"># column names</span></span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
+<h2 id="3-selecting-rows-with-conditions"><a class="markdownIt-Anchor" href="#3-selecting-rows-with-conditions"></a> 3. Selecting rows with conditions</h2>
 <ul>
-<li><h5 id="Select-multiple-rows-or-columns"><a href="#Select-multiple-rows-or-columns" class="headerlink" title="Select multiple rows or columns"></a>Select multiple rows or columns</h5>  <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># rows</span></span><br><span class="line">df.iloc[[<span class="hljs-number">0</span>, <span class="hljs-number">2</span>]]		</span><br><span class="line">df.loc[[<span class="hljs-number">1</span>, <span class="hljs-number">3</span>]]		<span class="hljs-comment"># row names</span></span><br><span class="line">	</span><br><span class="line"><span class="hljs-comment"># columns</span></span><br><span class="line">df.iloc[:, [<span class="hljs-number">0</span>, <span class="hljs-number">2</span>]]</span><br><span class="line">df[[<span class="hljs-string">"a"</span>, <span class="hljs-string">"c"</span>]]		<span class="hljs-comment"># column names</span></span><br></pre></td></tr></tbody></table></figure>
-
+<li>
+<h5 id="condition-in-the-brackets"><a class="markdownIt-Anchor" href="#condition-in-the-brackets"></a> Condition in the brackets.</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df[df.a > <span class="hljs-number">4</span>]</span><br><span class="line">df[(df.a > <span class="hljs-number">4</span>) & (df.b < <span class="hljs-number">9</span>)]</span><br><span class="line"><span class="hljs-comment"># You have to wrap all conditions with parentheses.</span></span><br><span class="line">df[((df.a > <span class="hljs-number">4</span>) | (df.b < <span class="hljs-number">9</span>)) & (df.c > <span class="hljs-number">10</span>)]</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<h5 id="condition-using-query"><a class="markdownIt-Anchor" href="#condition-using-query"></a> Condition using query.</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.query(<span class="hljs-string">'a > 4'</span>)</span><br><span class="line">df.query(<span class="hljs-string">'a > 4 and b < 9'</span>)</span><br><span class="line">df.query(<span class="hljs-string">'(a > 4 or b < 9) and c > 10'</span>)</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
-<h2 id="3-Selecting-rows-with-conditions"><a href="#3-Selecting-rows-with-conditions" class="headerlink" title="3. Selecting rows with conditions"></a>3. Selecting rows with conditions</h2><ul>
-<li><h5 id="Condition-in-the-brackets"><a href="#Condition-in-the-brackets" class="headerlink" title="Condition in the brackets."></a>Condition in the brackets.</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df[df.a > <span class="hljs-number">4</span>]</span><br><span class="line">df[(df.a > <span class="hljs-number">4</span>) & (df.b < <span class="hljs-number">9</span>)]</span><br><span class="line"><span class="hljs-comment"># You have to wrap all conditions with parentheses.</span></span><br><span class="line">df[((df.a > <span class="hljs-number">4</span>) | (df.b < <span class="hljs-number">9</span>)) & (df.c > <span class="hljs-number">10</span>)]</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><h5 id="Condition-using-query"><a href="#Condition-using-query" class="headerlink" title="Condition using query."></a>Condition using query.</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.query(<span class="hljs-string">'a > 4'</span>)</span><br><span class="line">df.query(<span class="hljs-string">'a > 4 and b < 9'</span>)</span><br><span class="line">df.query(<span class="hljs-string">'(a > 4 or b < 9) and c > 10'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-</li>
-</ul>
-<h2 id="4-Adding-rows-or-columns"><a href="#4-Adding-rows-or-columns" class="headerlink" title="4. Adding rows or columns"></a>4. Adding rows or columns</h2><ul>
-<li><h5 id="Adding-new-rows"><a href="#Adding-new-rows" class="headerlink" title="Adding new rows"></a>Adding new rows</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.loc[<span class="hljs-number">3</span>] = <span class="hljs-number">0</span>			<span class="hljs-comment"># fill with 0</span></span><br><span class="line">df.loc[<span class="hljs-number">3</span>] = [<span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">1</span>]		<span class="hljs-comment"># Add a row</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><h5 id="Creating-a-new-column"><a href="#Creating-a-new-column" class="headerlink" title="Creating a new column"></a>Creating a new column</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="hljs-string">"d"</span>] = <span class="hljs-number">0</span> 		<span class="hljs-comment"># fill with 0	</span></span><br><span class="line">df[<span class="hljs-string">"d"</span>] = df.a 		<span class="hljs-comment"># copy column 'a'</span></span><br><span class="line"></span><br><span class="line">df[<span class="hljs-string">"d"</span>] = pd.Series([<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>], index = df.index)		<span class="hljs-comment"># fill with new values</span></span><br><span class="line">df.loc[ : , <span class="hljs-string">"d"</span>] = pd.Series([<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>], index = df.index)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-</li>
-</ul>
-<h2 id="5-Delete-Indices-Rows-or-Columns"><a href="#5-Delete-Indices-Rows-or-Columns" class="headerlink" title="5. Delete Indices, Rows or Columns"></a>5. Delete Indices, Rows or Columns</h2><ul>
-<li><h5 id="Delete-rows"><a href="#Delete-rows" class="headerlink" title="Delete rows"></a>Delete rows</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df.drop([<span class="hljs-number">0</span>, <span class="hljs-number">2</span>], axis=<span class="hljs-number">0</span>)		<span class="hljs-comment"># Delete the rows with labels 0, 2</span></span><br><span class="line"></span><br><span class="line">df.set_index(<span class="hljs-string">"a"</span>, inplace=<span class="hljs-literal">True</span>)		<span class="hljs-comment"># Delete all rows with label 4</span></span><br><span class="line">df.drop(<span class="hljs-number">4</span>, axis=<span class="hljs-number">0</span>, inplace=<span class="hljs-literal">True</span>)</span><br><span class="line">df.reset_index(inplace=<span class="hljs-literal">True</span>)</span><br><span class="line"></span><br><span class="line">df = df.iloc[<span class="hljs-number">2</span>:, ]		<span class="hljs-comment"># Delete the first two rows using iloc selector</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><h5 id="Delete-columns"><a href="#Delete-columns" class="headerlink" title="Delete columns."></a>Delete columns.</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.drop(<span class="hljs-string">"a"</span>, axis=<span class="hljs-number">1</span>, inplace=<span class="hljs-literal">True</span>)		<span class="hljs-comment"># Delete a column</span></span><br><span class="line">df.drop([<span class="hljs-string">"a"</span>, <span class="hljs-string">"c"</span>], axis=<span class="hljs-number">1</span>, inplace=<span class="hljs-literal">True</span>)	<span class="hljs-comment"># Delete multiple columns</span></span><br></pre></td></tr></tbody></table></figure>
-
-</li>
-</ul>
-<h2 id="6-Combine-Dataframes"><a href="#6-Combine-Dataframes" class="headerlink" title="6. Combine Dataframes"></a>6. Combine Dataframes</h2><ul>
-<li><h5 id="pd-concat"><a href="#pd-concat" class="headerlink" title="pd.concat()"></a>pd.concat()</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">df2 = pd.DataFrame(			<span class="hljs-comment"># Make two more dataframes</span></span><br><span class="line">          {<span class="hljs-string">"a"</span> : [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>],</span><br><span class="line">           <span class="hljs-string">"b"</span> : [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>],</span><br><span class="line">           <span class="hljs-string">"c"</span> : [<span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">9</span>]}, </span><br><span class="line">            index = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</span><br><span class="line"></span><br><span class="line">df3 = pd.DataFrame(			</span><br><span class="line">          {<span class="hljs-string">"d"</span> : [<span class="hljs-number">1</span>, <span class="hljs-number">7</span>],</span><br><span class="line">           <span class="hljs-string">"e"</span> : [<span class="hljs-number">2</span>, <span class="hljs-number">8</span>]},</span><br><span class="line">           index = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># concat rows </span></span><br><span class="line">df4 = pd.concat([df, df2])		<span class="hljs-comment"># indices can be duplicated</span></span><br><span class="line">df4.reset_index(drop=<span class="hljs-literal">True</span>, inplace=<span class="hljs-literal">True</span>)			<span class="hljs-comment"># Reset index</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># concat columns</span></span><br><span class="line">df5 = pd.concat([df, df3], axis=<span class="hljs-number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-
-</li>
-</ul>
+<h2 id="4-adding-rows-or-columns"><a class="markdownIt-Anchor" href="#4-adding-rows-or-columns"></a> 4. Adding rows or columns</h2>
 <ul>
-<li><h5 id="pd-merge"><a href="#pd-merge" class="headerlink" title="pd.merge()"></a>pd.merge()</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df6 = pd.DataFrame(			<span class="hljs-comment"># Make another dataframes</span></span><br><span class="line">          {<span class="hljs-string">"a"</span> : [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>],</span><br><span class="line">           <span class="hljs-string">"f"</span> : [<span class="hljs-number">20</span>, <span class="hljs-number">50</span>, <span class="hljs-number">80</span>],</span><br><span class="line">           <span class="hljs-string">"g"</span> : [<span class="hljs-number">30</span>, <span class="hljs-number">60</span>, <span class="hljs-number">90</span>]}, </span><br><span class="line">            index = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</span><br><span class="line"></span><br><span class="line">df7 = pd.merge(df, df6)       					<span class="hljs-comment"># Inner join </span></span><br><span class="line">df8 = pd.merge(df, df6, how=<span class="hljs-string">'outer'</span>)       		<span class="hljs-comment"># Outer join</span></span><br><span class="line">df9 = pd.merge(df, df6, how=<span class="hljs-string">'left'</span>)        		<span class="hljs-comment"># left join</span></span><br><span class="line">df10 = pd.merge(df, df6, how=<span class="hljs-string">'right'</span>)      		<span class="hljs-comment"># right join</span></span><br></pre></td></tr></tbody></table></figure>
-
+<li>
+<h5 id="adding-new-rows"><a class="markdownIt-Anchor" href="#adding-new-rows"></a> Adding new rows</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.loc[<span class="hljs-number">3</span>] = <span class="hljs-number">0</span>			<span class="hljs-comment"># fill with 0</span></span><br><span class="line">df.loc[<span class="hljs-number">3</span>] = [<span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">1</span>]		<span class="hljs-comment"># Add a row</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<h5 id="creating-a-new-column"><a class="markdownIt-Anchor" href="#creating-a-new-column"></a> Creating a new column</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="hljs-string">"d"</span>] = <span class="hljs-number">0</span> 		<span class="hljs-comment"># fill with 0	</span></span><br><span class="line">df[<span class="hljs-string">"d"</span>] = df.a 		<span class="hljs-comment"># copy column 'a'</span></span><br><span class="line"></span><br><span class="line">df[<span class="hljs-string">"d"</span>] = pd.Series([<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>], index = df.index)		<span class="hljs-comment"># fill with new values</span></span><br><span class="line">df.loc[ : , <span class="hljs-string">"d"</span>] = pd.Series([<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>], index = df.index)</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
-<h2 id="7-Iterate-over-a-dataframe"><a href="#7-Iterate-over-a-dataframe" class="headerlink" title="7. Iterate over a dataframe"></a>7. Iterate over a dataframe</h2><ul>
-<li><h5 id="iterrows"><a href="#iterrows" class="headerlink" title="iterrows()"></a>iterrows()</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> index, row <span class="hljs-keyword">in</span> df.iterrows() :</span><br><span class="line">    print(row[<span class="hljs-string">'a'</span>], row[<span class="hljs-string">'b'</span>], row[<span class="hljs-string">'c'</span>])</span><br></pre></td></tr></tbody></table></figure>
-
+<h2 id="5-delete-indices-rows-or-columns"><a class="markdownIt-Anchor" href="#5-delete-indices-rows-or-columns"></a> 5. Delete Indices, Rows or Columns</h2>
+<ul>
+<li>
+<h5 id="delete-rows"><a class="markdownIt-Anchor" href="#delete-rows"></a> Delete rows</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df.drop([<span class="hljs-number">0</span>, <span class="hljs-number">2</span>], axis=<span class="hljs-number">0</span>)		<span class="hljs-comment"># Delete the rows with labels 0, 2</span></span><br><span class="line"></span><br><span class="line">df.set_index(<span class="hljs-string">"a"</span>, inplace=<span class="hljs-literal">True</span>)		<span class="hljs-comment"># Delete all rows with label 4</span></span><br><span class="line">df.drop(<span class="hljs-number">4</span>, axis=<span class="hljs-number">0</span>, inplace=<span class="hljs-literal">True</span>)</span><br><span class="line">df.reset_index(inplace=<span class="hljs-literal">True</span>)</span><br><span class="line"></span><br><span class="line">df = df.iloc[<span class="hljs-number">2</span>:, ]		<span class="hljs-comment"># Delete the first two rows using iloc selector</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<h5 id="delete-columns"><a class="markdownIt-Anchor" href="#delete-columns"></a> Delete columns.</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.drop(<span class="hljs-string">"a"</span>, axis=<span class="hljs-number">1</span>, inplace=<span class="hljs-literal">True</span>)		<span class="hljs-comment"># Delete a column</span></span><br><span class="line">df.drop([<span class="hljs-string">"a"</span>, <span class="hljs-string">"c"</span>], axis=<span class="hljs-number">1</span>, inplace=<span class="hljs-literal">True</span>)	<span class="hljs-comment"># Delete multiple columns</span></span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
-<h2 id="8-Reading-and-Writing-a-dataframe"><a href="#8-Reading-and-Writing-a-dataframe" class="headerlink" title="8. Reading and Writing a dataframe"></a>8. Reading and Writing a dataframe</h2><ul>
-<li><h5 id="Reading-a-csv-file"><a href="#Reading-a-csv-file" class="headerlink" title="Reading a csv file:"></a>Reading a csv file:</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="hljs-string">'name.csv'</span>)</span><br><span class="line"><span class="hljs-comment"># if the file has a date column,</span></span><br><span class="line">pd.read_csv(<span class="hljs-string">"name.csv"</span>, parse_dates=[<span class="hljs-string">"column_name"</span>])</span><br><span class="line"><span class="hljs-comment"># Then, pandas transform it as a numpy.datetime64 column.</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="6-combine-dataframes"><a class="markdownIt-Anchor" href="#6-combine-dataframes"></a> 6. Combine Dataframes</h2>
+<ul>
+<li>
+<h5 id="pdconcat"><a class="markdownIt-Anchor" href="#pdconcat"></a> pd.concat()</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">df2 = pd.DataFrame(			<span class="hljs-comment"># Make two more dataframes</span></span><br><span class="line">          {<span class="hljs-string">"a"</span> : [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>],</span><br><span class="line">           <span class="hljs-string">"b"</span> : [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>],</span><br><span class="line">           <span class="hljs-string">"c"</span> : [<span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">9</span>]}, </span><br><span class="line">            index = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</span><br><span class="line"></span><br><span class="line">df3 = pd.DataFrame(			</span><br><span class="line">          {<span class="hljs-string">"d"</span> : [<span class="hljs-number">1</span>, <span class="hljs-number">7</span>],</span><br><span class="line">           <span class="hljs-string">"e"</span> : [<span class="hljs-number">2</span>, <span class="hljs-number">8</span>]},</span><br><span class="line">           index = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># concat rows </span></span><br><span class="line">df4 = pd.concat([df, df2])		<span class="hljs-comment"># indices can be duplicated</span></span><br><span class="line">df4.reset_index(drop=<span class="hljs-literal">True</span>, inplace=<span class="hljs-literal">True</span>)			<span class="hljs-comment"># Reset index</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># concat columns</span></span><br><span class="line">df5 = pd.concat([df, df3], axis=<span class="hljs-number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><h5 id="Writing-as-a-csv-file"><a href="#Writing-as-a-csv-file" class="headerlink" title="Writing as a csv file:"></a>Writing as a csv file:</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.to_csv(<span class="hljs-string">"name.csv"</span>, index=<span class="hljs-literal">False</span>)</span><br><span class="line"><span class="hljs-comment"># options</span></span><br><span class="line">df.to_csv(<span class="hljs-string">"name.csv"</span>, sep=<span class="hljs-string">'\t'</span>, encoding=<span class="hljs-string">'utf-8'</span>)</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><h5 id="Writing-as-an-Excel-file"><a href="#Writing-as-an-Excel-file" class="headerlink" title="Writing as an Excel file:"></a>Writing as an Excel file:</h5><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">writer = pd.ExcelWriter(<span class="hljs-string">'name.xlsx'</span>)</span><br><span class="line">df.to_excel(writer, <span class="hljs-string">'DataFrame'</span>)</span><br><span class="line">writer.save()</span><br></pre></td></tr></tbody></table></figure>
-
-</li>
-</ul>
-<h2 id="9-Other-Useful-functions"><a href="#9-Other-Useful-functions" class="headerlink" title="9. Other Useful functions"></a>9. Other Useful functions</h2><ul>
-<li><h5 id="Following-commands-are-used-often"><a href="#Following-commands-are-used-often" class="headerlink" title="Following commands are used often."></a>Following commands are used often.</h5> <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">df.head(n) 			<span class="hljs-comment"># Select first n rows </span></span><br><span class="line">df.tail(n) 				<span class="hljs-comment"># Select last n rows</span></span><br><span class="line">df.nlargest(n, <span class="hljs-string">'a'</span>) 		<span class="hljs-comment"># Select and order top n entries.</span></span><br><span class="line">df.nsmallest(n, <span class="hljs-string">'c'</span>) 		<span class="hljs-comment"># Select and order bottom n entries</span></span><br><span class="line">df.sample(frac=<span class="hljs-number">0.5</span>)		<span class="hljs-comment"># Randomly select fraction of rows.</span></span><br><span class="line">df.sample(n=<span class="hljs-number">2</span>)			<span class="hljs-comment"># Randomly select n rows</span></span><br><span class="line">df.isna()				<span class="hljs-comment"># Check whether each element has NA or not </span></span><br><span class="line">df.dropna()				<span class="hljs-comment"># Drop rows with any column having NA/null data</span></span><br><span class="line">df.fillna(value)			<span class="hljs-comment"># Replace all NA/null data with value</span></span><br><span class="line">df.rename(columns={<span class="hljs-string">"a"</span>: <span class="hljs-string">"k"</span>}, inplace=<span class="hljs-literal">True</span>) 	<span class="hljs-comment"># Renaming "a" column as "k"</span></span><br><span class="line">df.describe()				<span class="hljs-comment"># To see basic statistics</span></span><br><span class="line">df.reset_index(drop=<span class="hljs-literal">True</span>, inplace=<span class="hljs-literal">True</span>)			<span class="hljs-comment"># Reset index</span></span><br></pre></td></tr></tbody></table></figure>
-
+<li>
+<h5 id="pdmerge"><a class="markdownIt-Anchor" href="#pdmerge"></a> pd.merge()</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df6 = pd.DataFrame(			<span class="hljs-comment"># Make another dataframes</span></span><br><span class="line">          {<span class="hljs-string">"a"</span> : [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>],</span><br><span class="line">           <span class="hljs-string">"f"</span> : [<span class="hljs-number">20</span>, <span class="hljs-number">50</span>, <span class="hljs-number">80</span>],</span><br><span class="line">           <span class="hljs-string">"g"</span> : [<span class="hljs-number">30</span>, <span class="hljs-number">60</span>, <span class="hljs-number">90</span>]}, </span><br><span class="line">            index = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</span><br><span class="line"></span><br><span class="line">df7 = pd.merge(df, df6)       					<span class="hljs-comment"># Inner join </span></span><br><span class="line">df8 = pd.merge(df, df6, how=<span class="hljs-string">'outer'</span>)       		<span class="hljs-comment"># Outer join</span></span><br><span class="line">df9 = pd.merge(df, df6, how=<span class="hljs-string">'left'</span>)        		<span class="hljs-comment"># left join</span></span><br><span class="line">df10 = pd.merge(df, df6, how=<span class="hljs-string">'right'</span>)      		<span class="hljs-comment"># right join</span></span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<h2 id="7-iterate-over-a-dataframe"><a class="markdownIt-Anchor" href="#7-iterate-over-a-dataframe"></a> 7. Iterate over a dataframe</h2>
+<ul>
+<li>
+<h5 id="iterrows"><a class="markdownIt-Anchor" href="#iterrows"></a> iterrows()</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> index, row <span class="hljs-keyword">in</span> df.iterrows() :</span><br><span class="line">    print(row[<span class="hljs-string">'a'</span>], row[<span class="hljs-string">'b'</span>], row[<span class="hljs-string">'c'</span>])</span><br></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+<h2 id="8-reading-and-writing-a-dataframe"><a class="markdownIt-Anchor" href="#8-reading-and-writing-a-dataframe"></a> 8. Reading and Writing a dataframe</h2>
+<ul>
+<li>
+<h5 id="reading-a-csv-file"><a class="markdownIt-Anchor" href="#reading-a-csv-file"></a> Reading a csv file:</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="hljs-string">'name.csv'</span>)</span><br><span class="line"><span class="hljs-comment"># if the file has a date column,</span></span><br><span class="line">pd.read_csv(<span class="hljs-string">"name.csv"</span>, parse_dates=[<span class="hljs-string">"column_name"</span>])</span><br><span class="line"><span class="hljs-comment"># Then, pandas transform it as a numpy.datetime64 column.</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<h5 id="writing-as-a-csv-file"><a class="markdownIt-Anchor" href="#writing-as-a-csv-file"></a> Writing as a csv file:</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.to_csv(<span class="hljs-string">"name.csv"</span>, index=<span class="hljs-literal">False</span>)</span><br><span class="line"><span class="hljs-comment"># options</span></span><br><span class="line">df.to_csv(<span class="hljs-string">"name.csv"</span>, sep=<span class="hljs-string">'\t'</span>, encoding=<span class="hljs-string">'utf-8'</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<h5 id="writing-as-an-excel-file"><a class="markdownIt-Anchor" href="#writing-as-an-excel-file"></a> Writing as an Excel file:</h5>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">writer = pd.ExcelWriter(<span class="hljs-string">'name.xlsx'</span>)</span><br><span class="line">df.to_excel(writer, <span class="hljs-string">'DataFrame'</span>)</span><br><span class="line">writer.save()</span><br></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+<h2 id="9-other-useful-functions"><a class="markdownIt-Anchor" href="#9-other-useful-functions"></a> 9. Other Useful functions</h2>
+<ul>
+<li>
+<h5 id="following-commands-are-used-often"><a class="markdownIt-Anchor" href="#following-commands-are-used-often"></a> Following commands are used often.</h5>
+ <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">df.head(n) 			<span class="hljs-comment"># Select first n rows </span></span><br><span class="line">df.tail(n) 				<span class="hljs-comment"># Select last n rows</span></span><br><span class="line">df.nlargest(n, <span class="hljs-string">'a'</span>) 		<span class="hljs-comment"># Select and order top n entries.</span></span><br><span class="line">df.nsmallest(n, <span class="hljs-string">'c'</span>) 		<span class="hljs-comment"># Select and order bottom n entries</span></span><br><span class="line">df.sample(frac=<span class="hljs-number">0.5</span>)		<span class="hljs-comment"># Randomly select fraction of rows.</span></span><br><span class="line">df.sample(n=<span class="hljs-number">2</span>)			<span class="hljs-comment"># Randomly select n rows</span></span><br><span class="line">df.isna()				<span class="hljs-comment"># Check whether each element has NA or not </span></span><br><span class="line">df.dropna()				<span class="hljs-comment"># Drop rows with any column having NA/null data</span></span><br><span class="line">df.fillna(value)			<span class="hljs-comment"># Replace all NA/null data with value</span></span><br><span class="line">df.rename(columns={<span class="hljs-string">"a"</span>: <span class="hljs-string">"k"</span>}, inplace=<span class="hljs-literal">True</span>) 	<span class="hljs-comment"># Renaming "a" column as "k"</span></span><br><span class="line">df.describe()				<span class="hljs-comment"># To see basic statistics</span></span><br><span class="line">df.reset_index(drop=<span class="hljs-literal">True</span>, inplace=<span class="hljs-literal">True</span>)			<span class="hljs-comment"># Reset index</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+<ul>
 <li><a href="https://www.datacamp.com/community/tutorials/pandas-tutorial-dataframe-python" target="_blank" rel="noopener">DataCamp</a></li>
 <li><a href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf" target="_blank" rel="noopener">pandas.pydata.org</a></li>
 <li><a href="https://www.shanelynn.ie/using-pandas-dataframe-creating-editing-viewing-data-in-python/" target="_blank" rel="noopener">Shane Lynn</a></li>
@@ -374,110 +399,12 @@
 </div>
 </div>
                 
+                
 
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered" style="flex-shrink: 1">
-                <div>
-                    
-                        <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.jpeg" alt="Peter Cha">
-                        </figure>
-                    
-                    
-                    <p class="is-size-4 is-block">
-                        Peter Cha
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        A novice AI developer
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Cheonan - Korea</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Posts
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        15
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Categories
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        3
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Tags
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        40
-                    </p>
-                </div>
-            </div>
-        </nav>
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://www.instagram.com/______pamo/" target="_blank">
-                Follow</a>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="linkedin" href="https://www.linkedin.com/in/peter-cha-022927134/">
-                
-                <i class="fab fa-linkedin"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/PeterCha90">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="Instagram" href="https://www.instagram.com/______pamo/">
-                
-                <i class="fab fa-instagram"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-    
-        
-    
-        
-
-
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right ">
     
         
 <div class="card widget">
@@ -516,137 +443,6 @@
         </div>
     </div>
 </div>
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen is-sticky">
-        
-            
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Recent
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/06/12/keras_101/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/keras1.jpg" alt="Hi, Keras! :) (1)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-12T14:03:01.000Z">2019-06-12</time></div>
-                    <a href="/2019/06/12/keras_101/" class="has-link-black-ter is-size-6">Hi, Keras! :) (1)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/06/12/Colab_tutorial/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/colabimg3.jpg" alt="Hi, Colab! :)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-12T12:31:02.000Z">2019-06-12</time></div>
-                    <a href="/2019/06/12/Colab_tutorial/" class="has-link-black-ter is-size-6">Hi, Colab! :)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/05/25/docker-103/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/docker1_5.jpg" alt="Hi, Docker! :) (3)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-25T06:26:56.000Z">2019-05-25</time></div>
-                    <a href="/2019/05/25/docker-103/" class="has-link-black-ter is-size-6">Hi, Docker! :) (3)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/05/09/docker-102/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/dk1.jpg" alt="Hi, Docker! :) (2)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-09T06:26:56.000Z">2019-05-09</time></div>
-                    <a href="/2019/05/09/docker-102/" class="has-link-black-ter is-size-6">Hi, Docker! :) (2)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/24/docker-intro/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/docker1.jpg" alt="Hi, Docker! :) (1)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-24T06:26:56.000Z">2019-04-24</time></div>
-                    <a href="/2019/04/24/docker-intro/" class="has-link-black-ter is-size-6">Hi, Docker! :) (1)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-        
-            
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            Tag Cloud
-        </h3>
-        <a href="/tags/Back-propagation/" style="font-size: 10px;">Back propagation</a> <a href="/tags/Batch/" style="font-size: 10px;">Batch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Colab/" style="font-size: 10px;">Colab</a> <a href="/tags/Docker/" style="font-size: 14px;">Docker</a> <a href="/tags/Epoch/" style="font-size: 10px;">Epoch</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/L1/" style="font-size: 10px;">L1</a> <a href="/tags/L2/" style="font-size: 10px;">L2</a> <a href="/tags/Lasso/" style="font-size: 10px;">Lasso</a> <a href="/tags/Loss-function/" style="font-size: 10px;">Loss function</a> <a href="/tags/Optimizer/" style="font-size: 10px;">Optimizer</a> <a href="/tags/Padding/" style="font-size: 10px;">Padding</a> <a href="/tags/Pooling/" style="font-size: 10px;">Pooling</a> <a href="/tags/Ridge/" style="font-size: 10px;">Ridge</a> <a href="/tags/basic/" style="font-size: 12px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/container-ssh/" style="font-size: 10px;">container ssh</a> <a href="/tags/convex-optimisation/" style="font-size: 10px;">convex_optimisation</a> <a href="/tags/dataframe/" style="font-size: 10px;">dataframe</a> <a href="/tags/deep-learning/" style="font-size: 18px;">deep_learning</a> <a href="/tags/docker/" style="font-size: 14px;">docker</a> <a href="/tags/essay/" style="font-size: 10px;">essay</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/keras/" style="font-size: 10px;">keras</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/logarithm/" style="font-size: 10px;">logarithm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/machine-learning/" style="font-size: 14px;">machine-learning</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine_learning</a> <a href="/tags/ml/" style="font-size: 20px;">ml</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pseudo-label/" style="font-size: 10px;">pseudo-label</a> <a href="/tags/regularization/" style="font-size: 10px;">regularization</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tensorflow/" style="font-size: 12px;">tensorflow</a> <a href="/tags/tensorpack/" style="font-size: 10px;">tensorpack</a> <a href="/tags/tutorial/" style="font-size: 18px;">tutorial</a> <a href="/tags/useful-info/" style="font-size: 16px;">useful-info</a>
-    </div>
-</div>
-
-        
-        </div>
-    
-</div>
-
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
     
         
 <div class="card widget">

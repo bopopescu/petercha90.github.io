@@ -434,15 +434,24 @@
 <div class="card">
     <div class="card-content">
         <h3 class="title is-5 has-text-weight-normal">Comments</h3>
-        <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en/sdk.js#xfbml=1&version=v2.8";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<!-- <div class="fb-comments" data-width="100%" data-href="http://www.stand-firm-peter.me/2019/05/25/docker-103/" data-num-posts="5"></div> -->
-<div class="fb-comments" data-href="http://www.stand-firm-peter.me/2019/05/25/docker-103/" data-width="600" data-numposts="5"></div>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://www.stand-firm-peter.me/2019/05/25/docker-103/';
+        this.page.identifier = '2019/05/25/docker-103/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'petercha90' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
     </div>
 </div>
 </div>
@@ -591,7 +600,7 @@
 </div>
     
     
-        <div class="column-right-shadow is-hidden-widescreen ">
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
         
             
 <div class="card widget">
@@ -719,7 +728,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
     
         
 <div class="card widget">

@@ -176,34 +176,31 @@
 <li>Machine learning 및 통계에서 자주 쓰는 이유!</li>
 </ul>
 <a id="more"></a>
-<h3 id="log를-왜-쓰는-걸까"><a class="markdownIt-Anchor" href="#log를-왜-쓰는-걸까"></a> Log를 왜 쓰는 걸까</h3>
-<ul>
-<li>
-<p>많은 딥러닝 논문들을 읽다보면, 하나같이 수식으로 설명하기 시작하는데, 그 때 꼭 나오는 친구가 이 <code>Log</code>다. 이미 아시는 분들에겐 시시한 이야기였겠지만, 대충 어렴풋이 필자와 같이 '숫자 크기 작게 해주려고 하는 거겠지…'정도로만 생각하고 있었다면(맞긴 맞다만…), 정확한 의미를 알아보자.</p>
+
+
+<h3 id="Log를-왜-쓰는-걸까"><a href="#Log를-왜-쓰는-걸까" class="headerlink" title="Log를 왜 쓰는 걸까"></a>Log를 왜 쓰는 걸까</h3><ul>
+<li><p>많은 딥러닝 논문들을 읽다보면, 하나같이 수식으로 설명하기 시작하는데, 그 때 꼭 나오는 친구가 이 <code>Log</code>다. 이미 아시는 분들에겐 시시한 이야기였겠지만, 대충 어렴풋이 필자와 같이 ‘숫자 크기 작게 해주려고 하는 거겠지..’정도로만 생각하고 있었다면(맞긴 맞다만…), 정확한 의미를 알아보자. </p>
 </li>
-<li>
-<p>아래는 상용로그인 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>log</mtext><mi>x</mi></mrow><annotation encoding="application/x-tex">\text{log}x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">log</span></span><span class="mord mathdefault">x</span></span></span></span>와, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>ln</mtext><mi>x</mi></mrow><annotation encoding="application/x-tex">\text{ln}x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">ln</span></span><span class="mord mathdefault">x</span></span></span></span>로 많이 쓰는 자연상수 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">e</span></span></span></span>를 밑으로 하는 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mtext>log</mtext><mi>e</mi></msub><mi>x</mi></mrow><annotation encoding="application/x-tex">\text{log}_ex</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.93858em;vertical-align:-0.24414em;"></span><span class="mord"><span class="mord text"><span class="mord">log</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.057252em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mord mathdefault">x</span></span></span></span>의 그래프다.</p>
+<li><p>아래는 상용로그인 $\text{log}x$와, $\text{ln}x$로 많이 쓰는 자연상수 $e$를 밑으로 하는 $\text{log}_ex$의 그래프다. </p>
   <img src="/gallery/log.png" width="600">
 </li>
-<li>
-<p>이 그래프를 보면서 할 수 있는 생각은,</p>
+<li><p>이 그래프를 보면서 할 수 있는 생각은,</p>
 <blockquote>
-<p>‘<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>값이 엄청나게 커진다고 해도, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 증가율은 격하게 변하지 않구나.’</p>
+<p>‘$x$값이 엄청나게 커진다고 해도, $y$ 증가율은 격하게 변하지 않구나.’</p>
 </blockquote>
 <blockquote>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> ‘<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>수치가 낮을 때는 민감하게 반응하고, 높을 때는 둔감하구나.’</p>
+<p>$\to$ ‘$x$수치가 낮을 때는 민감하게 반응하고, 높을 때는 둔감하구나.’</p>
 </blockquote>
 <blockquote>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> ‘그럼 수치가 대부분 낮을 때는 비교하기 좋을 거 같고, 이상치와 같은 비정상적인 예외 케이스들도 같이 고려할 수 있겠다.’</p>
+<p>$\to$ ‘그럼 수치가 대부분 낮을 때는 비교하기 좋을 거 같고, 이상치와 같은 비정상적인 예외 케이스들도 같이 고려할 수 있겠다.’</p>
 </blockquote>
-<p>정도가 될 것이다. 그럼 이걸 활용하면 아래와 같은 상황에 유용하게 쓸 수 있다.</p>
+<p>  정도가 될 것이다. 그럼 이걸 활용하면 아래와 같은 상황에 유용하게 쓸 수 있다.</p>
 </li>
 </ul>
 <br>
-<h3 id="log는-어디에-사용되나요"><a class="markdownIt-Anchor" href="#log는-어디에-사용되나요"></a> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">log</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span></span></span></span>는 어디에 사용되나요</h3>
-<ul>
-<li>대표적으로 두 가지의 경우에 많이 사용되는 것 같다.
-<blockquote>
+
+<h3 id="log-는-어디에-사용되나요"><a href="#log-는-어디에-사용되나요" class="headerlink" title="$log$는 어디에 사용되나요"></a>$log$는 어디에 사용되나요</h3><ul>
+<li>대표적으로 두 가지의 경우에 많이 사용되는 것 같다. <blockquote>
 <ol>
 <li>데이터들 간의 수치적인 간극이 너무 커, 주어진 수치를 그대로 사용하면 회기분석시에 결과가 왜곡될 수도 있어서.</li>
 <li>비선형적인 데이터의 분포를 선형적으로 쉽게 보기 위해서</li>
@@ -211,41 +208,35 @@
 </blockquote>
 </li>
 </ul>
-<h4 id="1"><a class="markdownIt-Anchor" href="#1"></a> 1.</h4>
-<ul>
-<li>
-<p>아래의 <a href="http://datum.io/tag/log/" target="_blank" rel="noopener">사진</a>은 동물들의 체중별 뇌의 크기를 나타낸 scatter plot이다.</p>
+<h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><ul>
+<li><p>아래의 <a href="http://datum.io/tag/log/" target="_blank" rel="noopener">사진</a>은 동물들의 체중별 뇌의 크기를 나타낸 scatter plot이다. </p>
   <img src="/gallery/log3.png" width="600">
 </li>
-<li>
-<p>파충류같은 작은 동물들 부터, 코끼리, 고래, 공룡까지 다 들어 있다고 생각해보면 그 비교대상들이 서로 가지는 수치적인 차이는 실제로 왼쪽 그림과 같다.</p>
+<li><p>파충류같은 작은 동물들 부터, 코끼리, 고래, 공룡까지 다 들어 있다고 생각해보면 그 비교대상들이 서로 가지는 수치적인 차이는 실제로 왼쪽 그림과 같다.</p>
 </li>
-<li>
-<p>오른쪽은 같은 데이터에 상용로그를 취한 것이고 실제로 그 경향성을 더 파악하기 쉬운 형태가 되었다.</p>
+<li><p>오른쪽은 같은 데이터에 상용로그를 취한 것이고 실제로 그 경향성을 더 파악하기 쉬운 형태가 되었다. </p>
 </li>
-<li>
-<p>아래 <a href="https://www.cfa.harvard.edu/~ejchaisson/cosmic_evolution/docs/text/text_cult_3.html" target="_blank" rel="noopener">사진</a>도 그런 방식으로 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>log</mtext></mrow><annotation encoding="application/x-tex">\text{log}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">log</span></span></span></span></span>를 취해서 파충류부터 고래와 코끼리, 공룡까지 비교한 plot인데, x축과 y축의 수치를 자세히 보면 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>log</mtext></mrow><annotation encoding="application/x-tex">\text{log}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">log</span></span></span></span></span>를 취한 그래프임을 알 수 있다.</p>
+<li><p>아래 <a href="https://www.cfa.harvard.edu/~ejchaisson/cosmic_evolution/docs/text/text_cult_3.html" target="_blank" rel="noopener">사진</a>도 그런 방식으로 $\text{log}$를 취해서 파충류부터 고래와 코끼리, 공룡까지 비교한 plot인데, x축과 y축의 수치를 자세히 보면 $\text{log}$를 취한 그래프임을 알 수 있다.</p>
   <img src="/gallery/brain.png" width="600">
+
+
 </li>
 </ul>
-<h4 id="2"><a class="markdownIt-Anchor" href="#2"></a> 2.</h4>
-<ul>
-<li>
-<p>아래는 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><msup><mn>2</mn><mi>x</mi></msup></mrow><annotation encoding="application/x-tex">y=2^x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span></span></span></span></span></span></span> 그래프와, 이 그래프에 자연로그를 취한 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>ln</mtext><msup><mn>2</mn><mi>x</mi></msup></mrow><annotation encoding="application/x-tex">\text{ln}2^x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">ln</span></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span></span></span></span></span></span></span>의 그래프다. 비선형 그래프인 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><msup><mn>2</mn><mi>x</mi></msup></mrow><annotation encoding="application/x-tex">y=2^x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span></span></span></span></span></span></span>를 선형으로 만들어 주고 있다.</p>
+<h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4><ul>
+<li><p>아래는 $y=2^x$ 그래프와, 이 그래프에 자연로그를 취한 $\text{ln}2^x$의 그래프다. 비선형 그래프인 $y=2^x$를 선형으로 만들어 주고 있다. </p>
 <img src="/gallery/log2.png" width="600">
 </li>
-<li>
-<p>이처럼, 로그는 복잡한 비선형인 수식들을 간소화 시켜주는 역할을 한다. 곱셈과 나눗셈이 log연산이 되면서 +, -로 바뀌기 때문에 아무래도, Model에서 computation을 많이 해야하는 부담도 좀더 줄어 들지 않을까?! 이런 이점 때문에도 많이 쓰는 것 같다.</p>
+<li><p>이처럼, 로그는 복잡한 비선형인 수식들을 간소화 시켜주는 역할을 한다. 곱셈과 나눗셈이 log연산이 되면서 +, -로 바뀌기 때문에 아무래도, Model에서 computation을 많이 해야하는 부담도 좀더 줄어 들지 않을까?! 이런 이점 때문에도 많이 쓰는 것 같다.</p>
 </li>
 </ul>
 <hr>
+
 <ul>
-<li>이상, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>log</mtext></mrow><annotation encoding="application/x-tex">\text{log}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">log</span></span></span></span></span>를 왜 쓰는지 한 번 알아 보았다.</li>
+<li>이상, $\text{log}$를 왜 쓰는지 한 번 알아 보았다.</li>
 </ul>
-<h5 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h5>
-<ul>
+<h5 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h5><ul>
 <li><a href="http://igija.tistory.com/172" target="_blank" rel="noopener">blog1</a>, <a href="http://datum.io/tag/log/" target="_blank" rel="noopener">blog2</a></li>
-<li><a href="https://www.desmos.com/calculator" target="_blank" rel="noopener">Desmos</a>(그래프 그려주는 사이트)</li>
+<li><a href="https://www.desmos.com/calculator" target="_blank" rel="noopener">Desmos</a>(그래프 그려주는 사이트) </li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -705,6 +696,6 @@ document.addEventListener('DOMContentLoaded', function () {
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

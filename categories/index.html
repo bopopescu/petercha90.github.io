@@ -9,7 +9,7 @@
 
 
     <meta name="description" content="Peter&apos;s playground.">
-<meta name="keywords" content="machine-learning,ml,logarithm,log,useful-info,tutorial,Colab,deep_learning,blog,hexo,machine_learning,pandas,dataframe,tensorflow,basic,CNN,Batch,Epoch,Filter,Kernel,Padding,Pooling,Docker,docker,ssh,container ssh,tensorpack,keras,essay,regularization,loss,L1,L2,Lasso,Ridge,convex_optimisation,pseudo-label,Optimizer,Loss function,Back propagation">
+<meta name="keywords" content="useful-info,tutorial,Colab,deep_learning,machine-learning,ml,logarithm,log,blog,hexo,tensorflow,machine_learning,pandas,dataframe,basic,CNN,Batch,Epoch,Filter,Kernel,Padding,Pooling,tensorpack,Docker,docker,ssh,container ssh,essay,regularization,loss,L1,L2,Lasso,Ridge,convex_optimisation,keras,pseudo-label,Optimizer,Loss function,Back propagation">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Stand firm Peter">
 <meta property="og:url" content="http://www.stand-firm-peter.me/categories/index.html">
@@ -745,5 +745,20 @@ document.addEventListener('DOMContentLoaded', function () {
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/insight.css">
     
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

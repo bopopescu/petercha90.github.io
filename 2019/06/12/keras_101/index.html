@@ -9,7 +9,7 @@
 
 
     <meta name="description" content="A Keras Usage with fashion MNIST Keras example using Colab">
-<meta name="keywords" content="ml,tutorial,deep_learning,keras">
+<meta name="keywords" content="tutorial,deep_learning,ml,keras">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hi, Keras! :) (1)">
 <meta property="og:url" content="http://www.stand-firm-peter.me/2019/06/12/keras_101/index.html">
@@ -173,163 +173,166 @@
         <div class="content">
             <ul>
 <li>A Keras Usage with fashion MNIST</li>
-<li>Keras example using Colab</li>
+<li>Keras example using Colab<a id="more"></a>
+
+
+</li>
 </ul>
-<a id="more"></a>
 <br>
+
 <center><img src="/gallery/keras4.png" height="100px"></center>
+
 <br>
+
 <ul>
-<li>
-<p>Pytorch와 Tensorflow의 Wrapper인 Tensorpack만 써봤던 저는, 올해 처음으로 <code>Keras</code>를 사용해보게 되었습니다.</p>
+<li><p>Pytorch와 Tensorflow의 Wrapper인 Tensorpack만 써봤던 저는, 올해 처음으로 <code>Keras</code>를 사용해보게 되었습니다. </p>
 </li>
-<li>
-<p><strong><a href="https://tykimos.github.io/lecture/" target="_blank" rel="noopener"><code>블록과 함께 하는 파이썬 딥러닝 케라스</code></a></strong> 라는 책으로 공부하면서 그 간결함에 놀랐고, 대충대충 이해하고 넘어갔던 개념들이 좋은 예시로 설명되어 있어, 그 내용들을 정리해보고자 포스팅을 하게 되었습니다.</p>
+<li><p><strong><a href="https://tykimos.github.io/lecture/" target="_blank" rel="noopener"><code>블록과 함께 하는 파이썬 딥러닝 케라스</code></a></strong> 라는 책으로 공부하면서 그 간결함에 놀랐고, 대충대충 이해하고 넘어갔던 개념들이 좋은 예시로 설명되어 있어, 그 내용들을 정리해보고자 포스팅을 하게 되었습니다. </p>
 </li>
-<li>
-<p>이번 포스팅은 책의 <strong><code>Part 1, 케라스 시작하기</code>와 <code>Part 2. 딥러닝 개념잡기</code>에 나오는 Keras 예제들을 Fashion MNIST 데이터로 재구성</strong>해 본 것입니다. 😬</p>
+<li><p>이번 포스팅은 책의 <strong><code>Part 1, 케라스 시작하기</code>와 <code>Part 2. 딥러닝 개념잡기</code>에 나오는 Keras 예제들을 Fashion MNIST 데이터로 재구성</strong>해 본 것입니다. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f62c.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f62c.png?v8">😬</span> </p>
 </li>
-<li>
-<p>책 내용 이외에 추가된 부분은, Colab의 Notebook으로 이번 포스팅이 구성이 되었다는 것이고, <a href="https://colab.research.google.com/drive/1AM1C3EiiA8wXtRP7UGYdAY0BwInpQ9t_#scrollTo=c7PIC9x4Os_R" target="_blank" rel="noopener">여기</a>에서 Colab Notebook으도 동일한 내용 확인하실 수 있습니다.</p>
+<li><p>책 내용 이외에 추가된 부분은, Colab의 Notebook으로 이번 포스팅이 구성이 되었다는 것이고, <a href="https://colab.research.google.com/drive/1AM1C3EiiA8wXtRP7UGYdAY0BwInpQ9t_#scrollTo=c7PIC9x4Os_R" target="_blank" rel="noopener">여기</a>에서 Colab Notebook으도 동일한 내용 확인하실 수 있습니다.</p>
 </li>
-<li>
-<p>또, <code>matplotlib</code>의 plot 대신에, <code>Tensorboardcolab</code>을 사용하여서 plot 시각화를 하도록 방식을 바꿔보았습니다.</p>
+<li><p>또, <code>matplotlib</code>의 plot 대신에, <code>Tensorboardcolab</code>을 사용하여서 plot 시각화를 하도록 방식을 바꿔보았습니다. </p>
 <blockquote>
-<p>흔쾌히 블로그 포스팅을 허락해주신 저자 김태영님께 다시 한 번 감사를 표합니다. ☺️</p>
+<p>흔쾌히 블로그 포스팅을 허락해주신 저자 김태영님께 다시 한 번 감사를 표합니다. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/263a.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/263a.png?v8">☺</span></p>
 </blockquote>
 </li>
 </ul>
 <br>
 <hr>
-<h2 id="import-packages"><a class="markdownIt-Anchor" href="#import-packages"></a> Import packages</h2>
-<ul>
-<li>
-<p>자, 시작해볼까요! 😎</p>
-<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">import</span> keras</span><br><span class="line"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf</span><br><span class="line"><span class="hljs-keyword">import</span> keras.utils <span class="hljs-keyword">as</span> utils </span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot  <span class="hljs-keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">from</span> tqdm <span class="hljs-keyword">import</span> tqdm_notebook</span><br><span class="line"><span class="hljs-keyword">from</span> keras.datasets <span class="hljs-keyword">import</span> fashion_mnist</span><br><span class="line"><span class="hljs-keyword">from</span> keras.layers <span class="hljs-keyword">import</span> Dense, Activation</span><br><span class="line"><span class="hljs-keyword">from</span> keras.models <span class="hljs-keyword">import</span> Sequential, load_model</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># remove error message from tensorflow</span></span><br><span class="line">tf.logging.set_verbosity(tf.logging.ERROR)</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></tbody></table></figure>
-<p><strong>Output:</strong></p>
-<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Using TensorFlow backend.</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Import-packages"><a href="#Import-packages" class="headerlink" title="Import packages"></a>Import packages</h2><ul>
+<li>자, 시작해볼까요! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">import</span> keras</span><br><span class="line"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf</span><br><span class="line"><span class="hljs-keyword">import</span> keras.utils <span class="hljs-keyword">as</span> utils </span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot  <span class="hljs-keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">from</span> tqdm <span class="hljs-keyword">import</span> tqdm_notebook</span><br><span class="line"><span class="hljs-keyword">from</span> keras.datasets <span class="hljs-keyword">import</span> fashion_mnist</span><br><span class="line"><span class="hljs-keyword">from</span> keras.layers <span class="hljs-keyword">import</span> Dense, Activation</span><br><span class="line"><span class="hljs-keyword">from</span> keras.models <span class="hljs-keyword">import</span> Sequential, load_model</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># remove error message from tensorflow</span></span><br><span class="line">tf.logging.set_verbosity(tf.logging.ERROR)</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></tbody></table></figure>
+
+
 </li>
-<li>
-<p><strong>keras.utils</strong>:</p>
+</ul>
+<p>  <strong>Output:</strong><br>  </p><figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Using TensorFlow backend.</span><br></pre></td></tr></tbody></table></figure><p></p>
 <ul>
-<li>자주 사용되는 유용한 기능들 모음. 대표적으로 One-hot encoding을 해주는 to_categorical(), l1-l2 normalize를 가능하게 해주는 normalize() 등이 있다.</li>
+<li><p><strong>keras.utils</strong>:</p>
+<ul>
+<li>자주 사용되는 유용한 기능들 모음. 대표적으로 One-hot encoding을 해주는 to_categorical(), l1-l2 normalize를 가능하게 해주는 normalize() 등이 있다. </li>
 </ul>
 </li>
-<li>
-<p><strong>keras.datasets</strong>:</p>
+<li><p><strong>keras.datasets</strong>:</p>
 <ul>
-<li>MNIST,  Fashion MNIST, CIFAR10, CIFAR100, IMDB Movie reviews 긍정-부정 판별셋,   Reuters 뉴스토픽 분류셋, Boston 부동산가격 dataset을 불러올 수 있다.</li>
+<li><p>MNIST,  Fashion MNIST, CIFAR10, CIFAR100, IMDB Movie reviews 긍정-부정 판별셋,   Reuters 뉴스토픽 분류셋, Boston 부동산가격 dataset을 불러올 수 있다.  </p>
+</li>
+<li><p><strong>keras.layers</strong>:</p>
+<ul>
+<li>Dense부터 CNN, Pooling, Padding, RNN 등등.. 익숙한 딥러닝 layer들의 집합소.</li>
 </ul>
 </li>
-<li>
-<p><strong>keras.layers</strong>:</p>
+<li><p><strong>keras.models</strong>:</p>
 <ul>
-<li>Dense부터 CNN, Pooling, Padding, RNN 등등… 익숙한 딥러닝 layer들의 집합소.</li>
-</ul>
-</li>
-<li>
-<p><strong>keras.models</strong>:</p>
-<ul>
-<li>keras 모델을 만드는 방법은 크게, Sequential과 Model - functional API를 사용하는 방법 2가지로 나뉜다. Pytorch랑 비슷하다.</li>
-<li>Sequential은 사용할 모델의 부품을 다 설정한 뒤 Input을 넣으면 한번에 레이어와 레이어 사이 설정을 세팅한 output에 맞게 맞춰주고, functional API인 Model을 사용하면 한땀한땀(?) 그 흐름을 구체적으로 설정할 수 있는 자유도를 가진다.</li>
+<li>keras 모델을 만드는 방법은 크게, Sequential과 Model - functional API를 사용하는 방법 2가지로 나뉜다. Pytorch랑 비슷하다. </li>
+<li>Sequential은 사용할 모델의 부품을 다 설정한 뒤 Input을 넣으면 한번에 레이어와 레이어 사이 설정을 세팅한 output에 맞게 맞춰주고, functional API인 Model을 사용하면 한땀한땀(?) 그 흐름을 구체적으로 설정할 수 있는 자유도를 가진다. </li>
 <li>본 포스팅에서는 Sequential을 사용할 것이니, Model을 사용하는 예시는 <a href="https://keras.io/getting-started/functional-api-guide/" target="_blank" rel="noopener">여기</a>에서 확인.</li>
 </ul>
 </li>
 </ul>
-<br>
-<h2 id="loading-data"><a class="markdownIt-Anchor" href="#loading-data"></a> Loading Data</h2>
-<ul>
-<li>
-<p>Fashion MNIST</p>
-<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(x_train, y_train),  (x_test, y_test) = fashion_mnist.load_data()</span><br></pre></td></tr></tbody></table></figure>
-<p><strong>Output:</strong></p>
-<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Downloading data <span class="hljs-keyword">from</span> http://fashion-mnist.s3-website.eu-central<span class="hljs-number">-1.</span>amazonaws.com/train-labels-idx1-ubyte.gz</span><br><span class="line"><span class="hljs-number">32768</span>/<span class="hljs-number">29515</span> [=================================] - <span class="hljs-number">0</span>s <span class="hljs-number">9</span>us/step</span><br><span class="line">Downloading data <span class="hljs-keyword">from</span> http://fashion-mnist.s3-website.eu-central<span class="hljs-number">-1.</span>amazonaws.com/train-images-idx3-ubyte.gz</span><br><span class="line"><span class="hljs-number">26427392</span>/<span class="hljs-number">26421880</span> [==============================] - <span class="hljs-number">5</span>s <span class="hljs-number">0</span>us/step</span><br><span class="line">Downloading data <span class="hljs-keyword">from</span> http://fashion-mnist.s3-website.eu-central<span class="hljs-number">-1.</span>amazonaws.com/t10k-labels-idx1-ubyte.gz</span><br><span class="line"><span class="hljs-number">8192</span>/<span class="hljs-number">5148</span> [===============================================] - <span class="hljs-number">0</span>s <span class="hljs-number">0</span>us/step</span><br><span class="line">Downloading data <span class="hljs-keyword">from</span> http://fashion-mnist.s3-website.eu-central<span class="hljs-number">-1.</span>amazonaws.com/t10k-images-idx3-ubyte.gz</span><br><span class="line"><span class="hljs-number">4423680</span>/<span class="hljs-number">4422102</span> [==============================] - <span class="hljs-number">2</span>s <span class="hljs-number">1</span>us/step</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
 <br>
-<h2 id="peeking-the-data"><a class="markdownIt-Anchor" href="#peeking-the-data"></a> Peeking the data</h2>
-<ul>
-<li>10개의 Fashion MNIST 데이터들을 시각화! 😏<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class_names = [<span class="hljs-string">'T-shirt/top'</span>, <span class="hljs-string">'Trouser'</span>, <span class="hljs-string">'Pullover'</span>, <span class="hljs-string">'Dress'</span>, <span class="hljs-string">'Coat'</span>,</span><br><span class="line">               	<span class="hljs-string">'Sandal'</span>, <span class="hljs-string">'Shirt'</span>, <span class="hljs-string">'Sneaker'</span>, <span class="hljs-string">'Bag'</span>, <span class="hljs-string">'Ankle boot'</span>]</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">4</span>))</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):</span><br><span class="line">    plt.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, i+<span class="hljs-number">1</span>)</span><br><span class="line">    plt.xticks([])</span><br><span class="line">    plt.yticks([])</span><br><span class="line">    plt.imshow(x_train[i], cmap=plt.cm.binary)</span><br><span class="line">    plt.xlabel(class_names[y_train[i]])</span><br><span class="line">    plt.grid(<span class="hljs-literal">False</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Loading-Data"><a href="#Loading-Data" class="headerlink" title="Loading Data"></a>Loading Data</h2><ul>
+<li><p>Fashion MNIST </p>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(x_train, y_train),  (x_test, y_test) = fashion_mnist.load_data()</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>Output:</strong></p>
+<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Downloading data <span class="hljs-keyword">from</span> http://fashion-mnist.s3-website.eu-central<span class="hljs-number">-1.</span>amazonaws.com/train-labels-idx1-ubyte.gz</span><br><span class="line"><span class="hljs-number">32768</span>/<span class="hljs-number">29515</span> [=================================] - <span class="hljs-number">0</span>s <span class="hljs-number">9</span>us/step</span><br><span class="line">Downloading data <span class="hljs-keyword">from</span> http://fashion-mnist.s3-website.eu-central<span class="hljs-number">-1.</span>amazonaws.com/train-images-idx3-ubyte.gz</span><br><span class="line"><span class="hljs-number">26427392</span>/<span class="hljs-number">26421880</span> [==============================] - <span class="hljs-number">5</span>s <span class="hljs-number">0</span>us/step</span><br><span class="line">Downloading data <span class="hljs-keyword">from</span> http://fashion-mnist.s3-website.eu-central<span class="hljs-number">-1.</span>amazonaws.com/t10k-labels-idx1-ubyte.gz</span><br><span class="line"><span class="hljs-number">8192</span>/<span class="hljs-number">5148</span> [===============================================] - <span class="hljs-number">0</span>s <span class="hljs-number">0</span>us/step</span><br><span class="line">Downloading data <span class="hljs-keyword">from</span> http://fashion-mnist.s3-website.eu-central<span class="hljs-number">-1.</span>amazonaws.com/t10k-images-idx3-ubyte.gz</span><br><span class="line"><span class="hljs-number">4423680</span>/<span class="hljs-number">4422102</span> [==============================] - <span class="hljs-number">2</span>s <span class="hljs-number">1</span>us/step</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<br>
+
+<h2 id="Peeking-the-data"><a href="#Peeking-the-data" class="headerlink" title="Peeking the data"></a>Peeking the data</h2><ul>
+<li>10개의 Fashion MNIST 데이터들을 시각화! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f60f.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60f.png?v8">😏</span><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class_names = [<span class="hljs-string">'T-shirt/top'</span>, <span class="hljs-string">'Trouser'</span>, <span class="hljs-string">'Pullover'</span>, <span class="hljs-string">'Dress'</span>, <span class="hljs-string">'Coat'</span>,</span><br><span class="line">               	<span class="hljs-string">'Sandal'</span>, <span class="hljs-string">'Shirt'</span>, <span class="hljs-string">'Sneaker'</span>, <span class="hljs-string">'Bag'</span>, <span class="hljs-string">'Ankle boot'</span>]</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">4</span>))</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):</span><br><span class="line">    plt.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, i+<span class="hljs-number">1</span>)</span><br><span class="line">    plt.xticks([])</span><br><span class="line">    plt.yticks([])</span><br><span class="line">    plt.imshow(x_train[i], cmap=plt.cm.binary)</span><br><span class="line">    plt.xlabel(class_names[y_train[i]])</span><br><span class="line">    plt.grid(<span class="hljs-literal">False</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></tbody></table></figure>
+
 </li>
 </ul>
 <center><img src="/gallery/keras2.png"></center>
+
 <br>
-<h2 id="preprocessing"><a class="markdownIt-Anchor" href="#preprocessing"></a> Preprocessing</h2>
-<ul>
-<li>
-<p>50000 for Training, 10000 for Validation, 10000 for Test</p>
+
+<h2 id="Preprocessing"><a href="#Preprocessing" class="headerlink" title="Preprocessing"></a>Preprocessing</h2><ul>
+<li><p>50000 for Training, 10000 for Validation, 10000 for Test</p>
 <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x_val = x_train[<span class="hljs-number">50000</span>:]</span><br><span class="line">y_val = y_train[<span class="hljs-number">50000</span>:]</span><br><span class="line">x_train = x_train[:<span class="hljs-number">50000</span>]</span><br><span class="line">y_train = y_train[:<span class="hljs-number">50000</span>]</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># preprocessing </span></span><br><span class="line">x_train = x_train.reshape(<span class="hljs-number">50000</span>, <span class="hljs-number">784</span>).astype(<span class="hljs-string">'float32'</span>) / <span class="hljs-number">255.0</span></span><br><span class="line">x_val = x_val.reshape(<span class="hljs-number">10000</span>, <span class="hljs-number">784</span>).astype(<span class="hljs-string">'float32'</span>) / <span class="hljs-number">255.0</span></span><br><span class="line">x_test = x_test.reshape(<span class="hljs-number">10000</span>, <span class="hljs-number">784</span>).astype(<span class="hljs-string">'float32'</span>) / <span class="hljs-number">255.0</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li>
-<p>Label one-hot encoding (<strong>utils.to_categorical</strong>):<br>
-keras.utils.to_categorical <a href="https://keras.io/utils/#to_categorical" target="_blank" rel="noopener">API</a></p>
-	<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># label one-hot encoding.</span></span><br><span class="line">y_train = utils.to_categorical(y_train)</span><br><span class="line">y_val = utils.to_categorical(y_val)</span><br><span class="line">y_test = utils.to_categorical(y_test)</span><br></pre></td></tr></tbody></table></figure>
+
+
 </li>
 </ul>
-<br>
-<h2 id="callbacks"><a class="markdownIt-Anchor" href="#callbacks"></a> Callbacks</h2>
 <ul>
-<li>
-<p>Tensorboard 띄우기</p>
+<li><p>Label one-hot encoding (<strong>utils.to_categorical</strong>):<br>keras.utils.to_categorical <a href="https://keras.io/utils/#to_categorical" target="_blank" rel="noopener">API</a></p>
+<pre><code><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># label one-hot encoding.</span></span><br><span class="line">y_train = utils.to_categorical(y_train)</span><br><span class="line">y_val = utils.to_categorical(y_val)</span><br><span class="line">y_test = utils.to_categorical(y_test)</span><br></pre></td></tr></tbody></table></figure></code></pre></li>
+</ul>
+<br>
+
+<h2 id="Callbacks"><a href="#Callbacks" class="headerlink" title="Callbacks"></a>Callbacks</h2><ul>
+<li><p>Tensorboard 띄우기</p>
 </li>
-<li>
-<p>Early Stopping / 5번을 기다려도 성능이 나아지지 않을 경우 학습 중단</p>
+<li><p>Early Stopping / 5번을 기다려도 성능이 나아지지 않을 경우 학습 중단</p>
 </li>
-<li>
-<p>Model Checkpoint  / val_loss가 가장 낮을 때만 저장</p>
+<li><p>Model Checkpoint  / val_loss가 가장 낮을 때만 저장</p>
   <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> tensorboardcolab <span class="hljs-keyword">import</span> *</span><br><span class="line"><span class="hljs-keyword">from</span> keras.callbacks <span class="hljs-keyword">import</span> EarlyStopping, ModelCheckpoint</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 3. Tensorboard 세팅</span></span><br><span class="line">tbc=TensorBoardColab()</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 4. Early Stopping  </span></span><br><span class="line">early_stopping = EarlyStopping(patience=<span class="hljs-number">5</span>) </span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 5. Model Checkpoint</span></span><br><span class="line">path = <span class="hljs-string">'./model/'</span></span><br><span class="line"><span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(path):</span><br><span class="line">    os.mkdir(path)    </span><br><span class="line">model_path = path + <span class="hljs-string">'{epoch:02d}-{val_loss:.4f}.h5'</span></span><br><span class="line">checkpoint = ModelCheckpoint(filepath = model_path, </span><br><span class="line">                               monitor = <span class="hljs-string">'val_loss'</span>,</span><br><span class="line">                               verbose = <span class="hljs-number">0</span>,</span><br><span class="line">                               save_best_only = <span class="hljs-literal">True</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
 </li>
-<li>
-<p><strong>Output:</strong></p>
-<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Wait for 8 seconds...</span><br><span class="line">TensorBoard link:</span><br><span class="line">https://57207182.ngrok.io</span><br></pre></td></tr></tbody></table></figure>
+</ul>
+<ul>
+<li><strong>Output:</strong><figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Wait for 8 seconds...</span><br><span class="line">TensorBoard link:</span><br><span class="line">https://57207182.ngrok.io</span><br></pre></td></tr></tbody></table></figure>
+
+
 </li>
 </ul>
 <br>
-<h2 id="create-a-model-train-test"><a class="markdownIt-Anchor" href="#create-a-model-train-test"></a> Create a model / Train / Test</h2>
-<ul>
-<li>
-<p><strong>Sequential()</strong> - 모델 생성</p>
+
+<h2 id="Create-a-model-Train-Test"><a href="#Create-a-model-Train-Test" class="headerlink" title="Create a model / Train / Test"></a>Create a model / Train / Test</h2><ul>
+<li><p><strong>Sequential()</strong> - 모델 생성</p>
 </li>
-<li>
-<p><strong>add()</strong> - 모델 블럭끼우기</p>
+<li><p><strong>add()</strong> - 모델 블럭끼우기</p>
 </li>
-<li>
-<p><strong>compile()</strong> - 모델 학습에 쓸 도구 세팅하기</p>
+<li><p><strong>compile()</strong> - 모델 학습에 쓸 도구 세팅하기</p>
 </li>
-<li>
-<p><strong>fit()</strong> - 학습시키기</p>
+<li><p><strong>fit()</strong> - 학습시키기</p>
 </li>
-<li>
-<p><strong>evaluate()</strong> - 평가하기</p>
+<li><p><strong>evaluate()</strong> - 평가하기 </p>
   <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># GPU 사용</span></span><br><span class="line"><span class="hljs-comment"># with tf.device('/device:GPU:0'):</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 1. 모델 구성</span></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Dense(units=<span class="hljs-number">64</span>, input_dim=<span class="hljs-number">28</span>*<span class="hljs-number">28</span>, activation=<span class="hljs-string">'relu'</span>))</span><br><span class="line">model.add(Dense(units=<span class="hljs-number">10</span>, activation=<span class="hljs-string">'softmax'</span>))</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 2. 모델 학습과정 설정하기 </span></span><br><span class="line">model.compile(loss=<span class="hljs-string">'categorical_crossentropy'</span>, </span><br><span class="line">              optimizer=<span class="hljs-string">'sgd'</span>, </span><br><span class="line">              metrics=[<span class="hljs-string">'accuracy'</span>])</span><br><span class="line"><span class="hljs-comment"># 3. 모델 학습시키기</span></span><br><span class="line"><span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> tqdm_notebook(range(<span class="hljs-number">50</span>)):</span><br><span class="line">    hist = model.fit(x_train, y_train, epochs=<span class="hljs-number">1</span>, batch_size=<span class="hljs-number">32</span>, </span><br><span class="line">                     verbose=<span class="hljs-number">0</span>, validation_data=(x_test, y_test),</span><br><span class="line">                     callbacks=[TensorBoardColabCallback(tbc), </span><br><span class="line">                                early_stopping, checkpoint])</span><br><span class="line">    <span class="hljs-comment"># tensorboard lines</span></span><br><span class="line">    tbc.save_value(<span class="hljs-string">"fasion mnist"</span>, <span class="hljs-string">"train_acc"</span>, epoch, hist.history[<span class="hljs-string">'acc'</span>][<span class="hljs-number">0</span>])</span><br><span class="line">    tbc.save_value(<span class="hljs-string">"fasion mnist"</span>, <span class="hljs-string">"val_acc"</span>, epoch, hist.history[<span class="hljs-string">'val_acc'</span>][<span class="hljs-number">0</span>])</span><br><span class="line">    tbc.save_value(<span class="hljs-string">"fasion mnist"</span>, <span class="hljs-string">"train_loss"</span>, epoch, hist.history[<span class="hljs-string">'loss'</span>][<span class="hljs-number">0</span>])</span><br><span class="line">    tbc.save_value(<span class="hljs-string">"fasion mnist"</span>, <span class="hljs-string">"val_loss"</span>, epoch, hist.history[<span class="hljs-string">'val_loss'</span>][<span class="hljs-number">0</span>])</span><br><span class="line"></span><br><span class="line">    tbc.flush_line(<span class="hljs-string">"train_acc"</span>)</span><br><span class="line">    tbc.flush_line(<span class="hljs-string">"val_acc"</span>)</span><br><span class="line">    tbc.flush_line(<span class="hljs-string">"train_loss"</span>)</span><br><span class="line">    tbc.flush_line(<span class="hljs-string">"val_loss"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (epoch+<span class="hljs-number">1</span>)%<span class="hljs-number">10</span> == <span class="hljs-number">0</span>:</span><br><span class="line">        print(<span class="hljs-string">'-----'</span>*<span class="hljs-number">5</span>)</span><br><span class="line">        print(<span class="hljs-string">"Epoch: {} | Loss: {:0.3f} | Acc: {:0.3f}"</span>.format(</span><br><span class="line">              epoch+<span class="hljs-number">1</span>, hist.history[<span class="hljs-string">'loss'</span>][<span class="hljs-number">0</span>], hist.history[<span class="hljs-string">'acc'</span>][<span class="hljs-number">0</span>]))</span><br><span class="line"></span><br><span class="line">loss_and_metrics = model.evaluate(x_test, y_test, batch_size=<span class="hljs-number">32</span>)</span><br><span class="line">tbc.close()</span><br><span class="line"></span><br><span class="line">print(<span class="hljs-string">'-----'</span>*<span class="hljs-number">10</span>)</span><br><span class="line">print(<span class="hljs-string">'\nLoss and metrics: '</span> + str(loss_and_metrics))</span><br></pre></td></tr></tbody></table></figure>
+
+
 </li>
-<li>
-<p><strong>Output:</strong></p>
-<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">HBox(children=(IntProgress(value=<span class="hljs-number">0</span>, max=<span class="hljs-number">50</span>), HTML(value=<span class="hljs-string">''</span>)))</span><br><span class="line">-------------------------</span><br><span class="line">Epoch: <span class="hljs-number">10</span> | Loss: <span class="hljs-number">0.393</span> | Acc: <span class="hljs-number">0.864</span></span><br><span class="line">-------------------------</span><br><span class="line">Epoch: <span class="hljs-number">20</span> | Loss: <span class="hljs-number">0.342</span> | Acc: <span class="hljs-number">0.879</span></span><br><span class="line">-------------------------</span><br><span class="line">Epoch: <span class="hljs-number">30</span> | Loss: <span class="hljs-number">0.312</span> | Acc: <span class="hljs-number">0.890</span></span><br><span class="line">-------------------------</span><br><span class="line">Epoch: <span class="hljs-number">40</span> | Loss: <span class="hljs-number">0.288</span> | Acc: <span class="hljs-number">0.898</span></span><br><span class="line">-------------------------</span><br><span class="line">Epoch: <span class="hljs-number">50</span> | Loss: <span class="hljs-number">0.270</span> | Acc: <span class="hljs-number">0.905</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-number">10000</span>/<span class="hljs-number">10000</span> [==============================] - <span class="hljs-number">1</span>s <span class="hljs-number">60</span>us/step</span><br><span class="line">--------------------------------------------------</span><br><span class="line"></span><br><span class="line">Loss <span class="hljs-keyword">and</span> metrics: [<span class="hljs-number">0.3537946595430374</span>, <span class="hljs-number">0.8761</span>]</span><br></pre></td></tr></tbody></table></figure>
+</ul>
+<ul>
+<li><strong>Output:</strong><figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">HBox(children=(IntProgress(value=<span class="hljs-number">0</span>, max=<span class="hljs-number">50</span>), HTML(value=<span class="hljs-string">''</span>)))</span><br><span class="line">-------------------------</span><br><span class="line">Epoch: <span class="hljs-number">10</span> | Loss: <span class="hljs-number">0.393</span> | Acc: <span class="hljs-number">0.864</span></span><br><span class="line">-------------------------</span><br><span class="line">Epoch: <span class="hljs-number">20</span> | Loss: <span class="hljs-number">0.342</span> | Acc: <span class="hljs-number">0.879</span></span><br><span class="line">-------------------------</span><br><span class="line">Epoch: <span class="hljs-number">30</span> | Loss: <span class="hljs-number">0.312</span> | Acc: <span class="hljs-number">0.890</span></span><br><span class="line">-------------------------</span><br><span class="line">Epoch: <span class="hljs-number">40</span> | Loss: <span class="hljs-number">0.288</span> | Acc: <span class="hljs-number">0.898</span></span><br><span class="line">-------------------------</span><br><span class="line">Epoch: <span class="hljs-number">50</span> | Loss: <span class="hljs-number">0.270</span> | Acc: <span class="hljs-number">0.905</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-number">10000</span>/<span class="hljs-number">10000</span> [==============================] - <span class="hljs-number">1</span>s <span class="hljs-number">60</span>us/step</span><br><span class="line">--------------------------------------------------</span><br><span class="line"></span><br><span class="line">Loss <span class="hljs-keyword">and</span> metrics: [<span class="hljs-number">0.3537946595430374</span>, <span class="hljs-number">0.8761</span>]</span><br></pre></td></tr></tbody></table></figure>
+
+
 </li>
-<li>
-<p><strong>Tensorboard Plot:</strong></p>
+</ul>
+<ul>
+<li><p><strong>Tensorboard Plot:</strong></p>
   <center><img src="/gallery/keras5.png"></center>
+
 </li>
 </ul>
 <br>
-<h2 id="model-structure-visualization"><a class="markdownIt-Anchor" href="#model-structure-visualization"></a> Model Structure Visualization</h2>
-<ul>
-<li>
-<p>Model 구조 시각화하기: <strong>model.summary() & SVG()</strong> 😃</p>
+
+<h2 id="Model-Structure-Visualization"><a href="#Model-Structure-Visualization" class="headerlink" title="Model Structure Visualization"></a>Model Structure Visualization</h2><ul>
+<li><p>Model 구조 시각화하기: <strong>model.summary() & SVG()</strong> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f603.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f603.png?v8">😃</span></p>
   <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> IPython.display <span class="hljs-keyword">import</span> SVG</span><br><span class="line"><span class="hljs-keyword">from</span> keras.utils.vis_utils <span class="hljs-keyword">import</span> model_to_dot</span><br><span class="line"></span><br><span class="line">print(model.summary())</span><br><span class="line">SVG(model_to_dot(model, show_shapes=<span class="hljs-literal">True</span>).create(prog=<span class="hljs-string">'dot'</span>, format=<span class="hljs-string">'svg'</span>))</span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li>
-<p><strong>Output:</strong></p>
+<li><p><strong>Output:</strong></p>
 <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">_________________________________________________________________</span><br><span class="line">Layer (type)                 Output Shape              Param <span class="hljs-comment">#   </span></span><br><span class="line">=================================================================</span><br><span class="line">dense_1 (Dense)              (<span class="hljs-literal">None</span>, <span class="hljs-number">64</span>)                <span class="hljs-number">50240</span>     </span><br><span class="line">_________________________________________________________________</span><br><span class="line">dense_2 (Dense)              (<span class="hljs-literal">None</span>, <span class="hljs-number">10</span>)                <span class="hljs-number">650</span>       </span><br><span class="line">=================================================================</span><br><span class="line">Total params: <span class="hljs-number">50</span>,<span class="hljs-number">890</span></span><br><span class="line">Trainable params: <span class="hljs-number">50</span>,<span class="hljs-number">890</span></span><br><span class="line">Non-trainable params: <span class="hljs-number">0</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line"><span class="hljs-literal">None</span></span><br></pre></td></tr></tbody></table></figure>
+
+
 </li>
 </ul>
 <center><img src="/gallery/keras3.png" width="300px"></center>
+
 <br>
-<h2 id="save-load-model"><a class="markdownIt-Anchor" href="#save-load-model"></a> Save & Load Model</h2>
-<ul>
-<li>
-<p>Model 저장 & 불러오기</p>
+
+<h2 id="Save-amp-Load-Model"><a href="#Save-amp-Load-Model" class="headerlink" title="Save & Load Model"></a>Save & Load Model</h2><ul>
+<li><p>Model 저장 & 불러오기</p>
   <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> model.save(<span class="hljs-string">'fashion_mnist_model.h5'</span>)</span><br><span class="line">model = load_model(<span class="hljs-string">'fashion_mnist_model.h5'</span>)</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <script>
@@ -769,5 +772,20 @@ document.addEventListener('DOMContentLoaded', function () {
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/insight.css">
     
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

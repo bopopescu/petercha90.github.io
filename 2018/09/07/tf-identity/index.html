@@ -8,19 +8,19 @@
 
 
 
-    <meta name="description" content="Tensorflow에서 자주 등장하는 tf.identity()에 대해 알아봅니다.">
-<meta name="keywords" content="ml,deep_learning,tensorflow">
+    <meta name="description" content="Tensorflow에서 자주 등장하는  tf.identity()에 대해 알아봅니다.">
+<meta name="keywords" content="deep_learning,ml,tensorflow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tf.identity()">
 <meta property="og:url" content="http://www.stand-firm-peter.me/2018/09/07/tf-identity/index.html">
 <meta property="og:site_name" content="Stand firm Peter">
-<meta property="og:description" content="Tensorflow에서 자주 등장하는 tf.identity()에 대해 알아봅니다.">
+<meta property="og:description" content="Tensorflow에서 자주 등장하는  tf.identity()에 대해 알아봅니다.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.stand-firm-peter.me/gallery/background.jpg">
 <meta property="og:updated_time" content="2019-07-20T12:41:43.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tf.identity()">
-<meta name="twitter:description" content="Tensorflow에서 자주 등장하는 tf.identity()에 대해 알아봅니다.">
+<meta name="twitter:description" content="Tensorflow에서 자주 등장하는  tf.identity()에 대해 알아봅니다.">
 <meta name="twitter:image" content="http://www.stand-firm-peter.me/gallery/background.jpg">
 
 
@@ -172,61 +172,54 @@
         </h1>
         <div class="content">
             <ul>
-<li>Tensorflow에서 자주 등장하는</li>
+<li>Tensorflow에서 자주 등장하는 </li>
 <li><code>tf.identity()</code>에 대해 알아봅니다.</li>
 </ul>
 <a id="more"></a>
-<h4 id="tfcontrol_dependencies와-함께"><a class="markdownIt-Anchor" href="#tfcontrol_dependencies와-함께"></a> tf.control_dependencies()와 함께</h4>
-<ul>
-<li>모델을 구현하다보면 거의 제일 마지막인 fully connected인 Linear에 이르러 맨 마지막 logits을 뽑아내기 전에 꼭 한 번쯤은 보게 되는 친구가 이 <code>tf.identity()</code>. 습관적으로 그냥 쓰는건가보다 하다가 문득 더 깊이 이해하고 넘어가야하겠다 싶어서 이렇게 포스팅으로 남긴다.</li>
+
+
+
+<h4 id="tf-control-dependencies-와-함께"><a href="#tf-control-dependencies-와-함께" class="headerlink" title="tf.control_dependencies()와 함께"></a>tf.control_dependencies()와 함께</h4><ul>
+<li>모델을 구현하다보면 거의 제일 마지막인 fully connected인 Linear에 이르러 맨 마지막 logits을 뽑아내기 전에 꼭 한 번쯤은 보게 되는 친구가 이 <code>tf.identity()</code>. 습관적으로 그냥 쓰는건가보다 하다가 문득 더 깊이 이해하고 넘어가야하겠다 싶어서 이렇게 포스팅으로 남긴다. </li>
 <li><code>tf.identity()</code>를 이해하기 위해서는 <code>tf.control_dependencies()</code>를 먼저 이해해야 한다. Tensorflow의 공식문서에 따르면 그 설명이 아래와 같다.</li>
 </ul>
-<h3 id="tfcontrol_dependencies"><a class="markdownIt-Anchor" href="#tfcontrol_dependencies"></a> tf.control_dependencies()</h3>
-<blockquote>
+<h3 id="tf-control-dependencies"><a href="#tf-control-dependencies" class="headerlink" title="tf.control_dependencies()"></a>tf.control_dependencies()</h3><blockquote>
 <p>tf.control_dependencies(control_inputs)</p>
 </blockquote>
 <ul>
-<li>
-<p><code>control_inputs</code>:</p>
+<li><p><code>control_inputs</code>: </p>
 </li>
-<li>
-<p>A list of Operation or Tensor objects which <strong>must be executed or computed before running the operations defined in the context.</strong> Can also be None to clear the control dependencies. If eager execution is enabled, any callable object in the control_inputs list will be called.</p>
+<li><p>A list of Operation or Tensor objects which <strong>must be executed or computed before running the operations defined in the context.</strong> Can also be None to clear the control dependencies. If eager execution is enabled, any callable object in the control_inputs list will be called.</p>
 </li>
-<li>
-<p>Context 안에서 정의된 <u>Operation이</u> Running되기 "<strong>전</strong>"에 “<strong>먼저</strong>” 실행시켜줄 친구들을 control inputs으로 넣어주면 먼저 실행해준다는 의미다.</p>
+<li><p>Context 안에서 정의된 <u>Operation이</u> Running되기 “<strong>전</strong>“에 “<strong>먼저</strong>“ 실행시켜줄 친구들을 control inputs으로 넣어주면 먼저 실행해준다는 의미다. </p>
 </li>
-<li>
-<p>그럼 이제 <code>tf.identity()</code>를 살펴보자.</p>
+<li><p>그럼 이제 <code>tf.identity()</code>를 살펴보자.</p>
 </li>
 </ul>
-<h3 id="tfidentity"><a class="markdownIt-Anchor" href="#tfidentity"></a> tf.identity()</h3>
-<blockquote>
+<h3 id="tf-identity"><a href="#tf-identity" class="headerlink" title="tf.identity()"></a>tf.identity()</h3><blockquote>
 <p>tf.identity(input, name=None)</p>
+<ul>
+<li>Return a tensor with the same shape and contents as input.</li>
+</ul>
 </blockquote>
 <ul>
-<li>
-<p>Return a tensor with the same shape and contents as input.</p>
+<li><p><code>input</code>: A Tensor.</p>
 </li>
-<li>
-<p><code>input</code>: A Tensor.</p>
+<li><p><code>name</code>: A name for the operation (optional).</p>
 </li>
-<li>
-<p><code>name</code>: A name for the operation (optional).</p>
-</li>
-<li>
-<p>그냥 입력된 Tensor랑 똑같은 Shape, 똑같은 contents를 돌려준다. <strike>그럼 왜 쓰는 거지??</strike></p>
-<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">x = tf.Variable(<span class="hljs-number">0.0</span>)</span><br><span class="line">x_plus_1 = tf.assign_add(x, <span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">with</span> tf.control_dependencies([x_plus_1]):</span><br><span class="line">    y = tf.identity(x)</span><br><span class="line">init = tf.initialize_all_variables()</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">with</span> tf.Session() <span class="hljs-keyword">as</span> session:</span><br><span class="line">    init.run()</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):</span><br><span class="line">        print(y.eval())</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li>
-<p><a href="https://stackoverflow.com/questions/34877523/in-tensorflow-what-is-tf-identity-used-for" target="_blank" rel="noopener">여기</a>에서 가져온 예시를 보면, 이유를 좀 알 수 있는데, 만약에 <code>y = tf.identity(x)</code> 부분이 그냥 <code>y = x</code>라면 아무 일도 일어나지 않음을 알 수 있다. print의 결과가 죄다. 0 0 0 0 0 이다.</p>
-</li>
-<li>
-<p>왜냐하면, <code>tf.control_dependencies()</code>는 <strong>"Operation"이 실행되기 전</strong>에 inputs으로 들어온 부분을 처리해준다고 했는데, <u><code>y = x</code>는 아무런 operation이 없기 때문에</u> <code>x_plus_1</code>를 실행하지 않는다.</p>
+<li><p>그냥 입력된 Tensor랑 똑같은 Shape, 똑같은 contents를 돌려준다. <strike>그럼 왜 쓰는 거지??</strike></p>
 </li>
 </ul>
-<h3 id="결론"><a class="markdownIt-Anchor" href="#결론"></a> 결론</h3>
+  <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">x = tf.Variable(<span class="hljs-number">0.0</span>)</span><br><span class="line">x_plus_1 = tf.assign_add(x, <span class="hljs-number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">with</span> tf.control_dependencies([x_plus_1]):</span><br><span class="line">    y = tf.identity(x)</span><br><span class="line">init = tf.initialize_all_variables()</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">with</span> tf.Session() <span class="hljs-keyword">as</span> session:</span><br><span class="line">    init.run()</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):</span><br><span class="line">        print(y.eval())</span><br></pre></td></tr></tbody></table></figure>
+
 <ul>
-<li>Tensorflow로 모델을 만들 때, 주로 맨 마지막에 Fully connected Layer에서 Output에 해당하는 Logits을 뽑을 때 이 <code>tf.identity()</code>를 많이 쓰는 이유는 <code>tf.control_dependencies()</code>를 실행시켜주기 위한 건덕지(?)를 만들기 위해서다.</li>
+<li><p><a href="https://stackoverflow.com/questions/34877523/in-tensorflow-what-is-tf-identity-used-for" target="_blank" rel="noopener">여기</a>에서 가져온 예시를 보면, 이유를 좀 알 수 있는데, 만약에 <code>y = tf.identity(x)</code> 부분이 그냥 <code>y = x</code>라면 아무 일도 일어나지 않음을 알 수 있다. print의 결과가 죄다. 0 0 0 0 0 이다. </p>
+</li>
+<li><p>왜냐하면, <code>tf.control_dependencies()</code>는 <strong>“Operation”이 실행되기 전</strong>에 inputs으로 들어온 부분을 처리해준다고 했는데, <u><code>y = x</code>는 아무런 operation이 없기 때문에</u> <code>x_plus_1</code>를 실행하지 않는다.</p>
+</li>
+</ul>
+<h3 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h3><ul>
+<li>Tensorflow로 모델을 만들 때, 주로 맨 마지막에 Fully connected Layer에서 Output에 해당하는 Logits을 뽑을 때 이 <code>tf.identity()</code>를 많이 쓰는 이유는 <code>tf.control_dependencies()</code>를 실행시켜주기 위한 건덕지(?)를 만들기 위해서다. </li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')

@@ -8,19 +8,19 @@
 
 
 
-    <meta name="description" content="Introduction to Docker. Docker 개념, 설치, 유용한 명령어 사용해보기.">
+    <meta name="description" content="Introduction to Docker.  Docker 개념, 설치, 유용한 명령어 사용해보기.">
 <meta name="keywords" content="useful-info,Docker,docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hi, Docker! :) (1)">
 <meta property="og:url" content="http://www.stand-firm-peter.me/2019/04/24/docker-intro/index.html">
 <meta property="og:site_name" content="Stand firm Peter">
-<meta property="og:description" content="Introduction to Docker. Docker 개념, 설치, 유용한 명령어 사용해보기.">
+<meta property="og:description" content="Introduction to Docker.  Docker 개념, 설치, 유용한 명령어 사용해보기.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.stand-firm-peter.me/gallery/docker1.jpg">
 <meta property="og:updated_time" content="2019-07-20T12:41:01.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hi, Docker! :) (1)">
-<meta name="twitter:description" content="Introduction to Docker. Docker 개념, 설치, 유용한 명령어 사용해보기.">
+<meta name="twitter:description" content="Introduction to Docker.  Docker 개념, 설치, 유용한 명령어 사용해보기.">
 <meta name="twitter:image" content="http://www.stand-firm-peter.me/gallery/docker1.jpg">
 
 
@@ -172,245 +172,246 @@
         </h1>
         <div class="content">
             <ul>
-<li>Introduction to Docker.</li>
+<li>Introduction to Docker. </li>
 <li>Docker 개념, 설치, 유용한 명령어 사용해보기.</li>
 </ul>
 <a id="more"></a>
-<h2 id="docker"><a class="markdownIt-Anchor" href="#docker"></a> Docker? 😶</h2>
-<ul>
-<li>
-<p>귀여운 고래 아이콘🐳으로 많은 사랑을 받고 있는 <code>Docker</code>에 대해 간단히 알아보도록 하겠습니다.</p>
+
+
+<h2 id="Docker-no-mouth"><a href="#Docker-no-mouth" class="headerlink" title="Docker? :no_mouth:"></a>Docker? <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8">😶</span></h2><ul>
+<li><p>귀여운 고래 아이콘<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png?v8">🐳</span>으로 많은 사랑을 받고 있는 <code>Docker</code>에 대해 간단히 알아보도록 하겠습니다. </p>
 <center>
   <img src="/gallery/docker2.png" height="300px" width="300px">
 </center>
 </li>
-<li>
-<p>Docker는 기존의 Virtual Machine들과 같이 Host OS 위에 Guest OS를 올리는 것이 아니라, 별도의 OS를 만들지 않고 단순히 <strong>프로세스만 격리</strong>시켜서 동작하는 방식입니다. 그래서 훨씬 더 빠르게 가상환경을 즐길 수 있게 해줍니다!</p>
+<li><p>Docker는 기존의 Virtual Machine들과 같이 Host OS 위에 Guest OS를 올리는 것이 아니라, 별도의 OS를 만들지 않고 단순히 <strong>프로세스만 격리</strong>시켜서 동작하는 방식입니다. 그래서 훨씬 더 빠르게 가상환경을 즐길 수 있게 해줍니다!</p>
 </li>
-<li>
-<p>그래서 CPU나 메모리는 프로세스가 필요한 만큼만 사용하기 때문에 성능도 실제 Host에서 돌아가는 다른 Process들과 비교해서 큰 차이가 없답니다. 😉</p>
+<li><p>그래서 CPU나 메모리는 프로세스가 필요한 만큼만 사용하기 때문에 성능도 실제 Host에서 돌아가는 다른 Process들과 비교해서 큰 차이가 없답니다. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f609.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f609.png?v8">😉</span></p>
 </li>
 </ul>
 <center>
     <img src="/gallery/docker3.png" width="80%">
 </center>
-<h3 id="container-안에-다-있어요"><a class="markdownIt-Anchor" href="#container-안에-다-있어요"></a> Container 안에 다 있어요!</h3>
-<ul>
-<li>Docker가 핫한 이유는 이게 다가 아니겠죠. 머신러닝을 위한 환경구축을 해보신 분들은 다들 공감하실 수 <strike> 빡쳐 보신 적👿</strike>있으실 겁니다. 내가 그렇게 수많은 에러들과 StackOverflow를 헤매가며 설정한 그 환경 말이죠. (Anarconda + Tensorflow + Pytorch + R + R Studio + cuDNN + 온갖 Python Packages + 등등…)</li>
-<li>이제 Docker를 쓰면, 그렇게 만든 환경을 Docker계의 Github인 <a href="https://hub.docker.com/" target="_blank" rel="noopener">Docker Hub</a>에 Image화 한 뒤 올리면, 어디서나 받아서 쓸 수 있습니다. 또한 남들이 열심히 만들어서 공유해 준, <strike> 인성 거의 산타🎅</strike> 환경을 받아 편하게 쓸 수도 있습니다. 너무 좋죠?</li>
+
+
+<h3 id="Container-안에-다-있어요"><a href="#Container-안에-다-있어요" class="headerlink" title="Container 안에 다 있어요!"></a>Container 안에 다 있어요!</h3><ul>
+<li>Docker가 핫한 이유는 이게 다가 아니겠죠. 머신러닝을 위한 환경구축을 해보신 분들은 다들 공감하실 수 <strike> 빡쳐 보신 적<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f47f.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f47f.png?v8">👿</span></strike>있으실 겁니다. 내가 그렇게 수많은 에러들과 StackOverflow를 헤매가며 설정한 그 환경 말이죠. (Anarconda + Tensorflow + Pytorch + R + R Studio + cuDNN + 온갖 Python Packages + 등등..)</li>
+<li>이제 Docker를 쓰면, 그렇게 만든 환경을 Docker계의 Github인 <a href="https://hub.docker.com/" target="_blank" rel="noopener">Docker Hub</a>에 Image화 한 뒤 올리면, 어디서나 받아서 쓸 수 있습니다. 또한 남들이 열심히 만들어서 공유해 준, <strike> 인성 거의 산타<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f385.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f385.png?v8">🎅</span></strike> 환경을 받아 편하게 쓸 수도 있습니다. 너무 좋죠?</li>
 </ul>
 <br>
 <center>
     <img src="/gallery/docker4.png" width="60%">
 </center>
+
 <br>
+
 <ul>
-<li>그렇게 공유하는 (Github의 Private Repository처럼 Docker Hub에도 Private계정을 제공합니다.) 파일을 <code>Image</code>라고 하고, 그 Image를 받아서 생성하게 되는 하나하나의 Process 가상환경을 우리는 <code>Container</code>라고 부릅니다. <code>Docker</code>라는 이름에 걸맞게 항만에서 수많은 컨테이너들이 공유되는 환경이 Docker Hub이라고 생각하시면 되겠네요.</li>
-<li>그럼 이제 Docker를 설치해 보실까요!</li>
+<li>그렇게 공유하는 (Github의 Private Repository처럼 Docker Hub에도 Private계정을 제공합니다.) 파일을 <code>Image</code>라고 하고, 그 Image를 받아서 생성하게 되는 하나하나의 Process 가상환경을 우리는 <code>Container</code>라고 부릅니다. <code>Docker</code>라는 이름에 걸맞게 항만에서 수많은 컨테이너들이 공유되는 환경이 Docker Hub이라고 생각하시면 되겠네요. </li>
+<li>그럼 이제 Docker를 설치해 보실까요! </li>
 </ul>
 <br>
-<h2 id="installation"><a class="markdownIt-Anchor" href="#installation"></a> Installation</h2>
-<h4 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h4>
-<ul>
-<li>
-<p>Ubuntu 환경만 설명하자면, 아래와 같은 명령어로 간편하게 설치 하실 수 있습니다. 명령어 위에 주석처리된 부분은 2019년 5월 현재 Ubuntu 환경의 Prerequisites이니 참고하세요 😃</p>
+
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><ul>
+<li><p>Ubuntu 환경만 설명하자면, 아래와 같은 명령어로 간편하게 설치 하실 수 있습니다. 명령어 위에 주석처리된 부분은 2019년 5월 현재 Ubuntu 환경의 Prerequisites이니 참고하세요 :) </p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> OS requirements</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> To install Docker CE, you need the 64-bit version of one of these Ubuntu versions:</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> Cosmic 18.10</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> Bionic 18.04 (LTS)</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> Xenial 16.04 (LTS)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo apt-get update</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo apt-get install docker-ce docker-ce-cli containerd.io</span></span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li>
-<p>다른 Linux 환경은 <a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener">여기</a>를 참조하세요.</p>
+<li><p>다른 Linux 환경은 <a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener">여기</a>를 참조하세요.</p>
 </li>
 </ul>
-<h4 id="mac-windows"><a class="markdownIt-Anchor" href="#mac-windows"></a> Mac & Windows</h4>
-<ul>
-<li>Mac과 Windows 환경은 다음과 같은 기준에 따라 설치 방법이 두 가지로 나누어 집니다.
-<blockquote>
+<h4 id="Mac-amp-Windows"><a href="#Mac-amp-Windows" class="headerlink" title="Mac & Windows"></a>Mac & Windows</h4><ul>
+<li>Mac과 Windows 환경은 다음과 같은 기준에 따라 설치 방법이 두 가지로 나누어 집니다.<blockquote>
 <ol>
-<li>
-<p><strong>Windows</strong>: <code>Windows 10 Pro 이상</code> 모델 (10 Home 안됨)<br>
-                  <strong>→</strong> <strong><a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows" target="_blank" rel="noopener">Docker for Windows</a></strong><br>
-<strong>Mac</strong>:  OS가 <code>Sierra 10.12 혹은 그 이상</code><br>
-         <strong>→</strong> <strong><a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac" target="_blank" rel="noopener">Docker for Mac</a></strong></p>
+<li><p><strong>Windows</strong>: <code>Windows 10 Pro 이상</code> 모델 (10 Home 안됨)<br>                  <strong>→</strong> <strong><a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows" target="_blank" rel="noopener">Docker for Windows</a></strong><br><strong>Mac</strong>:  OS가 <code>Sierra 10.12 혹은 그 이상</code><br>         <strong>→</strong> <strong><a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac" target="_blank" rel="noopener">Docker for Mac</a></strong></p>
 </li>
-<li>
-<p><strong>Windows & Mac</strong>: 1번 조건을 만족하지 못하는 경우 <strong>→</strong> <strong><a href="https://docs.docker.com/toolbox/overview/" target="_blank" rel="noopener">Docker ToolBox</a></strong></p>
+<li><p><strong>Windows & Mac</strong>: 1번 조건을 만족하지 못하는 경우 <strong>→</strong> <strong><a href="https://docs.docker.com/toolbox/overview/" target="_blank" rel="noopener">Docker ToolBox</a></strong></p>
 </li>
 </ol>
 </blockquote>
 </li>
 </ul>
-<h5 id="참고-사항"><a class="markdownIt-Anchor" href="#참고-사항"></a> 참고 사항</h5>
-<ul>
+<h5 id="참고-사항"><a href="#참고-사항" class="headerlink" title="참고 사항"></a>참고 사항</h5><ul>
 <li>기본적으로 <strong>Docker에 회원가입</strong>을 하시고 ID를 생성하셔야 설치 파일을 다운을 받을 수 있습니다.</li>
 <li>Windows에서는 <strong><code>[작업 관리자 > 성능]</code></strong> 에 들어가 <strong><code>"가상화 : 사용"</code></strong> 을 확인을 하시고 안되어있다면, <a href="https://docs.microsoft.com/ko-kr/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v" target="_blank" rel="noopener">활성화</a>를 해줘야 합니다.</li>
-<li>개인적인 경험상, Windows 환경에서 1번의 환경이 충족되어 Docker for Windows를 설치하였는데도, <u><strong>Linux Container로 Switch를 못한다</strong> 던가 하는 에러</u>가 발생되어 사용이 힘들 때<br>
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 그냥 2번으로 Docker ToolBox를 설치하고, <code>Docker Quickstart Terminal</code>을 사용, Docker를 실행하기도 했습니다. <strike>되기만하면 장땡이니까요 </strike></li>
+<li>개인적인 경험상, Windows 환경에서 1번의 환경이 충족되어 Docker for Windows를 설치하였는데도, <u><strong>Linux Container로 Switch를 못한다</strong> 던가 하는 에러</u>가 발생되어 사용이 힘들 때<br>$\to$ 그냥 2번으로 Docker ToolBox를 설치하고, <code>Docker Quickstart Terminal</code>을 사용, Docker를 실행하기도 했습니다. <strike>되기만하면 장땡이니까요 </strike></li>
 </ul>
-<h4 id="설치-확인"><a class="markdownIt-Anchor" href="#설치-확인"></a> 설치 확인</h4>
-<ul>
-<li>
-<p><strong><code>docker version</code></strong> 이라고 Terminal에 쳤을 때, 아래와 같이 version 정보가 잘 나온다면 설치가 잘 된 것입니다. 😃</p>
+<h4 id="설치-확인"><a href="#설치-확인" class="headerlink" title="설치 확인"></a>설치 확인</h4><ul>
+<li><p><strong><code>docker version</code></strong> 이라고 Terminal에 쳤을 때, 아래와 같이 version 정보가 잘 나온다면 설치가 잘 된 것입니다. :)</p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Client: Docker Engine - Community</span><br><span class="line"> Version:           18.09.2</span><br><span class="line"> API version:       1.39</span><br><span class="line"> Go version:        go1.10.8</span><br><span class="line"> Git commit:        6247962</span><br><span class="line"> Built:             Sun Feb 10 04:12:39 2019</span><br><span class="line"> OS/Arch:           darwin/amd64</span><br><span class="line"> Experimental:      false</span><br><span class="line"></span><br><span class="line">Server: Docker Engine - Community</span><br><span class="line"> Engine:</span><br><span class="line">  Version:          18.09.2</span><br><span class="line">  API version:      1.39 (minimum version 1.12)</span><br><span class="line">  Go version:       go1.10.6</span><br><span class="line">  Git commit:       6247962</span><br><span class="line">  Built:            Sun Feb 10 04:13:06 2019</span><br><span class="line">  OS/Arch:          linux/amd64</span><br><span class="line">  Experimental:     true</span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li>
-<p>Docker version을 확인해보니, <code>Client-Server</code>로 나뉘어져 있는 것을 확인할 수 있습니다. Docker가 실제로 어떻게 동작하는지 볼 수 있는 부분입니다. 😉</p>
+<li><p>Docker version을 확인해보니, <code>Client-Server</code>로 나뉘어져 있는 것을 확인할 수 있습니다. Docker가 실제로 어떻게 동작하는지 볼 수 있는 부분입니다. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f609.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f609.png?v8">😉</span> </p>
 </li>
-<li>
-<p>사용자가 Docker 명령을 내리면 Client에서 기본적으로 Docker Server를 바라보고 있기 때문에, 사용자는 바로 명령만 내린 것 같지만, 실제로는 Server가 Client로 부터 전송을 받아, 처리한 결과를 다시 Client에게 돌려주고 있는 것이죠.</p>
+<li><p>사용자가 Docker 명령을 내리면 Client에서 기본적으로 Docker Server를 바라보고 있기 때문에, 사용자는 바로 명령만 내린 것 같지만, 실제로는 Server가 Client로 부터 전송을 받아, 처리한 결과를 다시 Client에게 돌려주고 있는 것이죠.</p>
 </li>
 </ul>
 <center>
     <img src="/gallery/docker7.png">
 </center>
 <br>
+
 <ul>
 <li>자, 이제 설치를 잘 마쳤으면 본격적으로 Docker를 사용해 볼까요?</li>
 </ul>
 <br>
-<h2 id="practice"><a class="markdownIt-Anchor" href="#practice"></a> Practice</h2>
-<ul>
-<li>아래와 같은 순서로 실습을 하면서 필요한 명령어들을 정리해 보겠습니다 😉  <figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. Anaconda가 설치되어 있는 Ubuntu Image를 다운받기. 	</span><br><span class="line">2. 그 이미지로 생성한 컨테이너에서 Jupyter notebook을 띄워놓기.</span><br><span class="line">3. Host Browser로 접근해서 사용.</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h2><ul>
+<li>아래와 같은 순서로 실습을 하면서 필요한 명령어들을 정리해 보겠습니다 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f609.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f609.png?v8">😉</span>  <figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. Anaconda가 설치되어 있는 Ubuntu Image를 다운받기. 	</span><br><span class="line">2. 그 이미지로 생성한 컨테이너에서 Jupyter notebook을 띄워놓기.</span><br><span class="line">3. Host Browser로 접근해서 사용.</span><br></pre></td></tr></tbody></table></figure>
+
 </li>
 </ul>
 <br>
-<h4 id="1-이미지-다운로드-하기-pull-images"><a class="markdownIt-Anchor" href="#1-이미지-다운로드-하기-pull-images"></a> 1. 이미지 다운로드 하기 (pull, images)</h4>
-<ul>
-<li><a href="https://hub.docker.com" target="_blank" rel="noopener">Docker Hub</a>에 접속해서 <code>jupyter-python3</code>로 검색을 하니, 천만 다운로드에 빛나는 이미지가 나오네요.</li>
+
+<h4 id="1-이미지-다운로드-하기-pull-images"><a href="#1-이미지-다운로드-하기-pull-images" class="headerlink" title="1. 이미지 다운로드 하기 (pull, images)"></a>1. 이미지 다운로드 하기 (pull, images)</h4><ul>
+<li><a href="https://hub.docker.com" target="_blank" rel="noopener">Docker Hub</a>에 접속해서 <code>jupyter-python3</code>로 검색을 하니, 천만 다운로드에 빛나는 이미지가 나오네요. </li>
 </ul>
 <center>
     <img src="/gallery/docker6.png" width="93%">
 </center>
 <br>
+
 <ul>
-<li>아래의 명령어를 입력하면, <code>Anaconda3</code>를 품은 <code>Ubuntu 18.04</code> Image를 다운로드 받게 됩니다. 다운로드에 약간의 시간이 소요됩니다.  <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker pull civisanalytics/civis-jupyter-python3</span></span><br></pre></td></tr></tbody></table></figure>
+<li>아래의 명령어를 입력하면, <code>Anaconda3</code>를 품은 <code>Ubuntu 18.04</code> Image를 다운로드 받게 됩니다. 다운로드에 약간의 시간이 소요됩니다.   <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker pull civisanalytics/civis-jupyter-python3</span></span><br></pre></td></tr></tbody></table></figure>
+
 </li>
 </ul>
 <br>
+
 <ul>
-<li>
-<p>보시다시피, 기본적으로 Docker 명령어는 <code>docker</code>로 시작하고, Git을 쓰신 분들은 익숙한 단어이실 <code>pull</code>이라는 명령어로 원하는 이미지를 가져 올 수 있습니다. 가져온 이미지는 명령어</p>
+<li><p>보시다시피, 기본적으로 Docker 명령어는 <code>docker</code>로 시작하고, Git을 쓰신 분들은 익숙한 단어이실 <code>pull</code>이라는 명령어로 원하는 이미지를 가져 올 수 있습니다. 가져온 이미지는 명령어 </p>
   <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker images</span></span><br></pre></td></tr></tbody></table></figure>
-<p>를 통해 확인할 수 있습니다.</p>
+
+<p>  를 통해 확인할 수 있습니다. </p>
 </li>
 </ul>
 <br>
-<h4 id="2-컨테이너-목록-조회-삭제-ps-rm-stop"><a class="markdownIt-Anchor" href="#2-컨테이너-목록-조회-삭제-ps-rm-stop"></a> 2. 컨테이너 목록 조회 & 삭제 (ps, rm, stop)</h4>
-<ul>
-<li>
-<p>컨테이너 실습에 앞서서, 깔끔한 진행을 위해 현재 Docker 설치시에 Default로 가지고 있는 컨테이너들을 한 번 싹 비우고 시작하도록 하겠습니다😏. 아래 명령어를 입력하시면 현재 멈춰있는 컨테이너까지 포함한 목록들을 확인할 수 있습니다.</p>
+
+<h4 id="2-컨테이너-목록-조회-amp-삭제-ps-rm-stop"><a href="#2-컨테이너-목록-조회-amp-삭제-ps-rm-stop" class="headerlink" title="2. 컨테이너 목록 조회 & 삭제 (ps, rm, stop)"></a>2. 컨테이너 목록 조회 & 삭제 (ps, rm, stop)</h4><ul>
+<li><p>컨테이너 실습에 앞서서, 깔끔한 진행을 위해 현재 Docker 설치시에 Default로 가지고 있는 컨테이너들을 한 번 싹 비우고 시작하도록 하겠습니다<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f60f.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60f.png?v8">😏</span>. 아래 명령어를 입력하시면 현재 멈춰있는 컨테이너까지 포함한 목록들을 확인할 수 있습니다. </p>
   <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker ps -a</span></span><br></pre></td></tr></tbody></table></figure>
+
 </li>
 </ul>
 <br>
+
 <ul>
-<li><strong><code>docker ps</code>는 현재 동작하고 있는 컨테이너를 모든 컨테이너들을 조회</strong>하는 명령어 입니다. <strong><code>-a</code> 옵션은 멈춘 컨테이너까지 모두 조회</strong>합니다. 아직 컨테이너 생성은 하지도 않는데 목록에 멈춰있는 다른 컨테이너들이 보이실 것입니다. 다 지워보도록 하겠습니다.😈  <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker rm $(docker ps -a -q)</span></span><br></pre></td></tr></tbody></table></figure>
+<li><strong><code>docker ps</code>는 현재 동작하고 있는 컨테이너를 모든 컨테이너들을 조회</strong>하는 명령어 입니다. <strong><code>-a</code> 옵션은 멈춘 컨테이너까지 모두 조회</strong>합니다. 아직 컨테이너 생성은 하지도 않는데 목록에 멈춰있는 다른 컨테이너들이 보이실 것입니다. 다 지워보도록 하겠습니다.<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f608.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f608.png?v8">😈</span>  <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker rm $(docker ps -a -q)</span></span><br></pre></td></tr></tbody></table></figure>
+
 </li>
 </ul>
 <br>
+
 <ul>
-<li><strong><code>docker rm</code>는 멈춰있는 컨테이너를 삭제</strong>하는 명령이고, <strong><code>-q</code> 옵션</strong>은, PORT, STATUS, NAME등의 정보는 제외하고 <strong>컨테이너 ID만 확인</strong>하게 해주는 옵션입니다. 따라서 바로 위에서 배웠던 <code>docker ps -a -q</code>의 결과로 나오는 ID에 해당하는 모든 컨테이너들을 삭제해라는 명령이 됩니다.</li>
+<li><strong><code>docker rm</code>는 멈춰있는 컨테이너를 삭제</strong>하는 명령이고, <strong><code>-q</code> 옵션</strong>은, PORT, STATUS, NAME등의 정보는 제외하고 <strong>컨테이너 ID만 확인</strong>하게 해주는 옵션입니다. 따라서 바로 위에서 배웠던 <code>docker ps -a -q</code>의 결과로 나오는 ID에 해당하는 모든 컨테이너들을 삭제해라는 명령이 됩니다. </li>
 <li>컨테이너가 아니라 이미지를 삭제하고 싶으면 <code>docker rmi</code>로 i만 추가해주세요!</li>
 </ul>
 <br>
+
 <ul>
-<li>혹시 컨테이너가 정지 상태가 아닌데 <code>docker rm container_ID</code>를 실행하시면 해당 컨테이너는 삭제되지 않습니다. 먼저 <code>docker stop container_ID</code>로 삭제하고자 하는 컨테이너의 동작을 멈춘 뒤에 실행해야합니다.</li>
+<li>혹시 컨테이너가 정지 상태가 아닌데 <code>docker rm container_ID</code>를 실행하시면 해당 컨테이너는 삭제되지 않습니다. 먼저 <code>docker stop container_ID</code>로 삭제하고자 하는 컨테이너의 동작을 멈춘 뒤에 실행해야합니다. </li>
 </ul>
 <br>
-<h4 id="3-컨테이너-생성-포트-설정-이름지어주기-run-p-name"><a class="markdownIt-Anchor" href="#3-컨테이너-생성-포트-설정-이름지어주기-run-p-name"></a> 3. 컨테이너 생성 & 포트 설정 & 이름지어주기 (run -p, --name)</h4>
-<ul>
+
+<h4 id="3-컨테이너-생성-amp-포트-설정-amp-이름지어주기-run-p-–name"><a href="#3-컨테이너-생성-amp-포트-설정-amp-이름지어주기-run-p-–name" class="headerlink" title="3. 컨테이너 생성 & 포트 설정 & 이름지어주기 (run -p, –name)"></a>3. 컨테이너 생성 & 포트 설정 & 이름지어주기 (run -p, –name)</h4><ul>
 <li>이제 우리가 사용할 우분투 컨테이너를 생성하고 접속해보도록 하겠습니다.  <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker run -it --name docker101 \</span></span><br><span class="line">  -p 8888:8888 civisanalytics/civis-jupyter-python3 \</span><br><span class="line">  /bin/bash</span><br></pre></td></tr></tbody></table></figure>
+
 </li>
 </ul>
 <br>
+
 <ul>
 <li><strong><code>run</code>명령어로, 가지고 이미지를 실행</strong>하라고 하면서 <strong><code>-it</code> 옵션을 주어서(<code>-ti</code>도 같습니다) 터미널(t)에 입력(i)</strong> 을 받을 수 있게 해줍니다. <code>-i</code>와 <code>-t</code>옵션을 함께 쓴 거죠. 제일 마지막에 <strong>터미널의 경로를 <code>/bin/bash</code></strong> 로 전달해줍니다.</li>
-<li><strong><code>--name</code></strong> 옵션을 줘서 원하는 이름을 부여할 수도 있습니다. 이름을 따로 주지 않으면 유명한 과학자의 이름에 수식어를 붙여서 랜덤생성합니다.(장영실도 포함되어있다고 하네요!)</li>
-<li><strong><code>-p</code> 옵션</strong>은 포워딩 해줄 <code>port</code>번호를 의미하는데요, <strong>앞</strong>에 8888은 <strong>호스트 port</strong>, <strong>뒤</strong>의 8888은  <strong>컨테이너 port</strong>를 의미합니다.</li>
+<li><strong><code>--name</code></strong> 옵션을 줘서 원하는 이름을 부여할 수도 있습니다. 이름을 따로 주지 않으면 유명한 과학자의 이름에 수식어를 붙여서 랜덤생성합니다.(장영실도 포함되어있다고 하네요!) </li>
+<li><strong><code>-p</code> 옵션</strong>은 포워딩 해줄 <code>port</code>번호를 의미하는데요, <strong>앞</strong>에 8888은 <strong>호스트 port</strong>, <strong>뒤</strong>의 8888은  <strong>컨테이너 port</strong>를 의미합니다.    </li>
 </ul>
 <br>
+
 <ul>
-<li>
-<p>접속이 잘 되었다면 아래와 같이 sudo mode로 root권한을 가진 상태의 bash를 쓸 수 있게 됐습니다! 간단한 <code>ls -a</code>이나 <code>pwd</code>같은 명령어들로 가상환경 Ubuntu를 느껴보세요.😎. <code>apt update</code>로 우분투를 업데이트 해줍니다.</p>
+<li><p>접속이 잘 되었다면 아래와 같이 sudo mode로 root권한을 가진 상태의 bash를 쓸 수 있게 됐습니다! 간단한 <code>ls -a</code>이나 <code>pwd</code>같은 명령어들로 가상환경 Ubuntu를 느껴보세요.<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span>. <code>apt update</code>로 우분투를 업데이트 해줍니다.</p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> [work] <span class="hljs-comment"># apt update</span></span></span><br></pre></td></tr></tbody></table></figure>
+
 </li>
 </ul>
 <br>
+
 <ul>
 <li>사실 <strong><code>run</code>명령어</strong>는 실행하라고 한 이미지가 로컬에 없을 경우, 가장 최신 버전으로 다운을 받기 때문에, <strong>이미지를 다운받으면서 동시에 컨테이너를 만드는 명령어</strong>이기도 합니다. 하지만, 한 번 다운 받고 난 뒤에는 해당 이미지가 업데이트가 되어도 가지고 있는 이미지만 사용하기 때문에, 가장 최신 버전을 다운 받게 해주는 <code>pull</code>도 메리트가 있는 것이죠.</li>
 </ul>
 <br>
+
 <ul>
-<li>
-<p>다시 본론으로 돌아와, 접속한 컨테이너 우분투 환경에서 <code>python</code>을 입력해보면, Acaconda3-python 3.7이 설치 되어있음을 확인할 수 있습니다. 이로써 Anaconda를 설치한 적도 없지만, 사용할 수 있는 환경을 Get하게 됐습니다.😊</p>
+<li><p>다시 본론으로 돌아와, 접속한 컨테이너 우분투 환경에서 <code>python</code>을 입력해보면, Acaconda3-python 3.7이 설치 되어있음을 확인할 수 있습니다. 이로써 Anaconda를 설치한 적도 없지만, 사용할 수 있는 환경을 Get하게 됐습니다.<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f60a.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60a.png?v8">😊</span></p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[work] # python</span><br><span class="line">Python 3.7.1 | packaged by conda-forge | (default, Feb 18 2019, 01:42:00) </span><br><span class="line">[GCC 7.3.0] :: Anaconda, Inc. on linux</span><br><span class="line">Type "help", "copyright", "credits" or "license" for more information.</span><br><span class="line"><span class="hljs-meta">></span><span class="hljs-bash">>></span></span><br></pre></td></tr></tbody></table></figure>
+
 </li>
 </ul>
 <br>
+
 <ul>
 <li>이 상태에서 <code>jupyter notebook</code>을 바로 실행을 시킬 수도 있습니다. 하지만 다른 명령어들을 더 익히기 위해 <code>exit</code>로 일단 나오도록 합니다.</li>
 </ul>
 <br>
-<h4 id="4-컨테이너-시작-명령어-실행시키기-start-exec-d"><a class="markdownIt-Anchor" href="#4-컨테이너-시작-명령어-실행시키기-start-exec-d"></a> 4. 컨테이너 시작, 명령어 실행시키기 (start, exec -d)</h4>
-<ul>
-<li>
-<p>Jupyter notebook을 실행시키도록 해보겠습니다! 먼저 <code>docker ps -a</code>을 입력해서, 방금 나왔던 컨테이너의 이름을 확인해봅니다. <code>exit</code>명령어로 환경을 나오면, 기본적으로 컨테이너는 <code>Stopped(Exited)</code>인 상태입니다.</p>
+
+<h4 id="4-컨테이너-시작-명령어-실행시키기-start-exec-d"><a href="#4-컨테이너-시작-명령어-실행시키기-start-exec-d" class="headerlink" title="4. 컨테이너 시작, 명령어 실행시키기 (start, exec -d)"></a>4. 컨테이너 시작, 명령어 실행시키기 (start, exec -d)</h4><ul>
+<li><p>Jupyter notebook을 실행시키도록 해보겠습니다! 먼저 <code>docker ps -a</code>을 입력해서, 방금 나왔던 컨테이너의 이름을 확인해봅니다. <code>exit</code>명령어로 환경을 나오면, 기본적으로 컨테이너는 <code>Stopped(Exited)</code>인 상태입니다.</p>
   <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chayesol-ui-MacBook-Pro:Blog chayesol$ docker ps -a</span><br><span class="line">CONTAINER ID        IMAGE                                  COMMAND                CREATED             STATUS                     PORTS               NAMES</span><br><span class="line">57ca32782e7e        civisanalytics/civis-jupyter-python3   "/tini -- /bin/bash"   9 minutes ago       Exited (0) 6 minutes ago                       docker101</span><br></pre></td></tr></tbody></table></figure>
-<p>제가 생성할 때 이름으로 주었던 <code>docker101</code>이 이름으로 잘 보이네요!<br>
-<br></p>
+
+<p>  제가 생성할 때 이름으로 주었던 <code>docker101</code>이 이름으로 잘 보이네요! </p>
+<br>
 </li>
-<li>
-<p>이 컨테이너는 지금 Stopped 상태(Exited)이기 때문에 새로 동작을 시켜 줘야합니다. <strong><code>docker start</code>명령어</strong>로 다시 작동시킨 뒤, Jupyter notebook을 실행합니다.</p>
+<li><p>이 컨테이너는 지금 Stopped 상태(Exited)이기 때문에 새로 동작을 시켜 줘야합니다. <strong><code>docker start</code>명령어</strong>로 다시 작동시킨 뒤, Jupyter notebook을 실행합니다.  </p>
   <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker start docker101</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker <span class="hljs-built_in">exec</span> docker101 jupyter notebook \</span></span><br><span class="line">  --ip=0.0.0.0 --port=8888 --allow-root</span><br></pre></td></tr></tbody></table></figure>
+
 </li>
 </ul>
 <br>
+
 <ul>
 <li><strong><code>exec</code> 명령어</strong>는 <u>해당 컨테이너 이름(or ID) 뒤에 나열된 명령어들을 실행하게 해줍니다</u>. ip는 0.0.0.0으로 로컬호스트를 지칭하고, 포트는 우리가 컨테이너 생성할 때 작성한 8888로 주었습니다.</li>
 </ul>
 <br>
+
 <ul>
-<li>실행 후, 나오는 <code>token값</code>을 복사한 뒤, 호스트의 브라우저 창에 <code>localhost:8888</code>을 입력하시면 <code>token</code>을 적게 되어 있습니다. 그 결과, 아래와 같이 우리는 컨테이너에 있는 Jupyter notebook을 도커를 통해 로컬호스트에서 사용할 수 있게 되었습니다!😆</li>
+<li>실행 후, 나오는 <code>token값</code>을 복사한 뒤, 호스트의 브라우저 창에 <code>localhost:8888</code>을 입력하시면 <code>token</code>을 적게 되어 있습니다. 그 결과, 아래와 같이 우리는 컨테이너에 있는 Jupyter notebook을 도커를 통해 로컬호스트에서 사용할 수 있게 되었습니다!<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png?v8">😆</span></li>
 </ul>
 <center>
     <img src="/gallery/docker10.png" width="90%">
 </center>
 <br>
-<h4 id="exec-d"><a class="markdownIt-Anchor" href="#exec-d"></a> <code>exec -d</code>?</h4>
-<ul>
-<li>
-<p><code>exec</code>명령을 줄 때, <code>-d</code>옵션을 추가하면, <strong>detached mode, 즉 백그라운드에서 컨테이너가 실행</strong>되도록 할 수 있습니다. (<code>-d</code>옵션은 <code>run</code>에도 쓸 수 있습니다.) 우리 예시에서는 보안상 Jupyter notebook의 token을 출력받고 사용해야하기 때문에 <code>-d</code>옵션을 사용하지 않았습니다.</p>
+
+<h4 id="exec-d"><a href="#exec-d" class="headerlink" title="exec -d?"></a><code>exec -d</code>?</h4><ul>
+<li><p><code>exec</code>명령을 줄 때, <code>-d</code>옵션을 추가하면, <strong>detached mode, 즉 백그라운드에서 컨테이너가 실행</strong>되도록 할 수 있습니다. (<code>-d</code>옵션은 <code>run</code>에도 쓸 수 있습니다.) 우리 예시에서는 보안상 Jupyter notebook의 token을 출력받고 사용해야하기 때문에 <code>-d</code>옵션을 사용하지 않았습니다.</p>
 </li>
-<li>
-<p>보안상 권장사항은 아니지만, <code>exec -d</code> 옵션을 사용해서 편하고 빠르게, ‘귀찮은 token입력 없이 jupyter notebook만 내가 띄우고 싶다!’ 하시면 아래와 같은 명령어를 사용하실 수 있습니다.</p>
+<li><p>보안상 권장사항은 아니지만, <code>exec -d</code> 옵션을 사용해서 편하고 빠르게, ‘귀찮은 token입력 없이 jupyter notebook만 내가 띄우고 싶다!’ 하시면 아래와 같은 명령어를 사용하실 수 있습니다. </p>
  <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker <span class="hljs-built_in">exec</span> -d docker101 \</span></span><br><span class="line">  jupyter notebook --NotebookApp.token='' \</span><br><span class="line">  --ip=0.0.0.0 --port=8888 --allow-root</span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"></span></span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li>
-<p>실행 후에는 아무 일도 없다는 듯이 그 다음 line을 출력하지만, <code>localhost:8888</code>로 접속하시면 똑같이 Jupyter notebook을 사용하실 수 있습니다.</p>
+<li><p>실행 후에는 아무 일도 없다는 듯이 그 다음 line을 출력하지만, <code>localhost:8888</code>로 접속하시면 똑같이 Jupyter notebook을 사용하실 수 있습니다. </p>
 </li>
 </ul>
 <br>
-<h4 id="5-컨테이너-재접속-재시작-attach-restart"><a class="markdownIt-Anchor" href="#5-컨테이너-재접속-재시작-attach-restart"></a> 5. 컨테이너 재접속 & 재시작 (attach, restart)</h4>
-<ul>
-<li>
-<p>Jupyter notebook은 성공적으로 띄웠으나, 컨테이너에 다시 접속해서 패키지를 더 설치하거나 환경을 세팅해줘야 할 경우, 재접속 하는 방법은 <strong><code>exec</code></strong> 를 사용하는 방법과 <strong><code>attach</code></strong> 를 사용하는 방법, 두 가지가 있습니다. 또 다른 Terminal을 띄우신 뒤에,</p>
+
+<h4 id="5-컨테이너-재접속-amp-재시작-attach-restart"><a href="#5-컨테이너-재접속-amp-재시작-attach-restart" class="headerlink" title="5. 컨테이너 재접속 & 재시작 (attach, restart)"></a>5. 컨테이너 재접속 & 재시작 (attach, restart)</h4><ul>
+<li><p>Jupyter notebook은 성공적으로 띄웠으나, 컨테이너에 다시 접속해서 패키지를 더 설치하거나 환경을 세팅해줘야 할 경우, 재접속 하는 방법은 <strong><code>exec</code></strong> 를 사용하는 방법과 <strong><code>attach</code></strong> 를 사용하는 방법, 두 가지가 있습니다. 또 다른 Terminal을 띄우신 뒤에, </p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker <span class="hljs-built_in">exec</span> -it container_name /bin/bash</span></span><br><span class="line">or</span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker attach container_name</span></span><br></pre></td></tr></tbody></table></figure>
-<p>둘 중 하나를 입력하시면 됩니다!</p>
+
+<p>  둘 중 하나를 입력하시면 됩니다!</p>
 </li>
 </ul>
 <br>
+
 <ul>
-<li>컨테이너를 재시작 해주고 싶은 경우는 <strong><code>docker restart</code></strong> 를 사용합니다.  <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker restart contatiner_name</span></span><br></pre></td></tr></tbody></table></figure>
+<li>컨테이너를 재시작 해주고 싶은 경우는 <strong><code>docker restart</code></strong> 를 사용합니다.   <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> docker restart contatiner_name</span></span><br></pre></td></tr></tbody></table></figure>
+
+
 </li>
 </ul>
 <br>
 <hr>
+
 <ul>
-<li>이상, Docker의 개념과 설치, 그리고 간단한 기본 명령어들에 대해 알아보았습니다. 다음 <a href="https://www.stand-firm-peter.me/2019/05/09/docker-102/"><code>Hi, Docker!:) (2)</code></a>에서는 <strong><code>컨테이너와 로컬저장소 연결하기</code></strong> 와 <strong><code>내 컨테이너 이미지로 업로드하기</code></strong> 라는 두가지 주제를 다뤄보도록 하겠습니다.</li>
-<li>감사합니다 😌</li>
+<li>이상, Docker의 개념과 설치, 그리고 간단한 기본 명령어들에 대해 알아보았습니다. 다음 <a href="https://www.stand-firm-peter.me/2019/05/09/docker-102/"><code>Hi, Docker!:) (2)</code></a>에서는 <strong><code>컨테이너와 로컬저장소 연결하기</code></strong> 와 <strong><code>내 컨테이너 이미지로 업로드하기</code></strong> 라는 두가지 주제를 다뤄보도록 하겠습니다. </li>
+<li>감사합니다 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f60c.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60c.png?v8">😌</span></li>
 </ul>
-<h3 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h3>
-<ul>
-<li>이 글은 아래 두 글을 기반으로 작성되었습니다😄. 더 자세한 정보는 ↓
-<ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li>이 글은 아래 두 글을 기반으로 작성되었습니다<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8">😄</span>. 더 자세한 정보는 ↓ <ul>
 <li><strong>초보를 위한 도커 안내서 - <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html" target="_blank" rel="noopener">도커란 무엇인가?</a></strong></li>
 <li><strong>초보를 위한 도커 안내서 - <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html" target="_blank" rel="noopener">설치하고 컨테이너 실행하기</a></strong></li>
 </ul>

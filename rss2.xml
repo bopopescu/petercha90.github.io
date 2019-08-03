@@ -4,7 +4,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Stand firm Peter</title>
-    <link>https://www.stand-firm-peter.me/</link>
+    <link>httpss://www.stand-firm-peter.me/</link>
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>Peter&#39;s playground.</description>
@@ -13,8 +13,8 @@
     
     <item>
       <title>Hi, Keras! :) (1)</title>
-      <link>http://www.stand-firm-peter.me/2019/06/12/keras_101/</link>
-      <guid>http://www.stand-firm-peter.me/2019/06/12/keras_101/</guid>
+      <link>https://www.stand-firm-peter.me/2019/06/12/keras_101/</link>
+      <guid>https://www.stand-firm-peter.me/2019/06/12/keras_101/</guid>
       <pubDate>Wed, 12 Jun 2019 14:03:01 GMT</pubDate>
       <description>
       
@@ -31,8 +31,8 @@
     
     <item>
       <title>Hi, Colab! :)</title>
-      <link>http://www.stand-firm-peter.me/2019/06/12/Colab_tutorial/</link>
-      <guid>http://www.stand-firm-peter.me/2019/06/12/Colab_tutorial/</guid>
+      <link>https://www.stand-firm-peter.me/2019/06/12/Colab_tutorial/</link>
+      <guid>https://www.stand-firm-peter.me/2019/06/12/Colab_tutorial/</guid>
       <pubDate>Wed, 12 Jun 2019 12:31:02 GMT</pubDate>
       <description>
       
@@ -50,8 +50,8 @@
     
     <item>
       <title>Hi, Docker! :) (3)</title>
-      <link>http://www.stand-firm-peter.me/2019/05/25/docker-103/</link>
-      <guid>http://www.stand-firm-peter.me/2019/05/25/docker-103/</guid>
+      <link>https://www.stand-firm-peter.me/2019/05/25/docker-103/</link>
+      <guid>https://www.stand-firm-peter.me/2019/05/25/docker-103/</guid>
       <pubDate>Sat, 25 May 2019 06:26:56 GMT</pubDate>
       <description>
       
@@ -68,8 +68,8 @@
     
     <item>
       <title>Hi, Docker! :) (2)</title>
-      <link>http://www.stand-firm-peter.me/2019/05/09/docker-102/</link>
-      <guid>http://www.stand-firm-peter.me/2019/05/09/docker-102/</guid>
+      <link>https://www.stand-firm-peter.me/2019/05/09/docker-102/</link>
+      <guid>https://www.stand-firm-peter.me/2019/05/09/docker-102/</guid>
       <pubDate>Thu, 09 May 2019 06:26:56 GMT</pubDate>
       <description>
       
@@ -86,8 +86,8 @@
     
     <item>
       <title>Hi, Docker! :) (1)</title>
-      <link>http://www.stand-firm-peter.me/2019/04/24/docker-intro/</link>
-      <guid>http://www.stand-firm-peter.me/2019/04/24/docker-intro/</guid>
+      <link>https://www.stand-firm-peter.me/2019/04/24/docker-intro/</link>
+      <guid>https://www.stand-firm-peter.me/2019/04/24/docker-intro/</guid>
       <pubDate>Wed, 24 Apr 2019 06:26:56 GMT</pubDate>
       <description>
       
@@ -105,8 +105,8 @@
     
     <item>
       <title>Pandas Cheat Sheet</title>
-      <link>http://www.stand-firm-peter.me/2019/02/16/pandas-101/</link>
-      <guid>http://www.stand-firm-peter.me/2019/02/16/pandas-101/</guid>
+      <link>https://www.stand-firm-peter.me/2019/02/16/pandas-101/</link>
+      <guid>https://www.stand-firm-peter.me/2019/02/16/pandas-101/</guid>
       <pubDate>Sat, 16 Feb 2019 08:33:39 GMT</pubDate>
       <description>
       
@@ -124,8 +124,8 @@
     
     <item>
       <title>L1 &amp; L2</title>
-      <link>http://www.stand-firm-peter.me/2018/09/24/l1l2/</link>
-      <guid>http://www.stand-firm-peter.me/2018/09/24/l1l2/</guid>
+      <link>https://www.stand-firm-peter.me/2018/09/24/l1l2/</link>
+      <guid>https://www.stand-firm-peter.me/2018/09/24/l1l2/</guid>
       <pubDate>Sun, 23 Sep 2018 15:00:00 GMT</pubDate>
       <description>
       
@@ -141,8 +141,8 @@
     
     <item>
       <title>Logarithms</title>
-      <link>http://www.stand-firm-peter.me/2018/09/12/Logarithms/</link>
-      <guid>http://www.stand-firm-peter.me/2018/09/12/Logarithms/</guid>
+      <link>https://www.stand-firm-peter.me/2018/09/12/Logarithms/</link>
+      <guid>https://www.stand-firm-peter.me/2018/09/12/Logarithms/</guid>
       <pubDate>Wed, 12 Sep 2018 07:38:26 GMT</pubDate>
       <description>
       
@@ -160,8 +160,8 @@
     
     <item>
       <title>tf.identity()</title>
-      <link>http://www.stand-firm-peter.me/2018/09/07/tf-identity/</link>
-      <guid>http://www.stand-firm-peter.me/2018/09/07/tf-identity/</guid>
+      <link>https://www.stand-firm-peter.me/2018/09/07/tf-identity/</link>
+      <guid>https://www.stand-firm-peter.me/2018/09/07/tf-identity/</guid>
       <pubDate>Fri, 07 Sep 2018 06:00:30 GMT</pubDate>
       <description>
       
@@ -179,8 +179,8 @@
     
     <item>
       <title>Pseudo Labelling</title>
-      <link>http://www.stand-firm-peter.me/2018/08/22/pseudo-label/</link>
-      <guid>http://www.stand-firm-peter.me/2018/08/22/pseudo-label/</guid>
+      <link>https://www.stand-firm-peter.me/2018/08/22/pseudo-label/</link>
+      <guid>https://www.stand-firm-peter.me/2018/08/22/pseudo-label/</guid>
       <pubDate>Wed, 22 Aug 2018 08:52:56 GMT</pubDate>
       <description>
       
@@ -198,8 +198,8 @@
     
     <item>
       <title>Tensorpack tutorial</title>
-      <link>http://www.stand-firm-peter.me/2018/08/18/Tensorpack-tutorial/</link>
-      <guid>http://www.stand-firm-peter.me/2018/08/18/Tensorpack-tutorial/</guid>
+      <link>https://www.stand-firm-peter.me/2018/08/18/Tensorpack-tutorial/</link>
+      <guid>https://www.stand-firm-peter.me/2018/08/18/Tensorpack-tutorial/</guid>
       <pubDate>Sat, 18 Aug 2018 06:00:30 GMT</pubDate>
       <description>
       
@@ -217,8 +217,8 @@
     
     <item>
       <title>Basic Deep learning 02</title>
-      <link>http://www.stand-firm-peter.me/2018/04/06/Basic-Deep-Learning-02/</link>
-      <guid>http://www.stand-firm-peter.me/2018/04/06/Basic-Deep-Learning-02/</guid>
+      <link>https://www.stand-firm-peter.me/2018/04/06/Basic-Deep-Learning-02/</link>
+      <guid>https://www.stand-firm-peter.me/2018/04/06/Basic-Deep-Learning-02/</guid>
       <pubDate>Fri, 06 Apr 2018 14:31:02 GMT</pubDate>
       <description>
       
@@ -236,8 +236,8 @@
     
     <item>
       <title>Basic Deep learning 01</title>
-      <link>http://www.stand-firm-peter.me/2018/02/06/Basic-Deep%20learning-01/</link>
-      <guid>http://www.stand-firm-peter.me/2018/02/06/Basic-Deep%20learning-01/</guid>
+      <link>https://www.stand-firm-peter.me/2018/02/06/Basic-Deep%20learning-01/</link>
+      <guid>https://www.stand-firm-peter.me/2018/02/06/Basic-Deep%20learning-01/</guid>
       <pubDate>Tue, 06 Feb 2018 14:31:02 GMT</pubDate>
       <description>
       
@@ -255,8 +255,8 @@
     
     <item>
       <title>How to create a Hexo Blog</title>
-      <link>http://www.stand-firm-peter.me/2018/01/06/Start/</link>
-      <guid>http://www.stand-firm-peter.me/2018/01/06/Start/</guid>
+      <link>https://www.stand-firm-peter.me/2018/01/06/Start/</link>
+      <guid>https://www.stand-firm-peter.me/2018/01/06/Start/</guid>
       <pubDate>Fri, 05 Jan 2018 15:08:14 GMT</pubDate>
       <description>
       

@@ -8,8 +8,26 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Peter&#39;s playground.</description>
-    <pubDate>Tue, 30 Jul 2019 08:27:18 GMT</pubDate>
+    <pubDate>Sat, 03 Aug 2019 10:23:28 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>MobileNet v1 ~ v3</title>
+      <link>http://www.stand-firm-peter.me/2019/07/30/mobilenet/</link>
+      <guid>http://www.stand-firm-peter.me/2019/07/30/mobilenet/</guid>
+      <pubDate>Tue, 30 Jul 2019 07:44:56 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;MobileNet v1 ~ v3 &lt;/li&gt;
+&lt;li&gt;Concise explanation of MobileNet Family.&lt;/li&gt;&lt;/ul&gt;
+      
+      </description>
+      
+      <content:encoded><![CDATA[<ul><li>MobileNet v1 ~ v3 </li><li>Concise explanation of MobileNet Family. <a id="more"></a></li></ul><hr><ul><li>2017년 4월 17일. 대놓고 청량감을 주는 이름으로, 현재 많은 모바일, 자율주행 등의 Local 장비에서의 Object Detection으로 사랑받고 있는 MobileNet.<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f4f1.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4f1.png?v8">📱</span> </li><li>어느새 2019년 6월 12일을 기점으로 Version 3까지 나와버렸습니다. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span> 그 기념으로(?) MobileNet은 과연 어떠한 진화를 거듭해 왔는지 함께 살펴 보실까요? <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8">😶</span> </li></ul><hr><h2 id="MobileNet-v1"><a href="#MobileNet-v1" class="headerlink" title="MobileNet v1"></a>MobileNet v1</h2><h4 id="2017-04-17"><a href="#2017-04-17" class="headerlink" title="2017.04.17"></a>2017.04.17</h4><ul><li><p>MobileNet은 논문에서, 자신들의 <strong>$3 \times 3$ Depthwise Separable Convolutions</strong>을 쓰면, Standard Convolution 계산량의 8배에서 9배 가량 작은 계산을 할 수 있게 된다고 한다. </p></li><li><p>MobileNet의 가장 핵심이 되는 아이디어는 아래와 같다. </p><blockquote><p>‘굳이 <strong>모든 Input Feature Map</strong>들에 대해 <strong>모든 Filter</strong>가 학습을 해야하나?’ <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8">😶</span></p></blockquote></li></ul><h3 id="Depthwise-Separable-Convolutions"><a href="#Depthwise-Separable-Convolutions" class="headerlink" title="Depthwise Separable Convolutions"></a>Depthwise Separable Convolutions</h3><ul><li>일반적인 Convolution Filter의 이미지 처리와 MobileNet의 Conv처리 방식의 차이를 직관적으로 알아보기 위해 아래의 그림을 보도록 하자. </li></ul><hr><h2 id="MobileNet-v2"><a href="#MobileNet-v2" class="headerlink" title="MobileNet v2"></a>MobileNet v2</h2><h4 id="2018-01-13"><a href="#2018-01-13" class="headerlink" title="2018.01.13"></a>2018.01.13</h4><hr><h2 id="MobileNet-v3"><a href="#MobileNet-v3" class="headerlink" title="MobileNet v3"></a>MobileNet v3</h2><h4 id="2019-06-12"><a href="#2019-06-12" class="headerlink" title="2019.06.12"></a>2019.06.12</h4><hr><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>* </p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content:encoded>
+      
+      <comments>http://www.stand-firm-peter.me/2019/07/30/mobilenet/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Hi, Keras! :) (1)</title>

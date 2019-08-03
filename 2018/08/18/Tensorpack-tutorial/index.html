@@ -180,9 +180,9 @@
 
 <h5 id="ModelDesc와-Trainer를-중심으로"><a href="#ModelDesc와-Trainer를-중심으로" class="headerlink" title="ModelDesc와 Trainer를 중심으로"></a>ModelDesc와 Trainer를 중심으로</h5><h3 id="Peter-Cha"><a href="#Peter-Cha" class="headerlink" title="Peter Cha"></a>Peter Cha</h3><h2 id="Tensorpack을-공부하면"><a href="#Tensorpack을-공부하면" class="headerlink" title="Tensorpack을 공부하면,"></a>Tensorpack을 공부하면,</h2><ul>
 <li>우선 모르는 것들 투성이다. 알고나면 너무 쓰기 편하지만, 처음 접할 때는 너무 많이 추상화 된 API에 ‘이게 tensorflow는 맞는지..’할 정도니까.</li>
-<li>우선 이 튜토리얼을 보기 전, 필자의 <a href="https://github.com/PeterCha90/Tensorflow-Deep-Learning/blob/master/Tutorials/Tensorpack_tutorial.ipynb" target="_blank" rel="noopener"><code>tensorpack_tutorial.ipynb</code></a>를 실행해 보길 바란다. 대략적인 dataflow는 데이터를 불러오는 부분으로 이해를 마쳤다고 생각을 하고, dataflow부분은 생략하고 설명을 진행하도록 하겠다. </li>
+<li>우선 이 튜토리얼을 보기 전, 필자의 <a href="https://github.com/PeterCha90/Tensorflow-Deep-Learning/blob/master/Tutorials/Tensorpack_tutorial.ipynb" target="_blank" rel="external nofollow noopener noreferrer"><code>tensorpack_tutorial.ipynb</code></a>를 실행해 보길 바란다. 대략적인 dataflow는 데이터를 불러오는 부분으로 이해를 마쳤다고 생각을 하고, dataflow부분은 생략하고 설명을 진행하도록 하겠다. </li>
 <li>이번에는 Model의 선언하게 될 때 상속받은 <strong><code>ModelDesc</code></strong> class와, 학습을 실행하는 Trainer들의 모태가 되는 <strong><code>TowerTrainer</code></strong> 에 대해 알아보고자 한다.<code>tensorpack_tutorial.ipynb</code>에서 설명에 해당하는 부분을 함께 찾아보면 이해에 도움이 더 될 것 같다. </li>
-<li>이 Tutorial은 Tensorpack <a href="https://tensorpack.readthedocs.io/modules/train.html?highlight=TowerFuncWrapper" target="_blank" rel="noopener">documentation</a>을 참고해서 만들었다. </li>
+<li>이 Tutorial은 Tensorpack <a href="https://tensorpack.readthedocs.io/modules/train.html?highlight=TowerFuncWrapper" target="_blank" rel="external nofollow noopener noreferrer">documentation</a>을 참고해서 만들었다. </li>
 </ul>
 <hr>
 
@@ -275,7 +275,7 @@
 </li>
 <li><p>다른 TowerTrainer를 상속 받은 Trainer들을 사용할 때, 종종 TowerTrainer에서 본 적 없는 친구들이 나타나는데, 그 친구들이 Trainer의 것인 경우가 있다. </p>
 </li>
-<li><p>하지만, Trainer 고유 함수나 요소에 직접적으로 접근할 일이 별로 없어서 아래의 3가지 정도만 알고 있으면 될 것 같다. 나머지는 <a href="https://tensorpack.readthedocs.io/modules/train.html?highlight=register_callback#tensorpack.train.Trainer" target="_blank" rel="noopener">문서</a>를 참고하자. </p>
+<li><p>하지만, Trainer 고유 함수나 요소에 직접적으로 접근할 일이 별로 없어서 아래의 3가지 정도만 알고 있으면 될 것 같다. 나머지는 <a href="https://tensorpack.readthedocs.io/modules/train.html?highlight=register_callback#tensorpack.train.Trainer" target="_blank" rel="external nofollow noopener noreferrer">문서</a>를 참고하자. </p>
 </li>
 </ul>
 <blockquote>
@@ -312,7 +312,7 @@
 <ul>
 <li><p>그래서, 내가 세운 모델을 외부에서 사용하고 싶을 때, 즉, 나만의 Trainer를 새로 정의해서 train/test time때, 다르게 동작을 해야하는 상황이라면, TowerContext를 적절히 써서 분기시켜줘야 한다. </p>
 </li>
-<li><p>아래는 Tensorpack Github에서 제공하는 <a href="https://github.com/tensorpack/tensorpack/blob/master/examples/GAN/GAN.py" target="_blank" rel="noopener">GANTrainer</a>에서 실제로 TowerContext를 어떻게 설정해주는지 보여주는 예시다. </p>
+<li><p>아래는 Tensorpack Github에서 제공하는 <a href="https://github.com/tensorpack/tensorpack/blob/master/examples/GAN/GAN.py" target="_blank" rel="external nofollow noopener noreferrer">GANTrainer</a>에서 실제로 TowerContext를 어떻게 설정해주는지 보여주는 예시다. </p>
 <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GANTrainer</span><span class="hljs-params">(TowerTrainer)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, input, model)</span>:</span></span><br><span class="line">    ..</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># Build the graph</span></span><br><span class="line">        self.tower_func = TowerFuncWrapper(model.build_graph, inputs_desc)</span><br><span class="line">        <span class="hljs-keyword">with</span> TowerContext(<span class="hljs-string">''</span>, is_training=<span class="hljs-literal">True</span>):</span><br><span class="line">            self.tower_func(*input.get_input_tensors())</span><br><span class="line">        opt = model.get_optimizer()</span><br><span class="line">    ...</span><br></pre></td></tr></tbody></table></figure>
 
 </li>
@@ -342,7 +342,7 @@
         
         
         <div id="bmc" align="center">
-            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha" rel="external nofollow noopener noreferrer"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
         </div>
         
         
@@ -590,7 +590,7 @@
                 </a>
                 <p class="is-size-7">
                 &copy; 2019 Peter Cha&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
                 
                 </p>
             </div>
@@ -600,7 +600,7 @@
                 
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/" rel="external nofollow noopener noreferrer">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -608,7 +608,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noopener noreferrer">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -616,7 +616,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus" rel="external nofollow noopener noreferrer">
                         
                         <i class="fab fa-github"></i>
                         
@@ -653,7 +653,7 @@
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>

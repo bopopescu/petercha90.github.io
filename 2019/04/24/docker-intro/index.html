@@ -197,7 +197,7 @@
 
 <h3 id="Container-안에-다-있어요"><a href="#Container-안에-다-있어요" class="headerlink" title="Container 안에 다 있어요!"></a>Container 안에 다 있어요!</h3><ul>
 <li>Docker가 핫한 이유는 이게 다가 아니겠죠. 머신러닝을 위한 환경구축을 해보신 분들은 다들 공감하실 수 <strike> 빡쳐 보신 적<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f47f.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f47f.png?v8">👿</span></strike>있으실 겁니다. 내가 그렇게 수많은 에러들과 StackOverflow를 헤매가며 설정한 그 환경 말이죠. (Anarconda + Tensorflow + Pytorch + R + R Studio + cuDNN + 온갖 Python Packages + 등등..)</li>
-<li>이제 Docker를 쓰면, 그렇게 만든 환경을 Docker계의 Github인 <a href="https://hub.docker.com/" target="_blank" rel="noopener">Docker Hub</a>에 Image화 한 뒤 올리면, 어디서나 받아서 쓸 수 있습니다. 또한 남들이 열심히 만들어서 공유해 준, <strike> 인성 거의 산타<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f385.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f385.png?v8">🎅</span></strike> 환경을 받아 편하게 쓸 수도 있습니다. 너무 좋죠?</li>
+<li>이제 Docker를 쓰면, 그렇게 만든 환경을 Docker계의 Github인 <a href="https://hub.docker.com/" target="_blank" rel="external nofollow noopener noreferrer">Docker Hub</a>에 Image화 한 뒤 올리면, 어디서나 받아서 쓸 수 있습니다. 또한 남들이 열심히 만들어서 공유해 준, <strike> 인성 거의 산타<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f385.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f385.png?v8">🎅</span></strike> 환경을 받아 편하게 쓸 수도 있습니다. 너무 좋죠?</li>
 </ul>
 <br>
 <center>
@@ -216,15 +216,15 @@
 <li><p>Ubuntu 환경만 설명하자면, 아래와 같은 명령어로 간편하게 설치 하실 수 있습니다. 명령어 위에 주석처리된 부분은 2019년 5월 현재 Ubuntu 환경의 Prerequisites이니 참고하세요 :) </p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> OS requirements</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> To install Docker CE, you need the 64-bit version of one of these Ubuntu versions:</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> Cosmic 18.10</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> Bionic 18.04 (LTS)</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> Xenial 16.04 (LTS)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo apt-get update</span></span><br><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo apt-get install docker-ce docker-ce-cli containerd.io</span></span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>다른 Linux 환경은 <a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener">여기</a>를 참조하세요.</p>
+<li><p>다른 Linux 환경은 <a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="external nofollow noopener noreferrer">여기</a>를 참조하세요.</p>
 </li>
 </ul>
 <h4 id="Mac-amp-Windows"><a href="#Mac-amp-Windows" class="headerlink" title="Mac & Windows"></a>Mac & Windows</h4><ul>
 <li>Mac과 Windows 환경은 다음과 같은 기준에 따라 설치 방법이 두 가지로 나누어 집니다.<blockquote>
 <ol>
-<li><p><strong>Windows</strong>: <code>Windows 10 Pro 이상</code> 모델 (10 Home 안됨)<br>                  <strong>→</strong> <strong><a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows" target="_blank" rel="noopener">Docker for Windows</a></strong><br><strong>Mac</strong>:  OS가 <code>Sierra 10.12 혹은 그 이상</code><br>         <strong>→</strong> <strong><a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac" target="_blank" rel="noopener">Docker for Mac</a></strong></p>
+<li><p><strong>Windows</strong>: <code>Windows 10 Pro 이상</code> 모델 (10 Home 안됨)<br>                  <strong>→</strong> <strong><a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows" target="_blank" rel="external nofollow noopener noreferrer">Docker for Windows</a></strong><br><strong>Mac</strong>:  OS가 <code>Sierra 10.12 혹은 그 이상</code><br>         <strong>→</strong> <strong><a href="https://hub.docker.com/editions/community/docker-ce-desktop-mac" target="_blank" rel="external nofollow noopener noreferrer">Docker for Mac</a></strong></p>
 </li>
-<li><p><strong>Windows & Mac</strong>: 1번 조건을 만족하지 못하는 경우 <strong>→</strong> <strong><a href="https://docs.docker.com/toolbox/overview/" target="_blank" rel="noopener">Docker ToolBox</a></strong></p>
+<li><p><strong>Windows & Mac</strong>: 1번 조건을 만족하지 못하는 경우 <strong>→</strong> <strong><a href="https://docs.docker.com/toolbox/overview/" target="_blank" rel="external nofollow noopener noreferrer">Docker ToolBox</a></strong></p>
 </li>
 </ol>
 </blockquote>
@@ -232,7 +232,7 @@
 </ul>
 <h5 id="참고-사항"><a href="#참고-사항" class="headerlink" title="참고 사항"></a>참고 사항</h5><ul>
 <li>기본적으로 <strong>Docker에 회원가입</strong>을 하시고 ID를 생성하셔야 설치 파일을 다운을 받을 수 있습니다.</li>
-<li>Windows에서는 <strong><code>[작업 관리자 > 성능]</code></strong> 에 들어가 <strong><code>"가상화 : 사용"</code></strong> 을 확인을 하시고 안되어있다면, <a href="https://docs.microsoft.com/ko-kr/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v" target="_blank" rel="noopener">활성화</a>를 해줘야 합니다.</li>
+<li>Windows에서는 <strong><code>[작업 관리자 > 성능]</code></strong> 에 들어가 <strong><code>"가상화 : 사용"</code></strong> 을 확인을 하시고 안되어있다면, <a href="https://docs.microsoft.com/ko-kr/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v" target="_blank" rel="external nofollow noopener noreferrer">활성화</a>를 해줘야 합니다.</li>
 <li>개인적인 경험상, Windows 환경에서 1번의 환경이 충족되어 Docker for Windows를 설치하였는데도, <u><strong>Linux Container로 Switch를 못한다</strong> 던가 하는 에러</u>가 발생되어 사용이 힘들 때<br>$\to$ 그냥 2번으로 Docker ToolBox를 설치하고, <code>Docker Quickstart Terminal</code>을 사용, Docker를 실행하기도 했습니다. <strike>되기만하면 장땡이니까요 </strike></li>
 </ul>
 <h4 id="설치-확인"><a href="#설치-확인" class="headerlink" title="설치 확인"></a>설치 확인</h4><ul>
@@ -262,7 +262,7 @@
 <br>
 
 <h4 id="1-이미지-다운로드-하기-pull-images"><a href="#1-이미지-다운로드-하기-pull-images" class="headerlink" title="1. 이미지 다운로드 하기 (pull, images)"></a>1. 이미지 다운로드 하기 (pull, images)</h4><ul>
-<li><a href="https://hub.docker.com" target="_blank" rel="noopener">Docker Hub</a>에 접속해서 <code>jupyter-python3</code>로 검색을 하니, 천만 다운로드에 빛나는 이미지가 나오네요. </li>
+<li><a href="https://hub.docker.com" target="_blank" rel="external nofollow noopener noreferrer">Docker Hub</a>에 접속해서 <code>jupyter-python3</code>로 검색을 하니, 천만 다운로드에 빛나는 이미지가 나오네요. </li>
 </ul>
 <center>
     <img src="/gallery/docker6.png" width="93%">
@@ -413,8 +413,8 @@
 </ul>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
 <li>이 글은 아래 두 글을 기반으로 작성되었습니다<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8">😄</span>. 더 자세한 정보는 ↓ <ul>
-<li><strong>초보를 위한 도커 안내서 - <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html" target="_blank" rel="noopener">도커란 무엇인가?</a></strong></li>
-<li><strong>초보를 위한 도커 안내서 - <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html" target="_blank" rel="noopener">설치하고 컨테이너 실행하기</a></strong></li>
+<li><strong>초보를 위한 도커 안내서 - <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html" target="_blank" rel="external nofollow noopener noreferrer">도커란 무엇인가?</a></strong></li>
+<li><strong>초보를 위한 도커 안내서 - <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html" target="_blank" rel="external nofollow noopener noreferrer">설치하고 컨테이너 실행하기</a></strong></li>
 </ul>
 </li>
 </ul>
@@ -441,7 +441,7 @@
         
         
         <div id="bmc" align="center">
-            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha" rel="external nofollow noopener noreferrer"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
         </div>
         
         
@@ -689,7 +689,7 @@
                 </a>
                 <p class="is-size-7">
                 &copy; 2019 Peter Cha&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
                 
                 </p>
             </div>
@@ -699,7 +699,7 @@
                 
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/" rel="external nofollow noopener noreferrer">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -707,7 +707,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noopener noreferrer">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -715,7 +715,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus" rel="external nofollow noopener noreferrer">
                         
                         <i class="fab fa-github"></i>
                         
@@ -752,7 +752,7 @@
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>

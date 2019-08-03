@@ -180,9 +180,9 @@
 
 
 <h6 id="Peter-Cha"><a href="#Peter-Cha" class="headerlink" title="Peter Cha"></a>Peter Cha</h6><ul>
-<li><p>Deep Learning을 이해하고, 직접 Deep Learning을 구현하고자 했을 때 필요한 기본 개념들을 정리해 보았습니다. 이번 포스팅에서는 <code>Epoch, Batch</code>라는 단어들의 의미와, 기본적인 <code>CNN - Convolutional Neural Network</code>에 대한 키워드들을 다룹니다. 유명한 <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" target="_blank" rel="noopener">MNIST</a> 데이터를 학습하는 모델을 만들고 싶다고 했을 때, 언급한 키워드들이 어떤 의미로 사용되는지 예시로 함께 보려합니다. </p>
+<li><p>Deep Learning을 이해하고, 직접 Deep Learning을 구현하고자 했을 때 필요한 기본 개념들을 정리해 보았습니다. 이번 포스팅에서는 <code>Epoch, Batch</code>라는 단어들의 의미와, 기본적인 <code>CNN - Convolutional Neural Network</code>에 대한 키워드들을 다룹니다. 유명한 <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" target="_blank" rel="external nofollow noopener noreferrer">MNIST</a> 데이터를 학습하는 모델을 만들고 싶다고 했을 때, 언급한 키워드들이 어떤 의미로 사용되는지 예시로 함께 보려합니다. </p>
 </li>
-<li><p>In this post, you will learn the Concepts needed when you need to understand the process of training AI or implement the AI by yourself. We are going to talk about <code>Epoch, Batch</code>, and basic <code>CNN</code> knowledges.<br>Supposed we want to make a model which classifies <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" target="_blank" rel="noopener">MNIST</a> data, let’s check how the keywords above can be used.</p>
+<li><p>In this post, you will learn the Concepts needed when you need to understand the process of training AI or implement the AI by yourself. We are going to talk about <code>Epoch, Batch</code>, and basic <code>CNN</code> knowledges.<br>Supposed we want to make a model which classifies <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" target="_blank" rel="external nofollow noopener noreferrer">MNIST</a> data, let’s check how the keywords above can be used.</p>
 </li>
 </ul>
 <h2 id="MNIST"><a href="#MNIST" class="headerlink" title="MNIST"></a>MNIST</h2><ul>
@@ -190,7 +190,7 @@
 </ul>
 <center><img src="/gallery/mnist.png" width="500"></center>
 
-<h6 id="Images-from-tensorflow-gitbooks-io"><a href="#Images-from-tensorflow-gitbooks-io" class="headerlink" title="Images from tensorflow.gitbooks.io."></a>Images from <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" target="_blank" rel="noopener">tensorflow.gitbooks.io</a>.</h6><ul>
+<h6 id="Images-from-tensorflow-gitbooks-io"><a href="#Images-from-tensorflow-gitbooks-io" class="headerlink" title="Images from tensorflow.gitbooks.io."></a>Images from <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" target="_blank" rel="external nofollow noopener noreferrer">tensorflow.gitbooks.io</a>.</h6><ul>
 <li>As you can see above, MNIST is a dataset of handwritten digits, 0 to 9. Therefore, MNIST dataset has 10 classes to distinguish. Using this data, Our model to be trained will be able to distinguish 0 ~ 9 handwritten digits.</li>
 </ul>
 <br>
@@ -206,27 +206,27 @@
 <br>
 
 <h2 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h2><ul>
-<li><strong>CNN</strong>은 <strong>C</strong>onvolution <strong>N</strong>eural <strong>N</strong>etwork의 약어로, Convolution 계산이 어떻게 Neural Network 2D 이미지 계산과 관련이 있는지는 <a href="https://brunch.co.kr/@chris-song/24" target="_blank" rel="noopener">여기</a>를 참고해주세요. 이 글에서는, CNN에서 자주 언급되는, Filter, Kernel, Stride,  Pooling, 그리고 Padding에 대해서 알아봅니다. </li>
+<li><strong>CNN</strong>은 <strong>C</strong>onvolution <strong>N</strong>eural <strong>N</strong>etwork의 약어로, Convolution 계산이 어떻게 Neural Network 2D 이미지 계산과 관련이 있는지는 <a href="https://brunch.co.kr/@chris-song/24" target="_blank" rel="external nofollow noopener noreferrer">여기</a>를 참고해주세요. 이 글에서는, CNN에서 자주 언급되는, Filter, Kernel, Stride,  Pooling, 그리고 Padding에 대해서 알아봅니다. </li>
 </ul>
 <h3 id="Feature-Channel-or-Activation-map"><a href="#Feature-Channel-or-Activation-map" class="headerlink" title="Feature(= Channel or Activation map)"></a>Feature(= Channel or Activation map)</h3><ul>
 <li>잠시 MNIST대신에 고양이가 어떻게 생겼는지를 학습하는 Model을 만들고 있다고 생각해 봅시다. 그러면 RGB color로 된 사진을 넣어주게 되고, 우리는 모델에게 이 고양이에 대한 특징(Feature)을 추출해서 학습을 하라고 할 것입니다. </li>
 </ul>
 <center><img src="/gallery/cnn2.png" width="600"></center>
 
-<h6 id="Images-from-ireneli-eu"><a href="#Images-from-ireneli-eu" class="headerlink" title="Images from ireneli.eu."></a>Images from <a href="https://ireneli.eu/2016/02/03/deep-learning-05-talk-about-convolutional-neural-network%EF%BC%88cnn%EF%BC%89/" target="_blank" rel="noopener">ireneli.eu</a>.</h6><ul>
+<h6 id="Images-from-ireneli-eu"><a href="#Images-from-ireneli-eu" class="headerlink" title="Images from ireneli.eu."></a>Images from <a href="https://ireneli.eu/2016/02/03/deep-learning-05-talk-about-convolutional-neural-network%EF%BC%88cnn%EF%BC%89/" target="_blank" rel="external nofollow noopener noreferrer">ireneli.eu</a>.</h6><ul>
 <li>자, 그러면 우리 모델이 맨 처음 보게될 이미지는 Width, Height, 그리고 <u>Red, Green, Blue 3가지</u>로 이루어진 이미지를 받게 되는 것이죠. 이 때, 우리는 Channel이라고 부르는 부분으로 이 RGB인 Depth를 지칭합니다. 그러면 원본 이미지는 <code>'channel의 size가 3이다'</code>라고 말 할 수 있게 됩니다. </li>
 <li>우리 MNIST 이미지는 가로 28 pixel, 세로 28 pixel 짜리, 흑백 이미지입니다!(이미지에는 32라고 적혀있지만..) 그래서 MNIST 이미지의 channel의 Size는 1입니다. </li>
 </ul>
 <center><img src="/gallery/cnn_archi.jpg" width="600"></center>
 
 
-<h6 id="Images-from-parse-ele-tue-nl"><a href="#Images-from-parse-ele-tue-nl" class="headerlink" title="Images from parse.ele.tue.nl."></a>Images from <a href="http://parse.ele.tue.nl/cluster/2/CNNArchitecture.jpg" target="_blank" rel="noopener">parse.ele.tue.nl</a>.</h6><ul>
+<h6 id="Images-from-parse-ele-tue-nl"><a href="#Images-from-parse-ele-tue-nl" class="headerlink" title="Images from parse.ele.tue.nl."></a>Images from <a href="http://parse.ele.tue.nl/cluster/2/CNNArchitecture.jpg" target="_blank" rel="external nofollow noopener noreferrer">parse.ele.tue.nl</a>.</h6><ul>
 <li>이번에는 왜 이 Channel의 또다른 이름이 Feature, Feature maps인지 알아봅시다. 우리 MNIST 데이터가 위의 그림과 같이 들어간다고 했을 때, $C_1$을 보시면 5x5 크기의 Conv를 통과한 뒤, 이미지가 4겹(?)이 됐습니다. 이 때 우리는 Feature map의 size가 4가 됐다고 말할 수 있습니다. 그리고 $C_2$를 보시면 feature map이 12개가 됐죠. </li>
 <li>이런 행위를 해석을 하자면, 들어온 이미지에 대해서 <code>특징을 추출</code>했는데, $C_1$에서는 특징을 4개를 추출하고, $C_2$에서는 특징을 12개를 추출한 뒤 결과물이라고 생각하시면 됩니다. <code>'특징(Feature)을 추출한다'</code>라는 말이 무슨 말인지 이해를 돕기 위해서, 아래 사진을 준비했습니다. </li>
 </ul>
 <center><img src="/gallery/cnn3.png" height="600"></center>
 
-<h6 id="Images-from-deliveryimages"><a href="#Images-from-deliveryimages" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" target="_blank" rel="noopener">deliveryimages</a>.</h6><ul>
+<h6 id="Images-from-deliveryimages"><a href="#Images-from-deliveryimages" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" target="_blank" rel="external nofollow noopener noreferrer">deliveryimages</a>.</h6><ul>
 <li>위 사진은, 사람 얼굴을 학습하는 CNN 모델의 Layer별로 추출한 특징들을 시각화 한 것입니다. 맨처음엔 Pixel로 구성돼있는 원본 이미지에서 맨처음에는 취운 특징인 가로, 세로, 대각선, 원, 곡선 등등의 비교적 단순한 edge들만 특징으로 추출하고 있습니다. </li>
 <li>하지만 모델의 구조가 더 깊이 들어갈 수록, 그 단순한 Feature들을 조합해서 조금더 복잡한 눈, 코, 입 등을 그릴 수 있게 되고, 그 자체를 Feature로 삼을 수 있게 됩니다. 그러다 보면 사람의 전체전인 얼굴이라는 object를 Detect할 수 있는 모델이 되는 것이죠. </li>
 <li>그래서 제 개인적으로는 들어올 때는 Input Image의 Color라는 의미의 Channel로 부르는 것이 더 와닿다가, Layer를 통과할 수록 더욱더 정교한 특징들을 이미지에서 뽑기 때문에, Feature map이라는 말이 더 와닿으니 서로 혼용해서 같은 녀석을 부르는 것 같다는 느낌이 있습니다. </li>
@@ -237,7 +237,7 @@
 </ul>
 <center><img src="/gallery/conv_animation.gif" height="250"></center>
 
-<h6 id="Images-from-blog-bkbklim-com"><a href="#Images-from-blog-bkbklim-com" class="headerlink" title="Images from blog.bkbklim.com."></a>Images from <a href="https://blog.bkbklim.com/2017/11/24/bks-machine-learning-ai-world-5-convolutional-neural-network/" target="_blank" rel="noopener">blog.bkbklim.com</a>.</h6><ul>
+<h6 id="Images-from-blog-bkbklim-com"><a href="#Images-from-blog-bkbklim-com" class="headerlink" title="Images from blog.bkbklim.com."></a>Images from <a href="https://blog.bkbklim.com/2017/11/24/bks-machine-learning-ai-world-5-convolutional-neural-network/" target="_blank" rel="external nofollow noopener noreferrer">blog.bkbklim.com</a>.</h6><ul>
 <li><p>위 Animation에서 <strong>Input</strong>이미지는 <strong>5x5</strong> Size이고, <strong>3x3</strong> Size의 <strong>Kernel</strong>, 혹은 Filter가 한 칸씩 움직이면서 Image와 자신이 가지고 있는 Feature map을 계산하여 결과값을 내놓고 있습니다. <strong>Kernel은 X자 모양의 Filter</strong>네요. element-wise 곱, 즉, dot product를 계산하여 자신의 필터에 부합하는 위치면 곱한 값이, 아니면 0이 곱해져서 의미없는 0이 나오게 됩니다. 그렇게 나온 결과들을 <strong><u>다 더한 값</u></strong> 하나만 결과로 내놓습니다.  </p>
 </li>
 <li><p>여기서 등장하는 <code>Stride</code>! 자연스럽게 이 애니메이션에서는 한 칸씩 움직이고 있습니다만, <strong>어디까지나, Stride가 1x1일 때의 움직임</strong>입니다. <strong><code>Stride</code>는 <u>어느 정도의 간격을 가지고 Kernel 계산을 진행할 것인지</u>를 나타내는 척도</strong>입니다. Stride가 2x2였다면, 두칸씩 움직일테고, 이 Input Size와는 맞지 않기 때문에 에러를 일으킵니다.</p>
@@ -253,7 +253,7 @@
 </ul>
 <center><img src="/gallery/filter1.png" width="600"></center>
 
-<h6 id="Images-from-deliveryimages-1"><a href="#Images-from-deliveryimages-1" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" target="_blank" rel="noopener">deliveryimages</a>.</h6><ul>
+<h6 id="Images-from-deliveryimages-1"><a href="#Images-from-deliveryimages-1" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" target="_blank" rel="external nofollow noopener noreferrer">deliveryimages</a>.</h6><ul>
 <li>위와 같은 Filter가 하나 있습니다. 곡선을 찾는 Filter네요. 그럼 이 Filter가 들어온 쥐 이미지를 Stride에 맞게 돌아 다니게 됩니다. 그러면서, 이 곡선에 해당하는 위치가 있는지 찾습니다. 이 Filter가 한바퀴 다 돌고 완성된 Feature map은, 아래와 같이 해당 Filter에 반응하는 부분에 높은 숫자를, 아닌 부분에서는 0에 가까운 수를 가진 Feature map이 되는 것이죠. </li>
 </ul>
 <br>
@@ -261,7 +261,7 @@
 <center><img src="/gallery/filter2.png" width="700">
 <img src="/gallery/filter3.png" width="700"></center>
 
-<h6 id="Images-from-deliveryimages-2"><a href="#Images-from-deliveryimages-2" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" target="_blank" rel="noopener">deliveryimages</a>.</h6><h4 id="작아지는-Image-Size"><a href="#작아지는-Image-Size" class="headerlink" title="작아지는 Image Size"></a>작아지는 Image Size</h4><ul>
+<h6 id="Images-from-deliveryimages-2"><a href="#Images-from-deliveryimages-2" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" target="_blank" rel="external nofollow noopener noreferrer">deliveryimages</a>.</h6><h4 id="작아지는-Image-Size"><a href="#작아지는-Image-Size" class="headerlink" title="작아지는 Image Size"></a>작아지는 Image Size</h4><ul>
 <li>위에 나온 Animation에서 주목할 점은, <strong>5x5 이었던 이미지 사이즈가, Kernel 계산을 마친 후, 3x3가 됐다는 것</strong>입니다! 이런 계산이 저 위에 사진에서 보셨듯이 32x32 size였던 MNIST 이미지가, $C_1$에서 28x28이되고, $C_2$에서 10x10 size로 줄게 되었는지 설명할 수 있게 됩니다.</li>
 </ul>
 <h3 id="Padding"><a href="#Padding" class="headerlink" title="Padding"></a>Padding</h3><ul>
@@ -277,7 +277,7 @@
 </ul>
 <center><img src="/gallery/maxpool.png" height="250"></center>
 
-<h6 id="Images-from-deliveryimages-3"><a href="#Images-from-deliveryimages-3" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" target="_blank" rel="noopener">deliveryimages</a>.</h6><ul>
+<h6 id="Images-from-deliveryimages-3"><a href="#Images-from-deliveryimages-3" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" target="_blank" rel="external nofollow noopener noreferrer">deliveryimages</a>.</h6><ul>
 <li>말 그대로 2x2 Max pooling을 하겠다 하면, 해당 사이즈에서 가장 큰 값만 취하는 것이죠. 가장 중요한 정보만 취하겠다는 의도가 있습니다. 그 외에도 Average Pooling을 비롯한 다양한 Pooling이 있습니다. </li>
 <li>이 Pooling의 장점은, 무엇보다 <strong>계산이 단순해서 계산량, Computation Cost가 작다는 것</strong> 정도가 되겠습니다. </li>
 <li>위에서 배운 Padding을 응용해보면, Padding을 적당히 준 이미지에 Pooling을 하면 이미지 사이즈는 줄지 않지만 빠른 계산은 가능한 구조도 가능하겠죠? </li>
@@ -312,7 +312,7 @@
         
         
         <div id="bmc" align="center">
-            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha" rel="external nofollow noopener noreferrer"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
         </div>
         
         
@@ -560,7 +560,7 @@
                 </a>
                 <p class="is-size-7">
                 &copy; 2019 Peter Cha&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
                 
                 </p>
             </div>
@@ -570,7 +570,7 @@
                 
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/" rel="external nofollow noopener noreferrer">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -578,7 +578,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noopener noreferrer">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -586,7 +586,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus" rel="external nofollow noopener noreferrer">
                         
                         <i class="fab fa-github"></i>
                         
@@ -623,7 +623,7 @@
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>

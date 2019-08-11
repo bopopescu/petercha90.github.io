@@ -6,7 +6,7 @@
 <title>MobileNet V1 - Stand firm Peter</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<link rel="canonical" href="http://www.stand-firm-peter.me/2019/07/30/mobilenet/">
+<link rel="canonical" href="http://www.stand-firm-peter.me/2019/08/11/mobilenet/">
 
 
 <meta property="og:image" content="/gallery/mobile.jpg">
@@ -149,7 +149,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-30T07:44:56.000Z">2019-07-30</time>
+                <time class="level-item has-text-grey" datetime="2019-08-11T07:44:56.000Z">2019-08-11</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Deep-Learning-paper/">Deep Learning paper</a>
@@ -225,16 +225,13 @@
 <li><p>위에 보이는 바와 같이, <u>‘하나의 Feature map(=input channel)에 대해, 하나의 filter’를 사용</u>한다. 기존의 $M$만큼 필터를 사용했던 Standard Conv의 필터들보다 훨씬 더 가볍다. </p>
 </li>
 <li><p>그렇기 때문에 Input channel의 사이즈인 M개만큼의 Kernel(=filter)가 생길 뿐이고, 이는 학습해야할 parameter를 현저하게 줄여주는 역할을 한다. 그래서 이 depthwise conv를 통과하고 생성되는 feature map은 아래와 같이 n이 없어진 계산량을 가지게 된다. </p>
-  <center><img src="/gallery/mb13.png" width="250"></center>
+  <center><img src="/gallery/mb13.png" width="400"></center>
 
-  <br>
 
-<blockquote>
-<p>$\hat{K}$: <strong>Depthwise Convolution Kernel</strong> of size $D_K \times D_K \times M$<br>$\hat{G}$: <strong>$m_{th}$ channel of the filtered output feature map</strong></p>
-</blockquote>
 </li>
 </ul>
-<br>
+<pre><code>> $\hat{K}$: **Depthwise Convolution Kernel** of size $D_K \times D_K \times M$
+> $\hat{G}$: **$m_{th}$ channel of the filtered output feature map**</code></pre><br>
 
 
 
@@ -437,8 +434,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://www.stand-firm-peter.me/2019/07/30/mobilenet/';
-        this.page.identifier = '2019/07/30/mobilenet/';
+        this.page.url = 'http://www.stand-firm-peter.me/2019/08/11/mobilenet/';
+        this.page.identifier = '2019/08/11/mobilenet/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -517,7 +514,7 @@
         
         <article class="media">
             
-            <a href="/2019/07/30/mobilenet/" class="media-left">
+            <a href="/2019/08/11/mobilenet/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/mobile.jpg" alt="MobileNet V1">
                 </p>
@@ -525,8 +522,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-30T07:44:56.000Z">2019-07-30</time></div>
-                    <a href="/2019/07/30/mobilenet/" class="has-link-black-ter is-size-6">MobileNet V1</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-11T07:44:56.000Z">2019-08-11</time></div>
+                    <a href="/2019/08/11/mobilenet/" class="has-link-black-ter is-size-6">MobileNet V1</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Deep-Learning-paper/">Deep Learning paper</a>
                     </p>

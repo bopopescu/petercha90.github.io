@@ -225,13 +225,14 @@
 <li><p>위에 보이는 바와 같이, <u>‘하나의 Feature map(=input channel)에 대해, 하나의 filter’를 사용</u>한다. 기존의 $M$만큼 필터를 사용했던 Standard Conv의 필터들보다 훨씬 더 가볍다. </p>
 </li>
 <li><p>그렇기 때문에 Input channel의 사이즈인 M개만큼의 Kernel(=filter)가 생길 뿐이고, 이는 학습해야할 parameter를 현저하게 줄여주는 역할을 한다. 그래서 이 depthwise conv를 통과하고 생성되는 feature map은 아래와 같이 n이 없어진 계산량을 가지게 된다. </p>
-  <center><img src="/gallery/mb13.png" width="400"></center>
+<center><img src="/gallery/mb13.png" width="250"></center>
 
-
+<blockquote>
+<p>$\hat{K}$: <strong>Depthwise Convolution Kernel</strong> of size $D_K \times D_K \times M$<br>$\hat{G}$: <strong>$m_{th}$ channel of the filtered output feature map</strong></p>
+</blockquote>
 </li>
 </ul>
-<pre><code>> $\hat{K}$: **Depthwise Convolution Kernel** of size $D_K \times D_K \times M$
-> $\hat{G}$: **$m_{th}$ channel of the filtered output feature map**</code></pre><br>
+<br>
 
 
 
@@ -826,6 +827,6 @@ document.addEventListener('DOMContentLoaded', function () {
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

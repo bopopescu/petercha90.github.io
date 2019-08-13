@@ -3,14 +3,35 @@
 
 
     <url>
-        <loc>http://www.stand-firm-peter.me/tags/mobilenet/</loc>
-        <lastmod>2019-08-13T02:45:56.405Z</lastmod>
+        <loc>http://www.stand-firm-peter.me/tags/deep-learning/</loc>
+        <lastmod>2019-08-13T04:26:17.600Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.stand-firm-peter.me/tags/deep-learning/</loc>
+        <loc>http://www.stand-firm-peter.me/tags/Colab/</loc>
+        <lastmod>2019-08-13T04:26:17.600Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/tutorial/</loc>
+        <lastmod>2019-08-13T04:26:17.600Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/useful-info/</loc>
+        <lastmod>2019-08-13T04:26:17.600Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/mobilenet/</loc>
         <lastmod>2019-08-13T02:45:56.405Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -25,13 +46,6 @@
 
     <url>
         <loc>http://www.stand-firm-peter.me/tags/keras/</loc>
-        <lastmod>2019-07-30T08:27:18.282Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/tutorial/</loc>
         <lastmod>2019-07-30T08:27:18.282Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -116,13 +130,6 @@
 
     <url>
         <loc>http://www.stand-firm-peter.me/tags/blog/</loc>
-        <lastmod>2019-07-20T12:41:33.316Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/useful-info/</loc>
         <lastmod>2019-07-20T12:41:33.316Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -250,13 +257,6 @@
     <url>
         <loc>http://www.stand-firm-peter.me/tags/ssh/</loc>
         <lastmod>2019-07-20T12:40:55.634Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/Colab/</loc>
-        <lastmod>2019-07-20T12:40:45.321Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

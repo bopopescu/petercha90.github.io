@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://www.stand-firm-peter.me/2019/06/12/Colab_tutorial/</loc>
+        <lastmod>2019-08-13T04:26:17.600Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.stand-firm-peter.me/2019/08/11/mobilenet/</loc>
         <lastmod>2019-08-13T02:45:56.405Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -106,14 +114,6 @@
     <url>
         <loc>http://www.stand-firm-peter.me/2019/05/09/docker-102/</loc>
         <lastmod>2019-07-20T12:40:50.627Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/2019/06/12/Colab_tutorial/</loc>
-        <lastmod>2019-07-20T12:40:45.321Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

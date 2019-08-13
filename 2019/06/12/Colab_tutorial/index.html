@@ -178,115 +178,124 @@
 <li>Colab Introduction</li>
 </ul>
 <a id="more"></a>
-
-
-<h2 id="Colab이란-no-mouth"><a href="#Colab이란-no-mouth" class="headerlink" title="Colab이란? :no_mouth:"></a><a href="https://colab.research.google.com" rel="external nofollow noopener noreferrer" target="_blank">Colab</a>이란? <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8">😶</span></h2><ul>
-<li><code>Jupyter Notebook</code>를 구글 드라이브에서 사용할 수 있는 것인데, 여태 있었던 구글 문서나 구글 스프레드시트처럼, 실시간 협업이 가능한 버전이라고 생각하면 된다고 합니다. 원래 구글 내부에서 직원들이 사용하던 것이라고 하네요! 그래서 error가 생기면 STACK OVERFLOW 버튼이 ..:+1:</li>
-<li>그렇기 때문에, Jupyter Notebook나 다른 IDE에서 흔히 제공하는 Variable다음 <code>.</code>을 찍고, Tab키를 치면 하위요소(함수 or 변수)의 일부만 쳐도 나타나게 하는 친숙한 기능들도, 조금 반응이 느리긴 하지만, 0.5초 정도 뒤에 나타납니다. :D </li>
-<li><strong>GPU, TPU 사용 설정</strong>을 하시려거든, 맨처음 Notebook을 생성하실 때, 선택하실 수도 있고, <code>수정 -> 노트 설정</code>을 누르시면 GPU, TPU 사용 설정을 할 수 있습니다. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></li>
+<h2 id="colab"><a class="markdownIt-Anchor" href="#colab"></a> <a href="https://colab.research.google.com" rel="external nofollow noopener noreferrer" target="_blank">Colab</a>이란? 😶</h2>
+<ul>
+<li><code>Jupyter Notebook</code>를 구글 드라이브에서 사용할 수 있는 것인데, 여태 있었던 구글 문서나 구글 스프레드시트처럼, 실시간 협업이 가능한 버전이라고 생각하면 된다고 합니다. 원래 구글 내부에서 직원들이 사용하던 것이라고 하네요! 그래서 error가 생기면 STACK OVERFLOW 버튼이 …👍</li>
+<li>그렇기 때문에, Jupyter Notebook나 다른 IDE에서 흔히 제공하는 Variable다음 <code>.</code>을 찍고, Tab키를 치면 하위요소(함수 or 변수)의 일부만 쳐도 나타나게 하는 친숙한 기능들도, 조금 반응이 느리긴 하지만, 0.5초 정도 뒤에 나타납니다. 😄</li>
+<li><strong>GPU, TPU 사용 설정</strong>을 하시려거든, 맨처음 Notebook을 생성하실 때, 선택하실 수도 있고, <code>수정 -> 노트 설정</code>을 누르시면 GPU, TPU 사용 설정을 할 수 있습니다. 😄</li>
 </ul>
-<h2 id="Linux-명령어-사용하기-astonished"><a href="#Linux-명령어-사용하기-astonished" class="headerlink" title="Linux 명령어 사용하기 :astonished:"></a>Linux 명령어 사용하기 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f632.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f632.png?v8">😲</span></h2><ul>
-<li><p>Colab에서는 느낌표로 쓴 뒤에 명령어를 치면 terminal에서 작동하는 것으로 처리해줍니다. 로컬에서 Bash창을 켜서 설치하고 다시 Jupyter로 돌아와야했던 귀찮은 과정이 매우 심플해졌습니다! 하지만,</p>
+<h2 id="linux-명령어-사용하기"><a class="markdownIt-Anchor" href="#linux-명령어-사용하기"></a> Linux 명령어 사용하기 😲</h2>
+<ul>
+<li>
+<p>Colab에서는 느낌표로 쓴 뒤에 명령어를 치면 terminal에서 작동하는 것으로 처리해줍니다. 로컬에서 Bash창을 켜서 설치하고 다시 Jupyter로 돌아와야했던 귀찮은 과정이 매우 심플해졌습니다! 하지만,</p>
   <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> cat sample.txt</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>  같은 native Linux에서나 가능한 몇몇 문법들은 작동하지 않습니다. </p>
+<p>같은 native Linux에서나 가능한 몇몇 문법들은 작동하지 않습니다.</p>
 </li>
-<li><p>그래서, 100% Linux native 명령어를 쓸 수 있는 것은 아니며, 어디까지나 그때 그때, <strong>필요한 library, package 설치 편의를 위한 수준</strong>이라고 볼 수 있을 것 같습니다.</p>
+<li>
+<p>그래서, 100% Linux native 명령어를 쓸 수 있는 것은 아니며, 어디까지나 그때 그때, <strong>필요한 library, package 설치 편의를 위한 수준</strong>이라고 볼 수 있을 것 같습니다.</p>
 </li>
-<li><p>리눅스 명령어에서 익숙한 분들은 당연히 경로 이동을 할때 <code>cd</code>를 쓸 텐데, <code>!cd</code>는 먹히지 않고, <code>os</code>를 <code>import</code>하신 뒤에, <code>os.chdir()</code>로 이동해야 합니다. </p>
+<li>
+<p>리눅스 명령어에서 익숙한 분들은 당연히 경로 이동을 할때 <code>cd</code>를 쓸 텐데, <code>!cd</code>는 먹히지 않고, <code>os</code>를 <code>import</code>하신 뒤에, <code>os.chdir()</code>로 이동해야 합니다.</p>
 </li>
-<li><p>빈 폴더를 하나 만들고 그 안에 짧은 txt파일을 만들어 확인해 봅시다.</p>
-<h4 id="Cell-1"><a href="#Cell-1" class="headerlink" title="Cell. 1"></a>Cell. 1</h4>  <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line">!mkdir test</span><br><span class="line">os.chdir(<span class="hljs-string">'test'</span>)</span><br><span class="line">!pwd</span><br><span class="line"><span class="hljs-comment"># 명령어는 못찾는다고 나오지만 생성은 합니다 :)</span></span><br><span class="line">!<span class="hljs-string">'Sample text!'</span> > sample.txt</span><br></pre></td></tr></tbody></table></figure>
-
-<p>  <strong>Output</strong>:</p>
+<li>
+<p>빈 폴더를 하나 만들고 그 안에 짧은 txt파일을 만들어 확인해 봅시다.</p>
+<h4 id="cell-1"><a class="markdownIt-Anchor" href="#cell-1"></a> Cell. 1</h4>
+  <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line">!mkdir test</span><br><span class="line">os.chdir(<span class="hljs-string">'test'</span>)</span><br><span class="line">!pwd</span><br><span class="line"><span class="hljs-comment"># 명령어는 못찾는다고 나오지만 생성은 합니다 :)</span></span><br><span class="line">!<span class="hljs-string">'Sample text!'</span> > sample.txt</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>Output</strong>:</p>
   <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/content/test</span><br><span class="line">   /bin/bash: Sample text!: command not found</span><br><span class="line">   sample.txt</span><br></pre></td></tr></tbody></table></figure>
-
-
+</li>
+<li>
+<h4 id="cell-2"><a class="markdownIt-Anchor" href="#cell-2"></a> Cell. 2</h4>
+<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 목록에는 파일이 확인되지만, </span></span><br><span class="line">!ls</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> cat은 작동하지 않습니다. </span></span><br><span class="line">!cat sample.txt</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>Output:</strong></p>
+<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sample.txt</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
-<pre><code>#### Cell. 2
-<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> 목록에는 파일이 확인되지만, </span></span><br><span class="line">!ls</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> cat은 작동하지 않습니다. </span></span><br><span class="line">!cat sample.txt</span><br></pre></td></tr></tbody></table></figure>
-
-**Output:**
-<figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sample.txt</span><br></pre></td></tr></tbody></table></figure></code></pre><h2 id="Colab-에서-쓸-수-있는-GPU-wink"><a href="#Colab-에서-쓸-수-있는-GPU-wink" class="headerlink" title="Colab.에서 쓸 수 있는 GPU :wink:"></a>Colab.에서 쓸 수 있는 GPU <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f609.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f609.png?v8">😉</span></h2><ul>
-<li><p>일단 필요한 Util을 다운을 받고,</p>
+<h2 id="colab에서-쓸-수-있는-gpu"><a class="markdownIt-Anchor" href="#colab에서-쓸-수-있는-gpu"></a> Colab.에서 쓸 수 있는 GPU 😉</h2>
+<ul>
+<li>
+<p>일단 필요한 Util을 다운을 받고,</p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">!ln -sf /opt/bin/nvidia-smi /usr/bin/nvidia-smi</span><br><span class="line">!pip install gputil</span><br><span class="line">!pip install psutil</span><br><span class="line">!pip install humanize</span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>Import 해줍시다. </p>
+<li>
+<p>Import 해줍시다.</p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import psutil</span><br><span class="line">import humanize</span><br><span class="line">import os</span><br><span class="line">import GPUtil as GPU</span><br></pre></td></tr></tbody></table></figure>
-
-
 </li>
-</ul>
-<ul>
-<li><p><strong>GPU는 하나</strong>만 허락해 줍니다만… 갓글님의 그 하나는 에이스입니다. 2019.06.12 현재. 무려 <strong>T4</strong>. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f62d.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f62d.png?v8">😭</span> 개인 실험용으로는 충분한 것 같습니다. </p>
+<li>
+<p><strong>GPU는 하나</strong>만 허락해 줍니다만… 갓글님의 그 하나는 에이스입니다. 2019.06.12 현재. 무려 <strong>T4</strong>. 😭 개인 실험용으로는 충분한 것 같습니다.</p>
 <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GPUs = GPU.getGPUs()</span><br><span class="line">gpu = GPUs[<span class="hljs-number">0</span>]</span><br><span class="line"></span><br><span class="line">print(gpu.__dict__[<span class="hljs-string">"name"</span>])</span><br><span class="line">print(<span class="hljs-string">"The number of GPUs: {}"</span>.format(len(GPUs)))</span><br><span class="line">print(<span class="hljs-string">"GPU RAM Free: {0:.0f}MB | Used: {1:.0f}MB | Util {2:3.0f}% | Total {3:.0f}MB"</span>.format(gpu.memoryFree, gpu.memoryUsed, gpu.memoryUtil* <span class="hljs-number">100</span>, gpu.memoryTotal))</span><br></pre></td></tr></tbody></table></figure>
-
-<p>  <strong>Output</strong>:</p>
+<p><strong>Output</strong>:</p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Tesla T4</span><br><span class="line">The number of GPUs: 1</span><br><span class="line">GPU RAM Free: 15079MB | Used: 0MB | Util   0% | Total 15079MB</span><br></pre></td></tr></tbody></table></figure>
-
-
-
 </li>
 </ul>
-<h3 id="참고사항"><a href="#참고사항" class="headerlink" title="참고사항"></a>참고사항</h3><ul>
-<li><p>안타깝지만, Colab은 <code>Docker기반의 Container</code>로 실행되기 때문에 <strong>한 번에 12시간까지만 사용</strong> 할 수 있습니다. 그래서, 작업 하시던 Colab을 껏다가 잠시 후 다시 시작하면 새로운 docker container를 받기 때문에 새로운 인스턴스 위에서 시작할 때마다 <strong>설치가 필요한 패키지들을 매번 다시 설치해야</strong> 합니다.</p>
+<h3 id="참고사항"><a class="markdownIt-Anchor" href="#참고사항"></a> 참고사항</h3>
+<ul>
+<li>
+<p>안타깝지만, Colab은 <code>Docker기반의 Container</code>로 실행되기 때문에 <strong>한 번에 12시간까지만 사용</strong> 할 수 있습니다. 그래서, 작업 하시던 Colab을 껏다가 잠시 후 다시 시작하면 새로운 docker container를 받기 때문에 새로운 인스턴스 위에서 시작할 때마다 <strong>설치가 필요한 패키지들을 매번 다시 설치해야</strong> 합니다.</p>
 </li>
-<li><p>그 다음 부터는 Jupyter notebook을 사용하듯 사용하면 됩니다.</p>
+<li>
+<p>그 다음 부터는 Jupyter notebook을 사용하듯 사용하면 됩니다.</p>
 </li>
 </ul>
-<h2 id="Local-file-Upload-grinning"><a href="#Local-file-Upload-grinning" class="headerlink" title="Local file Upload! :grinning:"></a>Local file Upload! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f600.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f600.png?v8">😀</span></h2><ul>
-<li><p>Local가지고 있는 CIFAR10 png data로 테스트 해봤습니다. </p>
+<h2 id="local-file-upload"><a class="markdownIt-Anchor" href="#local-file-upload"></a> Local file Upload! 😀</h2>
+<ul>
+<li>
+<p>Local가지고 있는 CIFAR10 png data로 테스트 해봤습니다.</p>
   <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> google.colab <span class="hljs-keyword">import</span> files</span><br><span class="line">cifar10 = files.upload()</span><br></pre></td></tr></tbody></table></figure>
-
   <img src="/gallery/colab6.png" width="800">
-
 </li>
 </ul>
 <br>
-
 <ul>
-<li><p>로컬에서 files를 통해서 가져오는 데이터들은 기본적으로 dictionary 형태로 받아서 변수에 저장합니다. 이 업로드한 데이터들도 instance가 바뀌면(= 새로 시작하면) 없어지니, 참고하세요.   </p>
+<li>
+<p>로컬에서 files를 통해서 가져오는 데이터들은 기본적으로 dictionary 형태로 받아서 변수에 저장합니다. 이 업로드한 데이터들도 instance가 바뀌면(= 새로 시작하면) 없어지니, 참고하세요.</p>
 </li>
-<li><p>cifar10 이라는 변수에 들어온 local uploaded data를 아래와 같이 확인해보면 귀여운 개구리를 볼 수 있습니다. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8">😶</span></p>
+<li>
+<p>cifar10 이라는 변수에 들어온 local uploaded data를 아래와 같이 확인해보면 귀여운 개구리를 볼 수 있습니다. 😶</p>
   <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> io</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">item = cifar10.get(list(cifar10.keys())[<span class="hljs-number">0</span>])</span><br><span class="line">image = Image.open(io.BytesIO(item))</span><br><span class="line"></span><br><span class="line">plt.imshow(image)</span><br></pre></td></tr></tbody></table></figure>
-
   <img src="/gallery/colab7.png" width="700">
-
-
-
+</li>
+<li>
+<p>사실 이렇게 이미지를 올리면, upload 하고자 하는 데이터가 많을 수록 속도도 느릴 뿐만 아니라 브라우저를 다시 시작할 때마다, 또 업로드를 해야합니다.</p>
+</li>
+<li>
+<p>로컬에 데이터가 많을 경우는 개인 Google Drive에 업로드 한 다음, 그 directory 안에서 작업을 하면 되겠죠?</p>
+</li>
+<li>
+<p>그렇다면 작업하는 코드가 있는 Google Drive 자체를 Mount 하는 방법을 알아보도록 하겠습니다. 😃</p>
 </li>
 </ul>
+<h2 id="mount-your-google-drive"><a class="markdownIt-Anchor" href="#mount-your-google-drive"></a> Mount your Google Drive</h2>
 <ul>
-<li>사실 이렇게 이미지를 올리면, upload 하고자 하는 데이터가 많을 수록 속도도 느릴 뿐만 아니라 브라우저를 다시 시작할 때마다, 또 업로드를 해야합니다. </li>
-<li>로컬에 데이터가 많을 경우는 개인 Google Drive에 업로드 한 다음, 그 directory 안에서 작업을 하면 되겠죠? </li>
-<li>그렇다면 작업하는 코드가 있는 Google Drive 자체를 Mount 하는 방법을 알아보도록 하겠습니다. :) </li>
-</ul>
-<h2 id="Mount-your-Google-Drive"><a href="#Mount-your-Google-Drive" class="headerlink" title="Mount your Google Drive"></a>Mount your Google Drive</h2><ul>
-<li><p><strong>Google Drive는 한 번만 Mount하면</strong> 됩니다. 아래 코드를 실행시키시면, 설치를 하다가 구글 계정 인증을 해달라는 링크가 나오는데, 거기서 verification code를 잘 복사하셔서 인증하시면 됩니다. </p>
+<li>
+<p><strong>Google Drive는 한 번만 Mount하면</strong> 됩니다. 아래 코드를 실행시키시면, 설치를 하다가 구글 계정 인증을 해달라는 링크가 나오는데, 거기서 verification code를 잘 복사하셔서 인증하시면 됩니다.</p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">!apt-get install -y -qq software-properties-common python-software-properties module-init-tools</span><br><span class="line">!add-apt-repository -y ppa:alessandro-strada/ppa 2>&1 > /dev/null</span><br><span class="line">!apt-get update -qq 2>&1 > /dev/null</span><br><span class="line">!apt-get -y install -qq google-drive-ocamlfuse fuse</span><br><span class="line">from google.colab import auth</span><br><span class="line">auth.authenticate_user()</span><br><span class="line">from oauth2client.client import GoogleCredentials</span><br><span class="line">creds = GoogleCredentials.get_application_default()</span><br><span class="line">import getpass</span><br><span class="line">!google-drive-ocamlfuse -headless -id={creds.client_id} -secret={creds.client_secret} < /dev/null 2>&1 | grep URL</span><br><span class="line">vcode = getpass.getpass()</span><br><span class="line">!echo {vcode} | google-drive-ocamlfuse -headless -id={creds.client_id} -secret={creds.client_secret}</span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><p><code>"/home"</code>으로 경로를 이동한 뒤에, drive라는 폴더를 만들어서 본인 계정의 구글 드라이브를 drive라는 폴더에 Mount합니다. </p>
+<li>
+<p><code>"/home"</code>으로 경로를 이동한 뒤에, drive라는 폴더를 만들어서 본인 계정의 구글 드라이브를 drive라는 폴더에 Mount합니다.</p>
 </li>
-<li><p>이 과정을 거치면 개인 Google Drive에 있는 파일들이 이 폴더 안에 들어가게 됩니다. </p>
+<li>
+<p>이 과정을 거치면 개인 Google Drive에 있는 파일들이 이 폴더 안에 들어가게 됩니다.</p>
 </li>
-<li><p>저의 경우, <code>Colab_Notebooks</code>라는 이름으로 폴더가 생성되어 있고, 그 폴더 안에 이 튜토리얼이 있습니다. </p>
+<li>
+<p>저의 경우, <code>Colab_Notebooks</code>라는 이름으로 폴더가 생성되어 있고, 그 폴더 안에 이 튜토리얼이 있습니다.</p>
   <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">os.chdir(<span class="hljs-string">"/home"</span>)</span><br><span class="line">!mkdir drive</span><br><span class="line">!google-drive-ocamlfuse drive</span><br><span class="line"></span><br><span class="line">os.chdir(<span class="hljs-string">"/home/drive/Colab_Notebooks"</span>)</span><br><span class="line">!ls</span><br></pre></td></tr></tbody></table></figure>
-
   <img src="/gallery/colab9.png" width="750">
-<br>
 </li>
-<li><p>제가 옮겨놓은 train폴더 안에 이미지들을 확인해 봅니다. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f636.png?v8">😶</span></p>
+</ul>
+<br>
+<ul>
+<li>
+<p>제가 옮겨놓은 train폴더 안에 이미지들을 확인해 봅니다. 😶</p>
   <br>
 <img src="/gallery/colab10.png" width="750">
 <img src="/gallery/colab11.png" width="750">
-
 </li>
 </ul>
 <br>
-
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li>Jaeyeon Baek님의 <a href="http://jybaek.tistory.com/686" rel="external nofollow noopener noreferrer" target="_blank">블로그</a>, </li>
+<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h2>
+<ul>
+<li>Jaeyeon Baek님의 <a href="http://jybaek.tistory.com/686" rel="external nofollow noopener noreferrer" target="_blank">블로그</a>,</li>
 <li><a href="https://github.com/GunhoChoi" rel="external nofollow noopener noreferrer" target="_blank">최건호</a>님의 <code>Google Colaboratory 사용법</code></li>
 <li><a href="https://medium.com/deep-learning-turkey/google-colab-free-gpu-tutorial-e113627b9f5d" rel="external nofollow noopener noreferrer" target="_blank">DEEP LEARNING TURKEY</a></li>
 </ul>

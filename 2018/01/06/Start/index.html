@@ -174,96 +174,86 @@
         </h1>
         <div class="content">
             <ul>
-<li>Simple Hexo Tutorial입니다. </li>
+<li>Simple Hexo Tutorial입니다.</li>
 </ul>
 <a id="more"></a>
-
-
-<p> <a href="https://hexo.io/" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a>는 Github pages를 사용해서 만드는 블로그입니다. 그러니, Github 계정을 가지고 계셔야 사용하실 수 있습니다. Github pages는 <code>username.github.io</code>라는 이쁜 고유 도메인<strike>(무려 https)</strike>도 주는 아주 고마운 블로그입니다. 지금 보고 계신 이 블로그도, Hexo로 만들어졌습니다. 도메인만 제가 사서 바꿨을 뿐이구요. </p>
-<p>이 블로그를 설치하고 관리하고 사용하려면, <code>HTML</code>, <code>Markdown</code>, <code>git</code>에 대한 기본적인 이해는 있어야 합니다. 사실, 언급한 기술들을 잘은 몰라도, 대충 한 번씩만 해보셨으면, 하시다보면 익숙해져서 할만 하실 것도 같습니다. :) </p>
+<p> <a href="https://hexo.io/" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a>는 Github pages를 사용해서 만드는 블로그입니다. 그러니, Github 계정을 가지고 계셔야 사용하실 수 있습니다. Github pages는 <code>username.github.io</code>라는 이쁜 고유 도메인<strike>(무려 https)</strike>도 주는 아주 고마운 블로그입니다. 지금 보고 계신 이 블로그도, Hexo로 만들어졌습니다. 도메인만 제가 사서 바꿨을 뿐이구요.</p>
+<p>이 블로그를 설치하고 관리하고 사용하려면, <code>HTML</code>, <code>Markdown</code>, <code>git</code>에 대한 기본적인 이해는 있어야 합니다. 사실, 언급한 기술들을 잘은 몰라도, 대충 한 번씩만 해보셨으면, 하시다보면 익숙해져서 할만 하실 것도 같습니다. 😃</p>
 <hr>
-
-<h2 id="1-Make-a-repository-at-Github"><a href="#1-Make-a-repository-at-Github" class="headerlink" title="1. Make a repository at Github"></a>1. Make a repository at Github</h2><p>Github에 가셔서 새로 Repository를 만드시는데, 그 repository의 이름은 꼭, <code>username.github.io</code>로 하셔야 합니다. 아래 보이는 사진처럼요. </p>
+<h2 id="1-make-a-repository-at-github"><a class="markdownIt-Anchor" href="#1-make-a-repository-at-github"></a> 1. Make a repository at Github</h2>
+<p>Github에 가셔서 새로 Repository를 만드시는데, 그 repository의 이름은 꼭, <code>username.github.io</code>로 하셔야 합니다. 아래 보이는 사진처럼요.</p>
 <img src="/gallery/repository.png" style="width: 700px;">
-
 <hr>
-
-<h2 id="2-Install-Hexo"><a href="#2-Install-Hexo" class="headerlink" title="2. Install Hexo"></a>2. Install Hexo</h2><h3 id="node-js-amp-git"><a href="#node-js-amp-git" class="headerlink" title="node.js & git"></a>node.js & git</h3><p>Hexo를 설치하고, 사용하려면 <a href="https://nodejs.org/ko/" rel="external nofollow noopener noreferrer" target="_blank"><code>node.js</code></a>와 <a href="https://git-scm.com/downloads" rel="external nofollow noopener noreferrer" target="_blank"><code>git</code></a>이 설치되어 있어야 합니다. 이 두가지 툴이 잘 설치가 되어있다면, 아래와 같은 명령어 한 줄로 간단하게 Hexo를 설치할 수 있습니다. </p>
+<h2 id="2-install-hexo"><a class="markdownIt-Anchor" href="#2-install-hexo"></a> 2. Install Hexo</h2>
+<h3 id="nodejs-git"><a class="markdownIt-Anchor" href="#nodejs-git"></a> node.js & git</h3>
+<p>Hexo를 설치하고, 사용하려면 <a href="https://nodejs.org/ko/" rel="external nofollow noopener noreferrer" target="_blank"><code>node.js</code></a>와 <a href="https://git-scm.com/downloads" rel="external nofollow noopener noreferrer" target="_blank"><code>git</code></a>이 설치되어 있어야 합니다. 이 두가지 툴이 잘 설치가 되어있다면, 아래와 같은 명령어 한 줄로 간단하게 Hexo를 설치할 수 있습니다.</p>
 <blockquote>
 <p>$ npm install -g hexo-cli</p>
 </blockquote>
-<h3 id="local-directory"><a href="#local-directory" class="headerlink" title="local directory"></a>local directory</h3><p>본인이 사용 하고자 하는 폴더를 만드시고 들어가셔서, 명령어로 </p>
+<h3 id="local-directory"><a class="markdownIt-Anchor" href="#local-directory"></a> local directory</h3>
+<p>본인이 사용 하고자 하는 폴더를 만드시고 들어가셔서, 명령어로</p>
 <blockquote>
 <p>$ hexo init</p>
 </blockquote>
 <blockquote>
 <p>$ npm install</p>
 </blockquote>
-<p>를 순차적으로 입력합니다. 그리고 나서 설치가 끝나면, Hexo blog를 시작할 수 있는 파일들이 설치 된 것을 확인 할 수 있습니다. 저는 temp_blog라는 폴더를 만들어서 설치해 보았습니다. </p>
+<p>를 순차적으로 입력합니다. 그리고 나서 설치가 끝나면, Hexo blog를 시작할 수 있는 파일들이 설치 된 것을 확인 할 수 있습니다. 저는 temp_blog라는 폴더를 만들어서 설치해 보았습니다.</p>
 <img src="/gallery/temp_blog.png" style="width: 700px;">
-
 <hr>
-
-<h2 id="3-Start-Hexo-Blog"><a href="#3-Start-Hexo-Blog" class="headerlink" title="3. Start Hexo Blog"></a>3. Start Hexo Blog</h2><p>믿기지는 않지만, 이렇게 위의 3개 명령어로 당신의 Hexo Blog가 생겼습니다. 생성된 Blog를 확인해 보도록 합시다. </p>
+<h2 id="3-start-hexo-blog"><a class="markdownIt-Anchor" href="#3-start-hexo-blog"></a> 3. Start Hexo Blog</h2>
+<p>믿기지는 않지만, 이렇게 위의 3개 명령어로 당신의 Hexo Blog가 생겼습니다. 생성된 Blog를 확인해 보도록 합시다.</p>
 <blockquote>
 <p>$ hexo server</p>
 </blockquote>
 <img src="/gallery/hexo_server.png" style="width: 700px;">
-
-<p>localhost:4000으로 접속을 하라고 하니, 웹브라우저 창을 통해 <a href="http://localhost:4000/" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:4000/</a> 을 입력하거나, 주소를 클릭해서 확인해 봅시다. </p>
+<p>localhost:4000으로 접속을 하라고 하니, 웹브라우저 창을 통해 <a href="http://localhost:4000/" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:4000/</a> 을 입력하거나, 주소를 클릭해서 확인해 봅시다.</p>
 <img src="/gallery/blog.png" style="width: 700px;">
-
-<p><strong>Ta da!!</strong> 블로그가 생겼다는 것을 확인할 수 있습니다! :D 가장 기본 테마인 <code>landscape</code>로 설정되어있고, 글은 Hello World 밖에 없지만, 이제 여러분의 취향대로 바꿔나가기만 하면 됩니다!<br> 자, 그럼 차근차근히 어떻게 블로그의 설정을 바꿀 수 있는지, 글은 어떻게 쓰면 되는지, 실제로 나에게 부여된 도메인에 배포를 할 수 있는지 알아봅시다. </p>
+<p><strong>Ta da!!</strong> 블로그가 생겼다는 것을 확인할 수 있습니다! 😄 가장 기본 테마인 <code>landscape</code>로 설정되어있고, 글은 Hello World 밖에 없지만, 이제 여러분의 취향대로 바꿔나가기만 하면 됩니다!<br>
+자, 그럼 차근차근히 어떻게 블로그의 설정을 바꿀 수 있는지, 글은 어떻게 쓰면 되는지, 실제로 나에게 부여된 도메인에 배포를 할 수 있는지 알아봅시다.</p>
 <hr>
-
-<h2 id="4-Hexo-config-yml"><a href="#4-Hexo-config-yml" class="headerlink" title="4. Hexo _config.yml"></a>4. Hexo _config.yml</h2><p>우리가 설치한 폴더를 보면, <code>_config.yml</code>파일을 확인 할 수 있습니다. 대략적인 모습은 아래와 같습니다. 간단하게, <code>title</code>, <code>timezone</code>, <code>url</code>, 그리고 <code>deploy</code>부분만 본인에게 맞는 정보로 고쳐보기로 합니다.</p>
+<h2 id="4-hexo-_configyml"><a class="markdownIt-Anchor" href="#4-hexo-_configyml"></a> 4. Hexo _config.yml</h2>
+<p>우리가 설치한 폴더를 보면, <code>_config.yml</code>파일을 확인 할 수 있습니다. 대략적인 모습은 아래와 같습니다. 간단하게, <code>title</code>, <code>timezone</code>, <code>url</code>, 그리고 <code>deploy</code>부분만 본인에게 맞는 정보로 고쳐보기로 합니다.</p>
 <figure class="highlight md hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-section"># Hexo Configuration</span></span><br><span class="line"><span class="hljs-section">## Docs: https://hexo.io/docs/configuration.html</span></span><br><span class="line"><span class="hljs-section">## Source: https://github.com/hexojs/hexo/</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-section"># Site</span></span><br><span class="line">title: Stand firm Peter</span><br><span class="line">subtitle:</span><br><span class="line">description:</span><br><span class="line">author: John Doe</span><br><span class="line">language: en</span><br><span class="line">timezone: Asia/Seoul</span><br><span class="line"></span><br><span class="line"><span class="hljs-section"># URL</span></span><br><span class="line"><span class="hljs-section">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line">url: http://petercha90.github.io</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="hljs-section"># Extensions</span></span><br><span class="line"><span class="hljs-section">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="hljs-section">## Themes: https://hexo.io/themes/</span></span><br><span class="line">theme: landscape</span><br><span class="line"></span><br><span class="line"><span class="hljs-section"># Deployment</span></span><br><span class="line"><span class="hljs-section">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="hljs-section">## 배포방식은 git으로, type은 본인의 repository 주소!</span></span><br><span class="line">deploy: 	</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/PeterCha90/petercha90.github.io.git</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Deployment부분에서 deploy 방식(git)과, 우리 블로그와 실제 부여받은 도메인과의 연결을 할 수 있게 주소를 잘 적어줘야, 이후에 나오는 <code>hexo deploy</code>명령어를 통해 실제로 블로그를 배포할 수 있게 됩니다.<br><code>hexo server</code>로 켰던 로컬 서버를 <code>Ctrl + c</code>로 종료한 다음, <code>hexo server</code>로 서버를 구동시킨 뒤, <code>localhost:4000</code>으로 접속해서 확인해 보면, title이 잘 바뀌어 있습니다 :D</p>
+<p>Deployment부분에서 deploy 방식(git)과, 우리 블로그와 실제 부여받은 도메인과의 연결을 할 수 있게 주소를 잘 적어줘야, 이후에 나오는 <code>hexo deploy</code>명령어를 통해 실제로 블로그를 배포할 수 있게 됩니다.<br>
+<code>hexo server</code>로 켰던 로컬 서버를 <code>Ctrl + c</code>로 종료한 다음, <code>hexo server</code>로 서버를 구동시킨 뒤, <code>localhost:4000</code>으로 접속해서 확인해 보면, title이 잘 바뀌어 있습니다 😄</p>
 <img src="/gallery/blog2.png" style="width: 700px;">
-
 <hr>
-
-<h2 id="5-Create-a-new-post"><a href="#5-Create-a-new-post" class="headerlink" title="5. Create a new post"></a>5. Create a new post</h2><p>그럼, posting은 어떻게 하면 될까요?! 이역시, 매우 쉽습니다.</p>
+<h2 id="5-create-a-new-post"><a class="markdownIt-Anchor" href="#5-create-a-new-post"></a> 5. Create a new post</h2>
+<p>그럼, posting은 어떻게 하면 될까요?! 이역시, 매우 쉽습니다.</p>
 <blockquote>
 <p>$ hexo new “sample_posting”</p>
 </blockquote>
-<p>이 명령어를 치면, 자동으로 <code>/source/_posts/</code> 밑에, <code>sample_posting.md</code>이라는 파일이 뙇.하고 생겼다는 메세지를 볼 수 있습니다. </p>
+<p>이 명령어를 치면, 자동으로 <code>/source/_posts/</code> 밑에, <code>sample_posting.md</code>이라는 파일이 뙇.하고 생겼다는 메세지를 볼 수 있습니다.</p>
 <img src="/gallery/hexo_new.png" style="width: 600px;">
-
-<p>이 파일을 열어보시면 뭐가 적힌게 별로 없습니다. </p>
+<p>이 파일을 열어보시면 뭐가 적힌게 별로 없습니다.</p>
 <figure class="highlight md hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: sample_posting</span><br><span class="line">date: 2018-01-13 22:56:29</span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></tbody></table></figure>
-
-<p>그래서 제가 몇 자 적어보았습니다. </p>
+<p>그래서 제가 몇 자 적어보았습니다.</p>
 <figure class="highlight md hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: sample_posting</span><br><span class="line">date: 2018-01-13 22:56:29</span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line">Markdown </span><br><span class="line"></span><br><span class="line"><span class="hljs-quote">> 몇자 적어 보았습니다. </span></span><br><span class="line"></span><br><span class="line"><span class="hljs-section">## 두 자 적어 봤습니다. </span></span><br><span class="line"></span><br><span class="line"><span class="hljs-strong">**세 자 입니다.**</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>그럼 이 <code>sample_posting.md</code>파일을 저장하시고, 아래의 명령어를 수행해 봅니다. </p>
+<p>그럼 이 <code>sample_posting.md</code>파일을 저장하시고, 아래의 명령어를 수행해 봅니다.</p>
 <blockquote>
 <p>$ hexo generate</p>
 </blockquote>
-<p>뭔가 많이 생성됐다는 메세지가 나왔습니다. 그리고 다시 <code>hexo server</code>를 사용해서 서버를 여시고, 로컬 4000번 포트로 접속해서 확인해 주세요 :D</p>
+<p>뭔가 많이 생성됐다는 메세지가 나왔습니다. 그리고 다시 <code>hexo server</code>를 사용해서 서버를 여시고, 로컬 4000번 포트로 접속해서 확인해 주세요 😄</p>
 <img src="/gallery/blog3.png" style="width: 700px;">
-
-<p> 짜잔~ 이렇게 우리의 첫 번째 Posting이 잘 등록 됐습니다! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f389.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f389.png?v8">🎉</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f389.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f389.png?v8">🎉</span> 위의 제가 적은 내용과 결과를 보시면 알 수 있듯이, Hexo는 기본적으로 <code>Markdown</code> 언어를 지원합니다. </p>
+<p>짜잔~ 이렇게 우리의 첫 번째 Posting이 잘 등록 됐습니다! 🎉🎉 위의 제가 적은 내용과 결과를 보시면 알 수 있듯이, Hexo는 기본적으로 <code>Markdown</code> 언어를 지원합니다.</p>
 <hr>
-
-<h2 id="6-Deploy-to-remote-sites"><a href="#6-Deploy-to-remote-sites" class="headerlink" title="6. Deploy to remote sites"></a>6. Deploy to remote sites</h2><p>자, 그럼 이번에는 마지막으로 이렇게 작성한 블로그와 포스팅을 우리의 실제 원격 저장소(Github repository)로 배포해보도록 합니다. </p>
+<h2 id="6-deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#6-deploy-to-remote-sites"></a> 6. Deploy to remote sites</h2>
+<p>자, 그럼 이번에는 마지막으로 이렇게 작성한 블로그와 포스팅을 우리의 실제 원격 저장소(Github repository)로 배포해보도록 합니다.</p>
 <p>먼저, 아래와 같이 <code>hexo-deployer-git</code>을 먼저 설치해주시고,</p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> npm install --save hexo-deployer-git</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>아래의 명령어를 입력하시면, 배포가 끝났습니다!<span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png?v8">😆</span></p>
+<p>아래의 명령어를 입력하시면, 배포가 끝났습니다!😆</p>
 <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> hexo deploy</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p> 2, 3분 뒤에 <code>username.github.io</code>로 접속하셔서 확인해 보세요 :) </p>
+<p>2, 3분 뒤에 <code>username.github.io</code>로 접속하셔서 확인해 보세요 😃</p>
 <hr>
-
-<h2 id="7-Summary"><a href="#7-Summary" class="headerlink" title="7. Summary"></a>7. Summary</h2><p><code>hexo server</code> </p>
+<h2 id="7-summary"><a class="markdownIt-Anchor" href="#7-summary"></a> 7. Summary</h2>
+<p><code>hexo server</code></p>
 <ul>
 <li>Blog contents가 올바르게 보이는지 확인할 수 있는 로컬 서버를 구동합니다.</li>
 </ul>
-<p><code>hexo new "title"</code> </p>
+<p><code>hexo new "title"</code></p>
 <ul>
-<li>새로운 “title”이라는 이름의 posting을 작성합니다. </li>
+<li>새로운 "title"이라는 이름의 posting을 작성합니다.</li>
 </ul>
 <p><code>hexo generate</code></p>
 <ul>
@@ -271,18 +261,21 @@
 </ul>
 <p><code>hexo deploy</code></p>
 <ul>
-<li>원격 저장소(github repository)에 실제로 배포합니다. </li>
+<li>원격 저장소(github repository)에 실제로 배포합니다.</li>
 </ul>
-<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips :"></a>Tips :</h4><ul>
+<h4 id="tips"><a class="markdownIt-Anchor" href="#tips"></a> Tips :</h4>
+<ul>
 <li><code>hexo generate</code> = <code>hexo g</code></li>
 <li><code>hexo deploy</code> = <code>hexo d</code></li>
-<li><code>hexo clean</code>: 게시글에 html문법이 rendering되지 않고 깨져서 나올 때, 가끔씩 실행<h4 id="Contents-생성-후-바로-배포하기"><a href="#Contents-생성-후-바로-배포하기" class="headerlink" title="Contents 생성 후 바로 배포하기"></a>Contents 생성 후 바로 배포하기</h4></li>
+<li><code>hexo clean</code>: 게시글에 html문법이 rendering되지 않고 깨져서 나올 때, 가끔씩 실행</li>
+</ul>
+<h4 id="contents-생성-후-바로-배포하기"><a class="markdownIt-Anchor" href="#contents-생성-후-바로-배포하기"></a> Contents 생성 후 바로 배포하기</h4>
+<ul>
 <li><code>hexo generate deploy</code> = <code>hexo g -d</code></li>
 </ul>
 <hr>
-
-
-<h2 id="8-Themes"><a href="#8-Themes" class="headerlink" title="8. Themes"></a>8. Themes</h2><p>기본 테마도 훌륭하지만, 좀 더 다른 느낌의 테마를 원하신다면, <a href="https://hexo.io/themes/index.html" rel="external nofollow noopener noreferrer" target="_blank">여기</a>로 들어가셔서, 테마를 고르시고 본인의 <code>_config.yml</code>파일을 수정하면 됩니다!<em>구체적인 테마 적용 방식은 보통 선택한 테마에서 설명</em>을 해주기 때문에, 세부설정이 제각각 다릅니다. <code>_config.yml</code> 파일에서, <code>theme</code>이라는 key 값을 본인이 선택한 테마의 이름으로 바꾼다는 점은 공통이겠지만요 :D 지금 이 튜토리얼을 그대로 따라하셨다면 지금 여러분들의 상태는 아래와 같을 겁니다. </p>
+<h2 id="8-themes"><a class="markdownIt-Anchor" href="#8-themes"></a> 8. Themes</h2>
+<p>기본 테마도 훌륭하지만, 좀 더 다른 느낌의 테마를 원하신다면, <a href="https://hexo.io/themes/index.html" rel="external nofollow noopener noreferrer" target="_blank">여기</a>로 들어가셔서, 테마를 고르시고 본인의 <code>_config.yml</code>파일을 수정하면 됩니다!<em>구체적인 테마 적용 방식은 보통 선택한 테마에서 설명</em>을 해주기 때문에, 세부설정이 제각각 다릅니다. <code>_config.yml</code> 파일에서, <code>theme</code>이라는 key 값을 본인이 선택한 테마의 이름으로 바꾼다는 점은 공통이겠지만요 😄 지금 이 튜토리얼을 그대로 따라하셨다면 지금 여러분들의 상태는 아래와 같을 겁니다.</p>
 <blockquote>
 <p>theme: landscape</p>
 </blockquote>

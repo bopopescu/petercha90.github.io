@@ -3,6 +3,41 @@
 
 
     <url>
+        <loc>http://www.stand-firm-peter.me/tags/container-ssh/</loc>
+        <lastmod>2019-08-13T05:08:56.582Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/ssh/</loc>
+        <lastmod>2019-08-13T05:08:56.582Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/useful-info/</loc>
+        <lastmod>2019-08-13T05:08:56.582Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/docker/</loc>
+        <lastmod>2019-08-13T05:08:56.582Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/Docker/</loc>
+        <lastmod>2019-08-13T05:08:56.582Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://www.stand-firm-peter.me/tags/pseudo-label/</loc>
         <lastmod>2019-08-13T04:50:15.057Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -143,14 +178,14 @@
     </url>
 
     <url>
-        <loc>http://www.stand-firm-peter.me/tags/deep-learning/</loc>
+        <loc>http://www.stand-firm-peter.me/tags/tutorial/</loc>
         <lastmod>2019-08-13T04:49:52.022Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.stand-firm-peter.me/tags/tutorial/</loc>
+        <loc>http://www.stand-firm-peter.me/tags/deep-learning/</loc>
         <lastmod>2019-08-13T04:49:52.022Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -178,22 +213,15 @@
     </url>
 
     <url>
+        <loc>http://www.stand-firm-peter.me/tags/mobilenet/</loc>
+        <lastmod>2019-08-13T04:49:27.413Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://www.stand-firm-peter.me/tags/Colab/</loc>
         <lastmod>2019-08-13T04:26:17.600Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/useful-info/</loc>
-        <lastmod>2019-08-13T04:26:17.600Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/mobilenet/</loc>
-        <lastmod>2019-08-13T02:45:56.405Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -250,34 +278,6 @@
     <url>
         <loc>http://www.stand-firm-peter.me/tags/machine-learning/</loc>
         <lastmod>2019-07-20T12:41:20.131Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/docker/</loc>
-        <lastmod>2019-07-20T12:41:01.017Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/Docker/</loc>
-        <lastmod>2019-07-20T12:41:01.017Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/container-ssh/</loc>
-        <lastmod>2019-07-20T12:40:55.634Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/ssh/</loc>
-        <lastmod>2019-07-20T12:40:55.634Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

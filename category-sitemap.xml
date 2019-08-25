@@ -8,22 +8,22 @@
     </url>
 
     <url>
-        <loc>http://www.stand-firm-peter.me/categories/Deep-Learning-paper/</loc>
-        <lastmod>2019-08-14T11:25:55.684Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://www.stand-firm-peter.me/categories/Tutorial/</loc>
-        <lastmod>2019-08-13T06:16:36.236Z</lastmod>
+        <lastmod>2019-08-25T08:06:16.639Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.stand-firm-peter.me/categories/Machine-Learning/</loc>
-        <lastmod>2019-08-13T04:50:15.057Z</lastmod>
+        <lastmod>2019-08-25T08:05:55.906Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/categories/Deep-Learning-paper/</loc>
+        <lastmod>2019-08-14T11:25:55.684Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

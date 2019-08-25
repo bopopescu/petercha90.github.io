@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>http://www.stand-firm-peter.me/tags/mobilenet/</loc>
+        <lastmod>2019-08-14T11:25:55.684Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/ml/</loc>
+        <lastmod>2019-08-14T11:25:55.684Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/deep-learning/</loc>
+        <lastmod>2019-08-14T11:25:55.684Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://www.stand-firm-peter.me/tags/container-ssh/</loc>
         <lastmod>2019-08-13T06:16:36.236Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -39,13 +60,6 @@
 
     <url>
         <loc>http://www.stand-firm-peter.me/tags/pseudo-label/</loc>
-        <lastmod>2019-08-13T04:50:15.057Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/ml/</loc>
         <lastmod>2019-08-13T04:50:15.057Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -178,13 +192,6 @@
     </url>
 
     <url>
-        <loc>http://www.stand-firm-peter.me/tags/deep-learning/</loc>
-        <lastmod>2019-08-13T04:49:52.022Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://www.stand-firm-peter.me/tags/tutorial/</loc>
         <lastmod>2019-08-13T04:49:52.022Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -208,13 +215,6 @@
     <url>
         <loc>http://www.stand-firm-peter.me/tags/Optimizer/</loc>
         <lastmod>2019-08-13T04:49:44.859Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/mobilenet/</loc>
-        <lastmod>2019-08-13T04:49:27.413Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

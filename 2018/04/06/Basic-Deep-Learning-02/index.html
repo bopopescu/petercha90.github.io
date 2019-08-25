@@ -183,120 +183,128 @@
         <div class="content">
             <ul>
 <li>Deep Learning 개념 및 용어들을 알아봅니다.</li>
-<li><code>Batch</code>, <code>Epoch</code>, <code>CNN</code>  </li>
+<li><code>Batch</code>, <code>Epoch</code>, <code>CNN</code></li>
 </ul>
 <a id="more"></a>
-
-
-<h6 id="Peter-Cha"><a href="#Peter-Cha" class="headerlink" title="Peter Cha"></a>Peter Cha</h6><ul>
-<li><p>Deep Learning을 이해하고, 직접 Deep Learning을 구현하고자 했을 때 필요한 기본 개념들을 정리해 보았습니다. 이번 포스팅에서는 <code>Epoch, Batch</code>라는 단어들의 의미와, 기본적인 <code>CNN - Convolutional Neural Network</code>에 대한 키워드들을 다룹니다. 유명한 <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" rel="external nofollow noopener noreferrer" target="_blank">MNIST</a> 데이터를 학습하는 모델을 만들고 싶다고 했을 때, 언급한 키워드들이 어떤 의미로 사용되는지 예시로 함께 보려합니다. </p>
+<h6 id="peter-cha"><a class="markdownIt-Anchor" href="#peter-cha"></a> Peter Cha</h6>
+<ul>
+<li>
+<p>Deep Learning을 이해하고, 직접 Deep Learning을 구현하고자 했을 때 필요한 기본 개념들을 정리해 보았습니다. 이번 포스팅에서는 <code>Epoch, Batch</code>라는 단어들의 의미와, 기본적인 <code>CNN - Convolutional Neural Network</code>에 대한 키워드들을 다룹니다. 유명한 <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" rel="external nofollow noopener noreferrer" target="_blank">MNIST</a> 데이터를 학습하는 모델을 만들고 싶다고 했을 때, 언급한 키워드들이 어떤 의미로 사용되는지 예시로 함께 보려합니다.</p>
 </li>
-<li><p>In this post, you will learn the Concepts needed when you need to understand the process of training AI or implement the AI by yourself. We are going to talk about <code>Epoch, Batch</code>, and basic <code>CNN</code> knowledges.<br>Supposed we want to make a model which classifies <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" rel="external nofollow noopener noreferrer" target="_blank">MNIST</a> data, let’s check how the keywords above can be used.</p>
+<li>
+<p>In this post, you will learn the Concepts needed when you need to understand the process of training AI or implement the AI by yourself. We are going to talk about <code>Epoch, Batch</code>, and basic <code>CNN</code> knowledges.<br>
+Supposed we want to make a model which classifies <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" rel="external nofollow noopener noreferrer" target="_blank">MNIST</a> data, let’s check how the keywords above can be used.</p>
 </li>
 </ul>
-<h2 id="MNIST"><a href="#MNIST" class="headerlink" title="MNIST"></a>MNIST</h2><ul>
-<li>MNIST data는 아래에서 보시는 것처럼 0 ~ 9까지의 숫자가 적혀 있는, 손글씨 data입니다. 따라서 총 10가지의 class가 있습니다. 이 데이터를 이용해서 우리가 학습시키고 싶은 모델은 따라서 새로운 손글씨 data를 보더라도 0 ~ 9중에 어떤 숫자인지 잘 맞추는 AI가 될 것입니다. </li>
+<h2 id="mnist"><a class="markdownIt-Anchor" href="#mnist"></a> MNIST</h2>
+<ul>
+<li>MNIST data는 아래에서 보시는 것처럼 0 ~ 9까지의 숫자가 적혀 있는, 손글씨 data입니다. 따라서 총 10가지의 class가 있습니다. 이 데이터를 이용해서 우리가 학습시키고 싶은 모델은 따라서 새로운 손글씨 data를 보더라도 0 ~ 9중에 어떤 숫자인지 잘 맞추는 AI가 될 것입니다.</li>
 </ul>
 <center><img src="/gallery/mnist.png" width="500"></center>
-
-<h6 id="Images-from-tensorflow-gitbooks-io"><a href="#Images-from-tensorflow-gitbooks-io" class="headerlink" title="Images from tensorflow.gitbooks.io."></a>Images from <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" rel="external nofollow noopener noreferrer" target="_blank">tensorflow.gitbooks.io</a>.</h6><ul>
+<h6 id="images-from-tensorflowgitbooksio"><a class="markdownIt-Anchor" href="#images-from-tensorflowgitbooksio"></a> Images from <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/mnist/download/" rel="external nofollow noopener noreferrer" target="_blank">tensorflow.gitbooks.io</a>.</h6>
+<ul>
 <li>As you can see above, MNIST is a dataset of handwritten digits, 0 to 9. Therefore, MNIST dataset has 10 classes to distinguish. Using this data, Our model to be trained will be able to distinguish 0 ~ 9 handwritten digits.</li>
 </ul>
 <br>
-
-<h2 id="Epoch-Batch"><a href="#Epoch-Batch" class="headerlink" title="Epoch, Batch"></a>Epoch, Batch</h2><ul>
-<li><p>MNIST는 Training data로 총 6만 장의 수기로 된 숫자를 제공하고, Test용으로 1만 장을 제공하는 Dataset입니다. 자, 그럼 우리는 6만장을 한꺼번에 모델에게 주고 학습해!라고 하면 될까요? 할 수는 있더라도 꽤 여유로운 메모리를 가진 local machine이 아니고서는 좀 힘들겠죠? MNIST가 아닌 더 큰 용량의 데이터일 수록 더 그럴 것입니다.  </p>
+<h2 id="epoch-batch"><a class="markdownIt-Anchor" href="#epoch-batch"></a> Epoch, Batch</h2>
+<ul>
+<li>
+<p>MNIST는 Training data로 총 6만 장의 수기로 된 숫자를 제공하고, Test용으로 1만 장을 제공하는 Dataset입니다. 자, 그럼 우리는 6만장을 한꺼번에 모델에게 주고 학습해!라고 하면 될까요? 할 수는 있더라도 꽤 여유로운 메모리를 가진 local machine이 아니고서는 좀 힘들겠죠? MNIST가 아닌 더 큰 용량의 데이터일 수록 더 그럴 것입니다.</p>
 </li>
-<li><p>그래서, 우리는 이 데이터들을 특정한 양으로 나눠서 조금씩 학습을 할 수 있게 넣어주는데요, 그 작은 단위를 <code>Batch</code>라고 부르고, 그 Batch의 크기가 어떠한지를 일컫는 말로, <code>Batch size</code>라고 말합니다. </p>
+<li>
+<p>그래서, 우리는 이 데이터들을 특정한 양으로 나눠서 조금씩 학습을 할 수 있게 넣어주는데요, 그 작은 단위를 <code>Batch</code>라고 부르고, 그 Batch의 크기가 어떠한지를 일컫는 말로, <code>Batch size</code>라고 말합니다.</p>
 </li>
-<li><p>우리가 Batch size를 100으로 정했다고 하면, 총 몇 번의 반복을 해야 총 60000장의 Training data를 다 한 번씩 모델이 학습할 수 있게 될까요? 600번 일 것입니다. 그럼 실제로, 우리 모델은 100장의 데이터를 가져와서 한 번 돌고(학습하고), 앞에서 배운 Back propagation을 통해, Weight를 Update하게 되면, 그 다음 100장을 가져와서 또 학습을 똑같이 반복하는 이 행위를 총 600번을 하게 됩니다. 그렇게 600번을 다 돌았을 때, 우리는 <code>'1 epoch을 돌았다'</code>라고 말합니다. 참고로, 이 600번을 Step size라고 일컫습니다. </p>
+<li>
+<p>우리가 Batch size를 100으로 정했다고 하면, 총 몇 번의 반복을 해야 총 60000장의 Training data를 다 한 번씩 모델이 학습할 수 있게 될까요? 600번 일 것입니다. 그럼 실제로, 우리 모델은 100장의 데이터를 가져와서 한 번 돌고(학습하고), 앞에서 배운 Back propagation을 통해, Weight를 Update하게 되면, 그 다음 100장을 가져와서 또 학습을 똑같이 반복하는 이 행위를 총 600번을 하게 됩니다. 그렇게 600번을 다 돌았을 때, 우리는 <code>'1 epoch을 돌았다'</code>라고 말합니다. 참고로, 이 600번을 Step size라고 일컫습니다.</p>
 </li>
 </ul>
 <br>
-
-<h2 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h2><ul>
-<li><strong>CNN</strong>은 <strong>C</strong>onvolution <strong>N</strong>eural <strong>N</strong>etwork의 약어로, Convolution 계산이 어떻게 Neural Network 2D 이미지 계산과 관련이 있는지는 <a href="https://brunch.co.kr/@chris-song/24" rel="external nofollow noopener noreferrer" target="_blank">여기</a>를 참고해주세요. 이 글에서는, CNN에서 자주 언급되는, Filter, Kernel, Stride,  Pooling, 그리고 Padding에 대해서 알아봅니다. </li>
+<h2 id="cnn"><a class="markdownIt-Anchor" href="#cnn"></a> CNN</h2>
+<ul>
+<li><strong>CNN</strong>은 <strong>C</strong>onvolution <strong>N</strong>eural <strong>N</strong>etwork의 약어로, Convolution 계산이 어떻게 Neural Network 2D 이미지 계산과 관련이 있는지는 <a href="https://brunch.co.kr/@chris-song/24" rel="external nofollow noopener noreferrer" target="_blank">여기</a>를 참고해주세요. 이 글에서는, CNN에서 자주 언급되는, Filter, Kernel, Stride,  Pooling, 그리고 Padding에 대해서 알아봅니다.</li>
 </ul>
-<h3 id="Feature-Channel-or-Activation-map"><a href="#Feature-Channel-or-Activation-map" class="headerlink" title="Feature(= Channel or Activation map)"></a>Feature(= Channel or Activation map)</h3><ul>
-<li>잠시 MNIST대신에 고양이가 어떻게 생겼는지를 학습하는 Model을 만들고 있다고 생각해 봅시다. 그러면 RGB color로 된 사진을 넣어주게 되고, 우리는 모델에게 이 고양이에 대한 특징(Feature)을 추출해서 학습을 하라고 할 것입니다. </li>
+<h3 id="feature-channel-or-activation-map"><a class="markdownIt-Anchor" href="#feature-channel-or-activation-map"></a> Feature(= Channel or Activation map)</h3>
+<ul>
+<li>잠시 MNIST대신에 고양이가 어떻게 생겼는지를 학습하는 Model을 만들고 있다고 생각해 봅시다. 그러면 RGB color로 된 사진을 넣어주게 되고, 우리는 모델에게 이 고양이에 대한 특징(Feature)을 추출해서 학습을 하라고 할 것입니다.</li>
 </ul>
 <center><img src="/gallery/cnn2.png" width="600"></center>
-
-<h6 id="Images-from-ireneli-eu"><a href="#Images-from-ireneli-eu" class="headerlink" title="Images from ireneli.eu."></a>Images from <a href="https://ireneli.eu/2016/02/03/deep-learning-05-talk-about-convolutional-neural-network%EF%BC%88cnn%EF%BC%89/" rel="external nofollow noopener noreferrer" target="_blank">ireneli.eu</a>.</h6><ul>
-<li>자, 그러면 우리 모델이 맨 처음 보게될 이미지는 Width, Height, 그리고 <u>Red, Green, Blue 3가지</u>로 이루어진 이미지를 받게 되는 것이죠. 이 때, 우리는 Channel이라고 부르는 부분으로 이 RGB인 Depth를 지칭합니다. 그러면 원본 이미지는 <code>'channel의 size가 3이다'</code>라고 말 할 수 있게 됩니다. </li>
-<li>우리 MNIST 이미지는 가로 28 pixel, 세로 28 pixel 짜리, 흑백 이미지입니다!(이미지에는 32라고 적혀있지만..) 그래서 MNIST 이미지의 channel의 Size는 1입니다. </li>
+<h6 id="images-from-irenelieu"><a class="markdownIt-Anchor" href="#images-from-irenelieu"></a> Images from <a href="https://ireneli.eu/2016/02/03/deep-learning-05-talk-about-convolutional-neural-network%EF%BC%88cnn%EF%BC%89/" rel="external nofollow noopener noreferrer" target="_blank">ireneli.eu</a>.</h6>
+<ul>
+<li>자, 그러면 우리 모델이 맨 처음 보게될 이미지는 Width, Height, 그리고 <u>Red, Green, Blue 3가지</u>로 이루어진 이미지를 받게 되는 것이죠. 이 때, 우리는 Channel이라고 부르는 부분으로 이 RGB인 Depth를 지칭합니다. 그러면 원본 이미지는 <code>'channel의 size가 3이다'</code>라고 말 할 수 있게 됩니다.</li>
+<li>우리 MNIST 이미지는 가로 28 pixel, 세로 28 pixel 짜리, 흑백 이미지입니다!(이미지에는 32라고 적혀있지만…) 그래서 MNIST 이미지의 channel의 Size는 1입니다.</li>
 </ul>
 <center><img src="/gallery/cnn_archi.jpg" width="600"></center>
-
-
-<h6 id="Images-from-parse-ele-tue-nl"><a href="#Images-from-parse-ele-tue-nl" class="headerlink" title="Images from parse.ele.tue.nl."></a>Images from <a href="http://parse.ele.tue.nl/cluster/2/CNNArchitecture.jpg" rel="external nofollow noopener noreferrer" target="_blank">parse.ele.tue.nl</a>.</h6><ul>
-<li>이번에는 왜 이 Channel의 또다른 이름이 Feature, Feature maps인지 알아봅시다. 우리 MNIST 데이터가 위의 그림과 같이 들어간다고 했을 때, $C_1$을 보시면 5x5 크기의 Conv를 통과한 뒤, 이미지가 4겹(?)이 됐습니다. 이 때 우리는 Feature map의 size가 4가 됐다고 말할 수 있습니다. 그리고 $C_2$를 보시면 feature map이 12개가 됐죠. </li>
-<li>이런 행위를 해석을 하자면, 들어온 이미지에 대해서 <code>특징을 추출</code>했는데, $C_1$에서는 특징을 4개를 추출하고, $C_2$에서는 특징을 12개를 추출한 뒤 결과물이라고 생각하시면 됩니다. <code>'특징(Feature)을 추출한다'</code>라는 말이 무슨 말인지 이해를 돕기 위해서, 아래 사진을 준비했습니다. </li>
+<h6 id="images-from-parseeletuenl"><a class="markdownIt-Anchor" href="#images-from-parseeletuenl"></a> Images from <a href="http://parse.ele.tue.nl/cluster/2/CNNArchitecture.jpg" rel="external nofollow noopener noreferrer" target="_blank">parse.ele.tue.nl</a>.</h6>
+<ul>
+<li>이번에는 왜 이 Channel의 또다른 이름이 Feature, Feature maps인지 알아봅시다. 우리 MNIST 데이터가 위의 그림과 같이 들어간다고 했을 때, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">C_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>을 보시면 5x5 크기의 Conv를 통과한 뒤, 이미지가 4겹(?)이 됐습니다. 이 때 우리는 Feature map의 size가 4가 됐다고 말할 수 있습니다. 그리고 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">C_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>를 보시면 feature map이 12개가 됐죠.</li>
+<li>이런 행위를 해석을 하자면, 들어온 이미지에 대해서 <code>특징을 추출</code>했는데, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">C_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>에서는 특징을 4개를 추출하고, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">C_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>에서는 특징을 12개를 추출한 뒤 결과물이라고 생각하시면 됩니다. <code>'특징(Feature)을 추출한다'</code>라는 말이 무슨 말인지 이해를 돕기 위해서, 아래 사진을 준비했습니다.</li>
 </ul>
 <center><img src="/gallery/cnn3.png" height="600"></center>
-
-<h6 id="Images-from-deliveryimages"><a href="#Images-from-deliveryimages" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" rel="external nofollow noopener noreferrer" target="_blank">deliveryimages</a>.</h6><ul>
-<li>위 사진은, 사람 얼굴을 학습하는 CNN 모델의 Layer별로 추출한 특징들을 시각화 한 것입니다. 맨처음엔 Pixel로 구성돼있는 원본 이미지에서 맨처음에는 취운 특징인 가로, 세로, 대각선, 원, 곡선 등등의 비교적 단순한 edge들만 특징으로 추출하고 있습니다. </li>
-<li>하지만 모델의 구조가 더 깊이 들어갈 수록, 그 단순한 Feature들을 조합해서 조금더 복잡한 눈, 코, 입 등을 그릴 수 있게 되고, 그 자체를 Feature로 삼을 수 있게 됩니다. 그러다 보면 사람의 전체전인 얼굴이라는 object를 Detect할 수 있는 모델이 되는 것이죠. </li>
-<li>그래서 제 개인적으로는 들어올 때는 Input Image의 Color라는 의미의 Channel로 부르는 것이 더 와닿다가, Layer를 통과할 수록 더욱더 정교한 특징들을 이미지에서 뽑기 때문에, Feature map이라는 말이 더 와닿으니 서로 혼용해서 같은 녀석을 부르는 것 같다는 느낌이 있습니다. </li>
+<h6 id="images-from-deliveryimages"><a class="markdownIt-Anchor" href="#images-from-deliveryimages"></a> Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" rel="external nofollow noopener noreferrer" target="_blank">deliveryimages</a>.</h6>
+<ul>
+<li>위 사진은, 사람 얼굴을 학습하는 CNN 모델의 Layer별로 추출한 특징들을 시각화 한 것입니다. 맨처음엔 Pixel로 구성돼있는 원본 이미지에서 맨처음에는 취운 특징인 가로, 세로, 대각선, 원, 곡선 등등의 비교적 단순한 edge들만 특징으로 추출하고 있습니다.</li>
+<li>하지만 모델의 구조가 더 깊이 들어갈 수록, 그 단순한 Feature들을 조합해서 조금더 복잡한 눈, 코, 입 등을 그릴 수 있게 되고, 그 자체를 Feature로 삼을 수 있게 됩니다. 그러다 보면 사람의 전체전인 얼굴이라는 object를 Detect할 수 있는 모델이 되는 것이죠.</li>
+<li>그래서 제 개인적으로는 들어올 때는 Input Image의 Color라는 의미의 Channel로 부르는 것이 더 와닿다가, Layer를 통과할 수록 더욱더 정교한 특징들을 이미지에서 뽑기 때문에, Feature map이라는 말이 더 와닿으니 서로 혼용해서 같은 녀석을 부르는 것 같다는 느낌이 있습니다.</li>
 </ul>
-<h3 id="Kernel-Filter-amp-Stride"><a href="#Kernel-Filter-amp-Stride" class="headerlink" title="Kernel(= Filter) & Stride"></a>Kernel(= Filter) & Stride</h3><ul>
-<li>바로 위에서 설명한 Feature Map은 이제 설명할 Kernel, 혹은 Filter라는 녀석을 통과한 뒤 나온 결과물 입니다. </li>
-<li>이미지가 들어왔을 때, kernel이라는 Window를 정하고, 그 Window를 움직이면서 그 Kernel이 가지고 있는 weight값들과 Input image와의 연산을 통해 새로운 값을 가진 Image를 생성하게 되는 것이죠. 아래 예시를 통해 더 자세히 알아 봅시다. </li>
+<h3 id="kernel-filter-stride"><a class="markdownIt-Anchor" href="#kernel-filter-stride"></a> Kernel(= Filter) & Stride</h3>
+<ul>
+<li>바로 위에서 설명한 Feature Map은 이제 설명할 Kernel, 혹은 Filter라는 녀석을 통과한 뒤 나온 결과물 입니다.</li>
+<li>이미지가 들어왔을 때, kernel이라는 Window를 정하고, 그 Window를 움직이면서 그 Kernel이 가지고 있는 weight값들과 Input image와의 연산을 통해 새로운 값을 가진 Image를 생성하게 되는 것이죠. 아래 예시를 통해 더 자세히 알아 봅시다.</li>
 </ul>
 <center><img src="/gallery/conv_animation.gif" height="250"></center>
-
-<h6 id="Images-from-blog-bkbklim-com"><a href="#Images-from-blog-bkbklim-com" class="headerlink" title="Images from blog.bkbklim.com."></a>Images from <a href="https://blog.bkbklim.com/2017/11/24/bks-machine-learning-ai-world-5-convolutional-neural-network/" rel="external nofollow noopener noreferrer" target="_blank">blog.bkbklim.com</a>.</h6><ul>
-<li><p>위 Animation에서 <strong>Input</strong>이미지는 <strong>5x5</strong> Size이고, <strong>3x3</strong> Size의 <strong>Kernel</strong>, 혹은 Filter가 한 칸씩 움직이면서 Image와 자신이 가지고 있는 Feature map을 계산하여 결과값을 내놓고 있습니다. <strong>Kernel은 X자 모양의 Filter</strong>네요. element-wise 곱, 즉, dot product를 계산하여 자신의 필터에 부합하는 위치면 곱한 값이, 아니면 0이 곱해져서 의미없는 0이 나오게 됩니다. 그렇게 나온 결과들을 <strong><u>다 더한 값</u></strong> 하나만 결과로 내놓습니다.  </p>
+<h6 id="images-from-blogbkbklimcom"><a class="markdownIt-Anchor" href="#images-from-blogbkbklimcom"></a> Images from <a href="https://blog.bkbklim.com/2017/11/24/bks-machine-learning-ai-world-5-convolutional-neural-network/" rel="external nofollow noopener noreferrer" target="_blank">blog.bkbklim.com</a>.</h6>
+<ul>
+<li>
+<p>위 Animation에서 <strong>Input</strong>이미지는 <strong>5x5</strong> Size이고, <strong>3x3</strong> Size의 <strong>Kernel</strong>, 혹은 Filter가 한 칸씩 움직이면서 Image와 자신이 가지고 있는 Feature map을 계산하여 결과값을 내놓고 있습니다. <strong>Kernel은 X자 모양의 Filter</strong>네요. element-wise 곱, 즉, dot product를 계산하여 자신의 필터에 부합하는 위치면 곱한 값이, 아니면 0이 곱해져서 의미없는 0이 나오게 됩니다. 그렇게 나온 결과들을 <strong><u>다 더한 값</u></strong> 하나만 결과로 내놓습니다.</p>
 </li>
-<li><p>여기서 등장하는 <code>Stride</code>! 자연스럽게 이 애니메이션에서는 한 칸씩 움직이고 있습니다만, <strong>어디까지나, Stride가 1x1일 때의 움직임</strong>입니다. <strong><code>Stride</code>는 <u>어느 정도의 간격을 가지고 Kernel 계산을 진행할 것인지</u>를 나타내는 척도</strong>입니다. Stride가 2x2였다면, 두칸씩 움직일테고, 이 Input Size와는 맞지 않기 때문에 에러를 일으킵니다.</p>
+<li>
+<p>여기서 등장하는 <code>Stride</code>! 자연스럽게 이 애니메이션에서는 한 칸씩 움직이고 있습니다만, <strong>어디까지나, Stride가 1x1일 때의 움직임</strong>입니다. <strong><code>Stride</code>는 <u>어느 정도의 간격을 가지고 Kernel 계산을 진행할 것인지</u>를 나타내는 척도</strong>입니다. Stride가 2x2였다면, 두칸씩 움직일테고, 이 Input Size와는 맞지 않기 때문에 에러를 일으킵니다.</p>
 </li>
-<li><p>아래는 Filter를 설명하는 또 다른 이미지 인데요, 우리가 언급한 저 Filter에 보이는 $w$가 심상치 않습니다. </p>
+<li>
+<p>아래는 Filter를 설명하는 또 다른 이미지 인데요, 우리가 언급한 저 Filter에 보이는 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span>가 심상치 않습니다.</p>
 </li>
 </ul>
 <center><img src="/gallery/cnn5.png" width="700"></center>
-
 <ul>
-<li>Backpropagation을 하면서 Update되는 Weight들은 다 저, Filter의 Weight들입니다! 더 명확한 특징들을 추출하기 위한 세련된 Filter가 되기 위해 그 weight들을 맞춰나가는 것이죠. </li>
+<li>Backpropagation을 하면서 Update되는 Weight들은 다 저, Filter의 Weight들입니다! 더 명확한 특징들을 추출하기 위한 세련된 Filter가 되기 위해 그 weight들을 맞춰나가는 것이죠.</li>
 <li>그럼 이렇게 만들어진 Filter들을 통과하는 Feature map들은 어떻게 형성되는지, 더 명확한 이해를 위해 아래 사진을 보실까요.</li>
 </ul>
 <center><img src="/gallery/filter1.png" width="600"></center>
-
-<h6 id="Images-from-deliveryimages-1"><a href="#Images-from-deliveryimages-1" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" rel="external nofollow noopener noreferrer" target="_blank">deliveryimages</a>.</h6><ul>
-<li>위와 같은 Filter가 하나 있습니다. 곡선을 찾는 Filter네요. 그럼 이 Filter가 들어온 쥐 이미지를 Stride에 맞게 돌아 다니게 됩니다. 그러면서, 이 곡선에 해당하는 위치가 있는지 찾습니다. 이 Filter가 한바퀴 다 돌고 완성된 Feature map은, 아래와 같이 해당 Filter에 반응하는 부분에 높은 숫자를, 아닌 부분에서는 0에 가까운 수를 가진 Feature map이 되는 것이죠. </li>
+<h6 id="images-from-deliveryimages-2"><a class="markdownIt-Anchor" href="#images-from-deliveryimages-2"></a> Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" rel="external nofollow noopener noreferrer" target="_blank">deliveryimages</a>.</h6>
+<ul>
+<li>위와 같은 Filter가 하나 있습니다. 곡선을 찾는 Filter네요. 그럼 이 Filter가 들어온 쥐 이미지를 Stride에 맞게 돌아 다니게 됩니다. 그러면서, 이 곡선에 해당하는 위치가 있는지 찾습니다. 이 Filter가 한바퀴 다 돌고 완성된 Feature map은, 아래와 같이 해당 Filter에 반응하는 부분에 높은 숫자를, 아닌 부분에서는 0에 가까운 수를 가진 Feature map이 되는 것이죠.</li>
 </ul>
 <br>
-
 <center><img src="/gallery/filter2.png" width="700">
 <img src="/gallery/filter3.png" width="700"></center>
-
-<h6 id="Images-from-deliveryimages-2"><a href="#Images-from-deliveryimages-2" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" rel="external nofollow noopener noreferrer" target="_blank">deliveryimages</a>.</h6><h4 id="작아지는-Image-Size"><a href="#작아지는-Image-Size" class="headerlink" title="작아지는 Image Size"></a>작아지는 Image Size</h4><ul>
-<li>위에 나온 Animation에서 주목할 점은, <strong>5x5 이었던 이미지 사이즈가, Kernel 계산을 마친 후, 3x3가 됐다는 것</strong>입니다! 이런 계산이 저 위에 사진에서 보셨듯이 32x32 size였던 MNIST 이미지가, $C_1$에서 28x28이되고, $C_2$에서 10x10 size로 줄게 되었는지 설명할 수 있게 됩니다.</li>
+<h6 id="images-from-deliveryimages-3"><a class="markdownIt-Anchor" href="#images-from-deliveryimages-3"></a> Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" rel="external nofollow noopener noreferrer" target="_blank">deliveryimages</a>.</h6>
+<h4 id="작아지는-image-size"><a class="markdownIt-Anchor" href="#작아지는-image-size"></a> 작아지는 Image Size</h4>
+<ul>
+<li>위에 나온 Animation에서 주목할 점은, <strong>5x5 이었던 이미지 사이즈가, Kernel 계산을 마친 후, 3x3가 됐다는 것</strong>입니다! 이런 계산이 저 위에 사진에서 보셨듯이 32x32 size였던 MNIST 이미지가, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">C_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>에서 28x28이되고, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">C_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>에서 10x10 size로 줄게 되었는지 설명할 수 있게 됩니다.</li>
 </ul>
-<h3 id="Padding"><a href="#Padding" class="headerlink" title="Padding"></a>Padding</h3><ul>
-<li>이미지가 계속 Convolution layer를 통과하면서 작아지면 나중에는 1x1까지 가다못해 없어지지 않을까요?! 그래서 이미지의 Size가 너무 줄어들지 않게 이미지 주변에 값을 넣어주는 기법을 padding이라고 합니다. 가장 많이 쓰이는 Zero padding으로 예시를 보이자면 아래와 같습니다. </li>
+<h3 id="padding"><a class="markdownIt-Anchor" href="#padding"></a> Padding</h3>
+<ul>
+<li>이미지가 계속 Convolution layer를 통과하면서 작아지면 나중에는 1x1까지 가다못해 없어지지 않을까요?! 그래서 이미지의 Size가 너무 줄어들지 않게 이미지 주변에 값을 넣어주는 기법을 padding이라고 합니다. 가장 많이 쓰이는 Zero padding으로 예시를 보이자면 아래와 같습니다.</li>
 </ul>
 <center><img src="/gallery/zero_padding.png" width="700"></center>
-
 <ul>
-<li>저렇게 Kernel Size가 2x2이고, Stride가 1x1인 경우, 원본이 3x3 Size였으면 2x2 kernel로 계산을 해도 총 9번을 계산하여 원본 사이즈를 그대로 유지할 수 있게 됩니다. </li>
+<li>저렇게 Kernel Size가 2x2이고, Stride가 1x1인 경우, 원본이 3x3 Size였으면 2x2 kernel로 계산을 해도 총 9번을 계산하여 원본 사이즈를 그대로 유지할 수 있게 됩니다.</li>
 </ul>
-<h3 id="Pooling"><a href="#Pooling" class="headerlink" title="Pooling"></a>Pooling</h3><ul>
-<li>Pooling은 Filter 계산이 아닌, kernel size에 해당하는 영역에 있는 값들을 일괄적으로 처리하고 싶을 때 사용합니다. 대표적인 Pooling으로 많이 쓰이는 Max Pooling의 개념은 아래와 같습니다. </li>
+<h3 id="pooling"><a class="markdownIt-Anchor" href="#pooling"></a> Pooling</h3>
+<ul>
+<li>Pooling은 Filter 계산이 아닌, kernel size에 해당하는 영역에 있는 값들을 일괄적으로 처리하고 싶을 때 사용합니다. 대표적인 Pooling으로 많이 쓰이는 Max Pooling의 개념은 아래와 같습니다.</li>
 </ul>
 <center><img src="/gallery/maxpool.png" height="250"></center>
-
-<h6 id="Images-from-deliveryimages-3"><a href="#Images-from-deliveryimages-3" class="headerlink" title="Images from deliveryimages."></a>Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" rel="external nofollow noopener noreferrer" target="_blank">deliveryimages</a>.</h6><ul>
-<li>말 그대로 2x2 Max pooling을 하겠다 하면, 해당 사이즈에서 가장 큰 값만 취하는 것이죠. 가장 중요한 정보만 취하겠다는 의도가 있습니다. 그 외에도 Average Pooling을 비롯한 다양한 Pooling이 있습니다. </li>
-<li>이 Pooling의 장점은, 무엇보다 <strong>계산이 단순해서 계산량, Computation Cost가 작다는 것</strong> 정도가 되겠습니다. </li>
-<li>위에서 배운 Padding을 응용해보면, Padding을 적당히 준 이미지에 Pooling을 하면 이미지 사이즈는 줄지 않지만 빠른 계산은 가능한 구조도 가능하겠죠? </li>
+<h6 id="images-from-deliveryimages-4"><a class="markdownIt-Anchor" href="#images-from-deliveryimages-4"></a> Images from <a href="https://deliveryimages.acm.org/10.1145/2010000/2000787/figs/f2.html" rel="external nofollow noopener noreferrer" target="_blank">deliveryimages</a>.</h6>
+<ul>
+<li>말 그대로 2x2 Max pooling을 하겠다 하면, 해당 사이즈에서 가장 큰 값만 취하는 것이죠. 가장 중요한 정보만 취하겠다는 의도가 있습니다. 그 외에도 Average Pooling을 비롯한 다양한 Pooling이 있습니다.</li>
+<li>이 Pooling의 장점은, 무엇보다 <strong>계산이 단순해서 계산량, Computation Cost가 작다는 것</strong> 정도가 되겠습니다.</li>
+<li>위에서 배운 Padding을 응용해보면, Padding을 적당히 준 이미지에 Pooling을 하면 이미지 사이즈는 줄지 않지만 빠른 계산은 가능한 구조도 가능하겠죠?</li>
 </ul>
 <hr>
-
 <br>
-
 <ul>
-<li>여기까지 기본적인 딥러닝 용어인, Batch, Epoch, 그리고 CNN의 기본 용어들을 살펴 보았습니다! 다음 포스팅에서는, Activation Function, MLP와 CNN의 차이점에 대해 이야기 해 보도록 하겠습니다. </li>
+<li>여기까지 기본적인 딥러닝 용어인, Batch, Epoch, 그리고 CNN의 기본 용어들을 살펴 보았습니다! 다음 포스팅에서는, Activation Function, MLP와 CNN의 차이점에 대해 이야기 해 보도록 하겠습니다.</li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')

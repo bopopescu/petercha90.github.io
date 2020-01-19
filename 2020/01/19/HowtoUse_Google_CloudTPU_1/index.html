@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&product=sop" async="async"></script>
+    <meta charset="utf-8">
+<title>How to use Google Cloud TPU (1) - Stand firm Peter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="canonical" href="http://www.stand-firm-peter.me/2020/01/19/howtouse_google_cloudtpu_1/">
+
+
+<meta property="og:image" content="/gallery/tpu_1.jpg">
+
+
+
+<!-- <meta property="og:title" content=How to use Google Cloud TPU (1) - Stand firm Peter> -->
+<meta property="og:description" content="Peter's playground.">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4926107872672843",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4926107872672843",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+<link rel="alternative" href="/rss.xml" title="How to use Google Cloud TPU (1)" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124184693-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-124184693-1');
+</script>
+
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/dog.jpg" alt="How to use Google Cloud TPU (1)" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/gallery/tpu_1.jpg" alt="How to use Google Cloud TPU (1)">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-01-18T15:00:00.000Z">2020-01-19</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    17 minutes read (About 2553 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                How to use Google Cloud TPU (1)
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>Google TPU 사용해서 Transfer Learning하여 모바일에 심기</li>
+<li>Google Cloud Platform 환경설정편</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>본 Tutorial은 2020년 1월 기준으로 작성되었으며, Mac OS 기준으로 작성되어 Ubuntu 및 다른 Linux기반 OS에서는 검증되지 않았습니다. 잘못 기재되어 있거나 수정이 필요한 부분들은 알려주시면 감사하겠습니다 😃</li>
+</ul>
+<hr>
+<h2 id="무료계정-생성하기"><a class="markdownIt-Anchor" href="#무료계정-생성하기"></a> 무료계정 생성하기</h2>
+<ul>
+<li>
+<p>AWS와 같이 GCP도 무료로 일정량 이상을 서비스를 사용할 수 있도록 해주는데, GCP의 경우 AWS와 같이 1년 이라는 Free tier를 부여해주는 것이 아니라, 실제 비용 $300에 해당하는 만큼의 서비스를 사용할 수 있게 해준다.</p>
+</li>
+<li>
+<p>한 계정(e-mail)당 한 번씩 쓸 수 있다고 하니,공부 목적의 학습용으로는 사용하다가 $300를 다 쓴다고 해도, 또 다른 계정을 생성하고 다시 시도하는 식으로 사용해도 좋겠다.</p>
+  <center><img src="/gallery/gcp1.png" width="800"></center>
+</li>
+</ul>
+<h1 id="set-the-environment"><a class="markdownIt-Anchor" href="#set-the-environment"></a> Set the environment 🍀</h1>
+<h2 id="1-google-cloud-setup"><a class="markdownIt-Anchor" href="#1-google-cloud-setup"></a> 1. Google Cloud Setup</h2>
+<ul>
+<li><strong><a href="https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction#setup" rel="external nofollow noopener noreferrer" target="_blank">GCP 프로젝트 설정</a></strong> 의 안내에 따라, 다음과 같이 환경을 만들어주자.</li>
+</ul>
+<h3 id="11-프로젝트-생성"><a class="markdownIt-Anchor" href="#11-프로젝트-생성"></a> 1.1. 프로젝트 생성</h3>
+<ul>
+<li>
+<p><a href="https://console.cloud.google.com/" rel="external nofollow noopener noreferrer" target="_blank">Google Cloud Platform</a> 콘솔에서 아래와 같이 프로젝트를 생성한 뒤, 선택해준다. 필자는 TPU를 사용해서 MobileNet-SSD 모델을 학습할 것이기 때문에, 프로젝트 이름을 <code>object-detection</code>이라고 지었다.</p>
+<p><img src="/gallery/gcp2.png" width="800"></p>
+</li>
+</ul>
+<h3 id="12-결제-사용-설정"><a class="markdownIt-Anchor" href="#12-결제-사용-설정"></a> 1.2. 결제 사용 설정</h3>
+<ul>
+<li>
+<p>그 다음에는 결제 설정을 해줘야 한다. 아래와 같이, 좌상단에 메뉴 버튼을 누르면 나오는 선택지에서 <code>결제</code> - <code>결제 수단</code>을 차례로 눌러서 결제 사용 설정을 마친다.</p>
+<p><img src="/gallery/gcp333.png" width="400"></p>
+<p><img src="/gallery/gcp33.png" width="800"></p>
+</li>
+</ul>
+<h3 id="13-api-사용-설정"><a class="markdownIt-Anchor" href="#13-api-사용-설정"></a> 1.3. API 사용 설정</h3>
+<ul>
+<li>
+<p><strong>Compute Engine API, Cloud TPU API, AI Platform Training & Prediction API 총 3가지 API</strong> 사용 설정을 한다. 좌상단 메뉴 버튼을 누르면 나오는 <strong><code>API 및 서비스</code></strong> 를 눌러서 나오는 화면에서 <strong><code>+ API 및 서비스 사용 설정</code></strong> 를 눌러주자.</p>
+<p><img src="/gallery/gcp9.png" width="800"></p>
+</li>
+<li>
+<p>API 검색창에 Compute Engine API를 차례대로 입력하고 사용 설정을 해준다.</p>
+<p><img src="/gallery/gcp10.png" width="800"></p>
+</li>
+</ul>
+<h3 id="14-google-cloud-sdk-설치"><a class="markdownIt-Anchor" href="#14-google-cloud-sdk-설치"></a> 1.4. Google Cloud SDK 설치</h3>
+<ul>
+<li>
+<p><a href="https://cloud.google.com/sdk/docs/" rel="external nofollow noopener noreferrer" target="_blank">여기</a>에 들어가서 해당 OS에 해당하는 설명대로(Windows는 없다) 따라하면 <strong>Google Cloud SDK</strong> 를 설치할 수 있다.</p>
+</li>
+<li>
+<p>Mac OS라면, google-cloud-sdk 폴더 안으로 bash창으로 이동해서, <strong><code>$./bin/gcloud init</code></strong> 을 시전해주자.  SDK를 초기화하는 것이다.</p>
+</li>
+<li>
+<p>그러면 사용하고자 하는 프로젝트와 Region 등을 설정할 수 있다. 인증을 잘 마치면, bash에서 아래와 같이, 위에서 만들었던 프로젝트를 확인할 수 있다.</p>
+<p><img src="/gallery/gcp13.png" width="550"></p>
+</li>
+<li>
+<p>Compute Region 과 Zone은 나중에라도 <code>gcloud config set compute/zone NAME</code>, <code>gcloud config set compute/region NAME</code>명령어를 써서 바꿀 수 있어서 Default로 설정하고 넘어가도 된다.  하지만, 아래에서 언급되겠지만 TFRC에서 허락해주는 무료 TPU의 Region/Zone과 맞추기 위해서 필자는 <code>us-central1-f</code>로 세팅했다.</p>
+</li>
+<li>
+<p>bash 창을 껏다가 다시 실행하면 <code>gcloud config list</code>를 입력해서 본인의 계정과 프로젝트가 잘 설정됐는지 확인해 볼 수 있다. 아래와 같은 결과를 확인할 수 있다면 끝.</p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	$ gcloud config list</span><br><span class="line">[core]</span><br><span class="line">account = petercha0990@gmail.com</span><br><span class="line">disable_usage_reporting = False</span><br><span class="line">project = object-detection-265202</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>여기까지 설정이 잘 끝났다면, 이제 TPU와 관련된 설정만 마무리 하면 된다!<br>
+<s>사실이제 시작임…</s></p>
+</li>
+</ul>
+<br>
+<h2 id="2-allowing-cloud-tpu-access"><a class="markdownIt-Anchor" href="#2-allowing-cloud-tpu-access"></a> 2. Allowing Cloud TPU Access</h2>
+<h3 id="21-get-free-tpus"><a class="markdownIt-Anchor" href="#21-get-free-tpus"></a> 2.1. Get free TPUs</h3>
+<ul>
+<li>
+<p>“왜 TPU 안써?!”  "…??! 😦없는데 어떻게 써요!"라고 대답할 필자와 같은 사람들을 위해서 갓글님은 <strong>TFRC 프로그램</strong>을 진행하고 계신다. <s>Google is Love.</s></p>
+</li>
+<li>
+<p>돈 없고 가난하지만 TPU를 써서 연구해보고 싶은 전 세계의 연구자들을 위해서 <strong>한 달간 TPU를 무료로 사용할 수 있게 해주는</strong> 프로젝트다. <strong><a href="https://www.tensorflow.org/tfrc" rel="external nofollow noopener noreferrer" target="_blank">여기</a></strong> 에 들어가서 <code>지금 신청하기</code> 버튼을 눌러서, 잽싸게 신청해 놓자.</p>
+  <center><img src="/gallery/gcp12.png" width="800"></center>
+</li>
+<li>
+<p>신청 후에 TFRC로 부터 답변을 허가 메일이 당장 오진 않는다. 하지만 조금만 (하루정도) 기다리면 아래와같은 자비로운 답변 메일을 받을 수 있다 🙏</p>
+<p><img src="/gallery/gcp14.png" width="600"></p>
+</li>
+<li>
+<p>답변을 받았다면 메일 안에 아래와 같이 <strong>3. Send us your project number via <a href>this short form.</a></strong> 부분을 클릭해서(1번과 2번 과정인 프로젝트를 만들고 Cloud TPU API를 사용설정하는 것은 위에서 다 했기 때문에), TPU를 사용할 프로젝트의 정보와 더물어, 진정으로 TPU를 사용하겠다고 신청을 하면 된다.<br>
+<img src="/gallery/gcp16.png" width="600"></p>
+</li>
+<li>
+<p>신청이 완료되었으면, 필자의 경우 약 3시간 뒤 다시 답변 메일이 왔는데, 그 때부터 30일이라는 무료로 사용할 수 있는 기간이 카운트다운 되기 시작한다. 두 번째로 받은 메일에는 <u>실제로 프로젝트가 TPU를 무료로 쓸 수 있는 Zone과 Region이 명시</u>가 되어있으니, 이 점을 잘 참고해서 설정을 해야한다. 그렇지 않으면, 어마어마한 TPU사용료가 청구되기 때문에 조심!</p>
+<p><img src="/gallery/gcp19.png" width="600"></p>
+</li>
+</ul>
+<h3 id="22-set-a-tpu-account"><a class="markdownIt-Anchor" href="#22-set-a-tpu-account"></a> 2.2 Set a TPU account</h3>
+<ul>
+<li>
+<p>아래와 같이 <strong><code>projects.getConfig</code></strong> 를 호출해서 <strong><code>tpuServiceAccount</code></strong> 를 알아낸다.</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="hljs-string">"Authorization: Bearer <span class="hljs-variable">$(gcloud auth print-access-token)</span>"</span> \</span><br><span class="line">	https://ml.googleapis.com/v1/projects/object-detection-265202:getConfig</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>Output:</strong></p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="hljs-string">"serviceAccount"</span>: <span class="hljs-string">"service-630609466618@cloud-ml.google.com.iam.gserviceaccount.com"</span>,</span><br><span class="line">  <span class="hljs-string">"serviceAccountProject"</span>: <span class="hljs-string">"601122858872"</span>,</span><br><span class="line">  <span class="hljs-string">"config"</span>: {</span><br><span class="line">    <span class="hljs-string">"tpuServiceAccount"</span>: <span class="hljs-string">"service-blahblah@cloud-tpu.iam.gserviceaccount.com"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>그리고 아래 같이 설정해준다.</p>
+<blockquote>
+<ol>
+<li>Google Cloud Platform Console에 로그인하고 TPU를 사용 중인 프로젝트를 선택합니다.</li>
+<li>IAM 및 관리자 ▶️ IAM을 선택합니다.</li>
+<li>추가 버튼을 클릭하여 프로젝트에 멤버를 추가합니다.</li>
+<li>멤버 입력란에 TPU 서비스 계정(<strong><code>tpuServiceAccount</code></strong>) 을 입력합니다.</li>
+<li>역할 드롭다운 목록을 클릭합니다.</li>
+<li>Cloud ML 서비스 에이전트 역할을 사용 설정합니다(서비스 관리 ▶️ Cloud ML 서비스 에이전트).</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<br>
+<h2 id="3-cloud-storage-bucket"><a class="markdownIt-Anchor" href="#3-cloud-storage-bucket"></a> 3. Cloud Storage Bucket 💾</h2>
+<ul>
+<li>
+<p>모델 학습에 사용할 데이터 및 학습 결과를 저장할 Cloud Storage 버킷이 필요하다.</p>
+</li>
+<li>
+<p><u><strong>만든 버킷은 가상 머신(VM)과 Cloud TPU 기기 또는 Cloud TPU 슬라이스(여러 TPU 기기)와 동일한 리전에</strong></u> 있어야 한다. (이 부분은 일단 보류)</p>
+</li>
+<li>
+<p>아래 명령어를 치면 간단하게 Bucket을 생성할 수 있다.</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gsutil mb gs://YOUR_UNIQUE_BUCKET_NAME</span><br></pre></td></tr></tbody></table></figure>
+<p>필자의 경우, <code>object_detection_peter</code>이라는 이름으로 버킷을 만들었다. 아래와 같이, GCP Console 메뉴에서, 저장소 카테고리의 <strong><code>Storage</code></strong> 를 확인해보면 생성된 Bucket을 확인해 볼 수 있다.</p>
+  <img src="/gallery/gcp21.png" width="600">
+</li>
+</ul>
+<br>
+<h2 id="4-ctpu"><a class="markdownIt-Anchor" href="#4-ctpu"></a> 4. <code>ctpu</code></h2>
+<ul>
+<li>
+<p>이제 내 프로젝트와 Bucket을 연동시켜보자. <strong><a href="https://github.com/tensorflow/tpu/tree/master/tools/ctpu" rel="external nofollow noopener noreferrer" target="_blank"><code>ctpu</code></a></strong> 를 사용해서 Cloud TPU 프로젝트 리소스를 만들고 관리하도록 하자. 먼저, ctpu를 설치하자. 맥 OS의 경우 아래의 명령어로 ctpu를 설치할 수 있다.</p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Mac</span></span><br><span class="line">$ curl -O https://dl.google.com/cloud_tpu/ctpu/latest/darwin/ctpu && chmod a+x ctpu</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>설치가 끝났으면, 내가 사용하고자 하는 region을 명시하여서 <strong><code>ctpu up</code></strong> 을 호출하자. 아래와 같이 명시를 하지 않으면 기본값인 <code>us-central1-b</code>등으로 임의로 할당하는 경우가 있다.</p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ctpu up --zone=us-central1<span class="hljs-_">-f</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>이 <code>ctpu up</code>이라는 명령어를 사용하면, 알아서 Compute Engine VM과, TPU node를 생성해줄 뿐만 아니라, IAM 계정도 만들어서 등록해주고, 만들어진 Compute Engine VM에 로그인까지 할 수 있게된다.</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ ctpu up --zone=us-central1<span class="hljs-_">-f</span></span><br><span class="line">ctpu will use the following configuration:</span><br><span class="line"></span><br><span class="line">  Name:                 petercha0990</span><br><span class="line">  Zone:                 us-central1<span class="hljs-_">-f</span></span><br><span class="line">  GCP Project:          object-detection-265202</span><br><span class="line">  TensorFlow Version:   2.1</span><br><span class="line">  VM:</span><br><span class="line">      Machine Type:     n1-standard-2</span><br><span class="line">      Disk Size:        250 GB</span><br><span class="line">      Preemptible:      <span class="hljs-literal">false</span></span><br><span class="line">  Cloud TPU:</span><br><span class="line">      Size:             v2-8</span><br><span class="line">      Preemptible:      <span class="hljs-literal">false</span></span><br><span class="line">      Reserved:         <span class="hljs-literal">false</span></span><br><span class="line"></span><br><span class="line">OK to create your Cloud TPU resources with the above configuration? [Yn]:  y</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>성공적으로 위에서 말한 과정이 끝나게 되면, 아래처럼 쉘 프롬프트 <code>username@tpuname</code>로 변경된다. 하지만 우리는 이 안에서 작업을 할 것이 아니라, 단순히 이 VM에 딸린 TPU를 사용하고 싶을 뿐임으로, 바로 <code>exit</code>를 입력하고 나가자.</p>
+ <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">OK to create your Cloud TPU resources with the above configuration? [Yn]:  y</span><br><span class="line">2020/01/19 15:32:30 Creating TPU petercha0990 (this may take a few minutes)...</span><br><span class="line">2020/01/19 15:32:30 Creating Compute Engine VM petercha0990 (this may take a minute)...</span><br><span class="line">2020/01/19 15:32:37 TPU operation still running...</span><br><span class="line">2020/01/19 15:32:38 Created Compute Engine VM petercha0990!</span><br><span class="line">2020/01/19 15:32:59 TPU operation still running...</span><br><span class="line">2020/01/19 15:33:21 TPU operation still running...</span><br><span class="line">2020/01/19 15:33:42 TPU operation still running...</span><br><span class="line">2020/01/19 15:33:53 Created TPU petercha0990!</span><br><span class="line">2020/01/19 15:33:55 Updating the project's IAM policy to add the TPU service account ('service-630609466618@cloud-tpu.iam.gserviceaccount.com') to roles: roles/logging.logWriter and roles/storage.admin.</span><br><span class="line">About to ssh (with port forwarding enabled -- see docs for details)...</span><br><span class="line">Updating project ssh metadata...⠶Updated [https://www.googleapis.com/compute/v1/projects/object-detection-265202].     </span><br><span class="line">Updating project ssh metadata...done.                                                         Waiting for SSH key to propagate.</span><br><span class="line">Warning: Permanently added 'compute.8979413283803908368' (ECDSA) to the list of known hosts.</span><br><span class="line">Enter passphrase for key '/Users/chayesol/.ssh/google_compute_engine': </span><br><span class="line">Enter passphrase for key '/Users/chayesol/.ssh/google_compute_engine': </span><br><span class="line">bind [127.0.0.1]:8888: Address already in use</span><br><span class="line">channel_setup_fwd_listener_tcpip: cannot listen to port: 8888</span><br><span class="line">Linux petercha0990 4.9.0-11-amd64 #1 SMP Debian 4.9.189-3+deb9u2 (2019-11-11) x86_64</span><br><span class="line"></span><br><span class="line">The programs included with the Debian GNU/Linux system are free software;</span><br><span class="line">the exact distribution terms for each program are described in the</span><br><span class="line">individual files in /usr/share/doc/*/copyright.</span><br><span class="line"></span><br><span class="line">Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent</span><br><span class="line">permitted by applicable law.</span><br><span class="line">chayesol@petercha0990:~$ (← VM으로 접속한 상태)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+<h2 id="5-last-configuration"><a class="markdownIt-Anchor" href="#5-last-configuration"></a> 5. Last Configuration</h2>
+<ul>
+<li>
+<p>긴 과정을 거쳐왔다… 드디어 환경설정 마지막이다. 로컬머신 <code>.bash_profile</code>에 환경변수 3개만 더 추가해주면 된다. 각자의 <code>bash_profile</code>이 있는 경로로 이동한 후에,</p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi .bash_profile</span><br></pre></td></tr></tbody></table></figure>
+<p>를 입력해서, 아래와 같이 환경변수 3가지를 추가해주자.</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-built_in">export</span> PROJECT=object-detection-265202</span><br><span class="line"><span class="hljs-built_in">export</span> YOUR_GCS_BUCKET=object_detection_peter</span><br><span class="line"><span class="hljs-built_in">export</span> TPU_ACCOUNT=service-blahblah@cloud-tpu.iam.gserviceaccount.com</span><br><span class="line">...</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>다 끝났으면, <code>$ source .bash_profile</code>도 잊지 말고 실행시켜주자!</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>고생하셨습니다. 다음편에는 실제 Tensorflow Transfer Learning을 각자의 필요에 맞게 원하는 Class 개수에 맞게 학습을 진행하는 방법을 살펴 보겠습니다! 👏👏</li>
+</ul>
+<br>
+<h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
+<ul>
+<li><strong>Training and serving a realtime mobile object detector in 30 minutes with Cloud TPUs - <a href="https://medium.com/tensorflow/training-and-serving-a-realtime-mobile-object-detector-in-30-minutes-with-cloud-tpus-b78971cf1193" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+<li><strong>GCP Project Setting - <a href="https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction#setup" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+<li><strong>Step by Step TensorFlow Object Detection API Tutorial - Part 1 ~ 5 - <a href="https://medium.com/@WuStangDan" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+        
+        
+        <div id="bmc" align="center">
+            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha" rel="external nofollow noopener noreferrer"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+        </div>
+        
+        
+            <p><br></p>
+            <div class="level is-size-7 is-uppercase">
+                <div class="level-start">
+                    <div class="level-item">
+                        <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                        <a class="has-link-grey -link" href="/tags/GCP/">GCP</a>, <a class="has-link-grey -link" href="/tags/Google-Cloud-Platform/">Google Cloud Platform</a>, <a class="has-link-grey -link" href="/tags/TPU/">TPU</a>, <a class="has-link-grey -link" href="/tags/deep-learning/">deep_learning</a>, <a class="has-link-grey -link" href="/tags/transfer-learning/">transfer learning</a>, <a class="has-link-grey -link" href="/tags/tutorial/">tutorial</a>
+                    </div>
+                </div>
+            </div>
+            
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Natural -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4926107872672843" data-ad-slot="1904278923" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <br>
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&amp;product=custom-share-buttons" async="async"></script>
+
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/11/mobilenet/">
+                <span class="level-item">MobileNet V1</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://www.stand-firm-peter.me/2020/01/19/HowtoUse_Google_CloudTPU_1/';
+        this.page.identifier = '2020/01/19/HowtoUse_Google_CloudTPU_1/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'petercha90' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        <br>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Natural -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4926107872672843" data-ad-slot="1904278923" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Deep-Learning-paper/">
+            <span class="level-start">
+                <span class="level-item">Deep Learning paper</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Machine-Learning/">
+            <span class="level-start">
+                <span class="level-item">Machine Learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Tutorial/">
+            <span class="level-start">
+                <span class="level-item">Tutorial</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/01/19/HowtoUse_Google_CloudTPU_1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_1.jpg" alt="How to use Google Cloud TPU (1)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-18T15:00:00.000Z">2020-01-19</time></div>
+                    <a href="/2020/01/19/HowtoUse_Google_CloudTPU_1/" class="has-link-black-ter is-size-6">How to use Google Cloud TPU (1)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/11/mobilenet/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/mobile.jpg" alt="MobileNet V1">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-11T07:44:56.000Z">2019-08-11</time></div>
+                    <a href="/2019/08/11/mobilenet/" class="has-link-black-ter is-size-6">MobileNet V1</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Deep-Learning-paper/">Deep Learning paper</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/12/keras_101/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/keras1.jpg" alt="Keras tutorial (1)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-12T14:03:01.000Z">2019-06-12</time></div>
+                    <a href="/2019/06/12/keras_101/" class="has-link-black-ter is-size-6">Keras tutorial (1)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/06/12/Colab_tutorial/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/colabimg3.jpg" alt="Colab tutorial :)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-12T12:31:02.000Z">2019-06-12</time></div>
+                    <a href="/2019/06/12/Colab_tutorial/" class="has-link-black-ter is-size-6">Colab tutorial :)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/25/docker-103/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/docker1_5.jpg" alt="Docker tutorial (3)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-25T06:26:56.000Z">2019-05-25</time></div>
+                    <a href="/2019/05/25/docker-103/" class="has-link-black-ter is-size-6">Docker tutorial (3)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Back-propagation/" style="font-size: 10px;">Back propagation</a> <a href="/tags/Batch/" style="font-size: 10px;">Batch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Colab/" style="font-size: 10px;">Colab</a> <a href="/tags/Docker/" style="font-size: 13.33px;">Docker</a> <a href="/tags/Epoch/" style="font-size: 10px;">Epoch</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/Google-Cloud-Platform/" style="font-size: 10px;">Google Cloud Platform</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/L1/" style="font-size: 10px;">L1</a> <a href="/tags/L2/" style="font-size: 10px;">L2</a> <a href="/tags/Lasso/" style="font-size: 10px;">Lasso</a> <a href="/tags/Loss-function/" style="font-size: 10px;">Loss function</a> <a href="/tags/Optimizer/" style="font-size: 10px;">Optimizer</a> <a href="/tags/Padding/" style="font-size: 10px;">Padding</a> <a href="/tags/Pooling/" style="font-size: 10px;">Pooling</a> <a href="/tags/Ridge/" style="font-size: 10px;">Ridge</a> <a href="/tags/TPU/" style="font-size: 10px;">TPU</a> <a href="/tags/basic/" style="font-size: 11.67px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/container-ssh/" style="font-size: 10px;">container ssh</a> <a href="/tags/convex-optimisation/" style="font-size: 10px;">convex_optimisation</a> <a href="/tags/dataframe/" style="font-size: 10px;">dataframe</a> <a href="/tags/deep-learning/" style="font-size: 18.33px;">deep_learning</a> <a href="/tags/docker/" style="font-size: 13.33px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/keras/" style="font-size: 10px;">keras</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/logarithm/" style="font-size: 10px;">logarithm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/machine-learning/" style="font-size: 13.33px;">machine-learning</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine_learning</a> <a href="/tags/ml/" style="font-size: 20px;">ml</a> <a href="/tags/mobilenet/" style="font-size: 10px;">mobilenet</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pseudo-label/" style="font-size: 10px;">pseudo-label</a> <a href="/tags/regularization/" style="font-size: 10px;">regularization</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tensorflow/" style="font-size: 11.67px;">tensorflow</a> <a href="/tags/tensorpack/" style="font-size: 10px;">tensorpack</a> <a href="/tags/transfer-learning/" style="font-size: 10px;">transfer learning</a> <a href="/tags/tutorial/" style="font-size: 16.67px;">tutorial</a> <a href="/tags/useful-info/" style="font-size: 15px;">useful-info</a>
+    </div>
+</div>
+
+    
+    
+    <br>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Natural -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4926107872672843" data-ad-slot="1904278923" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/dog.jpg" alt="How to use Google Cloud TPU (1)" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Peter Cha&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

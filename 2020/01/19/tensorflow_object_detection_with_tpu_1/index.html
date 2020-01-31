@@ -3,17 +3,17 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&product=sop" async="async"></script>
     <meta charset="utf-8">
-<title>How to use Google Cloud TPU (1) - Stand firm Peter</title>
+<title>Running a pretrained model on Android with TPU training (1) - Stand firm Peter</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<link rel="canonical" href="http://www.stand-firm-peter.me/2020/01/19/howtouse_google_cloudtpu_1/">
+<link rel="canonical" href="http://www.stand-firm-peter.me/2020/01/19/tensorflow_object_detection_with_tpu_1/">
 
 
 <meta property="og:image" content="/gallery/tpu_1.jpg">
 
 
 
-<!-- <meta property="og:title" content=How to use Google Cloud TPU (1) - Stand firm Peter> -->
+<!-- <meta property="og:title" content=Running a pretrained model on Android with TPU training (1) - Stand firm Peter> -->
 <meta property="og:description" content="Peter's playground.">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -35,7 +35,7 @@
 </script>
 
 
-<link rel="alternative" href="/rss.xml" title="How to use Google Cloud TPU (1)" type="application/atom+xml">
+<link rel="alternative" href="/rss.xml" title="Running a pretrained model on Android with TPU training (1)" type="application/atom+xml">
 
 
 
@@ -111,7 +111,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/dog.jpg" alt="How to use Google Cloud TPU (1)" height="28">
+                <img src="/images/dog.jpg" alt="Running a pretrained model on Android with TPU training (1)" height="28">
             
             </a>
         </div>
@@ -149,7 +149,7 @@
     
     <div class="card-image">
         <span class="image is-7by1">
-            <img class="thumbnail" src="/gallery/tpu_1.jpg" alt="How to use Google Cloud TPU (1)">
+            <img class="thumbnail" src="/gallery/tpu_1.jpg" alt="Running a pretrained model on Android with TPU training (1)">
         </span>
     </div>
     
@@ -167,7 +167,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    17 minutes read (About 2553 words)
+                    18 minutes read (About 2625 words)
                 </span>
                 
                 
@@ -177,7 +177,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                How to use Google Cloud TPU (1)
+                Running a pretrained model on Android with TPU training (1)
             
         </h1>
         <div class="content">
@@ -194,6 +194,8 @@
 <hr>
 
 <h2 id="무료계정-생성하기"><a href="#무료계정-생성하기" class="headerlink" title="무료계정 생성하기"></a>무료계정 생성하기</h2><ul>
+<li><p>TPU는 아래에서도 살펴보겠지만, 무료로 한 달간 사용할 수 있는 방법이 있다. 하지만, TPU 이외의 Compute Engine과 저장소 역할을 하는 Google Storage, 그리고 TPU 및 여러 API를 사용하는 비용까지 추가로 청구가 될 수 있다.</p>
+</li>
 <li><p>AWS와 같이 GCP도 무료로 일정량 이상을 서비스를 사용할 수 있도록 해주는데, GCP의 경우 AWS와 같이 1년 이라는 Free tier를 부여해주는 것이 아니라, 실제 비용 $300에 해당하는 만큼의 서비스를 사용할 수 있게 해준다.</p>
 </li>
 <li><p>한 계정(e-mail)당 한 번씩 쓸 수 있다고 하니,공부 목적의 학습용으로는 사용하다가 $300를 다 쓴다고 해도, 또 다른 계정을 생성하고 다시 시도하는 식으로 사용해도 좋겠다. </p>
@@ -226,7 +228,7 @@
 <li><a href="https://cloud.google.com/sdk/docs/" rel="external nofollow noopener noreferrer" target="_blank">여기</a>에 들어가서 해당 OS에 해당하는 설명대로(Windows는 없다) 따라하면 <strong>Google Cloud SDK</strong> 를 설치할 수 있다.</li>
 </ul>
 <ul>
-<li><p>Mac OS라면, google-cloud-sdk 폴더 안으로 bash창으로 이동해서, <strong><code>$./bin/gcloud init</code></strong> 을 시전해주자.  SDK를 초기화하는 것이다. </p>
+<li><p><code>google-cloud-sdk</code> 폴더 안으로 bash를 이동시켜서, <strong><code>$./bin/gcloud init</code></strong> 을 시전해주자. SDK를 초기화하는 것이다. </p>
 </li>
 <li><p>그러면 사용하고자 하는 프로젝트와 Region 등을 설정할 수 있다. 인증을 잘 마치면, bash에서 아래와 같이, 위에서 만들었던 프로젝트를 확인할 수 있다. </p>
 <p>  <img src="/gallery/gcp13.png" width="550"></p>
@@ -415,8 +417,8 @@
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/11/mobilenet/">
-                <span class="level-item">MobileNet V1</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/19/tensorflow_object_detection_with_tpu_2/">
+                <span class="level-item">Running a pretrained model on Android with TPU training (2)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -432,8 +434,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://www.stand-firm-peter.me/2020/01/19/HowtoUse_Google_CloudTPU_1/';
-        this.page.identifier = '2020/01/19/HowtoUse_Google_CloudTPU_1/';
+        this.page.url = 'http://www.stand-firm-peter.me/2020/01/19/tensorflow_object_detection_with_tpu_1/';
+        this.page.identifier = '2020/01/19/tensorflow_object_detection_with_tpu_1/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -495,7 +497,7 @@
                 <span class="level-item">Tutorial</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">7</span>
+                <span class="level-item tag">8</span>
             </span>
         </a></li>
             </ul>
@@ -512,16 +514,35 @@
         
         <article class="media">
             
-            <a href="/2020/01/19/HowtoUse_Google_CloudTPU_1/" class="media-left">
+            <a href="/2020/01/19/tensorflow_object_detection_with_tpu_1/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/tpu_1.jpg" alt="How to use Google Cloud TPU (1)">
+                    <img class="thumbnail" src="/gallery/tpu_1.jpg" alt="Running a pretrained model on Android with TPU training (1)">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-18T15:00:00.000Z">2020-01-19</time></div>
-                    <a href="/2020/01/19/HowtoUse_Google_CloudTPU_1/" class="has-link-black-ter is-size-6">How to use Google Cloud TPU (1)</a>
+                    <a href="/2020/01/19/tensorflow_object_detection_with_tpu_1/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU training (1)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/01/19/tensorflow_object_detection_with_tpu_2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_2.jpg" alt="Running a pretrained model on Android with TPU training (2)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-18T15:00:00.000Z">2020-01-19</time></div>
+                    <a href="/2020/01/19/tensorflow_object_detection_with_tpu_2/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU training (2)</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
                     </p>
@@ -586,25 +607,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/05/25/docker-103/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/docker1_5.jpg" alt="Docker tutorial (3)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-25T06:26:56.000Z">2019-05-25</time></div>
-                    <a href="/2019/05/25/docker-103/" class="has-link-black-ter is-size-6">Docker tutorial (3)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -615,7 +617,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Back-propagation/" style="font-size: 10px;">Back propagation</a> <a href="/tags/Batch/" style="font-size: 10px;">Batch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Colab/" style="font-size: 10px;">Colab</a> <a href="/tags/Docker/" style="font-size: 13.33px;">Docker</a> <a href="/tags/Epoch/" style="font-size: 10px;">Epoch</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/Google-Cloud-Platform/" style="font-size: 10px;">Google Cloud Platform</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/L1/" style="font-size: 10px;">L1</a> <a href="/tags/L2/" style="font-size: 10px;">L2</a> <a href="/tags/Lasso/" style="font-size: 10px;">Lasso</a> <a href="/tags/Loss-function/" style="font-size: 10px;">Loss function</a> <a href="/tags/Optimizer/" style="font-size: 10px;">Optimizer</a> <a href="/tags/Padding/" style="font-size: 10px;">Padding</a> <a href="/tags/Pooling/" style="font-size: 10px;">Pooling</a> <a href="/tags/Ridge/" style="font-size: 10px;">Ridge</a> <a href="/tags/TPU/" style="font-size: 10px;">TPU</a> <a href="/tags/basic/" style="font-size: 11.67px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/container-ssh/" style="font-size: 10px;">container ssh</a> <a href="/tags/convex-optimisation/" style="font-size: 10px;">convex_optimisation</a> <a href="/tags/dataframe/" style="font-size: 10px;">dataframe</a> <a href="/tags/deep-learning/" style="font-size: 18.33px;">deep_learning</a> <a href="/tags/docker/" style="font-size: 13.33px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/keras/" style="font-size: 10px;">keras</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/logarithm/" style="font-size: 10px;">logarithm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/machine-learning/" style="font-size: 13.33px;">machine-learning</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine_learning</a> <a href="/tags/ml/" style="font-size: 20px;">ml</a> <a href="/tags/mobilenet/" style="font-size: 10px;">mobilenet</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pseudo-label/" style="font-size: 10px;">pseudo-label</a> <a href="/tags/regularization/" style="font-size: 10px;">regularization</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tensorflow/" style="font-size: 11.67px;">tensorflow</a> <a href="/tags/tensorpack/" style="font-size: 10px;">tensorpack</a> <a href="/tags/transfer-learning/" style="font-size: 10px;">transfer learning</a> <a href="/tags/tutorial/" style="font-size: 16.67px;">tutorial</a> <a href="/tags/useful-info/" style="font-size: 15px;">useful-info</a>
+        <a href="/tags/Back-propagation/" style="font-size: 10px;">Back propagation</a> <a href="/tags/Batch/" style="font-size: 10px;">Batch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Colab/" style="font-size: 10px;">Colab</a> <a href="/tags/Docker/" style="font-size: 13.33px;">Docker</a> <a href="/tags/Epoch/" style="font-size: 10px;">Epoch</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/GCP/" style="font-size: 11.67px;">GCP</a> <a href="/tags/Google-Cloud-Platform/" style="font-size: 11.67px;">Google Cloud Platform</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/L1/" style="font-size: 10px;">L1</a> <a href="/tags/L2/" style="font-size: 10px;">L2</a> <a href="/tags/Lasso/" style="font-size: 10px;">Lasso</a> <a href="/tags/Loss-function/" style="font-size: 10px;">Loss function</a> <a href="/tags/Optimizer/" style="font-size: 10px;">Optimizer</a> <a href="/tags/Padding/" style="font-size: 10px;">Padding</a> <a href="/tags/Pooling/" style="font-size: 10px;">Pooling</a> <a href="/tags/Ridge/" style="font-size: 10px;">Ridge</a> <a href="/tags/TPU/" style="font-size: 11.67px;">TPU</a> <a href="/tags/basic/" style="font-size: 11.67px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/container-ssh/" style="font-size: 10px;">container ssh</a> <a href="/tags/convex-optimisation/" style="font-size: 10px;">convex_optimisation</a> <a href="/tags/dataframe/" style="font-size: 10px;">dataframe</a> <a href="/tags/deep-learning/" style="font-size: 18.33px;">deep_learning</a> <a href="/tags/docker/" style="font-size: 13.33px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/keras/" style="font-size: 10px;">keras</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/logarithm/" style="font-size: 10px;">logarithm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/machine-learning/" style="font-size: 13.33px;">machine-learning</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine_learning</a> <a href="/tags/ml/" style="font-size: 20px;">ml</a> <a href="/tags/mobilenet/" style="font-size: 10px;">mobilenet</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pseudo-label/" style="font-size: 10px;">pseudo-label</a> <a href="/tags/regularization/" style="font-size: 10px;">regularization</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tensorflow/" style="font-size: 11.67px;">tensorflow</a> <a href="/tags/tensorflow-object-detection-api/" style="font-size: 10px;">tensorflow object detection api</a> <a href="/tags/tensorpack/" style="font-size: 10px;">tensorpack</a> <a href="/tags/transfer-learning/" style="font-size: 11.67px;">transfer learning</a> <a href="/tags/tutorial/" style="font-size: 16.67px;">tutorial</a> <a href="/tags/useful-info/" style="font-size: 15px;">useful-info</a>
     </div>
 </div>
 
@@ -640,7 +642,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/dog.jpg" alt="How to use Google Cloud TPU (1)" height="28">
+                    <img src="/images/dog.jpg" alt="Running a pretrained model on Android with TPU training (1)" height="28">
                 
                 </a>
                 <p class="is-size-7">

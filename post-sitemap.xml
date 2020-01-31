@@ -8,8 +8,16 @@
     </url>
 
     <url>
-        <loc>http://www.stand-firm-peter.me/2020/01/19/HowtoUse_Google_CloudTPU_1/</loc>
-        <lastmod>2020-01-19T07:49:17.250Z</lastmod>
+        <loc>http://www.stand-firm-peter.me/2020/01/19/tensorflow_object_detection_with_tpu_2/</loc>
+        <lastmod>2020-01-31T11:31:39.777Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/2020/01/19/tensorflow_object_detection_with_tpu_1/</loc>
+        <lastmod>2020-01-31T08:14:02.283Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

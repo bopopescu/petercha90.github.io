@@ -3,17 +3,17 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&product=sop" async="async"></script>
     <meta charset="utf-8">
-<title>Tensorpack tutorial - Stand firm Peter</title>
+<title>Running a pretrained model on Android with TPU training (2) - Stand firm Peter</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<link rel="canonical" href="http://www.stand-firm-peter.me/2018/08/18/tensorpack-tutorial/">
+<link rel="canonical" href="http://www.stand-firm-peter.me/2020/01/19/tensorflow_object_detection_with_tpu_2/">
 
 
-<meta property="og:image" content="/gallery/img6.jpg">
+<meta property="og:image" content="/gallery/tpu_2.jpg">
 
 
 
-<!-- <meta property="og:title" content=Tensorpack tutorial - Stand firm Peter> -->
+<!-- <meta property="og:title" content=Running a pretrained model on Android with TPU training (2) - Stand firm Peter> -->
 <meta property="og:description" content="Peter's playground.">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -35,7 +35,7 @@
 </script>
 
 
-<link rel="alternative" href="/rss.xml" title="Tensorpack tutorial" type="application/atom+xml">
+<link rel="alternative" href="/rss.xml" title="Running a pretrained model on Android with TPU training (2)" type="application/atom+xml">
 
 
 
@@ -111,7 +111,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/dog.jpg" alt="Tensorpack tutorial" height="28">
+                <img src="/images/dog.jpg" alt="Running a pretrained model on Android with TPU training (2)" height="28">
             
             </a>
         </div>
@@ -149,7 +149,7 @@
     
     <div class="card-image">
         <span class="image is-7by1">
-            <img class="thumbnail" src="/gallery/img6.jpg" alt="Tensorpack tutorial">
+            <img class="thumbnail" src="/gallery/tpu_2.jpg" alt="Running a pretrained model on Android with TPU training (2)">
         </span>
     </div>
     
@@ -157,17 +157,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-08-18T06:00:30.000Z">2018-08-18</time>
+                <time class="level-item has-text-grey" datetime="2020-01-18T15:00:00.000Z">2020-01-19</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
+                <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    12 minutes read (About 1749 words)
+                    11 minutes read (About 1587 words)
                 </span>
                 
                 
@@ -177,158 +177,94 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Tensorpack tutorial
+                Running a pretrained model on Android with TPU training (2)
             
         </h1>
         <div class="content">
             <ul>
-<li>Tensorflow Wrapper인 Tensorpack을 소개합니다.</li>
-<li><code>Tensorflow</code>, <code>Tensorpack</code></li>
+<li>Google TPU 사용해서 Transfer Learning하여 모바일에 심기 </li>
+<li>Tensorflow object detection API 설치하기</li>
 </ul>
 <a id="more"></a>
 
-<h5 id="ModelDesc와-Trainer를-중심으로"><a href="#ModelDesc와-Trainer를-중심으로" class="headerlink" title="ModelDesc와 Trainer를 중심으로"></a>ModelDesc와 Trainer를 중심으로</h5><h3 id="Peter-Cha"><a href="#Peter-Cha" class="headerlink" title="Peter Cha"></a>Peter Cha</h3><h2 id="Tensorpack을-공부하면"><a href="#Tensorpack을-공부하면" class="headerlink" title="Tensorpack을 공부하면,"></a>Tensorpack을 공부하면,</h2><ul>
-<li>우선 모르는 것들 투성이다. 알고나면 너무 쓰기 편하지만, 처음 접할 때는 너무 많이 추상화 된 API에 ‘이게 tensorflow는 맞는지..’할 정도니까.</li>
-<li>우선 이 튜토리얼을 보기 전, 필자의 <a href="https://github.com/PeterCha90/Tensorflow-Deep-Learning/blob/master/Tutorials/Tensorpack_tutorial.ipynb" rel="external nofollow noopener noreferrer" target="_blank"><code>tensorpack_tutorial.ipynb</code></a>를 실행해 보길 바란다. 대략적인 dataflow는 데이터를 불러오는 부분으로 이해를 마쳤다고 생각을 하고, dataflow부분은 생략하고 설명을 진행하도록 하겠다. </li>
-<li>이번에는 Model의 선언하게 될 때 상속받은 <strong><code>ModelDesc</code></strong> class와, 학습을 실행하는 Trainer들의 모태가 되는 <strong><code>TowerTrainer</code></strong> 에 대해 알아보고자 한다.<code>tensorpack_tutorial.ipynb</code>에서 설명에 해당하는 부분을 함께 찾아보면 이해에 도움이 더 될 것 같다. </li>
-<li>이 Tutorial은 Tensorpack <a href="https://tensorpack.readthedocs.io/modules/train.html?highlight=TowerFuncWrapper" rel="external nofollow noopener noreferrer" target="_blank">documentation</a>을 참고해서 만들었다. </li>
+
+<ul>
+<li>본 Tutorial은 2020년 1월 기준으로 작성되었으며, Mac OS 기준으로 작성되어 Ubuntu 및 다른 Linux기반 OS에서는 검증되지 않았습니다. 잘못 기재되어 있거나 수정이 필요한 부분들은 알려주시면 감사하겠습니다 :)</li>
 </ul>
 <hr>
 
-<br>
-
-<h2 id="1-Class-ModelDescBase"><a href="#1-Class-ModelDescBase" class="headerlink" title="1. Class ModelDescBase"></a>1. Class <code>ModelDescBase</code></h2><blockquote>
-<p>Base class for a model description이다.</p>
-</blockquote>
-<ul>
-<li><code>ModelDesc</code>는 ModelDescBase를 기반으로 만들어졌기 때문에, <code>ModelDescBase</code>를 먼저 설명한다. </li>
-</ul>
-<h3 id="1-1-build-graph-args"><a href="#1-1-build-graph-args" class="headerlink" title="1.1. build_graph(*args)"></a>1.1. build_graph(*args)</h3><ul>
-<li>모든 symbolic graph (<strong>Model의 형태</strong>)를 Build한다. 이 함수가 뒤에서 설명할 <code>TowerTrainer</code>에서 <code>tower function</code>의 일부분이다.</li>
-<li>그 다음 설명할 <code>inputs()</code>에서 정의된 input list에 맞는 <code>tf.Tensor</code>를 parameter로 받는다. </li>
-<li>아무것도 리턴하지 않는다. </li>
-</ul>
-<h3 id="1-2-inputs"><a href="#1-2-inputs" class="headerlink" title="1.2. inputs()"></a>1.2. inputs()</h3><ul>
-<li>Model에서 input으로 받을 텐서들의 placeholder들을 정의하는 함수다. </li>
-<li>후에 <code>InputDesc</code>로 변환될, <code>tf.placeholder</code>들을 return 한다.</li>
-</ul>
-<center><img src="/gallery/modeldesc.png" width="750"></center>
-
-<h3 id="1-3-get-inputs-desc"><a href="#1-3-get-inputs-desc" class="headerlink" title="1.3. get_inputs_desc"></a>1.3. get_inputs_desc</h3><ul>
-<li>이름에서 알 수 있듯이, inputs()에서 정의된 모양대로 생긴 InputDesc를 list로 반환하는 함수다. </li>
-</ul>
-<hr>
-<br>
-
-<h2 id="2-Class-ModelDesc"><a href="#2-Class-ModelDesc" class="headerlink" title="2. Class ModelDesc"></a>2. Class <code>ModelDesc</code></h2><ul>
-<li><strong>주의사항</strong>: <strong>build_graph()를 꼭 cost를 return하도록</strong> 코딩해야 한다.</li>
-<li>앞에서 설명한 ModelDescBase를 상속받은 터라, 위의 3가지는 함수는 내장하고 있다. </li>
-</ul>
-<h3 id="2-1-optimizer"><a href="#2-1-optimizer" class="headerlink" title="2.1. optimizer()"></a>2.1. optimizer()</h3><ul>
-<li><code>tf.train.Optimizer</code>를 여기에 선언해주고 Return하게끔 함수를 짜준다. </li>
-</ul>
-<h3 id="2-2-get-optimizer"><a href="#2-2-get-optimizer" class="headerlink" title="2.2. get_optimizer()"></a>2.2. get_optimizer()</h3><ul>
-<li>optimizer()를 호출하면, 계속 새로 optimizer를 만들어서 생성하는데, 이 함수를 쓰면 이미 optimizer()를 통해 생긴 optimizer를 기록해 놓았다가 반환시켜준다. </li>
-</ul>
-<hr>
-<br>
-
-<h2 id="3-Class-TowerTrainer"><a href="#3-Class-TowerTrainer" class="headerlink" title="3. Class TowerTrainer"></a>3. Class <code>TowerTrainer</code></h2><h4 id="Tensorpack에서는"><a href="#Tensorpack에서는" class="headerlink" title="Tensorpack에서는,"></a>Tensorpack에서는,</h4><ul>
-<li>우리가 흔히 말하는 Model을 계속 Tower라고 지칭한다.(왜 그런지 모르겠다.<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f636.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f636.png?v8">😶</span>)</li>
-<li>그래서 아래에서 나오는 <code>TowerTrainer</code>는 만든 모델을 학습을 시키는 <strong>Trainer</strong>고, 그 트레이너가 어떤 특징들을 가진 함수들을 들고 다니는지 이해하면 이해가 쉽다. </li>
-<li>기본적으로 <u>Tensorpack에 나오는 모든 Trainer들은 <code>TowerTrainer</code>의 subclass다</u>. 이 개념이 그래서 궁극적으로는 모든 neural-network training을 가능하게 해준다. </li>
-</ul>
-<h3 id="3-1-get-predictor-input-names-output-names-device-0"><a href="#3-1-get-predictor-input-names-output-names-device-0" class="headerlink" title="3.1. get_predictor(input_names, output_names, device=0)"></a>3.1. <code>get_predictor</code>(input_names, output_names, device=0)</h3><blockquote>
-<p>Returns a callable predictor built under <code>TowerContext(is_training=False)</code>. </p>
-</blockquote>
-<ul>
-<li>이 함수가 호출되면, 가지고 있는 TowerContext(모델)가 <u>training mode가 아닌 상태(is_training=False)</u>로 돌려준다. 그러니까 <strong>Test data로 시험할 때만 부르는 함수</strong>. 그래서 이름도 predictor.</li>
-<li><strong><code>Parameters</code></strong>: <code>input_names</code> <strong>(list)</strong>, <code>output_names</code> <strong>(list)</strong>, <code>device</code> <strong>(int)</strong> – build the predictor on device ‘/gpu:{device}’ or use -1 for ‘/cpu:0’.</li>
-<li>파라미터로 들어가는 input, output이름은 모델 안에서 선언된 이름이 아니면 안 돌아가니까 조심.</li>
-</ul>
-<h3 id="3-2-inputs-desc"><a href="#3-2-inputs-desc" class="headerlink" title="3.2. inputs_desc"></a>3.2. inputs_desc</h3><blockquote>
-<p>Returns – list[InputDesc]: metainfo about the inputs to the tower.</p>
-</blockquote>
-<ul>
-<li>말 그대로, 모델에 들어갈 Input의 크기와 같은 정보가 들어있는 list를 반환해준다. </li>
-</ul>
-<h3 id="3-3-tower-func"><a href="#3-3-tower-func" class="headerlink" title="3.3. tower_func"></a>3.3. tower_func</h3><blockquote>
-<p>Build Model.</p>
-</blockquote>
-<ul>
-<li>이 친구가 실제 <strong>모델을 정의하고, Build</strong>할 수 있는 함수를 세팅하는 부분!</li>
-<li><strong><code>ModelDesc</code></strong> interface로 정의된 model을 trainer로 돌려야 하는 상황이 자주 발생할 수 있는데, 이 때, <u>ModelDesc에서 선언된 <strong>build_graph 함수</strong>가 이 역할을 대신</u>해 줄 수 있다.</li>
-</ul>
-<h3 id="3-4-towers"><a href="#3-4-towers" class="headerlink" title="3.4. towers"></a>3.4. towers</h3><blockquote>
-<p>Returns – a TowerTensorHandles object, to access the tower handles by either indices or names.</p>
-</blockquote>
-<ul>
-<li>모델 및 Train 전반에 걸쳐 관련된 변수들에 접근하고 싶을 때 사용한다! 그래서 이 함수는 Transfer learning을 할 때 유용할 거 같다.</li>
-<li>이미 <u><strong>모델 그래프가 Set up이 끝난 뒤에만</strong> 이 함수는 호출될 수 있다</u>. </li>
-<li>각각의 <code>layer</code>와 <code>attributes</code>에 이 <code>towers</code>함수를 호출하면 접근할 수 있게 된다! 아래는 예시.</li>
-</ul>
-<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Access the conv1/output tensor in the first training tower</span></span><br><span class="line">trainer.towers.training()[<span class="hljs-number">0</span>].get_tensor(<span class="hljs-string">'conv1/output'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<br>
-
-<h2 id="4-Class-Trainer"><a href="#4-Class-Trainer" class="headerlink" title="4. Class Trainer"></a>4. Class <code>Trainer</code></h2><blockquote>
-<p>Base class for a trainer.</p>
-</blockquote>
-<ul>
-<li><p>분명히 위에서 금방, </p>
+<h2 id="본격적인-Transfer-Learning-시작"><a href="#본격적인-Transfer-Learning-시작" class="headerlink" title="본격적인 Transfer Learning 시작"></a>본격적인 Transfer Learning 시작</h2><ul>
+<li><p><strong><a href>이전 글</a></strong> 에서 TPU를 사용하기 위한 처절한 환경세팅<del>이라쓰고 몸부림</del>을 끝냈습니다.</p>
+</li>
+<li><p>이번 포스팅부터는,  </p>
 <blockquote>
-<p>“기본적으로 <u>Tensorpack에 나오는 모든 Trainer들은 <code>TowerTrainer</code>의 subclass다</u> “</p>
+<p>1) Tensorflow Oject Detection API를 설치 후, Transfer Learning을 할 <strong>모델을 준비하고</strong>,<br>2) 우리가 학습시키고 싶은 <strong>Annotation 데이터들을 tfrecord로 준비하는 과정.</strong> 그리고,<br>3) 실제로 <strong>학습을 시키고</strong> 학습이 잘 됐는지 <strong>테스트</strong>하는</p>
 </blockquote>
-<p>  라고 했는데, 이 <code>TowerTrainer가 상속을 받는 class</code>가 있었으니, 이름하여 TowerTrainer보다 더 단순한 <strong><code>Trainer</code></strong> 다.</p>
-</li>
-<li><p>다른 TowerTrainer를 상속 받은 Trainer들을 사용할 때, 종종 TowerTrainer에서 본 적 없는 친구들이 나타나는데, 그 친구들이 Trainer의 것인 경우가 있다. </p>
-</li>
-<li><p>하지만, Trainer 고유 함수나 요소에 직접적으로 접근할 일이 별로 없어서 아래의 3가지 정도만 알고 있으면 될 것 같다. 나머지는 <a href="https://tensorpack.readthedocs.io/modules/train.html?highlight=register_callback#tensorpack.train.Trainer" rel="external nofollow noopener noreferrer" target="_blank">문서</a>를 참고하자. </p>
+<p>  과정을 2번의 걸쳐 살펴보도록 하겠습니다.</p>
 </li>
 </ul>
-<blockquote>
-<p>아래 1, 2번의 max_epoch과, steps_per_epoch은 <code>TrainConfig</code>에서 자주 만나는 키워드들인데, 이 친구들이 Trainer의 요소였다.</p>
-</blockquote>
-<h3 id="4-1-max-epoch"><a href="#4-1-max-epoch" class="headerlink" title="4.1. max_epoch"></a>4.1. max_epoch</h3><ul>
-<li>Epoch은 몇 번 돌릴 것인지</li>
-</ul>
-<h3 id="4-2-steps-per-epoch"><a href="#4-2-steps-per-epoch" class="headerlink" title="4.2. steps_per_epoch"></a>4.2. steps_per_epoch</h3><ul>
-<li>한 에폭당 steps은 총 몇 번인지.</li>
-</ul>
-<center><img src="/gallery/sample.png" width="750"></center>
-
-
-<h3 id="4-3-register-callback-cb"><a href="#4-3-register-callback-cb" class="headerlink" title="4.3. register_callback(cb)"></a>4.3. register_callback(cb)</h3><blockquote>
-<p>Register callbacks to the trainer. It can only be called before Trainer.train().</p>
-</blockquote>
-<ul>
-<li><u>Trainer가 모델을 돌릴 때마다(epoch이 진행 됨에 따라), 수행하게 될 부가적인 기능</u>들을 Tensorpack에서는 <strong>callback</strong>이라고 부르고, 대표적인 callback으로 <strong>ModelSaver()</strong> 가 있다.</li>
-<li>이 Callback을 명시적으로 전달하여 Trainer Object에 세팅할 수 있는 기능이다. 주로 모델을 튜닝할 때, 설정하면서 종종 쓰는 것을 코드 상에서 확인할 수 있다. </li>
-</ul>
-<hr>
-
 <br>
 
-<h2 id="5-TowerContext"><a href="#5-TowerContext" class="headerlink" title="5. TowerContext"></a>5. TowerContext</h2><ul>
-<li><p><strong><code>TowerContext</code></strong> 는 Training과 Validation 혹은 Test시에 동작이 달라야 하는 <code>BatchNorm</code>이나, <code>Dropout</code>을 제어하기 위해서 만들어진 function이다. </p>
+
+<h1 id="Tensorflow-Object-Detection-API-설치하기"><a href="#Tensorflow-Object-Detection-API-설치하기" class="headerlink" title="Tensorflow Object Detection API 설치하기"></a>Tensorflow Object Detection API 설치하기</h1><ul>
+<li><p>1편에서 설치한 <code>google-cloud-sdk</code>를 설치한 경로와 같은 곳에, TensorFlow의 <code>Models</code>를 Clone한다.</p>
+  <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git <span class="hljs-built_in">clone</span> https://github.com/tensorflow/models.git</span></span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><p><code>tensorpack_tutorial.ipynb</code>에서는 이 친구를 찾아볼 수 없는데, SimpleTrainer 소스코드를 보니, 자체적으로 안에서 train/test time에 맞춰서 TrainTowerContext라는 것으로 조절하고 있기 때문이었다. 사용법은 간단하다. </p>
-<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># training</span></span><br><span class="line"><span class="hljs-keyword">with</span> TowerContext(<span class="hljs-string">''</span>, is_training=<span class="hljs-literal">True</span>):</span><br><span class="line">  <span class="hljs-comment"># call any tensorpack layer</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># test</span></span><br><span class="line"><span class="hljs-keyword">with</span> TowerContext(<span class="hljs-string">'name or empty'</span>, is_training=<span class="hljs-literal">False</span>):</span><br><span class="line">  <span class="hljs-comment"># build the graph again</span></span><br></pre></td></tr></tbody></table></figure>
+<li><p>그 뒤에는 <code>models/research/object_detection/g3doc/</code>으로 이동해서 <strong><code>installation.md</code></strong> 을 열어본다.  <del>절대설명하기귀찮아서가가아니라<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f440.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png?v8">👀</span></del> <strong><code>installation.md</code></strong> 를 보고, <strong>Dependencies, COCO API, Protobuf, Protobuf Compilation, PYTHONPATH 등록</strong>까지 순서대로 설치 및 실행한다. </p>
+</li>
+<li><p>설치하는 과정 중에, 무언가가 tensorflow에는 없다는 에러가 뜬다면 설치되어 있는 tensorflow의 버전이 2.0 이상이라서 호환이 안되는 경우일 수 있다. 그런 경우 아래와 같이 tensorflow 버전을 낮춰주면 실행이 된다. 필자는 아래 예시처럼 1.14.0으로 버전을 낮춘 뒤 설치했다. </p>
+  <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> pip install tensorflow==1.14.0</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>잘 설치가 됐는지, 아래 명령어를 <code>models/research</code>로 이동해서 실행해보자.</p>
+  <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> python object_detection/builders/model_builder_test.py</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>  tensorflow가 최신이 아니라서 곧 지원을 중단할 것이라는 엄청난 Future warnings를 뒤로하고, 아래와 같은 결과를 볼 수 있다면 Tensorflow Object Detection API를 성공적으로 설치완료.<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8">👏</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8">👏</span></p>
+  <figure class="highlight plain hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">  ...</span><br><span class="line">  Running tests under Python 3.7.4: /Users/chayesol/opt/anaconda3/bin/python3</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_create_experimental_model</span><br><span class="line">[       OK ] ModelBuilderTest.test_create_experimental_model</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_create_faster_rcnn_model_from_config_with_example_miner</span><br><span class="line">[       OK ] ModelBuilderTest.test_create_faster_rcnn_model_from_config_with_example_miner</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_create_faster_rcnn_models_from_config_faster_rcnn_with_matmul</span><br><span class="line">[       OK ] ModelBuilderTest.test_create_faster_rcnn_models_from_config_faster_rcnn_with_matmul</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_create_faster_rcnn_models_from_config_faster_rcnn_without_matmul</span><br><span class="line">[       OK ] ModelBuilderTest.test_create_faster_rcnn_models_from_config_faster_rcnn_without_matmul</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_create_faster_rcnn_models_from_config_mask_rcnn_with_matmul</span><br><span class="line">[       OK ] ModelBuilderTest.test_create_faster_rcnn_models_from_config_mask_rcnn_with_matmul</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_create_faster_rcnn_models_from_config_mask_rcnn_without_matmul</span><br><span class="line">[       OK ] ModelBuilderTest.test_create_faster_rcnn_models_from_config_mask_rcnn_without_matmul</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_create_rfcn_model_from_config</span><br><span class="line">[       OK ] ModelBuilderTest.test_create_rfcn_model_from_config</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_create_ssd_fpn_model_from_config</span><br><span class="line">[       OK ] ModelBuilderTest.test_create_ssd_fpn_model_from_config</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_create_ssd_models_from_config</span><br><span class="line">[       OK ] ModelBuilderTest.test_create_ssd_models_from_config</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_invalid_faster_rcnn_batchnorm_update</span><br><span class="line">[       OK ] ModelBuilderTest.test_invalid_faster_rcnn_batchnorm_update</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_invalid_first_stage_nms_iou_threshold</span><br><span class="line">[       OK ] ModelBuilderTest.test_invalid_first_stage_nms_iou_threshold</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_invalid_model_config_proto</span><br><span class="line">[       OK ] ModelBuilderTest.test_invalid_model_config_proto</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_invalid_second_stage_batch_size</span><br><span class="line">[       OK ] ModelBuilderTest.test_invalid_second_stage_batch_size</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_session</span><br><span class="line">[  SKIPPED ] ModelBuilderTest.test_session</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_unknown_faster_rcnn_feature_extractor</span><br><span class="line">[       OK ] ModelBuilderTest.test_unknown_faster_rcnn_feature_extractor</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_unknown_meta_architecture</span><br><span class="line">[       OK ] ModelBuilderTest.test_unknown_meta_architecture</span><br><span class="line">[ RUN      ] ModelBuilderTest.test_unknown_ssd_feature_extractor</span><br><span class="line">[       OK ] ModelBuilderTest.test_unknown_ssd_feature_extractor</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">Ran 17 tests in 0.243s</span><br><span class="line"></span><br><span class="line">OK (skipped=1)</span><br></pre></td></tr></tbody></table></figure>
 
 </li>
 </ul>
-<ul>
-<li><p>그래서, 내가 세운 모델을 외부에서 사용하고 싶을 때, 즉, 나만의 Trainer를 새로 정의해서 train/test time때, 다르게 동작을 해야하는 상황이라면, TowerContext를 적절히 써서 분기시켜줘야 한다. </p>
+<h3 id="object-detection-tutorial-ipynb"><a href="#object-detection-tutorial-ipynb" class="headerlink" title="object_detection_tutorial.ipynb"></a>object_detection_tutorial.ipynb</h3><ul>
+<li><p><strong><code>models/research/objection_detection/</code></strong> 폴더 안에 보면, <strong><code>object_detection_tutorial.ipynb</code></strong> 라는 파일을 발견할 수 있을 것이다. 이 파일을 <strong>jupyter notebook으로 실행</strong>시키면, Tensorflow Object Detection API를 사용해 볼 수 있다. </p>
 </li>
-<li><p>아래는 Tensorpack Github에서 제공하는 <a href="https://github.com/tensorpack/tensorpack/blob/master/examples/GAN/GAN.py" rel="external nofollow noopener noreferrer" target="_blank">GANTrainer</a>에서 실제로 TowerContext를 어떻게 설정해주는지 보여주는 예시다. </p>
-<figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GANTrainer</span><span class="hljs-params">(TowerTrainer)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, input, model)</span>:</span></span><br><span class="line">    ..</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># Build the graph</span></span><br><span class="line">        self.tower_func = TowerFuncWrapper(model.build_graph, inputs_desc)</span><br><span class="line">        <span class="hljs-keyword">with</span> TowerContext(<span class="hljs-string">''</span>, is_training=<span class="hljs-literal">True</span>):</span><br><span class="line">            self.tower_func(*input.get_input_tensors())</span><br><span class="line">        opt = model.get_optimizer()</span><br><span class="line">    ...</span><br></pre></td></tr></tbody></table></figure>
+<li><p>이 파일을 열면, <code>Setup</code>의 첫부분에서 tensorflow의 버전을 최신 버전으로 설치해주자. 이미 최신 버전이라면 할 필요가 없다. 그 뒤의 과정은 쭉 생략하고 (위에서 <code>installation.md</code>를 통해 진행한 과정이기 때문에), <code>Imports</code>부분부터 시작해보자. </p>
+</li>
+<li><p>원래 적혀 있는 코드 중, 아래와 같이 <code>import pathlib</code>만 추가해주자. </p>
+<h3 id="Imports"><a href="#Imports" class="headerlink" title="Imports"></a>Imports</h3>  <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">import</span> six.moves.urllib <span class="hljs-keyword">as</span> urllib</span><br><span class="line"><span class="hljs-keyword">import</span> sys</span><br><span class="line"><span class="hljs-keyword">import</span> tarfile</span><br><span class="line"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf</span><br><span class="line"><span class="hljs-keyword">import</span> zipfile</span><br><span class="line"><span class="hljs-keyword">import</span> pathlib</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict</span><br><span class="line"><span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> StringIO</span><br><span class="line"><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image</span><br><span class="line"><span class="hljs-keyword">from</span> IPython.display <span class="hljs-keyword">import</span> display</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>그 뒤로 계속 실행 시키다가, <strong><code>Loading label map</code></strong> 부분에 이르러서는 <code>PATH_TO_LABELS</code>과 <code>PATH_TO_TEST_IMAGES_DIR</code>의 경로에 적혀있는 각각의 파일들에 대한 절대경로가 현재 위치하고 있는 경로와 맞지 않아 실행되지 않을 수 있으니, <code>!pwd</code>를 실행시켜 확인해보고, 적절히 맞춰주도록 하자. 필자는 아래와 같이 경로를 확인한 뒤, <code>models/research/object_detection</code>에 해당하는 부분을 <code>.</code>으로 바꿔주었다. </p>
+<p>  <img src="/gallery/gcp144.png" width="600"></p>
+</li>
+<li><p>그 뒤로는 쭉 실행하면, 아래와 같이 귀여운 강아지와 해변 Test Image들에 대한 Tensorflow object detection API 예시를 확인할 수 있다.</p>
+<p>  <img src="/gallery/gcp155.png" width="800"></p>
+</li>
+</ul>
+<br>
 
+<h1 id="heavy-check-mark-Selecting-a-model"><a href="#heavy-check-mark-Selecting-a-model" class="headerlink" title=":heavy_check_mark: Selecting a model"></a><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png?v8">✔</span> Selecting a model</h1><ul>
+<li><p><code>models/research/object_detection/g3doc</code> 폴더에 가면, <strong><code>detection_model_zoo.md</code></strong> 라는 파일을 우리는 확인할 수 있다. 이 파일에서 우리는 <a href="http://cocodataset.org/#home" rel="external nofollow noopener noreferrer" target="_blank">COCO dataset</a>로 pre-train된 모델들의 목록을 아래와 같이 확인할 수 있다. </p>
+<p>  <img src="/gallery/gcp166.png" width="800"></p>
+</li>
+<li><p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8">⭐</span>표시가 있는 것들이 바로, TPU로 학습이 가능한 모델들이다. 각자가 학습하기 원하는 모델을 클릭하면, 해당 pre-trained model의 학습된 graph 및 config 파일을 다운받을 수 있다. </p>
+</li>
+<li><p>다운 받은 그래프 파일과 config 파일을 각자가 학습하고자 하는 데이터에 맞게 어떻게 사용할 수 있는지는 이후Posting에서 살펴보도록 하겠다. </p>
+</li>
+<li><p>필자는 속도는 조금 느리지만, 비슷한 mAP 성능 대비 빠른 속도를 내는, <code>ssd_mobilenet_v1_fpn_coco</code>를 선택했다. </p>
 </li>
 </ul>
 <hr>
 
-<h2 id="Thank-you"><a href="#Thank-you" class="headerlink" title="Thank you :)"></a>Thank you :)</h2><script>
+<ul>
+<li>다음 포스팅에서는 각자가 가지고 있는 Annotation File을 어떻게 모델이 학습할 수 있는 파일인 <code>tfrecord</code>파일로 만들 수 있는지 살펴 보도록 하겠습니다! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f600.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f600.png?v8">😀</span></li>
+</ul>
+<br>
+
+
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><strong>Training and serving a realtime mobile object detector in 30 minutes with Cloud TPUs - <a href="https://medium.com/tensorflow/training-and-serving-a-realtime-mobile-object-detector-in-30-minutes-with-cloud-tpus-b78971cf1193" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+<li><strong>GCP Project Setting - <a href="https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction#setup" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+<li><strong>Step by Step TensorFlow Object Detection API Tutorial - Part 1 ~ 5 - <a href="https://medium.com/@WuStangDan" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+</ul>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -360,7 +296,7 @@
                 <div class="level-start">
                     <div class="level-item">
                         <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                        <a class="has-link-grey -link" href="/tags/deep-learning/">deep_learning</a>, <a class="has-link-grey -link" href="/tags/ml/">ml</a>, <a class="has-link-grey -link" href="/tags/tensorflow/">tensorflow</a>, <a class="has-link-grey -link" href="/tags/tensorpack/">tensorpack</a>, <a class="has-link-grey -link" href="/tags/tutorial/">tutorial</a>
+                        <a class="has-link-grey -link" href="/tags/GCP/">GCP</a>, <a class="has-link-grey -link" href="/tags/Google-Cloud-Platform/">Google Cloud Platform</a>, <a class="has-link-grey -link" href="/tags/TPU/">TPU</a>, <a class="has-link-grey -link" href="/tags/deep-learning/">deep_learning</a>, <a class="has-link-grey -link" href="/tags/tensorflow-object-detection-api/">tensorflow object detection api</a>, <a class="has-link-grey -link" href="/tags/transfer-learning/">transfer learning</a>, <a class="has-link-grey -link" href="/tags/tutorial/">tutorial</a>
                     </div>
                 </div>
             </div>
@@ -392,16 +328,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/08/22/pseudo-label/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/19/tensorflow_object_detection_with_tpu_1/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Pseudo Labelling</span>
+                <span class="level-item">Running a pretrained model on Android with TPU training (1)</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/04/06/Basic-Deep-Learning-02/">
-                <span class="level-item">Basic Deep learning 02</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/11/mobilenet/">
+                <span class="level-item">MobileNet V1</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -417,8 +353,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://www.stand-firm-peter.me/2018/08/18/Tensorpack-tutorial/';
-        this.page.identifier = '2018/08/18/Tensorpack-tutorial/';
+        this.page.url = 'http://www.stand-firm-peter.me/2020/01/19/tensorflow_object_detection_with_tpu_2/';
+        this.page.identifier = '2020/01/19/tensorflow_object_detection_with_tpu_2/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -625,7 +561,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/dog.jpg" alt="Tensorpack tutorial" height="28">
+                    <img src="/images/dog.jpg" alt="Running a pretrained model on Android with TPU training (2)" height="28">
                 
                 </a>
                 <p class="is-size-7">

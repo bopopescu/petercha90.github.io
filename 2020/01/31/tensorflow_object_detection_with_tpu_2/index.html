@@ -227,9 +227,9 @@
 <h3 id="object-detection-tutorial-ipynb"><a href="#object-detection-tutorial-ipynb" class="headerlink" title="object_detection_tutorial.ipynb"></a>object_detection_tutorial.ipynb</h3><ul>
 <li><p><strong><code>models/research/objection_detection/</code></strong> 폴더 안에 보면, <strong><code>object_detection_tutorial.ipynb</code></strong> 라는 파일을 발견할 수 있을 것이다. 이 파일을 <strong>jupyter notebook으로 실행</strong>시키면, Tensorflow Object Detection API를 사용해 볼 수 있다. </p>
 </li>
-<li><p>이 파일을 열면, <code>Setup</code>의 첫부분에서 tensorflow의 버전을 최신 버전으로 설치해주자. 이미 최신 버전이라면 할 필요가 없다. 그 뒤의 과정은 쭉 생략하고 (위에서 <code>installation.md</code>를 통해 진행한 과정이기 때문에), <code>Imports</code>부분부터 시작해보자. </p>
+<li><p>이 파일을 열면, <code>Setup</code>의 첫부분에서 <strong>tensorflow의 버전을 최신 버전으로 설치</strong>해주자. 이미 최신 버전이라면 할 필요가 없다. </p>
 </li>
-<li><p>원래 적혀 있는 코드 중, 아래와 같이 <code>import pathlib</code>만 추가해주자. </p>
+<li><p><strong>그 뒤의 과정은 쭉 생략</strong>하고 (위에서 <code>installation.md</code>를 통해 진행한 과정이기 때문에), <code>Imports</code>부분부터 시작해보자. 원래 적혀 있는 코드 중, 아래와 같이 <code>import pathlib</code>만 추가해주자. </p>
 <h3 id="Imports"><a href="#Imports" class="headerlink" title="Imports"></a>Imports</h3>  <figure class="highlight python hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">import</span> six.moves.urllib <span class="hljs-keyword">as</span> urllib</span><br><span class="line"><span class="hljs-keyword">import</span> sys</span><br><span class="line"><span class="hljs-keyword">import</span> tarfile</span><br><span class="line"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf</span><br><span class="line"><span class="hljs-keyword">import</span> zipfile</span><br><span class="line"><span class="hljs-keyword">import</span> pathlib</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict</span><br><span class="line"><span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> StringIO</span><br><span class="line"><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image</span><br><span class="line"><span class="hljs-keyword">from</span> IPython.display <span class="hljs-keyword">import</span> display</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>그 뒤로 계속 실행 시키다가, <strong><code>Loading label map</code></strong> 부분에 이르러서는 <code>PATH_TO_LABELS</code>과 <code>PATH_TO_TEST_IMAGES_DIR</code>의 경로에 적혀있는 각각의 파일들에 대한 절대경로가 현재 위치하고 있는 경로와 맞지 않아 실행되지 않을 수 있으니, <code>!pwd</code>를 실행시켜 확인해보고, 적절히 맞춰주도록 하자. 필자는 아래와 같이 경로를 확인한 뒤, <code>models/research/object_detection</code>에 해당하는 부분을 <code>.</code>으로 바꿔주었다. </p>
@@ -330,7 +330,7 @@
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/19/tensorflow_object_detection_with_tpu_1/">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/19/HowtoUse_Google_CloudTPU_1/">
                 <span class="level-item">Running a pretrained model on Android with TPU (1)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
@@ -446,7 +446,7 @@
         
         <article class="media">
             
-            <a href="/2020/01/19/tensorflow_object_detection_with_tpu_1/" class="media-left">
+            <a href="/2020/01/19/HowtoUse_Google_CloudTPU_1/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/gallery/tpu_1.jpg" alt="Running a pretrained model on Android with TPU (1)">
                 </p>
@@ -455,7 +455,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-18T15:00:00.000Z">2020-01-19</time></div>
-                    <a href="/2020/01/19/tensorflow_object_detection_with_tpu_1/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (1)</a>
+                    <a href="/2020/01/19/HowtoUse_Google_CloudTPU_1/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (1)</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
                     </p>

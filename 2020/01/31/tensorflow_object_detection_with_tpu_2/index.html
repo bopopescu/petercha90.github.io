@@ -167,7 +167,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 minutes read (About 1594 words)
+                    11 minutes read (About 1596 words)
                 </span>
                 
                 
@@ -201,7 +201,7 @@
 <blockquote>
 <p>1) Tensorflow Oject Detection API를 설치 후, Transfer Learning을 할 <strong>모델을 준비하고</strong>,<br>2) 우리가 학습시키고 싶은 <strong>Annotation 데이터들을 tfrecord로 준비하는 과정.</strong> 그리고,<br>3) 실제로 <strong>학습을 시키고</strong> 학습이 잘 됐는지 <strong>테스트</strong>하는</p>
 </blockquote>
-<p>  과정을 2번의 걸쳐 살펴보도록 하겠습니다.</p>
+<p>  과정을 두 번으로 나눠서 살펴보도록 하겠습니다.</p>
 </li>
 </ul>
 <br>
@@ -211,7 +211,7 @@
 <li><p>1편에서 설치한 <code>google-cloud-sdk</code>를 설치한 경로와 같은 곳에, TensorFlow의 <code>Models</code>를 Clone한다.</p>
   <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> git <span class="hljs-built_in">clone</span> https://github.com/tensorflow/models.git</span></span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>그 뒤에는 <code>models/research/object_detection/g3doc/</code>으로 이동해서 <strong><code>installation.md</code></strong> 을 열어본다.  <del>절대설명하기귀찮아서가가아니라<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f440.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png?v8">👀</span></del> <strong><code>installation.md</code></strong> 를 보고, <strong>Dependencies, COCO API, Protobuf, Protobuf Compilation, PYTHONPATH 등록</strong>까지 순서대로 설치 및 실행한다. </p>
+<li><p>그 뒤에는 <code>models/research/object_detection/g3doc/</code>으로 이동해서 <strong><code>installation.md</code></strong> 을 열어본다.  <del>절대설명하기귀찮아서가아니라<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f440.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png?v8">👀</span></del> <strong><code>installation.md</code></strong> 를 보고, <strong>Dependencies, COCO API, Protobuf, Protobuf Compilation, PYTHONPATH 등록</strong>까지 순서대로 설치 및 실행한다. </p>
 </li>
 <li><p>설치하는 과정 중에, 무언가가 tensorflow에는 없다는 에러가 뜬다면 설치되어 있는 tensorflow의 버전이 2.0 이상이라서 호환이 안되는 경우일 수 있다. 그런 경우 아래와 같이 tensorflow 버전을 낮춰주면 실행이 된다. 필자는 아래 예시처럼 1.14.0으로 버전을 낮춘 뒤 설치했다. </p>
   <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> pip install tensorflow==1.14.0</span></span><br></pre></td></tr></tbody></table></figure>

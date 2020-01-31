@@ -8,11 +8,11 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Peter&#39;s playground.</description>
-    <pubDate>Fri, 31 Jan 2020 14:58:49 GMT</pubDate>
+    <pubDate>Fri, 31 Jan 2020 15:01:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Running a pretrained model on Android with TPU training (2)</title>
+      <title>Running a pretrained model on Android with TPU (2)</title>
       <link>http://www.stand-firm-peter.me/2020/01/31/tensorflow_object_detection_with_tpu_2/</link>
       <guid>http://www.stand-firm-peter.me/2020/01/31/tensorflow_object_detection_with_tpu_2/</guid>
       <pubDate>Thu, 30 Jan 2020 15:00:00 GMT</pubDate>
@@ -32,7 +32,7 @@
     </item>
     
     <item>
-      <title>Running a pretrained model on Android with TPU training (1)</title>
+      <title>Running a pretrained model on Android with TPU (1)</title>
       <link>http://www.stand-firm-peter.me/2020/01/19/tensorflow_object_detection_with_tpu_1/</link>
       <guid>http://www.stand-firm-peter.me/2020/01/19/tensorflow_object_detection_with_tpu_1/</guid>
       <pubDate>Sat, 18 Jan 2020 15:00:00 GMT</pubDate>

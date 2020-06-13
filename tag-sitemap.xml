@@ -3,6 +3,41 @@
 
 
     <url>
+        <loc>http://www.stand-firm-peter.me/tags/container-ssh/</loc>
+        <lastmod>2020-06-13T06:24:33.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/ssh/</loc>
+        <lastmod>2020-06-13T06:24:33.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/docker/</loc>
+        <lastmod>2020-06-13T06:24:33.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/Docker/</loc>
+        <lastmod>2020-06-13T06:24:33.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/useful-info/</loc>
+        <lastmod>2020-06-13T06:24:33.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://www.stand-firm-peter.me/tags/tensorflow-object-detection-api/</loc>
         <lastmod>2020-06-10T07:34:30.760Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,14 +52,14 @@
     </url>
 
     <url>
-        <loc>http://www.stand-firm-peter.me/tags/TPU/</loc>
+        <loc>http://www.stand-firm-peter.me/tags/deep-learning/</loc>
         <lastmod>2020-06-10T07:34:30.760Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.stand-firm-peter.me/tags/deep-learning/</loc>
+        <loc>http://www.stand-firm-peter.me/tags/TPU/</loc>
         <lastmod>2020-06-10T07:34:30.760Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -59,13 +94,6 @@
     </url>
 
     <url>
-        <loc>http://www.stand-firm-peter.me/tags/useful-info/</loc>
-        <lastmod>2020-01-14T01:46:00.320Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://www.stand-firm-peter.me/tags/keras/</loc>
         <lastmod>2019-08-25T08:05:55.906Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -75,34 +103,6 @@
     <url>
         <loc>http://www.stand-firm-peter.me/tags/ml/</loc>
         <lastmod>2019-08-25T08:05:55.906Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/docker/</loc>
-        <lastmod>2019-08-25T08:05:42.829Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/Docker/</loc>
-        <lastmod>2019-08-25T08:05:42.829Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/container-ssh/</loc>
-        <lastmod>2019-08-25T08:05:15.102Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/ssh/</loc>
-        <lastmod>2019-08-25T08:05:15.102Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

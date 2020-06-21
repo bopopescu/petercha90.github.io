@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&product=sop" async="async"></script>
+    <meta charset="utf-8">
+<title>Running a pretrained model on Android with TPU (4) - Stand firm Peter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="canonical" href="http://www.stand-firm-peter.me/2020/06/21/tensorflow_object_detection_with_tpu_4/">
+
+
+<meta property="og:image" content="/gallery/tpu_4.jpg">
+
+
+
+<!-- <meta property="og:title" content=Running a pretrained model on Android with TPU (4) - Stand firm Peter> -->
+<meta property="og:description" content="Peter's playground.">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4926107872672843",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4926107872672843",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+<link rel="alternative" href="/rss.xml" title="Running a pretrained model on Android with TPU (4)" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124184693-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-124184693-1');
+</script>
+
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/dog.jpg" alt="Running a pretrained model on Android with TPU (4)" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/gallery/tpu_4.jpg" alt="Running a pretrained model on Android with TPU (4)">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-20T15:00:00.000Z">2020-06-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 minutes read (About 1834 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Running a pretrained model on Android with TPU (4)
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>Google TPU 사용해서 Transfer Learning하여 모바일에 심기 - (4) </li>
+<li>Google Cloud TPU 학습하기 </li>
+</ul>
+<a id="more"></a>
+
+
+<ul>
+<li><p>본 Tutorial은 2020년 6월 기준으로 작성되었으며, Mac OS 기준으로 작성되어 Ubuntu 및 다른 Linux기반 OS에서는 검증되지 않았습니다. 잘못 기재되어 있거나 수정이 필요한 부분들은 알려주시면 감사하겠습니다 :)</p>
+</li>
+<li><p>이번 포스팅에는,  </p>
+<blockquote>
+<p>1) <strong>Google Cloud Storage 세팅</strong><br>2) <strong>pipeline.config 세팅</strong><br>3) <strong>TPU 학습</strong></p>
+</blockquote>
+<p>총 세 가지 과정을 통해 Transfer learning을 함께 진행해보겠습니다. </p>
+</li>
+</ul>
+<hr>
+
+<br>
+
+
+<h2 id="1-Google-Cloud-Storage-floppy-disk"><a href="#1-Google-Cloud-Storage-floppy-disk" class="headerlink" title="1. Google Cloud Storage :floppy_disk:"></a>1. Google Cloud Storage <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4be.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4be.png?v8">💾</span></h2><ul>
+<li>자, 그럼 이제부터 본격적인 Transfer Learning을 시작해보자. 먼저는 학습을 돌리기 위한 <code>pretrained model</code>과 앞시간에서 생성한 <code>tfrecord</code> 데이터를 <code>Google Cloud Storage bucket</code>에 준비하는 것이다. </li>
+<li>필자는 <a href="https://www.stand-firm-peter.me/2020/01/31/tensorflow_object_detection_with_tpu_2/">이전 포스팅</a>에서 함께 살펴 본 TPU로 학습할 수 있는 pretrained 모델 중, <strong>ssd_mobilenet_v1_quantized_300x300_coco14_sync_2018_07_1</strong> 를 다운 받았다. </li>
+<li>다운받은 파일을 살펴보면, 내용물은 총 4개다. <strong>Model Checkpoint파일 3개</strong>. model.ckpt.data-00000-of-00001, model.ckpt.index, model.ckpt.meta. 그리고 구체적인 학습 디테일을 설정할 수 있는, <strong>pipeline.config</strong>. 이 데이터들을 이제 Storage로 옮겨주자. </li>
+</ul>
+<h3 id="Bucket-구성하기"><a href="#Bucket-구성하기" class="headerlink" title="Bucket 구성하기"></a>Bucket 구성하기</h3><ul>
+<li><p>생성한 버킷 안에 <code>train</code>, <code>data</code> 폴더를 만들어 주고,<br>  <strong>train</strong> 에는 <strong>Model Checkpoint파일 3개</strong>. model.ckpt.data-00000-of-00001, model.ckpt.index, model.ckpt.meta를,<br>  <strong>data폴더</strong> 에는 <a href="https://www.stand-firm-peter.me/2020/06/09/tensorflow_object_detection_with_tpu_3/">앞 시간</a>에 만든 <strong>tfrecord 파일들과 pipeline.config</strong>를 넣어주자. </p>
+</li>
+<li><p>마지막으로 label map 데이터를 추가해야한다. 우리가 Tranfer Learning 하고자 하는 대상은 pascal VOC dataset + 포크레인 = 21가지 클래스다. <code>models/research/object_detection/data/</code>안을 보면, <strong>pascal_label_map.pbtxt</strong>파일을 찾을 수 있는데, 학습하고자 하는 label마다의 번호와 이름을 명시해 놓은 파일이다. 여기에 우리가 추가로 학습하고자 하는 클래스에 해당하는 가지 수만큼 뒤에 추가해주자. 필자는 아래와 같이 포크레인을 21번째 클래스로 등록해주었다. </p>
+  <figure class="highlight hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">item {</span><br><span class="line">  id: 1</span><br><span class="line">  name: 'aeroplane'</span><br><span class="line">}</span><br><span class="line">...</span><br><span class="line">..</span><br><span class="line">. </span><br><span class="line">item {</span><br><span class="line">  id: 20</span><br><span class="line">  name: 'tvmonitor'</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">item {  		# 포크레인 추가</span><br><span class="line">  id: 21</span><br><span class="line">  name: 'excavator'</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li>이렇게 수정이 끝난 label_map 데이터도 <code>data</code> 폴더 안에 넣어주자.  </li>
+</ul>
+<h2 id="2-pipeline-config-세팅-pick"><a href="#2-pipeline-config-세팅-pick" class="headerlink" title="2. pipeline.config 세팅 :pick:"></a>2. pipeline.config 세팅 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/26cf.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/26cf.png?v8">⛏</span></h2><ul>
+<li><p>이렇게 받은 모델이 pretrained 되어있는 대상은 무려 90가지의 class를 구별하는 COCO dataset이다. 그럼 다시 학습을 할 때는 우리가 원하는 데이터 셋의 Class 가지 수만큼 구별할 수 있게 하려면 어떻게 해야할까? </p>
+</li>
+<li><p>실제 날코딩 레벨에서는 제일 마지막 Fully Conneted layer를 날리고, 원하는 클래스 만큼 구별할 수 있게 세팅한 FC layer를 추가해줘야 하겠지만, <strong>pipelin.config의 숫자 하나만 바꿔주면</strong> 우리는 이 작업을 쉽게 할 수 있다. 필자는 VOC dataset의 20가지 + 포크레인을 더해서 총 21가지 Class를 구별할 수 있게 세팅하였다. </p>
+  <figure class="highlight hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model {</span><br><span class="line">  ssd {</span><br><span class="line">    num_classes: 21          # 90 -> 21!</span><br><span class="line">    image_resizer {</span><br><span class="line">      fixed_shape_resizer {</span><br><span class="line">        height: 300</span><br><span class="line">        width: 300</span><br><span class="line">      }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>자, 그리고 하단부에는 실제로 학습을 시작하면서 학습데이터는 어디서 가져와야하는지 등을 알려주는 부분이 있는데, 아래와 같이 각자의 bucket 위치로 잘 바꿔서 수정해주자. 대략적으로 수정해줘야 하는 부분은 아래와 같다.</p>
+  <figure class="highlight hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">  fine_tune_checkpoint: "gs://{YOUR_BUCKET_NAME}/train/model.ckpt"</span><br><span class="line">  num_steps: 50000</span><br><span class="line">  startup_delay_steps: 0.0</span><br><span class="line">  replicas_to_aggregate: 8</span><br><span class="line">  max_number_of_boxes: 100</span><br><span class="line">  unpad_groundtruth_tensors: false</span><br><span class="line">}</span><br><span class="line">train_input_reader {</span><br><span class="line">  label_map_path: "gs://{YOUR_BUCKET_NAME}/data/label_map.pbtxt"</span><br><span class="line">  tf_record_input_reader {</span><br><span class="line">    input_path: "gs://{YOUR_BUCKET_NAME}/data/train.record"</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line">eval_config {</span><br><span class="line">  num_examples: {NUM_OF_YOUR_VALIDATION_DATA}</span><br><span class="line">  metrics_set: "coco_detection_metrics"</span><br><span class="line">  use_moving_averages: false</span><br><span class="line">}</span><br><span class="line">eval_input_reader {</span><br><span class="line">  label_map_path: "gs://{YOUR_BUCKET_NAME}/data/label_map.pbtxt"</span><br><span class="line">  shuffle: false</span><br><span class="line">  num_readers: 1</span><br><span class="line">  tf_record_input_reader {</span><br><span class="line">    input_path: "gs://{YOUR_BUCKET_NAME}/data/val.record"</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line">...</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>이미 눈치챘겠지만, 사용자는 이 pipeline.config를 통해 batch size와 step size 등등을 조절해서 학습의 디테일을 바꿀 수 있다. </p>
+</li>
+</ul>
+<hr>
+<br>
+
+<h2 id="2-Train-the-model-runner"><a href="#2-Train-the-model-runner" class="headerlink" title="2. Train the model! :runner:"></a>2. Train the model! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f3c3.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3c3.png?v8">🏃</span></h2><ul>
+<li><p>자<del>! 이제 드디어 학습을 시작</del> 하기 전에.. 마지막으로 다시 <strong>models/research</strong>로 이동하여, 아래 명령어를 실행하자. 학습에 사용될 패키지를 압축하는 과정이다. </p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ bash object_detection/dataset_tools/create_pycocotools_package.sh /tmp/pycocotools</span><br><span class="line">$ python setup.py sdist</span><br><span class="line">$ (<span class="hljs-built_in">cd</span> slim && python setup.py sdist)  <span class="hljs-comment"># must execute this line, too.</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>드디어! 진짜로! 학습을 시작해보자. 아래 명령어를 각자의 버킷이름에 맞춰서 수정 후 입력.</p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ gcloud ai-platform <span class="hljs-built_in">jobs</span> submit training `whoami`_object_detection_`date +%s` \</span><br><span class="line">--job-dir=gs://{YOUR_BUCKET_NAME}/train \</span><br><span class="line">--packages dist/object_detection-0.1.tar.gz,slim/dist/slim-0.1.tar.gz,/tmp/pycocotools/pycocotools-2.0.tar.gz \</span><br><span class="line">--module-name object_detection.model_tpu_main \</span><br><span class="line">--runtime-version 1.15 \</span><br><span class="line">--scale-tier BASIC_TPU \</span><br><span class="line">--region us-central1 \</span><br><span class="line">-- \</span><br><span class="line">--model_dir=gs://{YOUR_BUCKET_NAME}/train \</span><br><span class="line">--tpu_zone us-central1 \</span><br><span class="line">--pipeline_config_path=gs://{YOUR_BUCKET_NAME}/data/pipeline.config</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>잘 실행이 되었다면, 학습 진행상황 log를 볼 수 있는 링크를 터미널에서 자동으로 알려주는데, 그 링크를 타고 들어가면 아래와 같이 GCP Console이나, Terminal에서 log를 관찰할 수 있다. </p>
+<p>  <img src="/gallery/gcp_train_log.png" width="800"></p>
+<p>  <img src="/gallery/gcp_train.png" width="800"></p>
+</li>
+</ul>
+<ul>
+<li><p>학습이 성공적으로 끝났다면 아래의 명령어를 통해서, local machine으로 학습이 끝난 모델을 다운받을 수 있다! 먼저, 받아올 모델과 다운받을 곳을 설정하고,</p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="hljs-built_in">export</span> CONFIG_FILE=gs://<span class="hljs-variable">${YOUR_GCS_BUCKET}</span>/data/pipeline.config</span><br><span class="line"><span class="hljs-built_in">export</span> CHECKPOINT_PATH=gs://<span class="hljs-variable">${YOUR_GCS_BUCKET}</span>/train/model.ckpt-{NUM_STEP_SIZE}</span><br><span class="line"><span class="hljs-built_in">export</span> OUTPUT_DIR=~/Desktop/tflite</span><br></pre></td></tr></tbody></table></figure>
+
+<p>  그 다음, 학습된 모델 그래프를 추출해서 받아오자. </p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python object_detection/export_tflite_ssd_graph.py \</span><br><span class="line">--pipeline_config_path=<span class="hljs-variable">$CONFIG_FILE</span> \</span><br><span class="line">--trained_checkpoint_prefix=<span class="hljs-variable">$CHECKPOINT_PATH</span> \</span><br><span class="line">--output_directory=<span class="hljs-variable">$OUTPUT_DIR</span> \</span><br><span class="line">--add_postprocessing_op=<span class="hljs-literal">true</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>잘 끝났다면, 학습이 끝난 <strong>tflite_graph.pb</strong>, 과 <strong>tflite_graph.pbtxt</strong> 두 파일을 다운 받기로 설정한 폴더 안에서 만날 수 있다! 이 파일을 이제 경량화해서 tflite파일로 만들고, 그 경령화된 모델을 android app에 심는 대망의 마지막 작업을 .. 다음 포스팅에서..! <del>아디다스<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8">⭐</span></del></p>
+</li>
+</ul>
+<br>
+<hr>
+
+<h3 id="P-S-Make-bucket-public"><a href="#P-S-Make-bucket-public" class="headerlink" title="P.S. Make bucket public"></a>P.S. Make bucket public</h3><ul>
+<li><p>실제 학습할 시, bucket의 데이터에 접근할 수 없다는 permission error로 인해 고통받는 것이 싫다면, 학습의 편의를 위해 bucket을 아래와 같이 객체 access 방식을 <code>균일한 액세스 제어</code>로 설정하고, <code>버킷 권한 설정</code>을 통해 <strong>전체공개</strong>로 바꾸는 것을 추천.</p>
+<p>  <img src="/gallery/gcp_bucket_auth.png" width="400"></p>
+<p>  <img src="/gallery/gcp_bucket_auth2.png" width="800"></p>
+</li>
+<li><p>Bucket을 전체 공개하는 방법은 다음과 같다. 1) <code>구성원 추가</code>를 눌러서 나오는 대상이름에 <code>allUsers</code> 혹은 <code>allAuthenticatedUsers</code>를 타이핑해서 추가 한다. </p>
+<p>  <img src="/gallery/gcp_bucket_auth3.png" width="800"></p>
+<p>  <img src="/gallery/gcp_bucket_auth4.png" width="800"></p>
+</li>
+</ul>
+<br> 
+
+<ul>
+<li><p>2) 권한으로 아래와 같이, <strong>저장소 기존 개체 소유자</strong>, <strong>저장소 기존 버킷 소유자</strong>로 선택해서 추가해준다. </p>
+<p>  <img src="/gallery/gcp_storage.png" width="800"></p>
+</li>
+</ul>
+<br>
+<hr>
+
+
+<ul>
+<li><p>수고하셨습니다. :) 다음 시간에는, 학습이 끝난 모델을 경량화하고, Tensorflow에서 제공해주는 Android example 코드에 탑재하는 것으로 튜토리얼을 마무리 짓도록 하겠습니다. </p>
+</li>
+<li><p>이 글은 <strong><a href>DataCrew</a></strong> 에서도 보실 수 있습니다. </p>
+</li>
+</ul>
+<br>
+<br>
+
+
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><strong>Training and serving a realtime mobile object detector in 30 minutes with Cloud TPUs - <a href="https://medium.com/tensorflow/training-and-serving-a-realtime-mobile-object-detector-in-30-minutes-with-cloud-tpus-b78971cf1193" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+<li><strong>GCP Project Setting - <a href="https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction#setup" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+<li><strong>Step by Step TensorFlow Object Detection API Tutorial - Part 1 ~ 5 - <a href="https://medium.com/@WuStangDan" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+        
+        
+        <div id="bmc" align="center">
+            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha" rel="external nofollow noopener noreferrer"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+        </div>
+        
+        
+            <p><br></p>
+            <div class="level is-size-7 is-uppercase">
+                <div class="level-start">
+                    <div class="level-item">
+                        <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                        <a class="has-link-grey -link" href="/tags/TPU/">TPU</a>, <a class="has-link-grey -link" href="/tags/deep-learning/">deep_learning</a>, <a class="has-link-grey -link" href="/tags/tensorflow-object-detection-api/">tensorflow object detection api</a>, <a class="has-link-grey -link" href="/tags/transfer-learning/">transfer learning</a>, <a class="has-link-grey -link" href="/tags/tutorial/">tutorial</a>
+                    </div>
+                </div>
+            </div>
+            
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Natural -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4926107872672843" data-ad-slot="1904278923" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <br>
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&amp;product=custom-share-buttons" async="async"></script>
+
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/06/09/tensorflow_object_detection_with_tpu_3/">
+                <span class="level-item">Running a pretrained model on Android with TPU (3)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://www.stand-firm-peter.me/2020/06/21/tensorflow_object_detection_with_tpu_4/';
+        this.page.identifier = '2020/06/21/tensorflow_object_detection_with_tpu_4/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'petercha90' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Deep-Learning-paper/">
+            <span class="level-start">
+                <span class="level-item">Deep Learning paper</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Machine-Learning/">
+            <span class="level-start">
+                <span class="level-item">Machine Learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Tutorial/">
+            <span class="level-start">
+                <span class="level-item">Tutorial</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/06/21/tensorflow_object_detection_with_tpu_4/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_4.jpg" alt="Running a pretrained model on Android with TPU (4)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-20T15:00:00.000Z">2020-06-21</time></div>
+                    <a href="/2020/06/21/tensorflow_object_detection_with_tpu_4/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (4)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/06/09/tensorflow_object_detection_with_tpu_3/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_3.jpg" alt="Running a pretrained model on Android with TPU (3)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-08T15:00:00.000Z">2020-06-09</time></div>
+                    <a href="/2020/06/09/tensorflow_object_detection_with_tpu_3/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (3)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/01/31/tensorflow_object_detection_with_tpu_2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_2.jpg" alt="Running a pretrained model on Android with TPU (2)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-30T15:00:00.000Z">2020-01-31</time></div>
+                    <a href="/2020/01/31/tensorflow_object_detection_with_tpu_2/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (2)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/01/19/HowtoUse_Google_CloudTPU_1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_1.jpg" alt="Running a pretrained model on Android with TPU (1)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-18T15:00:00.000Z">2020-01-19</time></div>
+                    <a href="/2020/01/19/HowtoUse_Google_CloudTPU_1/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (1)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/11/mobilenet/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/mobile.jpg" alt="MobileNet V1">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-11T07:44:56.000Z">2019-08-11</time></div>
+                    <a href="/2019/08/11/mobilenet/" class="has-link-black-ter is-size-6">MobileNet V1</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Deep-Learning-paper/">Deep Learning paper</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Back-propagation/" style="font-size: 10px;">Back propagation</a> <a href="/tags/Batch/" style="font-size: 10px;">Batch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Colab/" style="font-size: 10px;">Colab</a> <a href="/tags/Docker/" style="font-size: 13.33px;">Docker</a> <a href="/tags/Epoch/" style="font-size: 10px;">Epoch</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/Google-Cloud-Platform/" style="font-size: 10px;">Google Cloud Platform</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/L1/" style="font-size: 10px;">L1</a> <a href="/tags/L2/" style="font-size: 10px;">L2</a> <a href="/tags/Lasso/" style="font-size: 10px;">Lasso</a> <a href="/tags/Loss-function/" style="font-size: 10px;">Loss function</a> <a href="/tags/Optimizer/" style="font-size: 10px;">Optimizer</a> <a href="/tags/Padding/" style="font-size: 10px;">Padding</a> <a href="/tags/Pooling/" style="font-size: 10px;">Pooling</a> <a href="/tags/Ridge/" style="font-size: 10px;">Ridge</a> <a href="/tags/TPU/" style="font-size: 15px;">TPU</a> <a href="/tags/basic/" style="font-size: 11.67px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/container-ssh/" style="font-size: 10px;">container ssh</a> <a href="/tags/convex-optimisation/" style="font-size: 10px;">convex_optimisation</a> <a href="/tags/dataframe/" style="font-size: 10px;">dataframe</a> <a href="/tags/deep-learning/" style="font-size: 20px;">deep_learning</a> <a href="/tags/docker/" style="font-size: 13.33px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/keras/" style="font-size: 10px;">keras</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/logarithm/" style="font-size: 10px;">logarithm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/machine-learning/" style="font-size: 13.33px;">machine-learning</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine_learning</a> <a href="/tags/ml/" style="font-size: 18.33px;">ml</a> <a href="/tags/mobilenet/" style="font-size: 10px;">mobilenet</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pseudo-label/" style="font-size: 10px;">pseudo-label</a> <a href="/tags/regularization/" style="font-size: 10px;">regularization</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tensorflow/" style="font-size: 11.67px;">tensorflow</a> <a href="/tags/tensorflow-object-detection-api/" style="font-size: 13.33px;">tensorflow object detection api</a> <a href="/tags/tensorpack/" style="font-size: 10px;">tensorpack</a> <a href="/tags/transfer-learning/" style="font-size: 15px;">transfer learning</a> <a href="/tags/tutorial/" style="font-size: 18.33px;">tutorial</a> <a href="/tags/useful-info/" style="font-size: 16.67px;">useful-info</a>
+    </div>
+</div>
+
+    
+    
+    <br>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Natural -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4926107872672843" data-ad-slot="1904278923" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/dog.jpg" alt="Running a pretrained model on Android with TPU (4)" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Peter Cha&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -167,7 +167,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    12 minutes read (About 1845 words)
+                    14 minutes read (About 2069 words)
                 </span>
                 
                 
@@ -242,7 +242,10 @@
 <h2 id="2-Train-the-model-runner"><a href="#2-Train-the-model-runner" class="headerlink" title="2. Train the model! :runner:"></a>2. Train the model! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f3c3.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3c3.png?v8">🏃</span></h2><ul>
 <li><p>자<del>! 이제 드디어 학습을 시작</del> 하기 전에.. 마지막으로 다시 <strong>models/research</strong>로 이동하여, 아래 명령어를 실행하자. 학습에 사용될 패키지를 압축하는 과정이다. </p>
   <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ bash object_detection/dataset_tools/create_pycocotools_package.sh /tmp/pycocotools</span><br><span class="line">$ python setup.py sdist</span><br><span class="line">$ (<span class="hljs-built_in">cd</span> slim && python setup.py sdist)  <span class="hljs-comment"># must execute this line, too.</span></span><br></pre></td></tr></tbody></table></figure>
+
 </li>
+</ul>
+<h3 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h3><ul>
 <li><p>드디어! 진짜로! 학습을 시작해보자. 아래 명령어를 각자의 버킷이름에 맞춰서 수정 후 입력.</p>
   <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ gcloud ai-platform <span class="hljs-built_in">jobs</span> submit training `whoami`_object_detection_`date +%s` \</span><br><span class="line">--job-dir=gs://{YOUR_BUCKET_NAME}/train \</span><br><span class="line">--packages dist/object_detection-0.1.tar.gz,slim/dist/slim-0.1.tar.gz,/tmp/pycocotools/pycocotools-2.0.tar.gz \</span><br><span class="line">--module-name object_detection.model_tpu_main \</span><br><span class="line">--runtime-version 1.15 \</span><br><span class="line">--scale-tier BASIC_TPU \</span><br><span class="line">--region us-central1 \</span><br><span class="line">-- \</span><br><span class="line">--model_dir=gs://{YOUR_BUCKET_NAME}/train \</span><br><span class="line">--tpu_zone us-central1 \</span><br><span class="line">--pipeline_config_path=gs://{YOUR_BUCKET_NAME}/data/pipeline.config</span><br></pre></td></tr></tbody></table></figure>
 </li>
@@ -251,7 +254,16 @@
 <p>  <img src="/gallery/gcp_train.png" width="800"></p>
 </li>
 </ul>
-<ul>
+<h3 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h3><ul>
+<li><p>학습된 모델의 성능을 평가하려면, 아래의 명령어로 할 수 있다. 자동으로 train에 저장되어 있는 가장 학습이 많이된 모델을 자동으로 선택해서 Evaluation을 한다. </p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ gcloud ai-platform <span class="hljs-built_in">jobs</span> submit training `whoami`_object_detection_eval_validation_`date +%s` \</span><br><span class="line">--job-dir=gs://ddp/train \</span><br><span class="line">--packages dist/object_detection-0.1.tar.gz,slim/dist/slim-0.1.tar.gz,/tmp/pycocotools/pycocotools-2.0.tar.gz \</span><br><span class="line">--module-name object_detection.model_main \</span><br><span class="line">--runtime-version 1.15 \</span><br><span class="line">--scale-tier BASIC_TPU \</span><br><span class="line">--region us-central1 \</span><br><span class="line">-- \</span><br><span class="line">--model_dir=gs://ddp/train \</span><br><span class="line">--pipeline_config_path=gs://ddp/data/pipeline.config \</span><br><span class="line">--checkpoint_dir=gs://ddp/train</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>Evaluation이 잘 끝나면, 아래와 같은 평가표를 받아볼 수 있다. </p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">Saving dict <span class="hljs-keyword">for</span> global step 50000: </span><br><span class="line">DetectionBoxes_Precision/mAP = 0.57654905, </span><br><span class="line">DetectionBoxes_Precision/mAP (large) = 0.7432713, </span><br><span class="line">DetectionBoxes_Precision/mAP (medium) = 0.2553529, </span><br><span class="line">DetectionBoxes_Precision/mAP (small) = 0.044851754, DetectionBoxes_Precision/mAP@.50IOU = 0.8106554, </span><br><span class="line">DetectionBoxes_Precision/mAP@.75IOU = 0.6466306, </span><br><span class="line">DetectionBoxes_Recall/AR@1 = 0.4816028, </span><br><span class="line">DetectionBoxes_Recall/AR@10 = 0.63472164, </span><br><span class="line">DetectionBoxes_Recall/AR@100 = 0.6432252, </span><br><span class="line"></span><br><span class="line">DetectionBoxes_Recall/AR@100 (large) = 0.7970598, </span><br><span class="line">DetectionBoxes_Recall/AR@100 (medium) = 0.39382252,</span><br><span class="line">DetectionBoxes_Recall/AR@100 (small) = 0.10790066, </span><br><span class="line"></span><br><span class="line">Loss/classification_loss = 0.15321705, </span><br><span class="line">Loss/localization_loss = 0.10001469, </span><br><span class="line">Loss/regularization_loss = 0.12372323, </span><br><span class="line">Loss/total_loss = 0.37696198, </span><br><span class="line"></span><br><span class="line">global_step = 50000, </span><br><span class="line">learning_rate = 0.15243073, </span><br><span class="line">loss = 0.37696198</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h3 id="Retreive-the-model-to-your-machine"><a href="#Retreive-the-model-to-your-machine" class="headerlink" title="Retreive the model to your machine"></a>Retreive the model to your machine</h3><ul>
 <li><p>학습이 성공적으로 끝났다면 아래의 명령어를 통해서, local machine으로 학습이 끝난 모델을 다운받을 수 있다! 먼저, 받아올 모델과 다운받을 곳을 설정하고,</p>
   <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="hljs-built_in">export</span> CONFIG_FILE=gs://<span class="hljs-variable">${YOUR_GCS_BUCKET}</span>/data/pipeline.config</span><br><span class="line">$ <span class="hljs-built_in">export</span> CHECKPOINT_PATH=gs://<span class="hljs-variable">${YOUR_GCS_BUCKET}</span>/train/model.ckpt-{NUM_STEP_SIZE}</span><br><span class="line">$ <span class="hljs-built_in">export</span> OUTPUT_DIR=~/Desktop/tflite</span><br></pre></td></tr></tbody></table></figure>
 
@@ -753,5 +765,20 @@ document.addEventListener('DOMContentLoaded', function () {
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/insight.css">
     
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

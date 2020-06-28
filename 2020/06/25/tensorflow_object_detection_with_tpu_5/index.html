@@ -167,7 +167,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 minutes read (About 1484 words)
+                    10 minutes read (About 1495 words)
                 </span>
                 
                 
@@ -204,7 +204,7 @@
 
 
 <h2 id="1-모델-경량화-Quantization-watermelon"><a href="#1-모델-경량화-Quantization-watermelon" class="headerlink" title="1. 모델 경량화 - Quantization. :watermelon:"></a>1. 모델 경량화 - Quantization. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f349.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f349.png?v8">🍉</span></h2><ul>
-<li><p><a href>저번 시간</a>까지 진행한 내용을 잘 마쳤다면, 현재 학습을 마친 모델 데이터인 <strong>tflite_graph.pb</strong> 와, <strong>tflite_graph.pbtxt</strong>를 확인할 수 있다. </p>
+<li><p><a href="https://www.stand-firm-peter.me/2020/06/21/tensorflow_object_detection_with_tpu_4/">저번 시간</a>까지 진행한 내용을 잘 마쳤다면, 현재 학습을 마친 모델 데이터인 <strong>tflite_graph.pb</strong> 와, <strong>tflite_graph.pbtxt</strong>를 확인할 수 있다. </p>
 </li>
 <li><p>그 다음엔Tensorflow로 경로를 이동한 뒤, 아래 명령어를 시켜주면 8bit Quantization을 통해 모델을 아주 작은 용량의 <strong>tflite</strong> 파일로 변환시켜준다. $OUTPUT_DIR은 저번 시간에 설정해 주었다.  </p>
   <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ bazel run -c opt tensorflow/lite/toco:toco -- \</span><br><span class="line">--input_file=<span class="hljs-variable">$OUTPUT_DIR</span>/tflite_graph.pb \</span><br><span class="line">--output_file=<span class="hljs-variable">$OUTPUT_DIR</span>/my_detect.tflite \</span><br><span class="line">--input_shapes=1,300,300,3 \</span><br><span class="line">--input_arrays=normalized_input_image_tensor \</span><br><span class="line">--output_arrays=<span class="hljs-string">'TFLite_Detection_PostProcess'</span>,<span class="hljs-string">'TFLite_Detection_PostProcess:1'</span>,<span class="hljs-string">'TFLite_Detection_PostProcess:2'</span>,<span class="hljs-string">'TFLite_Detection_PostProcess:3'</span>  \</span><br><span class="line">--inference_type=QUANTIZED_UINT8 \</span><br><span class="line">--mean_values=128 \</span><br><span class="line">--std_values=128 \</span><br><span class="line">--change_concat_input_ranges=<span class="hljs-literal">false</span> \</span><br><span class="line">--allow_custom_ops</span><br></pre></td></tr></tbody></table></figure>

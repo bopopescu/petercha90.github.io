@@ -3,35 +3,49 @@
 
 
     <url>
-        <loc>http://www.stand-firm-peter.me/tags/tensorflow-object-detection-api/</loc>
-        <lastmod>2020-06-28T10:20:54.049Z</lastmod>
+        <loc>http://www.stand-firm-peter.me/tags/GCP/</loc>
+        <lastmod>2020-06-28T10:34:15.151Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/Google-Cloud-Platform/</loc>
+        <lastmod>2020-06-28T10:34:15.151Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.stand-firm-peter.me/tags/transfer-learning/</loc>
-        <lastmod>2020-06-28T10:20:54.049Z</lastmod>
+        <lastmod>2020-06-28T10:34:15.151Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.stand-firm-peter.me/tags/deep-learning/</loc>
-        <lastmod>2020-06-28T10:20:54.049Z</lastmod>
+        <lastmod>2020-06-28T10:34:15.151Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.stand-firm-peter.me/tags/TPU/</loc>
-        <lastmod>2020-06-28T10:20:54.049Z</lastmod>
+        <lastmod>2020-06-28T10:34:15.151Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.stand-firm-peter.me/tags/tutorial/</loc>
+        <lastmod>2020-06-28T10:34:15.151Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/tensorflow-object-detection-api/</loc>
         <lastmod>2020-06-28T10:20:54.049Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -68,20 +82,6 @@
     <url>
         <loc>http://www.stand-firm-peter.me/tags/useful-info/</loc>
         <lastmod>2020-06-13T06:24:33.103Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/GCP/</loc>
-        <lastmod>2020-06-10T06:28:46.133Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/Google-Cloud-Platform/</loc>
-        <lastmod>2020-06-10T06:28:46.133Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

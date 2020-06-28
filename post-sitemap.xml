@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://www.stand-firm-peter.me/2020/01/19/HowtoUse_Google_CloudTPU_1/</loc>
+        <lastmod>2020-06-28T10:34:15.151Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.stand-firm-peter.me/2020/06/25/tensorflow_object_detection_with_tpu_5/</loc>
         <lastmod>2020-06-28T10:20:54.049Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -42,14 +50,6 @@
     <url>
         <loc>http://www.stand-firm-peter.me/2019/05/25/docker-103/</loc>
         <lastmod>2020-06-13T06:24:33.103Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/2020/01/19/HowtoUse_Google_CloudTPU_1/</loc>
-        <lastmod>2020-06-10T06:28:46.133Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

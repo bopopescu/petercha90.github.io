@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&product=sop" async="async"></script>
+    <meta charset="utf-8">
+<title>Running a pretrained model on Android with TPU (5) - Stand firm Peter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="canonical" href="http://www.stand-firm-peter.me/2020/06/25/tensorflow_object_detection_with_tpu_5/">
+
+
+<meta property="og:image" content="/gallery/tpu_5.jpg">
+
+
+
+<!-- <meta property="og:title" content=Running a pretrained model on Android with TPU (5) - Stand firm Peter> -->
+<meta property="og:description" content="Peter's playground.">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4926107872672843",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4926107872672843",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+<link rel="alternative" href="/rss.xml" title="Running a pretrained model on Android with TPU (5)" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124184693-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-124184693-1');
+</script>
+
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/dog.jpg" alt="Running a pretrained model on Android with TPU (5)" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/gallery/tpu_5.jpg" alt="Running a pretrained model on Android with TPU (5)">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-24T15:00:00.000Z">2020-06-25</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10 minutes read (About 1483 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Running a pretrained model on Android with TPU (5)
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>Google TPU 사용해서 Transfer Learning하여 모바일에 심기 - (5) </li>
+<li>모델 경량화, Android App에 모델 탑재하기</li>
+</ul>
+<a id="more"></a>
+
+
+<ul>
+<li><p>본 Tutorial은 2020년 6월 기준으로 작성되었으며, Mac OS 기준으로 작성되어 Ubuntu 및 다른 Linux기반 OS에서는 검증되지 않았습니다. 잘못 기재되어 있거나 수정이 필요한 부분들은 알려주시면 감사하겠습니다 :)</p>
+</li>
+<li><p>이번 포스팅에는,  </p>
+<blockquote>
+<p>1) <strong>모델 경량화(Make tflite file via quantization)</strong><br>2) <strong>Running our model on Android</strong></p>
+</blockquote>
+<p>두 가지 과정을 통해 튜토리얼을 마무리 짓도록하겠습니다. </p>
+</li>
+</ul>
+<hr>
+
+<br>
+
+
+<h2 id="1-모델-경량화-Quantization-watermelon"><a href="#1-모델-경량화-Quantization-watermelon" class="headerlink" title="1. 모델 경량화 - Quantization. :watermelon:"></a>1. 모델 경량화 - Quantization. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f349.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f349.png?v8">🍉</span></h2><ul>
+<li><p><a href>저번 시간</a>까지 진행한 내용을 잘 마쳤다면, 현재 학습을 마친 모델 데이터인 <strong>tflite_graph.pb</strong> 와, <strong>tflite_graph.pbtxt</strong>를 확인할 수 있다. </p>
+</li>
+<li><p>그 다음엔Tensorflow로 경로를 이동한 뒤, 아래 명령어를 시켜주면 8bit Quantization을 통해 모델을 아주 작은 용량의 <strong>tflite</strong> 파일로 변환시켜준다. $OUTPUT_DIR은 저번 시간에 설정해 주었다.  </p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ bazel run -c opt tensorflow/lite/toco:toco -- \</span><br><span class="line">--input_file=<span class="hljs-variable">$OUTPUT_DIR</span>/tflite_graph.pb \</span><br><span class="line">--output_file=<span class="hljs-variable">$OUTPUT_DIR</span>/my_detect.tflite \</span><br><span class="line">--input_shapes=1,300,300,3 \</span><br><span class="line">--input_arrays=normalized_input_image_tensor \</span><br><span class="line">--output_arrays=<span class="hljs-string">'TFLite_Detection_PostProcess'</span>,<span class="hljs-string">'TFLite_Detection_PostProcess:1'</span>,<span class="hljs-string">'TFLite_Detection_PostProcess:2'</span>,<span class="hljs-string">'TFLite_Detection_PostProcess:3'</span>  \</span><br><span class="line">--inference_type=QUANTIZED_UINT8 \</span><br><span class="line">--mean_values=128 \</span><br><span class="line">--std_values=128 \</span><br><span class="line">--change_concat_input_ranges=<span class="hljs-literal">false</span> \</span><br><span class="line">--allow_custom_ops</span><br></pre></td></tr></tbody></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>output_arrays 옵션의, </p>
+<blockquote>
+<p>‘TFLite_Detection_PostProcess’, ‘TFLite_Detection_PostProcess:1’,<br>‘TFLite_Detection_PostProcess:2’, ‘TFLite_Detection_PostProcess:3’</p>
+</blockquote>
+<p>  는 각각, 순서대로 아래와 같은 의미다. </p>
+<blockquote>
+<p>detection_boxes, detection_classes,<br>detection_scores, num_detection</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>이외에 다른 옵션들의 의미를 알고 싶다면, <strong><a href="https://github.com/tensorflow/tensorflow/blob/r1.14/tensorflow/lite/g3doc/convert/cmdline_reference.md" rel="external nofollow noopener noreferrer" target="_blank">여기</a></strong> 에서 대략적으로 확인할 수 있는데, toco가 아니라 tflite_convert에 대한 설명인 이유는, 구글이 이제는 Tensorflow  <strong>toco</strong>를 업데이트하지 않고 구버전으로 내버려두고, <strong><a href="https://www.tensorflow.org/api_docs/python/tf/lite/TFLiteConverter?hl=ca" rel="external nofollow noopener noreferrer" target="_blank"><code>TFLiteConverter</code></a></strong> 명령어 위주로 API를 가져가는 추세라서 그런 것 같다. </p>
+</li>
+<li><p>아무튼 경량화가 다 끝이났다면, 학습된 그래프 데이터가 있던 곳에서 우리의 작고 소중한<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8">✨</span> <strong><code>my_detect.tflite</code></strong> 파일을 만나볼 수 있다. </p>
+</li>
+</ul>
+<br>
+
+<h2 id="2-Running-our-model-on-Android-iphone"><a href="#2-Running-our-model-on-Android-iphone" class="headerlink" title="2. Running our model on Android :iphone:"></a>2. Running our model on Android <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4f1.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4f1.png?v8">📱</span></h2><ul>
+<li>우리는 이번 튜토리얼에서 우리가 학습한 모델이 잘 작동하는지 확인해 볼 수 있는, 아주 간단한 어플에 모델을 심어볼 것이다. Tensorflow에서는 공식적으로 Tensorflow lite Model을 android, macOS, 그리고 Raspberry Pi에서 사용할 수 있는 예제코드를 제공한다. <del>Godgle..:+1:</del>  <strong><a href="https://github.com/tensorflow/examples" rel="external nofollow noopener noreferrer" target="_blank">여기</a></strong> 에서 예제코드 전체를 먼저 다운받도록 하자.</li>
+</ul>
+<h3 id="2-1-Android-Studio"><a href="#2-1-Android-Studio" class="headerlink" title="2.1. Android Studio"></a>2.1. Android Studio</h3><ul>
+<li>당연하게도 먼저는 <strong><a href="https://developer.android.com/studio/index.html" rel="external nofollow noopener noreferrer" target="_blank">안드로이드 스튜디오</a></strong> 를 설치해야 한다. 그리고 안드로이드 OS의 공기계도 준비하자. 이제 고지가 거의 코 앞까지 왔기 때문에 조만간 결과물을 확인해봐야 할테니! (팝콘준비<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f37f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f37f.png?v8">🍿</span>)</li>
+<li>우리는 mobilenet 기반의 object detection 모델을 사용하기 때문에, 다운받은 예제코드에서 아래와 같이, <strong>lite/examples/object_detection</strong>를 차례로 들어가면 android, ios, raspberry_pi 예제 코드들을 만날 수 있다. </li>
+</ul>
+<center><img src="/gallery/tpu_final_1.png" width="600"></center>
+
+<ul>
+<li>이 폴더를 원하는 곳으로 옮겨도 좋고, 그냥 그대로 둬도 좋다. Android Studio를 실행해서, <strong>Open an existing Android Studio project</strong>를 클릭하고 이 폴더를 선택해서 프로젝트를 열어주자. </li>
+</ul>
+<h3 id="2-2-Change-the-model"><a href="#2-2-Change-the-model" class="headerlink" title="2.2. Change the model"></a>2.2. Change the model</h3><ul>
+<li>그 뒤에, 수정해줘야할 코드는 딱 한 군데다. <strong>DetectorActivity.java</strong>의 57, 58번째 라인에서 확인해 볼 수 있는, <strong>TF_OD_API_MODEL_FILE</strong>, <strong>TF_OD_API_LABELS_FILE</strong>를 자신의 모델, 자신의 labelmap 파일 경로로 수정해주면 끝!</li>
+<li>아래 사진과 같이, 다운받은 폴더를 살펴보면 <strong>assets</strong>폴더 아래에 기존의 detect.tflite와 labelmap.txt를 볼 수 있는데, 같은 곳에 <strong>my_detect.tflite, my_labelmap.txt</strong>를 넣어주면 된다.</li>
+</ul>
+<center><img src="/gallery/tpu_final_3.png" width="800"></center>
+
+<ul>
+<li>기존에 존재하고 있는 labelmap.txt를 확인해보면 알겠지만, 모델이 학습한 Classes가 적혀있는 파일이다. 각자의 모델이 가지고 있는 클래스들을 적어서 생성하면 된다. </li>
+</ul>
+<h3 id="2-3-Install-the-app-into-android"><a href="#2-3-Install-the-app-into-android" class="headerlink" title="2.3. Install the app into android"></a>2.3. Install the app into android</h3><ul>
+<li>이제 어플이 폰에서 잘 작동하는지 확인해봐야 할 차례! 먼저, 가지고 있는 안드로이드 기기에서 <strong><a href="https://developer.android.com/studio/debug/dev-options#enable" rel="external nofollow noopener noreferrer" target="_blank">개발자 옵션 및 USB 디버깅 사용 설정</a>을</strong> 해주자. 그 뒤에 안드로이드를 연결하면, 아래 사진에 노란박스로 표시한 부분에서 Android Studio에서 해당 기기를 자동으로 인식해주는 것을 볼 수 있을 것이다!</li>
+</ul>
+<center><img src="/gallery/tpu_final_2.png" width="600"></center>
+
+<ul>
+<li>연결이 잘 되었다면, 아주 그냥 바로 Run <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/25b6.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/25b6.png?v8">▶</span> 버튼을 클릭하여 앱을 안드로이드 기기에 빌드하고 실행할 수 있다. </li>
+</ul>
+<h3 id="3-Finish-tada"><a href="#3-Finish-tada" class="headerlink" title="3. Finish! :tada:"></a>3. Finish! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f389.png?v8">🎉</span></h3><ul>
+<li>신나게 사용해보자 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span> 필자는 포크레인을 잡아내는 MobileNet-SSD Model로 Transfer learning을 했었는데, 아직 작은 이미지는 잘 못잡지만 어느 정도 학습이 잘 된 것 같다!</li>
+</ul>
+<center><img src="/gallery/ddp.gif" width="300"></center>
+
+
+
+
+
+<br>
+<hr>
+
+<ul>
+<li><p>이 튜토리얼을 끝까지 읽어주셔서 감사합니다. :)</p>
+</li>
+<li><p>튜토리얼을 쓰다가보니, Tensorflow 2.0 시대를 맞이해 Tensorflow 2.0+와 toco가 아닌 TFLiteConverter를 사용하는 것으로 글로 재정비하는 것이 좋겠다고 생각이 들었습니다.<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f605.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png?v8">😅</span> 시간이 허락하는 내에서, 다시 글을 재정비해서 업데이트하도록 하겠습니다. </p>
+</li>
+<li><p>이 글은 <strong><a href="http://datacrew.tech/running-a-pretrained-model-on-android-with-tpu-5/" rel="external nofollow noopener noreferrer" target="_blank">DataCrew</a></strong> 에서도 보실 수 있습니다. </p>
+</li>
+</ul>
+<br>
+<br>
+
+
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><strong>Training and serving a realtime mobile object detector in 30 minutes with Cloud TPUs - <a href="https://medium.com/tensorflow/training-and-serving-a-realtime-mobile-object-detector-in-30-minutes-with-cloud-tpus-b78971cf1193" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+<li><strong>GCP Project Setting - <a href="https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction#setup" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+<li><strong>Step by Step TensorFlow Object Detection API Tutorial - Part 1 ~ 5 - <a href="https://medium.com/@WuStangDan" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+        
+        
+        <div id="bmc" align="center">
+            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha" rel="external nofollow noopener noreferrer"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+        </div>
+        
+        
+            <p><br></p>
+            <div class="level is-size-7 is-uppercase">
+                <div class="level-start">
+                    <div class="level-item">
+                        <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                        <a class="has-link-grey -link" href="/tags/TPU/">TPU</a>, <a class="has-link-grey -link" href="/tags/deep-learning/">deep_learning</a>, <a class="has-link-grey -link" href="/tags/tensorflow-object-detection-api/">tensorflow object detection api</a>, <a class="has-link-grey -link" href="/tags/transfer-learning/">transfer learning</a>, <a class="has-link-grey -link" href="/tags/tutorial/">tutorial</a>
+                    </div>
+                </div>
+            </div>
+            
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Natural -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4926107872672843" data-ad-slot="1904278923" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <br>
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&amp;product=custom-share-buttons" async="async"></script>
+
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/06/21/tensorflow_object_detection_with_tpu_4/">
+                <span class="level-item">Running a pretrained model on Android with TPU (4)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://www.stand-firm-peter.me/2020/06/25/tensorflow_object_detection_with_tpu_5/';
+        this.page.identifier = '2020/06/25/tensorflow_object_detection_with_tpu_5/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'petercha90' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Deep-Learning-paper/">
+            <span class="level-start">
+                <span class="level-item">Deep Learning paper</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Machine-Learning/">
+            <span class="level-start">
+                <span class="level-item">Machine Learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Tutorial/">
+            <span class="level-start">
+                <span class="level-item">Tutorial</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/06/25/tensorflow_object_detection_with_tpu_5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_5.jpg" alt="Running a pretrained model on Android with TPU (5)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-24T15:00:00.000Z">2020-06-25</time></div>
+                    <a href="/2020/06/25/tensorflow_object_detection_with_tpu_5/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (5)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/06/21/tensorflow_object_detection_with_tpu_4/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_4.jpg" alt="Running a pretrained model on Android with TPU (4)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-20T15:00:00.000Z">2020-06-21</time></div>
+                    <a href="/2020/06/21/tensorflow_object_detection_with_tpu_4/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (4)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/06/09/tensorflow_object_detection_with_tpu_3/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_3.jpg" alt="Running a pretrained model on Android with TPU (3)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-08T15:00:00.000Z">2020-06-09</time></div>
+                    <a href="/2020/06/09/tensorflow_object_detection_with_tpu_3/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (3)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/01/31/tensorflow_object_detection_with_tpu_2/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_2.jpg" alt="Running a pretrained model on Android with TPU (2)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-30T15:00:00.000Z">2020-01-31</time></div>
+                    <a href="/2020/01/31/tensorflow_object_detection_with_tpu_2/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (2)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/01/19/HowtoUse_Google_CloudTPU_1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_1.jpg" alt="Running a pretrained model on Android with TPU (1)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-18T15:00:00.000Z">2020-01-19</time></div>
+                    <a href="/2020/01/19/HowtoUse_Google_CloudTPU_1/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (1)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Back-propagation/" style="font-size: 10px;">Back propagation</a> <a href="/tags/Batch/" style="font-size: 10px;">Batch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Colab/" style="font-size: 10px;">Colab</a> <a href="/tags/Docker/" style="font-size: 12.86px;">Docker</a> <a href="/tags/Epoch/" style="font-size: 10px;">Epoch</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/Google-Cloud-Platform/" style="font-size: 10px;">Google Cloud Platform</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/L1/" style="font-size: 10px;">L1</a> <a href="/tags/L2/" style="font-size: 10px;">L2</a> <a href="/tags/Lasso/" style="font-size: 10px;">Lasso</a> <a href="/tags/Loss-function/" style="font-size: 10px;">Loss function</a> <a href="/tags/Optimizer/" style="font-size: 10px;">Optimizer</a> <a href="/tags/Padding/" style="font-size: 10px;">Padding</a> <a href="/tags/Pooling/" style="font-size: 10px;">Pooling</a> <a href="/tags/Ridge/" style="font-size: 10px;">Ridge</a> <a href="/tags/TPU/" style="font-size: 15.71px;">TPU</a> <a href="/tags/basic/" style="font-size: 11.43px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/container-ssh/" style="font-size: 10px;">container ssh</a> <a href="/tags/convex-optimisation/" style="font-size: 10px;">convex_optimisation</a> <a href="/tags/dataframe/" style="font-size: 10px;">dataframe</a> <a href="/tags/deep-learning/" style="font-size: 20px;">deep_learning</a> <a href="/tags/docker/" style="font-size: 12.86px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/keras/" style="font-size: 10px;">keras</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/logarithm/" style="font-size: 10px;">logarithm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/machine-learning/" style="font-size: 12.86px;">machine-learning</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine_learning</a> <a href="/tags/ml/" style="font-size: 17.14px;">ml</a> <a href="/tags/mobilenet/" style="font-size: 10px;">mobilenet</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pseudo-label/" style="font-size: 10px;">pseudo-label</a> <a href="/tags/regularization/" style="font-size: 10px;">regularization</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tensorflow/" style="font-size: 11.43px;">tensorflow</a> <a href="/tags/tensorflow-object-detection-api/" style="font-size: 14.29px;">tensorflow object detection api</a> <a href="/tags/tensorpack/" style="font-size: 10px;">tensorpack</a> <a href="/tags/transfer-learning/" style="font-size: 15.71px;">transfer learning</a> <a href="/tags/tutorial/" style="font-size: 18.57px;">tutorial</a> <a href="/tags/useful-info/" style="font-size: 15.71px;">useful-info</a>
+    </div>
+</div>
+
+    
+    
+    <br>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Natural -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4926107872672843" data-ad-slot="1904278923" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/dog.jpg" alt="Running a pretrained model on Android with TPU (5)" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Peter Cha&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

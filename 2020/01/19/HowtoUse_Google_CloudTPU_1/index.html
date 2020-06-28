@@ -186,99 +186,123 @@
 <li>Google Cloud Platform 환경설정편</li>
 </ul>
 <a id="more"></a>
-
-
 <ul>
-<li>본 Tutorial은 2020년 6월 기준으로 작성되었으며, Mac OS 기준으로 작성되어 Ubuntu 및 다른 Linux기반 OS에서는 검증되지 않았습니다. 잘못 기재되어 있거나 수정이 필요한 부분들은 알려주시면 감사하겠습니다 :)</li>
+<li>본 Tutorial은 2020년 6월 기준으로 작성되었으며, Mac OS 기준으로 작성되어 Ubuntu 및 다른 Linux기반 OS에서는 검증되지 않았습니다. 잘못 기재되어 있거나 수정이 필요한 부분들은 알려주시면 감사하겠습니다 😃</li>
 </ul>
-<hr>
-
-<h2 id="Result-of-this-tutorial-sunglasses"><a href="#Result-of-this-tutorial-sunglasses" class="headerlink" title="Result of this tutorial :sunglasses:"></a>Result of this tutorial <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span></h2><ul>
-<li>이 튜토리얼을 성공적으로 마치면 Transfer Leraning을 통해, 아래와 같은 Android Object Detection Application을 직접 사용해 볼 수 있습니다. </li>
+<h2 id="result-of-this-tutorial"><a class="markdownIt-Anchor" href="#result-of-this-tutorial"></a> Result of this tutorial 😎</h2>
+<ul>
+<li>이 튜토리얼을 성공적으로 마치면 Transfer Leraning을 통해, 아래와 같은 Android Object Detection Application을 직접 사용해 볼 수 있습니다.</li>
 </ul>
 <center><img src="/gallery/ddp.gif" width="300"></center>
-
-
-
-
-<h2 id="무료계정-생성하기"><a href="#무료계정-생성하기" class="headerlink" title="무료계정 생성하기"></a>무료계정 생성하기</h2><ul>
-<li><p>TPU는 아래에서도 살펴보겠지만, 무료로 한 달간 사용할 수 있는 방법이 있다. 하지만, TPU 이외의 Compute Engine과 저장소 역할을 하는 Google Storage, 그리고 TPU 및 여러 API를 사용하는 비용까지 추가로 청구가 될 수 있다.</p>
+<hr>
+<h2 id="무료계정-생성하기"><a class="markdownIt-Anchor" href="#무료계정-생성하기"></a> 무료계정 생성하기</h2>
+<ul>
+<li>
+<p>TPU는 아래에서도 살펴보겠지만, 무료로 한 달간 사용할 수 있는 방법이 있다. 하지만, TPU 이외의 Compute Engine과 저장소 역할을 하는 Google Storage, 그리고 TPU 및 여러 API를 사용하는 비용까지 추가로 청구가 될 수 있다.</p>
 </li>
-<li><p>AWS와 같이 GCP도 무료로 일정량 이상을 서비스를 사용할 수 있도록 해주는데, GCP의 경우 AWS와 같이 1년 이라는 Free tier를 부여해주는 것이 아니라, 실제 비용 $300에 해당하는 만큼의 서비스를 사용할 수 있게 해준다.</p>
+<li>
+<p>AWS와 같이 GCP도 무료로 일정량 이상을 서비스를 사용할 수 있도록 해주는데, GCP의 경우 AWS와 같이 1년 이라는 Free tier를 부여해주는 것이 아니라, 실제 비용 $300에 해당하는 만큼의 서비스를 사용할 수 있게 해준다.</p>
 </li>
-<li><p>한 계정(e-mail)당 한 번씩 쓸 수 있다고 하니,공부 목적의 학습용으로는 사용하다가 $300를 다 쓴다고 해도, 또 다른 계정을 생성하고 다시 시도하는 식으로 사용해도 좋겠다. </p>
+<li>
+<p>한 계정(e-mail)당 한 번씩 쓸 수 있다고 하니,공부 목적의 학습용으로는 사용하다가 $300를 다 쓴다고 해도, 또 다른 계정을 생성하고 다시 시도하는 식으로 사용해도 좋겠다.</p>
   <center><img src="/gallery/gcp1.png" width="800"></center>
-
-
 </li>
 </ul>
-<h1 id="Set-the-environment-four-leaf-clover"><a href="#Set-the-environment-four-leaf-clover" class="headerlink" title="Set the environment :four_leaf_clover:"></a>Set the environment <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f340.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f340.png?v8">🍀</span></h1><h2 id="1-Google-Cloud-Setup"><a href="#1-Google-Cloud-Setup" class="headerlink" title="1. Google Cloud Setup"></a>1. Google Cloud Setup</h2><ul>
+<h1 id="set-the-environment"><a class="markdownIt-Anchor" href="#set-the-environment"></a> Set the environment 🍀</h1>
+<h2 id="1-google-cloud-setup"><a class="markdownIt-Anchor" href="#1-google-cloud-setup"></a> 1. Google Cloud Setup</h2>
+<ul>
 <li><strong><a href="https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction#setup" rel="external nofollow noopener noreferrer" target="_blank">GCP 프로젝트 설정</a></strong> 의 안내에 따라, 다음과 같이 환경을 만들어주자.</li>
 </ul>
-<h3 id="1-1-프로젝트-생성"><a href="#1-1-프로젝트-생성" class="headerlink" title="1.1. 프로젝트 생성"></a>1.1. 프로젝트 생성</h3><ul>
-<li><p><a href="https://console.cloud.google.com/" rel="external nofollow noopener noreferrer" target="_blank">Google Cloud Platform</a> 콘솔에서 아래와 같이 프로젝트를 생성한 뒤, 선택해준다. 필자는 TPU를 사용해서 MobileNet-SSD 모델을 학습할 것이기 때문에, 프로젝트 이름을 <code>object-detection</code>이라고 지었다.</p>
-<p>  <img src="/gallery/gcp2.png" width="800"></p>
+<h3 id="11-프로젝트-생성"><a class="markdownIt-Anchor" href="#11-프로젝트-생성"></a> 1.1. 프로젝트 생성</h3>
+<ul>
+<li>
+<p><a href="https://console.cloud.google.com/" rel="external nofollow noopener noreferrer" target="_blank">Google Cloud Platform</a> 콘솔에서 아래와 같이 프로젝트를 생성한 뒤, 선택해준다. 필자는 TPU를 사용해서 MobileNet-SSD 모델을 학습할 것이기 때문에, 프로젝트 이름을 <code>object-detection</code>이라고 지었다.</p>
+<p><img src="/gallery/gcp2.png" width="800"></p>
 </li>
 </ul>
-<h3 id="1-2-결제-사용-설정"><a href="#1-2-결제-사용-설정" class="headerlink" title="1.2. 결제 사용 설정"></a>1.2. 결제 사용 설정</h3><ul>
-<li><p>그 다음에는 결제 설정을 해줘야 한다. 물론 무료크레딧이 다 차감이 되어야 결제가 진행되지만, 구글 입장에서는 혹시나 사용자가 무료크레딧을 초과해서 발생시킬 수 있는 비용에 대해 청구를 해야하니 설정을 해 줘야 프로젝트가 진행된다. 아래와 같이, 좌상단에 메뉴 버튼을 누르면 나오는 선택지에서 <code>결제</code> - <code>결제 수단</code>을 차례로 눌러서 결제 사용 설정을 마친다. </p>
-<p>  <img src="/gallery/gcp333.png" width="400"></p>
-<p>  <img src="/gallery/gcp33.png" width="800"></p>
-<h3 id="1-3-API-사용-설정"><a href="#1-3-API-사용-설정" class="headerlink" title="1.3. API 사용 설정"></a>1.3. API 사용 설정</h3></li>
-<li><p>다음은, API 설정을 해줘야 한다. 우리는 Local에서 구글 Compute Engine과 TPU에 명령을 내리게 될 것임으로 아래와 같은 API를 사용할 수 있도록 세팅해 주어야한다. </p>
-</li>
-<li><p><strong>Compute Engine API, Cloud TPU API, AI Platform Training & Prediction API 총 3가지 API</strong> 사용 설정을 한다. 좌상단 메뉴 버튼을 누르면 나오는 <strong><code>API 및 서비스</code></strong> 를 눌러서 나오는 화면에서 <strong><code>+ API 및 서비스 사용 설정</code></strong> 를 눌러주자.</p>
-<p>  <img src="/gallery/gcp9.png" width="800"></p>
-</li>
-<li><p>API 검색창에 Compute Engine API를 차례대로 입력하고 사용 설정을 해준다. </p>
-<p>  <img src="/gallery/gcp10.png" width="800"></p>
+<h3 id="12-결제-사용-설정"><a class="markdownIt-Anchor" href="#12-결제-사용-설정"></a> 1.2. 결제 사용 설정</h3>
+<ul>
+<li>
+<p>그 다음에는 결제 설정을 해줘야 한다. 물론 무료크레딧이 다 차감이 되어야 결제가 진행되지만, 구글 입장에서는 혹시나 사용자가 무료크레딧을 초과해서 발생시킬 수 있는 비용에 대해 청구를 해야하니 설정을 해 줘야 프로젝트가 진행된다. 아래와 같이, 좌상단에 메뉴 버튼을 누르면 나오는 선택지에서 <code>결제</code> - <code>결제 수단</code>을 차례로 눌러서 결제 사용 설정을 마친다.</p>
+<p><img src="/gallery/gcp333.png" width="400"></p>
+<p><img src="/gallery/gcp33.png" width="800"></p>
 </li>
 </ul>
-<h3 id="1-4-Google-Cloud-SDK-설치"><a href="#1-4-Google-Cloud-SDK-설치" class="headerlink" title="1.4. Google Cloud SDK 설치"></a>1.4. Google Cloud SDK 설치</h3><ul>
-<li>Google Cloud SDK를 설치를 하면, 우리는 로컬에서 GCP로 TPU학습 명령을 내리고, 학습과정을 log로 모니터링 할 수 있게 된다! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4fa.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4fa.png?v8">📺</span></li>
-<li><a href="https://cloud.google.com/sdk/docs/" rel="external nofollow noopener noreferrer" target="_blank">여기</a>에 들어가서 해당 OS에 해당하는 설명대로(Windows는 없다) 따라하면 <strong>Google Cloud SDK</strong> 를 설치할 수 있다. </li>
+<h3 id="13-api-사용-설정"><a class="markdownIt-Anchor" href="#13-api-사용-설정"></a> 1.3. API 사용 설정</h3>
+<ul>
+<li>
+<p>다음은, API 설정을 해줘야 한다. 우리는 Local에서 구글 Compute Engine과 TPU에 명령을 내리게 될 것임으로 아래와 같은 API를 사용할 수 있도록 세팅해 주어야한다.</p>
+</li>
+<li>
+<p><strong>Compute Engine API, Cloud TPU API, AI Platform Training & Prediction API 총 3가지 API</strong> 사용 설정을 한다. 좌상단 메뉴 버튼을 누르면 나오는 <strong><code>API 및 서비스</code></strong> 를 눌러서 나오는 화면에서 <strong><code>+ API 및 서비스 사용 설정</code></strong> 를 눌러주자.</p>
+<p><img src="/gallery/gcp9.png" width="800"></p>
+</li>
+<li>
+<p>API 검색창에 Compute Engine API를 차례대로 입력하고 사용 설정을 해준다.</p>
+<p><img src="/gallery/gcp10.png" width="800"></p>
+</li>
 </ul>
-<h4 id="설치시-소소한-팁"><a href="#설치시-소소한-팁" class="headerlink" title="설치시 소소한 팁"></a><b>설치시 소소한 팁</b></h4><ul>
-<li><p><code>google-cloud-sdk/install.sh</code> 실행 한 뒤에는 (설치 경로에 따라 필요한 경우 <code>sudo</code>로 해야할 수 있음) 터미널 껏다가 켜보면, google-cloud-sdk가 설치 완료 된 것을 확인할 수 있다.</p>
+<h3 id="14-google-cloud-sdk-설치"><a class="markdownIt-Anchor" href="#14-google-cloud-sdk-설치"></a> 1.4. Google Cloud SDK 설치</h3>
+<ul>
+<li>Google Cloud SDK를 설치를 하면, 우리는 로컬에서 GCP로 TPU학습 명령을 내리고, 학습과정을 log로 모니터링 할 수 있게 된다! 📺</li>
+<li><a href="https://cloud.google.com/sdk/docs/" rel="external nofollow noopener noreferrer" target="_blank">여기</a>에 들어가서 해당 OS에 해당하는 설명대로(Windows는 없다) 따라하면 <strong>Google Cloud SDK</strong> 를 설치할 수 있다.</li>
+</ul>
+<h4 id="b설치시-소소한-팁b"><a class="markdownIt-Anchor" href="#b설치시-소소한-팁b"></a> <b>설치시 소소한 팁</b></h4>
+<ul>
+<li>
+<p><code>google-cloud-sdk/install.sh</code> 실행 한 뒤에는 (설치 경로에 따라 필요한 경우 <code>sudo</code>로 해야할 수 있음) 터미널 껏다가 켜보면, google-cloud-sdk가 설치 완료 된 것을 확인할 수 있다.</p>
 </li>
-<li><p>Google Cloud SDK 설정시, <code>Compute Region</code> 과 <code>Zone</code>은 나중에라도 <code>gcloud config set compute/zone NAME</code>, <code>gcloud config set compute/region NAME</code>명령어를 써서 바꿀 수 있어서 Default로 설정하고 넘어가도 된다.  하지만, 아래에서 언급되겠지만 TFRC에서 허락해주는 무료 TPU의 Region/Zone과 맞추기 위해서 필자는 <code>us-central1-f</code>로 세팅했다. </p>
+<li>
+<p>Google Cloud SDK 설정시, <code>Compute Region</code> 과 <code>Zone</code>은 나중에라도 <code>gcloud config set compute/zone NAME</code>, <code>gcloud config set compute/region NAME</code>명령어를 써서 바꿀 수 있어서 Default로 설정하고 넘어가도 된다.  하지만, 아래에서 언급되겠지만 TFRC에서 허락해주는 무료 TPU의 Region/Zone과 맞추기 위해서 필자는 <code>us-central1-f</code>로 세팅했다.</p>
 </li>
-<li><p>terminal 창을 껏다가 다시 실행하면 <code>gcloud config list</code>를 입력해서 본인의 계정과 프로젝트가 잘 설정됐는지 확인해 볼 수 있다. 아래와 같은 결과를 확인할 수 있다면 끝.</p>
+<li>
+<p>terminal 창을 껏다가 다시 실행하면 <code>gcloud config list</code>를 입력해서 본인의 계정과 프로젝트가 잘 설정됐는지 확인해 볼 수 있다. 아래와 같은 결과를 확인할 수 있다면 끝.</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ gcloud config list</span><br><span class="line">[core]</span><br><span class="line">account = petercha0990@gmail.com</span><br><span class="line">disable_usage_reporting = False</span><br><span class="line">project = object-detection-265202</span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>여기까지 설정이 잘 끝났다면, 이제 TPU와 관련된 설정만 마무리 하면 된다!<br><del>사실이제 시작임..</del></p>
+<li>
+<p>여기까지 설정이 잘 끝났다면, 이제 TPU와 관련된 설정만 마무리 하면 된다!<br>
+<s>사실이제 시작임…</s></p>
 </li>
 </ul>
 <hr>
 <br>
-
-<h2 id="2-Allowing-Cloud-TPU-Access"><a href="#2-Allowing-Cloud-TPU-Access" class="headerlink" title="2. Allowing Cloud TPU Access"></a>2. Allowing Cloud TPU Access</h2><h3 id="2-1-Get-free-TPUs"><a href="#2-1-Get-free-TPUs" class="headerlink" title="2.1. Get free TPUs"></a>2.1. Get free TPUs</h3><ul>
-<li><p>“왜 TPU 안써?!”  “…??! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f626.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f626.png?v8">😦</span>없는데 어떻게 써요!”라고 대답할 필자와 같은 사람들을 위해서 갓글님은 <strong>TFRC 프로그램</strong>을 진행하고 계신다. <del>Google is Love.</del></p>
+<h2 id="2-allowing-cloud-tpu-access"><a class="markdownIt-Anchor" href="#2-allowing-cloud-tpu-access"></a> 2. Allowing Cloud TPU Access</h2>
+<h3 id="21-get-free-tpus"><a class="markdownIt-Anchor" href="#21-get-free-tpus"></a> 2.1. Get free TPUs</h3>
+<ul>
+<li>
+<p>“왜 TPU 안써?!”  "…??! 😦없는데 어떻게 써요!"라고 대답할 필자와 같은 사람들을 위해서 갓글님은 <strong>TFRC 프로그램</strong>을 진행하고 계신다. <s>Google is Love.</s></p>
 </li>
-<li><p>돈 없고 가난하지만 TPU를 써서 연구해보고 싶은 전 세계의 연구자들을 위해서 <strong>한 달간 TPU를 무료로 사용할 수 있게 해주는</strong> 프로젝트다. <strong><a href="https://www.tensorflow.org/tfrc" rel="external nofollow noopener noreferrer" target="_blank">여기</a></strong> 에 들어가서 <code>지금 신청하기</code> 버튼을 눌러서, 잽싸게 신청해 놓자.</p>
+<li>
+<p>돈 없고 가난하지만 TPU를 써서 연구해보고 싶은 전 세계의 연구자들을 위해서 <strong>한 달간 TPU를 무료로 사용할 수 있게 해주는</strong> 프로젝트다. <strong><a href="https://www.tensorflow.org/tfrc" rel="external nofollow noopener noreferrer" target="_blank">여기</a></strong> 에 들어가서 <code>지금 신청하기</code> 버튼을 눌러서, 잽싸게 신청해 놓자.</p>
   <center><img src="/gallery/gcp12.png" width="800"></center>
 </li>
-<li><p>신청 후에 TFRC로 부터 답변을 허가 메일이 당장 오진 않는다. 하지만 조금만 (하루정도) 기다리면 아래와같은 자비로운 답변 메일을 받을 수 있다 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f64f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f64f.png?v8">🙏</span> </p>
-<p>  <img src="/gallery/gcp14.png" width="600"></p>
+<li>
+<p>신청 후에 TFRC로 부터 답변을 허가 메일이 당장 오진 않는다. 하지만 조금만 (하루정도) 기다리면 아래와같은 자비로운 답변 메일을 받을 수 있다 🙏</p>
+<p><img src="/gallery/gcp14.png" width="600"></p>
 </li>
-<li><p>답변을 받았다면 메일 안에 아래와 같이 <strong>3. Send us your project number via <a href>this short form.</a></strong> 부분을 클릭해서(1번과 2번 과정인 프로젝트를 만들고 Cloud TPU API를 사용설정하는 것은 위에서 다 했기 때문에), TPU를 사용할 프로젝트의 정보와 더물어, 진정으로 TPU를 사용하겠다고 신청을 하면 된다.<br>  <img src="/gallery/gcp16.png" width="600"></p>
+<li>
+<p>답변을 받았다면 메일 안에 아래와 같이 <strong>3. Send us your project number via <a href>this short form.</a></strong> 부분을 클릭해서(1번과 2번 과정인 프로젝트를 만들고 Cloud TPU API를 사용설정하는 것은 위에서 다 했기 때문에), TPU를 사용할 프로젝트의 정보와 더물어, 진정으로 TPU를 사용하겠다고 신청을 하면 된다.<br>
+<img src="/gallery/gcp16.png" width="600"></p>
 </li>
-<li><p>신청이 완료되었으면, 필자의 경우 약 3시간 뒤 다시 답변 메일이 왔는데, 그 때부터 30일이라는 무료로 사용할 수 있는 기간이 카운트다운 되기 시작한다. 두 번째로 받은 메일에는 <u>실제로 프로젝트가 TPU를 무료로 쓸 수 있는 Zone과 Region이 명시</u>가 되어있으니, 이 점을 잘 참고해서 설정을 해야한다. 그렇지 않으면, 어마어마한 TPU사용료가 청구되기 때문에 조심!</p>
-<p>  <img src="/gallery/gcp19.png" width="600"></p>
+<li>
+<p>신청이 완료되었으면, 필자의 경우 약 3시간 뒤 다시 답변 메일이 왔는데, 그 때부터 30일이라는 무료로 사용할 수 있는 기간이 카운트다운 되기 시작한다. 두 번째로 받은 메일에는 <u>실제로 프로젝트가 TPU를 무료로 쓸 수 있는 Zone과 Region이 명시</u>가 되어있으니, 이 점을 잘 참고해서 설정을 해야한다. 그렇지 않으면, 어마어마한 TPU사용료가 청구되기 때문에 조심!</p>
+<p><img src="/gallery/gcp19.png" width="600"></p>
 </li>
 </ul>
-<h3 id="2-2-Set-a-TPU-account"><a href="#2-2-Set-a-TPU-account" class="headerlink" title="2.2 Set a TPU account"></a>2.2 Set a TPU account</h3><ul>
-<li><p>아래와 같이 <strong><code>projects.getConfig</code></strong> 를 호출해서 <strong><code>tpuServiceAccount</code></strong> 를 알아낸다.</p>
+<h3 id="22-set-a-tpu-account"><a class="markdownIt-Anchor" href="#22-set-a-tpu-account"></a> 2.2 Set a TPU account</h3>
+<ul>
+<li>
+<p>아래와 같이 <strong><code>projects.getConfig</code></strong> 를 호출해서 <strong><code>tpuServiceAccount</code></strong> 를 알아낸다.</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="hljs-string">"Authorization: Bearer <span class="hljs-variable">$(gcloud auth print-access-token)</span>"</span> \</span><br><span class="line">	https://ml.googleapis.com/v1/projects/<<span class="hljs-variable">$YOUR_PROJECT_ID</span>>:getConfig</span><br></pre></td></tr></tbody></table></figure>
-
 <p><strong>Output:</strong></p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="hljs-string">"serviceAccount"</span>: <span class="hljs-string">"service-630609466618@cloud-ml.google.com.iam.gserviceaccount.com"</span>,</span><br><span class="line">  <span class="hljs-string">"serviceAccountProject"</span>: <span class="hljs-string">"601122858872"</span>,</span><br><span class="line">  <span class="hljs-string">"config"</span>: {</span><br><span class="line">    <span class="hljs-string">"tpuServiceAccount"</span>: <span class="hljs-string">"service-blahblah@cloud-tpu.iam.gserviceaccount.com"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>그리고 아래 같이 설정해준다.</p>
+<li>
+<p>그리고 아래 같이 설정해준다.</p>
 <blockquote>
 <ol>
 <li>Google Cloud Platform Console에 로그인하고 TPU를 사용 중인 프로젝트를 선택합니다.</li>
-<li>IAM 및 관리자 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/25b6.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/25b6.png?v8">▶</span> IAM을 선택합니다.</li>
+<li>IAM 및 관리자 ▶️ IAM을 선택합니다.</li>
 <li>추가 버튼을 클릭하여 프로젝트에 멤버를 추가합니다.</li>
 <li>멤버 입력란에 TPU 서비스 계정(<strong><code>service-blahblah@cloud-tpu.iam.gserviceaccount.com</code></strong>) 을 입력합니다.</li>
 <li>역할 드롭다운 목록을 클릭합니다.</li>
@@ -286,80 +310,72 @@
 </ol>
 </blockquote>
   <center><img src="/gallery/adding.png" width="400"></center>
-
-
 </li>
 </ul>
 <hr>
 <br>
-
-
-<h2 id="3-Cloud-Storage-Bucket-floppy-disk"><a href="#3-Cloud-Storage-Bucket-floppy-disk" class="headerlink" title="3. Cloud Storage Bucket :floppy_disk:"></a>3. Cloud Storage Bucket <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4be.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4be.png?v8">💾</span></h2><ul>
-<li><p>모델 학습에 사용할 데이터 및 학습 결과를 저장할 Cloud Storage 버킷이 필요하다.</p>
+<h2 id="3-cloud-storage-bucket"><a class="markdownIt-Anchor" href="#3-cloud-storage-bucket"></a> 3. Cloud Storage Bucket 💾</h2>
+<ul>
+<li>
+<p>모델 학습에 사용할 데이터 및 학습 결과를 저장할 Cloud Storage 버킷이 필요하다.</p>
 </li>
-<li><p><u><strong>만든 버킷은 가상 머신(VM)과 Cloud TPU 기기 또는 Cloud TPU 슬라이스(여러 TPU 기기)와 동일한 리전에</strong></u> 있어야 한다. </p>
+<li>
+<p><u><strong>만든 버킷은 가상 머신(VM)과 Cloud TPU 기기 또는 Cloud TPU 슬라이스(여러 TPU 기기)와 동일한 리전에</strong></u> 있어야 한다.</p>
 </li>
-<li><p>아래 명령어를 치면 간단하게 Bucket을 생성할 수 있다. 그 누구도 사용하지 않은 유니크한 이름이어야 한다. </p>
+<li>
+<p>아래 명령어를 치면 간단하게 Bucket을 생성할 수 있다. 그 누구도 사용하지 않은 유니크한 이름이어야 한다.</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gsutil mb gs://YOUR_UNIQUE_BUCKET_NAME</span><br></pre></td></tr></tbody></table></figure>
-
 <p>필자의 경우, <code>object_detection_peter</code>이라는 이름으로 버킷을 만들었다. 아래와 같이, GCP Console 메뉴에서, 저장소 카테고리의 <strong><code>Storage</code></strong> 를 확인해보면 생성된 Bucket을 확인해 볼 수 있다.</p>
   <img src="/gallery/gcp21.png" width="600">
-
 </li>
 </ul>
 <hr>
 <br>
-
-
-
-<h2 id="4-ctpu"><a href="#4-ctpu" class="headerlink" title="4. ctpu"></a>4. <code>ctpu</code></h2><ul>
-<li>이제 내 프로젝트와 Bucket을 연동시켜보자. <strong><a href="https://github.com/tensorflow/tpu/tree/master/tools/ctpu" rel="external nofollow noopener noreferrer" target="_blank"><code>ctpu</code></a></strong> 를 사용해서 Cloud TPU 프로젝트 리소스를 만들고 관리하도록 하자. 먼저, ctpu를 설치하자. 맥 OS의 경우 아래의 명령어로 ctpu를 설치할 수 있다.   <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Mac</span></span><br><span class="line">$ curl -O https://dl.google.com/cloud_tpu/ctpu/latest/darwin/ctpu && chmod a+x ctpu</span><br></pre></td></tr></tbody></table></figure>
-
-
-</li>
-</ul>
+<h2 id="4-ctpu"><a class="markdownIt-Anchor" href="#4-ctpu"></a> 4. <code>ctpu</code></h2>
 <ul>
-<li>설치가 끝났으면, 내가 사용하고자 하는 region을 명시하여서 <strong><code>ctpu up</code></strong> 을 호출하자. 아래와 같이 명시를 하지 않으면 기본값인 <code>us-central1-b</code>등으로 임의로 할당하는 경우가 있다.  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ctpu up --zone=us-central1<span class="hljs-_">-f</span></span><br></pre></td></tr></tbody></table></figure>
-
-
+<li>
+<p>이제 내 프로젝트와 Bucket을 연동시켜보자. <strong><a href="https://github.com/tensorflow/tpu/tree/master/tools/ctpu" rel="external nofollow noopener noreferrer" target="_blank"><code>ctpu</code></a></strong> 를 사용해서 Cloud TPU 프로젝트 리소스를 만들고 관리하도록 하자. 먼저, ctpu를 설치하자. 맥 OS의 경우 아래의 명령어로 ctpu를 설치할 수 있다.</p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># Mac</span></span><br><span class="line">$ curl -O https://dl.google.com/cloud_tpu/ctpu/latest/darwin/ctpu && chmod a+x ctpu</span><br></pre></td></tr></tbody></table></figure>
 </li>
-</ul>
-<ul>
-<li><p>이 <code>ctpu up</code>이라는 명령어를 사용하면, 알아서 Compute Engine VM과, TPU node를 생성해줄 뿐만 아니라, IAM 계정도 만들어서 등록해주고, 만들어진 Compute Engine VM에 로그인까지 할 수 있게된다.</p>
+<li>
+<p>설치가 끝났으면, 내가 사용하고자 하는 region을 명시하여서 <strong><code>ctpu up</code></strong> 을 호출하자. 아래와 같이 명시를 하지 않으면 기본값인 <code>us-central1-b</code>등으로 임의로 할당하는 경우가 있다.</p>
+  <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ctpu up --zone=us-central1<span class="hljs-_">-f</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>이 <code>ctpu up</code>이라는 명령어를 사용하면, 알아서 Compute Engine VM과, TPU node를 생성해줄 뿐만 아니라, IAM 계정도 만들어서 등록해주고, 만들어진 Compute Engine VM에 로그인까지 할 수 있게된다.</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ ctpu up --zone=us-central1<span class="hljs-_">-f</span></span><br><span class="line">ctpu will use the following configuration:</span><br><span class="line"></span><br><span class="line">  Name:                 petercha0990</span><br><span class="line">  Zone:                 us-central1<span class="hljs-_">-f</span></span><br><span class="line">  GCP Project:          object-detection-265202</span><br><span class="line">  TensorFlow Version:   2.1</span><br><span class="line">  VM:</span><br><span class="line">      Machine Type:     n1-standard-2</span><br><span class="line">      Disk Size:        250 GB</span><br><span class="line">      Preemptible:      <span class="hljs-literal">false</span></span><br><span class="line">  Cloud TPU:</span><br><span class="line">      Size:             v2-8</span><br><span class="line">      Preemptible:      <span class="hljs-literal">false</span></span><br><span class="line">      Reserved:         <span class="hljs-literal">false</span></span><br><span class="line"></span><br><span class="line">OK to create your Cloud TPU resources with the above configuration? [Yn]:  y</span><br></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>성공적으로 위에서 말한 과정이 끝나게 되면, 아래처럼 쉘 프롬프트 <code>username@tpuname</code>로 변경된다. 하지만 우리는 이 안에서 작업을 할 것이 아니라, 단순히 이 VM에 딸린 TPU를 사용하고 싶을 뿐임으로, 바로 <code>exit</code>를 입력하고 나가자. </p>
+<li>
+<p>성공적으로 위에서 말한 과정이 끝나게 되면, 아래처럼 쉘 프롬프트 <code>username@tpuname</code>로 변경된다. 하지만 우리는 이 안에서 작업을 할 것이 아니라, 단순히 이 VM에 딸린 TPU를 사용하고 싶을 뿐임으로, 바로 <code>exit</code>를 입력하고 나가자.</p>
  <figure class="highlight shell hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">OK to create your Cloud TPU resources with the above configuration? [Yn]:  y</span><br><span class="line">2020/01/19 15:32:30 Creating TPU petercha0990 (this may take a few minutes)...</span><br><span class="line">2020/01/19 15:32:30 Creating Compute Engine VM petercha0990 (this may take a minute)...</span><br><span class="line">2020/01/19 15:32:37 TPU operation still running...</span><br><span class="line">2020/01/19 15:32:38 Created Compute Engine VM petercha0990!</span><br><span class="line">2020/01/19 15:32:59 TPU operation still running...</span><br><span class="line">2020/01/19 15:33:21 TPU operation still running...</span><br><span class="line">2020/01/19 15:33:42 TPU operation still running...</span><br><span class="line">2020/01/19 15:33:53 Created TPU petercha0990!</span><br><span class="line">2020/01/19 15:33:55 Updating the project's IAM policy to add the TPU service account ('service-630609466618@cloud-tpu.iam.gserviceaccount.com') to roles: roles/logging.logWriter and roles/storage.admin.</span><br><span class="line">About to ssh (with port forwarding enabled -- see docs for details)...</span><br><span class="line">Updating project ssh metadata...⠶Updated [https://www.googleapis.com/compute/v1/projects/object-detection-265202].     </span><br><span class="line">Updating project ssh metadata...done.                                                         Waiting for SSH key to propagate.</span><br><span class="line">Warning: Permanently added 'compute.8979413283803908368' (ECDSA) to the list of known hosts.</span><br><span class="line">Enter passphrase for key '/Users/chayesol/.ssh/google_compute_engine': </span><br><span class="line">Enter passphrase for key '/Users/chayesol/.ssh/google_compute_engine': </span><br><span class="line">bind [127.0.0.1]:8888: Address already in use</span><br><span class="line">channel_setup_fwd_listener_tcpip: cannot listen to port: 8888</span><br><span class="line">Linux petercha0990 4.9.0-11-amd64 #1 SMP Debian 4.9.189-3+deb9u2 (2019-11-11) x86_64</span><br><span class="line"></span><br><span class="line">The programs included with the Debian GNU/Linux system are free software;</span><br><span class="line">the exact distribution terms for each program are described in the</span><br><span class="line">individual files in /usr/share/doc/*/copyright.</span><br><span class="line"></span><br><span class="line">Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent</span><br><span class="line">permitted by applicable law.</span><br><span class="line">chayesol@petercha0990:~$ (← VM으로 접속한 상태)</span><br></pre></td></tr></tbody></table></figure>
-
 </li>
 </ul>
 <hr>
 <br>
-
-<h2 id="5-Last-Configuration"><a href="#5-Last-Configuration" class="headerlink" title="5. Last Configuration"></a>5. Last Configuration</h2><ul>
-<li><p>긴 과정을 거쳐왔다… 드디어 환경설정 마지막이다. 로컬머신 <code>.bash_profile</code>에 환경변수 3개만 더 추가해주면 된다. 각자의 <code>bash_profile</code>이 있는 경로로 이동한 후에,</p>
+<h2 id="5-last-configuration"><a class="markdownIt-Anchor" href="#5-last-configuration"></a> 5. Last Configuration</h2>
+<ul>
+<li>
+<p>긴 과정을 거쳐왔다… 드디어 환경설정 마지막이다. 로컬머신 <code>.bash_profile</code>에 환경변수 3개만 더 추가해주면 된다. 각자의 <code>bash_profile</code>이 있는 경로로 이동한 후에,</p>
   <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi .bash_profile</span><br></pre></td></tr></tbody></table></figure>
-
-<p>  를 입력해서, 아래와 같이 환경변수 3가지를 추가해주자. </p>
+<p>를 입력해서, 아래와 같이 환경변수 3가지를 추가해주자.</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-built_in">export</span> PROJECT=object-detection-265202</span><br><span class="line"><span class="hljs-built_in">export</span> YOUR_GCS_BUCKET=object_detection_peter</span><br><span class="line"><span class="hljs-built_in">export</span> TPU_ACCOUNT=service-blahblah@cloud-tpu.iam.gserviceaccount.com</span><br><span class="line">...</span><br></pre></td></tr></tbody></table></figure>
-
-
 </li>
-</ul>
-<ul>
-<li>다 끝났으면, <code>$ source .bash_profile</code>도 잊지 말고 실행시켜주자!</li>
+<li>
+<p>다 끝났으면, <code>$ source .bash_profile</code>도 잊지 말고 실행시켜주자!</p>
+</li>
 </ul>
 <hr>
-
 <ul>
-<li><p>고생하셨습니다. 다음편에는 실제 Tensorflow Transfer Learning을 각자의 필요에 맞게 원하는 Class 개수에 맞게 학습을 진행하는 방법을 살펴 보겠습니다! <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8">👏</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44f.png?v8">👏</span></p>
+<li>
+<p>고생하셨습니다. 다음편에는 실제 Tensorflow Transfer Learning을 각자의 필요에 맞게 원하는 Class 개수에 맞게 학습을 진행하는 방법을 살펴 보겠습니다! 👏👏</p>
 </li>
-<li><p>이 글은 <strong><a href="http://datacrew.tech" rel="external nofollow noopener noreferrer" target="_blank">DataCrew</a></strong> 에서도 읽으실 수 있습니다. </p>
+<li>
+<p>이 글은 <strong><a href="http://datacrew.tech" rel="external nofollow noopener noreferrer" target="_blank">DataCrew</a></strong> 에서도 읽으실 수 있습니다.</p>
 </li>
 </ul>
 <br>
-
-<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<h1 id="references"><a class="markdownIt-Anchor" href="#references"></a> References</h1>
+<ul>
 <li><strong>Training and serving a realtime mobile object detector in 30 minutes with Cloud TPUs - <a href="https://medium.com/tensorflow/training-and-serving-a-realtime-mobile-object-detector-in-30-minutes-with-cloud-tpus-b78971cf1193" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
 <li><strong>GCP Project Setting - <a href="https://cloud.google.com/ml-engine/docs/tensorflow/getting-started-training-prediction#setup" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>
 <li><strong>Step by Step TensorFlow Object Detection API Tutorial - Part 1 ~ 5 - <a href="https://medium.com/@WuStangDan" rel="external nofollow noopener noreferrer" target="_blank">Link</a></strong></li>

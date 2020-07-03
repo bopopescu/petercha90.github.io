@@ -167,7 +167,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2078 words)
+                    14 minutes read (About 2080 words)
                 </span>
                 
                 
@@ -249,7 +249,7 @@
 
 <h2 id="2-Tensorflow-Object-Detection-API-설치하기"><a href="#2-Tensorflow-Object-Detection-API-설치하기" class="headerlink" title="2. Tensorflow Object Detection API 설치하기"></a>2. Tensorflow Object Detection API 설치하기</h2><h3 id="2-1-insatll-Tensorflow-Object-Detection-API"><a href="#2-1-insatll-Tensorflow-Object-Detection-API" class="headerlink" title="2.1. insatll Tensorflow Object Detection API"></a>2.1. insatll Tensorflow Object Detection API</h3><ul>
 <li><p>1편에서 설치한 <code>google-cloud-sdk</code>를 설치한 경로와 같은 곳에, TensorFlow의 <code>Models</code>를 Clone한다. 우리는 Tensorflow 2를 사용하지 않기 때문에, 브랜치도 Tensorflow 1.14.0과 호환될 수 있는 r1.13.0로 옮겨주자.    </p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="hljs-built_in">clone</span> https://github.com/tensorflow/models.git</span><br><span class="line">git checkout remotes/origin/r1.13.0</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="hljs-built_in">clone</span> https://github.com/tensorflow/models.git</span><br><span class="line"><span class="hljs-built_in">cd</span> models</span><br><span class="line">git checkout remotes/origin/r1.13.0</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>그 뒤에는 <code>models/research/object_detection/g3doc/</code>으로 이동해서 <strong><code>installation.md</code></strong> 을 열어본다.</p>
 </li>

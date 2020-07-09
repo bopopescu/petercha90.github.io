@@ -167,7 +167,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    19 minutes read (About 2776 words)
+                    19 minutes read (About 2781 words)
                 </span>
                 
                 
@@ -194,36 +194,33 @@
 <ul>
 <li>위의 격언처럼, 역사적으로 어떠한 기존의 한계 때문에 어떤 시도들을 해왔는지, 또 그런 시도들이 현대에 와서는 어떤 것으로 대체 되었는지 아는 것만으로도 시행착오를 줄일 수도 있고 또 다른 발상을 도울 수 있다고 생각합니다. 그런 의미에서 1998년 CNN의 시작을 알린 LeNet을 리뷰하는 것으로 시작하겠습니다. CNN의 작동방식을 잘 아는 분들은 스킵하셔도 좋습니다.  </li>
 </ul>
-<h3 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h3><ul>
+<h2 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h2><ul>
 <li>LeNet을 소개하는 논문의 제목은 <a href="http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf" rel="external nofollow noopener noreferrer" target="_blank">Gradient-Based Learning Applied to Document Recognition</a>입니다. Yann LeCun이 1저자이고, Yoshua Bengio 교수님도 함께 공동저자로 참여하였습니다. 네트워크의 이름이 LeNet인 것도, Yann LeCun의 이름을 딴 것 같습니다. </li>
 <li>1998년 당시, 지금은 많은 분들에게 익숙한 이미지에서 feature를 배운다는 개념과 Gradient-Based Learning, Back-Propagation, 그리고 CNN의 작동 방식 + 연속된 숫자를 어떻게 인식할 것인가에 대한 고민으로 제안하고 있는 방식 등을 모두 설명하다 보니, 해당 논문은 총 페이지만 46페이지에 달할 정도로 많은 양을 가지고 있습니다. 본 포스팅에서는 CNN의 탄생배경과 LeNet-5에 대한 설명을 중심으로 진행합니다.</li>
 </ul>
-<h3 id="Convolutional-Neural-Networks"><a href="#Convolutional-Neural-Networks" class="headerlink" title="Convolutional Neural Networks"></a>Convolutional Neural Networks</h3><h4 id="1-Traditional-Pattern-Recognition-방법론들의-한계"><a href="#1-Traditional-Pattern-Recognition-방법론들의-한계" class="headerlink" title="1. Traditional Pattern Recognition 방법론들의 한계"></a>1. Traditional Pattern Recognition 방법론들의 한계</h4><ul>
+<h2 id="Convolutional-Neural-Networks-thumbsup"><a href="#Convolutional-Neural-Networks-thumbsup" class="headerlink" title="Convolutional Neural Networks :thumbsup:"></a>Convolutional Neural Networks <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8">👍</span></h2><h3 id="1-Traditional-Pattern-Recognition-방법론들의-한계"><a href="#1-Traditional-Pattern-Recognition-방법론들의-한계" class="headerlink" title="1. Traditional Pattern Recognition 방법론들의 한계"></a><strong>1. Traditional Pattern Recognition 방법론들의 한계</strong></h3><ul>
 <li>1998년 당시, 전통적인 Pattern Recognition 방법은 어디까지나 Hand-designed Feature extractor라는 한계를 가지고 있고, 그렇게 만들어진 Extractor들이 내는 결과에만 크게 의지하여 들어온 정보 중 상관이 있는 정보와 상관 없는 정보를 분류하고 결론을 낸다고 지적합니다. 그래서 결국엔 가능한한 좋은 학습이라는 것은 feature extractor 자체에서 발생되어야 한다고 말합니다. </li>
 <li>그렇기에 데이터 자체 정보를 온전히 사용하여 스스로 그 특징을 학습을 하는 Fully-connected multi-layer networks를 classifier로 사용할 수도 있다는 것을 말합니다. 하지만 이 또한, 아래와 같은 한계가 있다고 설명합니다. </li>
 </ul>
-<h4 id="2-Fully-connected-multi-layer-networks의-한계"><a href="#2-Fully-connected-multi-layer-networks의-한계" class="headerlink" title="2. Fully-connected multi-layer networks의 한계"></a>2. Fully-connected multi-layer networks의 한계</h4><ul>
+<h3 id="2-Fully-connected-multi-layer-networks의-한계"><a href="#2-Fully-connected-multi-layer-networks의-한계" class="headerlink" title="2. Fully-connected multi-layer networks의 한계"></a><strong>2. Fully-connected multi-layer networks의 한계</strong></h3><ul>
 <li>첫 번째로는 분류하게 될 2D 이미지 정보라는 것은 실제로는 많은 variables(pixel)로 구성 되어 있기에 이것을 fully-conneted layer로만 학습을 하게 될 경우 너무 많은 학습량, 학습 시간, 그리고 그 많은 weights를 저장해야할 hardware적인 요소를 생각할 때에 비효율적이라고 합니다. </li>
 <li>두 번째로, 실제로 위상정보(Topolopy of the input)가 철저히 무시된다는 문제가 있다고 말합니다. 실제 이미지 정보나, Time-frequency representations of speech에서 2D Local feature라는 것은 핵심적인 정보를 쥐고 있기 때문에, 각각이 시공간적으로 주변부 데이터들과 어떠한 관계가 있는지에 대한 정보들을 다 파편으로 만들고, 다 뒤죽박죽으로 쓰겠다고 하는 것 자체가 잘 못됐다고 지적합니다. </li>
 </ul>
-<h4 id="3-그래서-Convolutional-Networks"><a href="#3-그래서-Convolutional-Networks" class="headerlink" title="3. 그래서 Convolutional Networks."></a>3. 그래서 Convolutional Networks.</h4><ul>
+<h3 id="3-그래서-Convolutional-Networks-v"><a href="#3-그래서-Convolutional-Networks-v" class="headerlink" title="3. 그래서 Convolutional Networks. :v:"></a><strong>3. 그래서 Convolutional Networks.</strong> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8">✌</span></h3><ul>
 <li><p>Convolution Network는 이미지가 가질 수 있는 어느 정도의 shitf, scale, 그리고 distortion invariance들에 대해 다음과 같은 세가지 특징이 있기 때문에 강하다고 말합니다. </p>
 <ul>
-<li><p><strong>Local receptive fields</strong>:</p>
-<ul>
+<li><h3 id="Local-receptive-fields"><a href="#Local-receptive-fields" class="headerlink" title="Local receptive fields:"></a><strong>Local receptive fields</strong>:</h3><ul>
 <li>우리가 알고있는 Convolution Kernel의 작동방식을 설명하는 부분입니다. Kernel이 전체 이미지를 돌아다니면서 만나게 되는 Kernel Size와 동일한 크기의 영역들을 Local receptive fields라고 지칭합니다. 이렇게 작은 영역들을 돌아다니면, neuron들은 방향성, 꼭지점, 커브 등과 같은 기초적인 visual feature들을 추출할 수 있습니다. 이러한 feature들은 뒤에 이어서 계산되는 레이어에서 더 높은 차원의 feature들을 구성할 수 있도록 합성됩니다. </li>
 <li>이것이 가능하기 때문에 전체 이미지에서 distortion이나 shift가 발생하여도 결국엔 각 클래스를 구분짓는 패턴이 특정 local receptive field에서 만날 수만 있다면, 해당 특징을 반영한 feature map을 만들어 낼 수 있습니다</li>
 </ul>
 </li>
-<li><p><strong>Shared weights</strong>:</p>
-<ul>
+<li><h3 id="Shared-weights"><a href="#Shared-weights" class="headerlink" title="Shared weights:"></a><strong>Shared weights</strong>:</h3><ul>
 <li>전체 이미지, 혹은 전체 feature map은 같은 Filter의 weights + bias를 공유하게 되는 것을 뜻합니다. 예를 들어, 5x5 Kernel은 5x5사이즈와 설정된 Stride에 맞춰 전체 이미지(or feature map)를 돌아다니며 계산을 하지만, 5x5=25의 weights와 + 1개의 bias만 back propagation으로 학습을 할 뿐입니다. </li>
 <li>이처럼 계산되는 영역마다 학습 파라미터가 느는 것이 아니라, Filter가 총 몇개로 설정하는가에 따라 output인 feature map의 수와 학습해야하는 parameter가 늘 뿐입니다. 이러한 기법으로 계산을 수행할 local machine에게 요구되어지는 총 계산 capacity를 줄여주고, 학습할 parameter의 수를 줄여줌으로써 자연스럽게 Overfitting을 방지하게 되어 test error와 training error 사이의 gap도 줄여줍니다. </li>
 <li>실제로 논문에서 이 weight sharing 덕분에, LeNet-5는 총 340,908번의 connetions가 있지만, only 60,000 trainable free parameters만 가진다고 말합니다. </li>
 </ul>
 </li>
-<li><p><strong>Sub-sampling</strong>:</p>
-<ul>
+<li><h3 id="Sub-sampling"><a href="#Sub-sampling" class="headerlink" title="Sub-sampling:"></a><strong>Sub-sampling</strong>:</h3><ul>
 <li>현대에 와서 Pooling이라고 말하는 그 개념입니다. 다만 차이점이 있다면, 논문에서는 개념상 지금의 2x2 Average Pooling의 개념을 쓰지만 Layer라고 부를 수 있도록, input feature map의 수에 해당하는 (weight + bias)를 학습가능한 parameter로 가지고 있다는 점입니다. </li>
 <li>우리가 이미지를 분류하고자 할 때, 사용하고자 하는 것은 각 Class마다 가지고 있는 패턴이지, 해당 숫자가 어디에 위치하는지를 알고 싶은 것이 아니라고 말하면서, 위치 정보를 반영하는 것은 잠정적으로 해롭다고 표현하고 있습니다. 그래서 Sub-sampling은 위치정보가 encoding되는 위험을 해상도를 낮춤으로써, 위치에 관한 영향도를 간단히 줄일 수 있다고 소개합니다. </li>
 <li>결론적으로 shifts and distortion에 대한 민감도도 덜하게 할 수 있게 됩니다. 또한 그렇게 위치정보를 소실시키면서 생기는 손실은, feature map size가 작아질수록 더 많은 filter를 사용하여 다양한 feature들을 뽑게하면서 상호보완할 수 있도록 하는 정책을 취합니다. </li>
@@ -233,20 +230,19 @@
 </ul>
 </li>
 </ul>
-<h3 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h3><ul>
+<h2 id="Structure-building-construction"><a href="#Structure-building-construction" class="headerlink" title="Structure :building_construction:"></a><strong>Structure</strong> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f3d7.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3d7.png?v8">🏗</span></h2><ul>
 <li>그 유명한 LeNet-5의 구조를 함께 보시겠습니다. </li>
 </ul>
 <center><img src="/gallery/lenet_1.png" width="800"></center>
 
 <ul>
-<li>LeNet-5의 구조는,</li>
-<li>*[Conv(C1) - Subsampling(S2) - Conv(C3) -Subsampling(S4) - Conv(C5) - FC - FC]**<br>총 7개의 layers로 구성되어 있습니다. 여기서 FC 두 레이어를 제외하면 5개의 CNN Structure가 되기 때문에 LeNet-5라고 명명하고 있습니다. C5 layer의 Output에 Full connection이라고 적힌 이유는 C5에서 input으로 받는 5x5 feature maps에 5x5 Kernel을 사용해서 feature map size가 모두 1x1이 되었기 때문입니다. </li>
+<li>LeNet-5의 구조는,<br><strong>[Conv(C1) - Subsampling(S2) - Conv(C3) -Subsampling(S4) - Conv(C5) - FC - FC]</strong><br>총 7개의 layers로 구성되어 있습니다. 여기서 FC 두 레이어를 제외하면 5개의 CNN Structure가 되기 때문에 LeNet-5라고 명명하고 있습니다. C5 layer의 Output에 Full connection이라고 적힌 이유는 C5에서 input으로 받는 5x5 feature maps에 5x5 Kernel을 사용해서 feature map size가 모두 1x1이 되었기 때문입니다. </li>
 <li>저 같은 경우, 논문에 실려있는 이미지는 Input이 각 레이어를 통과한 뒤 나오는 Feature Map들을 그린 것이라, 각각의 레이어들이 투명한 것처럼 보여 한눈에 구조가 잘 보이지 않았습니다.참 못생기게 그렸죠. 총 7개 Layer들의 세부정보는, 간략한 아래의 Pytorch 코드를 통해 확인하실 수 있습니다.</li>
 </ul>
 <center><img src="/gallery/lenet_2.png" width="600"></center>
 
 
-<h4 id="섬세한-노력들"><a href="#섬세한-노력들" class="headerlink" title="섬세한 노력들"></a>섬세한 노력들</h4><ul>
+<h3 id="섬세한-노력들"><a href="#섬세한-노력들" class="headerlink" title="섬세한 노력들"></a>섬세한 노력들</h3><ul>
 <li>S2에서 C3로 넘어가면서 filter의 수를 6개에서 16개로 늘립니다. 이 과정에서 지금의 Tensorflow나 Pytorch같은 Framework들이 제공하는 API로는 구현하기 힘든 설계들을 하는데요, 6개의 feature maps를 처음 6개는 연속되게 이웃하는 3개의 feature map들의 조합에서 구하고, 그다음 6개는 연속되게 이웃하는 4개 feature maps의 조합, 그 다음 3개는 sparse하게 남는 4개의 조합, 그리고 마지막 16번째는 6개를 모두 다 반영한 feature를 뽑을 수 있도록 아래와 같이 구성합니다. </li>
 </ul>
 <center><img src="/gallery/lenet_3.png" width="600"></center>
@@ -258,7 +254,7 @@
 <center><img src="/gallery/lenet_4.png" width="600"></center>
 
 
-<h3 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h3><ul>
+<h2 id="Results-sparkles"><a href="#Results-sparkles" class="headerlink" title="Results :sparkles:"></a><strong>Results</strong> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8">✨</span></h2><ul>
 <li>MNIST testset Error rate로 LeNet-5와 이전의 다양한 기법들의 성능을 비교한 표는 아래와 같습니다. 아래 그림에서 deslant가 의미하는 것은 기울어진 숫자들을 똑바로 세우는 전처리를 거친 데이터셋을 의미하고, dist는 기존 데이터셋에 distorted 데이터를 더 추가한 데이터셋을 뜻합니다. </li>
 <li>28x28-300-10과 28x28-300-100-10과 같은 요소들은 fully-connected layer로만 구성되어있는 Network를 뜻합니다. 28x28-300-10은 One-hidden layer인 fully-connected Neural Network을 의미하여 28x28 input에 hidden unit 300개에 10개 output으로 나오는 모델입니다. 마찬가지로 숫자가 28x28-300-100-10과 같은 요소들은 Two-hidden layer인 fully-connected Network를 의미합니다. </li>
 <li>결론적으로는 LeNet-5를 사용하면 1% 미만의 성능을 기본적으로 확보할 수 있다는 것을 말해주고 있습니다. </li>

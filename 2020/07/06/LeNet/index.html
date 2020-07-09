@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&product=sop" async="async"></script>
+    <meta charset="utf-8">
+<title>LeNet - Stand firm Peter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="canonical" href="http://www.stand-firm-peter.me/2020/07/06/lenet/">
+
+
+<meta property="og:image" content="/gallery/lenet.jpg">
+
+
+
+<!-- <meta property="og:title" content=LeNet - Stand firm Peter> -->
+<meta property="og:description" content="Peter's playground.">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4926107872672843",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4926107872672843",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+<link rel="alternative" href="/rss.xml" title="LeNet" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124184693-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-124184693-1');
+</script>
+
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/dog.jpg" alt="LeNet" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/gallery/lenet.jpg" alt="LeNet">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-07-06T07:44:56.000Z">2020-07-06</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Deep-Learning-paper/">Deep Learning paper</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    19 minutes read (About 2776 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                LeNet
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>Convolution의 시작. 딥러닝 조상님 LeNet 리뷰!</li>
+</ul>
+<a id="more"></a>
+
+<br>
+
+<p>$$\text{‘DO NOT REINVENT THE WHEEL.’}$$</p>
+<br>
+
+<ul>
+<li>위의 격언처럼, 역사적으로 어떠한 기존의 한계 때문에 어떤 시도들을 해왔는지, 또 그런 시도들이 현대에 와서는 어떤 것으로 대체 되었는지 아는 것만으로도 시행착오를 줄일 수도 있고 또 다른 발상을 도울 수 있다고 생각합니다. 그런 의미에서 1998년 CNN의 시작을 알린 LeNet을 리뷰하는 것으로 시작하겠습니다. CNN의 작동방식을 잘 아는 분들은 스킵하셔도 좋습니다.  </li>
+</ul>
+<h3 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h3><ul>
+<li>LeNet을 소개하는 논문의 제목은 <a href="http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf" rel="external nofollow noopener noreferrer" target="_blank">Gradient-Based Learning Applied to Document Recognition</a>입니다. Yann LeCun이 1저자이고, Yoshua Bengio 교수님도 함께 공동저자로 참여하였습니다. 네트워크의 이름이 LeNet인 것도, Yann LeCun의 이름을 딴 것 같습니다. </li>
+<li>1998년 당시, 지금은 많은 분들에게 익숙한 이미지에서 feature를 배운다는 개념과 Gradient-Based Learning, Back-Propagation, 그리고 CNN의 작동 방식 + 연속된 숫자를 어떻게 인식할 것인가에 대한 고민으로 제안하고 있는 방식 등을 모두 설명하다 보니, 해당 논문은 총 페이지만 46페이지에 달할 정도로 많은 양을 가지고 있습니다. 본 포스팅에서는 CNN의 탄생배경과 LeNet-5에 대한 설명을 중심으로 진행합니다.</li>
+</ul>
+<h3 id="Convolutional-Neural-Networks"><a href="#Convolutional-Neural-Networks" class="headerlink" title="Convolutional Neural Networks"></a>Convolutional Neural Networks</h3><h4 id="1-Traditional-Pattern-Recognition-방법론들의-한계"><a href="#1-Traditional-Pattern-Recognition-방법론들의-한계" class="headerlink" title="1. Traditional Pattern Recognition 방법론들의 한계"></a>1. Traditional Pattern Recognition 방법론들의 한계</h4><ul>
+<li>1998년 당시, 전통적인 Pattern Recognition 방법은 어디까지나 Hand-designed Feature extractor라는 한계를 가지고 있고, 그렇게 만들어진 Extractor들이 내는 결과에만 크게 의지하여 들어온 정보 중 상관이 있는 정보와 상관 없는 정보를 분류하고 결론을 낸다고 지적합니다. 그래서 결국엔 가능한한 좋은 학습이라는 것은 feature extractor 자체에서 발생되어야 한다고 말합니다. </li>
+<li>그렇기에 데이터 자체 정보를 온전히 사용하여 스스로 그 특징을 학습을 하는 Fully-connected multi-layer networks를 classifier로 사용할 수도 있다는 것을 말합니다. 하지만 이 또한, 아래와 같은 한계가 있다고 설명합니다. </li>
+</ul>
+<h4 id="2-Fully-connected-multi-layer-networks의-한계"><a href="#2-Fully-connected-multi-layer-networks의-한계" class="headerlink" title="2. Fully-connected multi-layer networks의 한계"></a>2. Fully-connected multi-layer networks의 한계</h4><ul>
+<li>첫 번째로는 분류하게 될 2D 이미지 정보라는 것은 실제로는 많은 variables(pixel)로 구성 되어 있기에 이것을 fully-conneted layer로만 학습을 하게 될 경우 너무 많은 학습량, 학습 시간, 그리고 그 많은 weights를 저장해야할 hardware적인 요소를 생각할 때에 비효율적이라고 합니다. </li>
+<li>두 번째로, 실제로 위상정보(Topolopy of the input)가 철저히 무시된다는 문제가 있다고 말합니다. 실제 이미지 정보나, Time-frequency representations of speech에서 2D Local feature라는 것은 핵심적인 정보를 쥐고 있기 때문에, 각각이 시공간적으로 주변부 데이터들과 어떠한 관계가 있는지에 대한 정보들을 다 파편으로 만들고, 다 뒤죽박죽으로 쓰겠다고 하는 것 자체가 잘 못됐다고 지적합니다. </li>
+</ul>
+<h4 id="3-그래서-Convolutional-Networks"><a href="#3-그래서-Convolutional-Networks" class="headerlink" title="3. 그래서 Convolutional Networks."></a>3. 그래서 Convolutional Networks.</h4><ul>
+<li><p>Convolution Network는 이미지가 가질 수 있는 어느 정도의 shitf, scale, 그리고 distortion invariance들에 대해 다음과 같은 세가지 특징이 있기 때문에 강하다고 말합니다. </p>
+<ul>
+<li><p><strong>Local receptive fields</strong>:</p>
+<ul>
+<li>우리가 알고있는 Convolution Kernel의 작동방식을 설명하는 부분입니다. Kernel이 전체 이미지를 돌아다니면서 만나게 되는 Kernel Size와 동일한 크기의 영역들을 Local receptive fields라고 지칭합니다. 이렇게 작은 영역들을 돌아다니면, neuron들은 방향성, 꼭지점, 커브 등과 같은 기초적인 visual feature들을 추출할 수 있습니다. 이러한 feature들은 뒤에 이어서 계산되는 레이어에서 더 높은 차원의 feature들을 구성할 수 있도록 합성됩니다. </li>
+<li>이것이 가능하기 때문에 전체 이미지에서 distortion이나 shift가 발생하여도 결국엔 각 클래스를 구분짓는 패턴이 특정 local receptive field에서 만날 수만 있다면, 해당 특징을 반영한 feature map을 만들어 낼 수 있습니다</li>
+</ul>
+</li>
+<li><p><strong>Shared weights</strong>:</p>
+<ul>
+<li>전체 이미지, 혹은 전체 feature map은 같은 Filter의 weights + bias를 공유하게 되는 것을 뜻합니다. 예를 들어, 5x5 Kernel은 5x5사이즈와 설정된 Stride에 맞춰 전체 이미지(or feature map)를 돌아다니며 계산을 하지만, 5x5=25의 weights와 + 1개의 bias만 back propagation으로 학습을 할 뿐입니다. </li>
+<li>이처럼 계산되는 영역마다 학습 파라미터가 느는 것이 아니라, Filter가 총 몇개로 설정하는가에 따라 output인 feature map의 수와 학습해야하는 parameter가 늘 뿐입니다. 이러한 기법으로 계산을 수행할 local machine에게 요구되어지는 총 계산 capacity를 줄여주고, 학습할 parameter의 수를 줄여줌으로써 자연스럽게 Overfitting을 방지하게 되어 test error와 training error 사이의 gap도 줄여줍니다. </li>
+<li>실제로 논문에서 이 weight sharing 덕분에, LeNet-5는 총 340,908번의 connetions가 있지만, only 60,000 trainable free parameters만 가진다고 말합니다. </li>
+</ul>
+</li>
+<li><p><strong>Sub-sampling</strong>:</p>
+<ul>
+<li>현대에 와서 Pooling이라고 말하는 그 개념입니다. 다만 차이점이 있다면, 논문에서는 개념상 지금의 2x2 Average Pooling의 개념을 쓰지만 Layer라고 부를 수 있도록, input feature map의 수에 해당하는 (weight + bias)를 학습가능한 parameter로 가지고 있다는 점입니다. </li>
+<li>우리가 이미지를 분류하고자 할 때, 사용하고자 하는 것은 각 Class마다 가지고 있는 패턴이지, 해당 숫자가 어디에 위치하는지를 알고 싶은 것이 아니라고 말하면서, 위치 정보를 반영하는 것은 잠정적으로 해롭다고 표현하고 있습니다. 그래서 Sub-sampling은 위치정보가 encoding되는 위험을 해상도를 낮춤으로써, 위치에 관한 영향도를 간단히 줄일 수 있다고 소개합니다. </li>
+<li>결론적으로 shifts and distortion에 대한 민감도도 덜하게 할 수 있게 됩니다. 또한 그렇게 위치정보를 소실시키면서 생기는 손실은, feature map size가 작아질수록 더 많은 filter를 사용하여 다양한 feature들을 뽑게하면서 상호보완할 수 있도록 하는 정책을 취합니다. </li>
+<li>하지만, 이 주장은 후에 Hinton 교수님의 CapsuleNet과 같은 논문에서, 위치정보를 상실한 분석이 진정한 이미지 분류를 뜻할 수 없다고 반박을 당하게 됩니다. 실제로 MobileNet과 함께 널리 퍼진 Depthwise-Separable Convolution에서도 pooling을 쓰지 않고 최대한 정보를 다 가져가는 방법을 추구하기도 한다는 것도 기억할만 합니다. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h3><ul>
+<li>그 유명한 LeNet-5의 구조를 함께 보시겠습니다. </li>
+</ul>
+<center><img src="/gallery/lenet_1.png" width="800"></center>
+
+<ul>
+<li>LeNet-5의 구조는,</li>
+<li>*[Conv(C1) - Subsampling(S2) - Conv(C3) -Subsampling(S4) - Conv(C5) - FC - FC]**<br>총 7개의 layers로 구성되어 있습니다. 여기서 FC 두 레이어를 제외하면 5개의 CNN Structure가 되기 때문에 LeNet-5라고 명명하고 있습니다. C5 layer의 Output에 Full connection이라고 적힌 이유는 C5에서 input으로 받는 5x5 feature maps에 5x5 Kernel을 사용해서 feature map size가 모두 1x1이 되었기 때문입니다. </li>
+<li>저 같은 경우, 논문에 실려있는 이미지는 Input이 각 레이어를 통과한 뒤 나오는 Feature Map들을 그린 것이라, 각각의 레이어들이 투명한 것처럼 보여 한눈에 구조가 잘 보이지 않았습니다.참 못생기게 그렸죠. 총 7개 Layer들의 세부정보는, 간략한 아래의 Pytorch 코드를 통해 확인하실 수 있습니다.</li>
+</ul>
+<center><img src="/gallery/lenet_2.png" width="600"></center>
+
+
+<h4 id="섬세한-노력들"><a href="#섬세한-노력들" class="headerlink" title="섬세한 노력들"></a>섬세한 노력들</h4><ul>
+<li>S2에서 C3로 넘어가면서 filter의 수를 6개에서 16개로 늘립니다. 이 과정에서 지금의 Tensorflow나 Pytorch같은 Framework들이 제공하는 API로는 구현하기 힘든 설계들을 하는데요, 6개의 feature maps를 처음 6개는 연속되게 이웃하는 3개의 feature map들의 조합에서 구하고, 그다음 6개는 연속되게 이웃하는 4개 feature maps의 조합, 그 다음 3개는 sparse하게 남는 4개의 조합, 그리고 마지막 16번째는 6개를 모두 다 반영한 feature를 뽑을 수 있도록 아래와 같이 구성합니다. </li>
+</ul>
+<center><img src="/gallery/lenet_3.png" width="600"></center>
+
+<ul>
+<li>또한, F6의 Output이 84인 이유는 마지막으로 분류될 10가지가 아래의 full ASCII set을 해석하기 적합한 형태로 나와주길 바라는 마음에서 그렇게 설정했다고 합니다. 각각의 문자가 7x12 bitmap이기 때문에 84인 것이죠. </li>
+<li>실제로 F6는 마지막 분류직전에 공을 많이 들여서, 손수 parameter들을 적절한 값으로 초기화하고, 최소한 학습 초반에는 고정된 수치로 적용될 수 있도록 하는 방법을 취하고 있습니다. 또한 Euclidean Radial Basis Fucntion을 뜻하는 RBF를 사용하면서 더 섬세한 작업을 MSE Loss Function을 사용하기 전에 한 번 더 F6에서 취해주는데, 이와 관련된 부분은 필요이상으로 상세하게 들어가는 것 같아 생략하도록 하겠습니다. </li>
+</ul>
+<center><img src="/gallery/lenet_4.png" width="600"></center>
+
+
+<h3 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h3><ul>
+<li>MNIST testset Error rate로 LeNet-5와 이전의 다양한 기법들의 성능을 비교한 표는 아래와 같습니다. 아래 그림에서 deslant가 의미하는 것은 기울어진 숫자들을 똑바로 세우는 전처리를 거친 데이터셋을 의미하고, dist는 기존 데이터셋에 distorted 데이터를 더 추가한 데이터셋을 뜻합니다. </li>
+<li>28x28-300-10과 28x28-300-100-10과 같은 요소들은 fully-connected layer로만 구성되어있는 Network를 뜻합니다. 28x28-300-10은 One-hidden layer인 fully-connected Neural Network을 의미하여 28x28 input에 hidden unit 300개에 10개 output으로 나오는 모델입니다. 마찬가지로 숫자가 28x28-300-100-10과 같은 요소들은 Two-hidden layer인 fully-connected Network를 의미합니다. </li>
+<li>결론적으로는 LeNet-5를 사용하면 1% 미만의 성능을 기본적으로 확보할 수 있다는 것을 말해주고 있습니다. </li>
+</ul>
+<center><img src="/gallery/lenet_5.png" width="600"></center>
+
+
+<hr>
+
+<ul>
+<li>여기까지, LeNet 리뷰를 마치도록 하겠습니다. 다음 포스팅은 그 다음 조상님이신 AlexNet 리뷰를 하겠습니다. 읽어주셔서 감사합니다. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f647.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f647.png?v8">🙇</span></li>
+<li>이 글은 <a href="http://datacrew.tech/lenet/" rel="external nofollow noopener noreferrer" target="_blank">DataCrew</a>에서도 읽으실 수 있습니다. </li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>LeNet <a href="http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf" rel="external nofollow noopener noreferrer" target="_blank">paper</a></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+        
+        
+        <div id="bmc" align="center">
+            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha" rel="external nofollow noopener noreferrer"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+        </div>
+        
+        
+            <p><br></p>
+            <div class="level is-size-7 is-uppercase">
+                <div class="level-start">
+                    <div class="level-item">
+                        <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                        <a class="has-link-grey -link" href="/tags/LeNet/">LeNet</a>, <a class="has-link-grey -link" href="/tags/deep-learning/">deep_learning</a>, <a class="has-link-grey -link" href="/tags/ml/">ml</a>
+                    </div>
+                </div>
+            </div>
+            
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Natural -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4926107872672843" data-ad-slot="1904278923" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <br>
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&amp;product=custom-share-buttons" async="async"></script>
+
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/09/AlexNet/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">AlexNet</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/06/28/tensorflow_object_detection_with_tpu_5/">
+                <span class="level-item">Running a pretrained model on Android with TPU (5)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://www.stand-firm-peter.me/2020/07/06/LeNet/';
+        this.page.identifier = '2020/07/06/LeNet/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'petercha90' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Deep-Learning-paper/">
+            <span class="level-start">
+                <span class="level-item">Deep Learning paper</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Machine-Learning/">
+            <span class="level-start">
+                <span class="level-item">Machine Learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Tutorial/">
+            <span class="level-start">
+                <span class="level-item">Tutorial</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/07/09/AlexNet/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/alexnet.jpg" alt="AlexNet">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-09T07:44:56.000Z">2020-07-09</time></div>
+                    <a href="/2020/07/09/AlexNet/" class="has-link-black-ter is-size-6">AlexNet</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Deep-Learning-paper/">Deep Learning paper</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/07/06/LeNet/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/lenet.jpg" alt="LeNet">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-06T07:44:56.000Z">2020-07-06</time></div>
+                    <a href="/2020/07/06/LeNet/" class="has-link-black-ter is-size-6">LeNet</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Deep-Learning-paper/">Deep Learning paper</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/06/28/tensorflow_object_detection_with_tpu_5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_5.jpg" alt="Running a pretrained model on Android with TPU (5)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-27T15:00:00.000Z">2020-06-28</time></div>
+                    <a href="/2020/06/28/tensorflow_object_detection_with_tpu_5/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (5)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/06/21/tensorflow_object_detection_with_tpu_4/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_4.jpg" alt="Running a pretrained model on Android with TPU (4)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-20T15:00:00.000Z">2020-06-21</time></div>
+                    <a href="/2020/06/21/tensorflow_object_detection_with_tpu_4/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (4)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/06/09/tensorflow_object_detection_with_tpu_3/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_3.jpg" alt="Running a pretrained model on Android with TPU (3)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-08T15:00:00.000Z">2020-06-09</time></div>
+                    <a href="/2020/06/09/tensorflow_object_detection_with_tpu_3/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (3)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/AlexNet/" style="font-size: 10px;">AlexNet</a> <a href="/tags/Back-propagation/" style="font-size: 10px;">Back propagation</a> <a href="/tags/Batch/" style="font-size: 10px;">Batch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Colab/" style="font-size: 10px;">Colab</a> <a href="/tags/Docker/" style="font-size: 12.86px;">Docker</a> <a href="/tags/Epoch/" style="font-size: 10px;">Epoch</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/Google-Cloud-Platform/" style="font-size: 10px;">Google Cloud Platform</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/L1/" style="font-size: 10px;">L1</a> <a href="/tags/L2/" style="font-size: 10px;">L2</a> <a href="/tags/Lasso/" style="font-size: 10px;">Lasso</a> <a href="/tags/LeNet/" style="font-size: 10px;">LeNet</a> <a href="/tags/Loss-function/" style="font-size: 10px;">Loss function</a> <a href="/tags/Optimizer/" style="font-size: 10px;">Optimizer</a> <a href="/tags/Padding/" style="font-size: 10px;">Padding</a> <a href="/tags/Pooling/" style="font-size: 10px;">Pooling</a> <a href="/tags/Ridge/" style="font-size: 10px;">Ridge</a> <a href="/tags/TPU/" style="font-size: 15.71px;">TPU</a> <a href="/tags/basic/" style="font-size: 11.43px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/container-ssh/" style="font-size: 10px;">container ssh</a> <a href="/tags/convex-optimisation/" style="font-size: 10px;">convex_optimisation</a> <a href="/tags/dataframe/" style="font-size: 10px;">dataframe</a> <a href="/tags/deep-learning/" style="font-size: 20px;">deep_learning</a> <a href="/tags/docker/" style="font-size: 12.86px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/keras/" style="font-size: 10px;">keras</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/logarithm/" style="font-size: 10px;">logarithm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/machine-learning/" style="font-size: 12.86px;">machine-learning</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine_learning</a> <a href="/tags/ml/" style="font-size: 18.57px;">ml</a> <a href="/tags/mobilenet/" style="font-size: 10px;">mobilenet</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pseudo-label/" style="font-size: 10px;">pseudo-label</a> <a href="/tags/regularization/" style="font-size: 10px;">regularization</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tensorflow/" style="font-size: 11.43px;">tensorflow</a> <a href="/tags/tensorflow-object-detection-api/" style="font-size: 14.29px;">tensorflow object detection api</a> <a href="/tags/tensorpack/" style="font-size: 10px;">tensorpack</a> <a href="/tags/transfer-learning/" style="font-size: 15.71px;">transfer learning</a> <a href="/tags/tutorial/" style="font-size: 17.14px;">tutorial</a> <a href="/tags/useful-info/" style="font-size: 15.71px;">useful-info</a>
+    </div>
+</div>
+
+    
+    
+    <br>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Natural -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4926107872672843" data-ad-slot="1904278923" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/dog.jpg" alt="LeNet" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Peter Cha&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

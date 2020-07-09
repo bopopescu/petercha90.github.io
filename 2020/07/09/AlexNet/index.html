@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&product=sop" async="async"></script>
+    <meta charset="utf-8">
+<title>AlexNet - Stand firm Peter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="canonical" href="http://www.stand-firm-peter.me/2020/07/09/alexnet/">
+
+
+<meta property="og:image" content="/gallery/alexnet.jpg">
+
+
+
+<!-- <meta property="og:title" content=AlexNet - Stand firm Peter> -->
+<meta property="og:description" content="Peter's playground.">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4926107872672843",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4926107872672843",
+          enable_page_level_ads: true
+     });
+</script>
+
+
+<link rel="alternative" href="/rss.xml" title="AlexNet" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124184693-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-124184693-1');
+</script>
+
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/dog.jpg" alt="AlexNet" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/gallery/alexnet.jpg" alt="AlexNet">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-07-09T07:44:56.000Z">2020-07-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Deep-Learning-paper/">Deep Learning paper</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 minutes read (About 2172 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                AlexNet
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>CNN의 강려크함을 세상에 널리 알려주신 조상님. AlexNet 리뷰!</li>
+</ul>
+<a id="more"></a>
+
+<ul>
+<li><p>ImageNet Large-Scale Visual Recognition Challenge(이하 ILSVRC)-2012에서 Top-5 test 기준, 에러율 15.3%로 1등을 차지하면서 26.2%인 2등과의 격차를 10% 이상 벌리며, CNN의 우수함을 전세계에 입증한, AlexNet Review입니다. :) </p>
+</li>
+<li><p>논문 작성 당시 토론토 주립대 학생이었던 Alex Krizhevsky가 1저자로, Geoffrey E. Hinton 교수님이 지도 교수로 참여하신, ‘ImageNet Classification with Deep Convolutional Neural Networks’가 AlexNet이 나온 논문의 풀네임입니다. 역시 모델의 이름은 저자의 이름을 따서 지었습니다. </p>
+</li>
+</ul>
+<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><ul>
+<li>네, 딥러닝을 공부하시는 분들이라면 정말 안보기가 힘들 정도로 유명한 AlexNet의 구조는 아래의 그림과 같이 총 5개의 Convolution layers와, 3개의 fully-connected layers로 구성되어 있습니다.  </li>
+<li>위 아래로 filter들이 절반씩 나뉘어서 두 개의 GPU에 할당되고, 세 번째 Convolution Layer를 제외하고는 각자 계산을 마치고 마지막 Classifier에 모여서 결과를 도출하는 방식입니다. 굳이 커널을 절반으로 나눈 이유에 대해서는 아래에서 더 설명하도록 하겠습니다. </li>
+</ul>
+<center><img src="/gallery/alexnet_1.png" width="800"></center>
+
+<ul>
+<li>모델의 Input 부터, Output까지 구조를, 두 GPU들의 channel size를 합쳐서 대략적으로 이해하기 쉽도록 정리하면 아래와 같습니다. </li>
+</ul>
+<center><img src="/gallery/alexnet_2.png" width="400"></center>
+
+<h3 id="1-ReLU"><a href="#1-ReLU" class="headerlink" title="1. ReLU"></a>1. ReLU</h3><ul>
+<li>저자는 AlexNet의 결과에 기여한 공이 큰 순서대로 비법을 소개합니다. 그 첫 번째가 Rectified Linear Units, ReLU Nonlinearity입니다. 지도 교수님인 Hinton이 널리 알린 Activation Funtion이죠. ReLU는 ‘saturating nonlinearity’를 가진 sigmoid나 tanh보다 학습의 속도를 여러배 빠르게 해준다고 하면서 Cifar-10 데이터로 실험한 결과를 논문에 첨부합니다. </li>
+<li>점선인 tanh로 35 epoch이 지나서야 도달하는 Training error rate에 실선인 ReLU를 사용하면 6 epoch만에 도달한다는 내용입니다. ReLU가 학습속도를 비약적으로 빠르게 해줍니다.</li>
+</ul>
+<center><img src="/gallery/alexnet_3.png" width="400"></center>
+
+<h3 id="2-Multiple-GPUs"><a href="#2-Multiple-GPUs" class="headerlink" title="2. Multiple GPUs"></a>2. Multiple GPUs</h3><ul>
+<li>논문 작성 당시에 사용했던 GPU는 GTX 580으로 메모리가 3GB에 불과 했습니다. 그래서 2개의 GPU를 사용한 단순한 이유로는 GPU의 메모리는 네트워크가 학습할 수 있는 최대 학습의 양을 제한한다고 언급합니다. 그리고 Multiple GPU를 사용하기에 시도 할 수 있는 네트워크 구조(각각의 GPU가 모든 kernel을 공유하는 것이 아니라 나눠서 각각 다른 feature를 뽑는 구조)를 가지는 것이 실제로 같은 형태의 one-GPU 네트워크에 비해, top-1 error rate와 top-5 error rate를 각각 1.7%, 1.2%씩 낮출 수 있는 비결이라고 합니다. </li>
+<li>위의 네트워크 구조에서 보실 수 있듯이, 단순히 Multi GPU라서 두 배로 Kernel을 늘려서 연산을 할 수 있다는 장점 말고도, AlexNet에서는 Layer끼리 별개의 연산을 하다가도, 3번째 Conv layer에서는 또 서로 가지고 있는 kernel들을 교류하기도 합니다. 이런 것들이 (왜 이것이 가능한지 정확히는 모르겠지만) 아래와 같이 각각의 GPU가 서로 역할을 나눠서 학습을 하게 합니다. </li>
+</ul>
+<center><img src="/gallery/alexnet_4.png" width="400"></center>
+
+<ul>
+<li>위의 보시는 이미지는 224x224x3 input image에 대해 첫 번째 convolution layer를 통과한 뒤 얻을 수 있는 96개의 convolutional kernels입니다. GPU1은 위의 3줄 48개에 해당하는 주로 흑백을 이루는 convolutional kernel들을 학습하고, GPU2는 아래 color feature들이 주로 이루는 나머지 절반 48개의 convolutional kernel들을 학습합니다. 저자는 이런 특별한 현상이 random weight initialization을 어떻게 하든 학습때마다 관찰되었다고 합니다. </li>
+</ul>
+<h3 id="3-Local-Response-Normalization"><a href="#3-Local-Response-Normalization" class="headerlink" title="3. Local Response Normalization"></a>3. Local Response Normalization</h3><ul>
+<li>$b^i_{x, y}$는 아래와 같은 Local Response Normalization을 거친 결과를 의미합니다.</li>
+</ul>
+<center><img src="/gallery/alexnet_5.png" width="400"></center>
+
+
+<ul>
+<li>$a^i_{x,y}$가 의미하는 것은 (x, y)좌표의 i번째 kernel의 결과가 ReLU를 통과 한 뒤의 결과값입니다. 분모가 의미하는 것은, 각각 $j$번째 같은 (x, y)위치에서 계산되는 $i$와 근접한(adjacent) kernels들을 합하고, 또 그것을 Hyperparameter로 설정하는 $k, \alpha, \beta$로 적절히 계산하여 나눠주겠다는 의미입니다.  저자는 $k=2, n=5, \alpha=0.0001, \beta = 0.75$로 사용했다고 합니다. N은 해당 layer의 총 kernel 개수입니다. </li>
+<li>이렇게 계산에 줌으로써, 각 $i$번째 kernel들은 동일한 위치의 다른 주변 kernel들과 평준화를 이룹니다. 이 Normalization의 효과로, neuron들이 output 간의 큰 activity를 일으킬 수 있게 경쟁을 유도할 수 있다고 합니다. 이는 실제 neurons들에게서 발견되는 형태로, ‘lateral inhibition’(뜻 아시는 분은 댓글로 알려주시면 감사..)을 구현하게 된다고 합니다. 저자는 이를 통해 top-1과 top-5 error rate를 각각 1.4%, 1.2% 낮출 수 있었다고 말합니다.</li>
+</ul>
+<h3 id="4-Overlapping-Pooling"><a href="#4-Overlapping-Pooling" class="headerlink" title="4. Overlapping Pooling"></a>4. Overlapping Pooling</h3><ul>
+<li>전통적으로 Pooling의 grid size와 stride와 맞춰줌으로써, 겹치는 부분이 없도록 pooling을 수행하지만, AlexNet에서는 stride는 2, grid size는 3으로 세팅하면서 Pooling을 overlapping 시키면서 정보를 조금씩 더 가져가게 설정했습니다. 그 결과 top-1, top-5 error rate를 각각, 0.4%, 0.3% 줄였다고 하고, 이렇게 트레이닝한 모델들은 약간이지만 Overfit이 쉽게 되지 않는 경향을 관찰했다고 저자는 말합니다. </li>
+</ul>
+<h4 id="Overall-Architecture"><a href="#Overall-Architecture" class="headerlink" title="Overall Architecture"></a>Overall Architecture</h4><ul>
+<li>Response-normalization layer는 첫 번째와 두 번째 convolution layer 뒤에 적용 되었고, Max-pooling 또한 그 뒤에 연달아서 수행, 그리고 5 번째 conv layer 뒤에서도 Max pooliing이 수행되었습니다. ReLU는 모든 conv와 fully-connected layer뒤에 적용되었습니다. </li>
+</ul>
+<h2 id="Reducing-Overfitting"><a href="#Reducing-Overfitting" class="headerlink" title="Reducing Overfitting"></a>Reducing Overfitting</h2><ul>
+<li>6천만개의 parameter들을 가지고 있는 AlexNet이 1000가지 ILSVRC 데이터에 맞춰 학습된다는 것은 엄청난 overfitting 없이는 학습하기 힘들다는 것을 의미합니다. 그래서 저자는 아래와 같은 두 가지 방법으로 Overfitting에 대항했다고 합니다.</li>
+</ul>
+<h3 id="1-Data-Augmentation"><a href="#1-Data-Augmentation" class="headerlink" title="1. Data Augmentation"></a>1. Data Augmentation</h3><ul>
+<li><p>첫 번째로, 256x256 Image로부터 224x224 Random Crop과 Horizontal flip을 사용해서 데이터를 CPU 상에서 Augment한 뒤에, GPU 연산으로 넘기면서 로컬 머신에 저장하지 않고 Data Augmentation을 구현하였습니다. </p>
+</li>
+<li><p>두 번째로, RGB channels의 강도를 조절하여 Data Augmentation을 수행했습니다. 아래와 같이 RGB pixel 값들의 3x3 공분산 matrix의 eigenvector와 eigenvalue를 뜻하는 $P_i$, $\lambda_i$값에 랜덤 값인 $\alpha$를 곱해서 RGB image pixel에 더해줬습니다. </p>
+</li>
+</ul>
+<center><img src="/gallery/alexnet_6.png" width="300"></center>
+
+<h3 id="2-Dropout"><a href="#2-Dropout" class="headerlink" title="2. Dropout"></a>2. Dropout</h3><ul>
+<li>Dropout은 AlexNet에서 처음 두 fully-connected layer들에 적용되었으며, Dropout을 사용하지 않았을 경우, 심각한 overfitting에 걸렸다고 합니다. 그리고 수렴하는데 필요한 epoch을 두배 가량 낮춰줬다고 합니다. 여러모델의 결과값을 합치는 것이 좋지만, 한 모델을 학습하는데 몇 날, 몇 일이 걸리는 경우 0.5확률의 Dropout이 현실적인 대안이었다고 말합니다. </li>
+</ul>
+<h2 id="Details-of-learning"><a href="#Details-of-learning" class="headerlink" title="Details of learning"></a>Details of learning</h2><ul>
+<li>Optimizer로 SGD, Batch size는 128, 0.9 momentum에 weight decay로 0.0005를 사용하였습니다. 모든 layer들에 학습초기에 ReLU에 양수 값들을 제공하기 위해서, zero-mean Gaussian 분포로 초기화 합니다. </li>
+<li>초기 learning rate는 0.01을 사용하였고, 해당 learning rate에서 validation error가 더이상 나아지지 않을 경우 1/10로 낮추는 방식으로 학습이 끝나기 전까지 총 3번 learning rate를 줄입니다. 총 90 epoch 학습하였고, 총 120만장의 이미지에 대해, 두 대의 NVIDIA GTX 580 3GB GPU로 꼬박 5박 6일이 걸렸다고 합니다. </li>
+</ul>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><ul>
+<li>ILSVRC-2010에서 다른 방법들에 비해서 탁월히 높은 성능을 보이는 AlexNet을 볼 수 있습니다. top-1, top-5 error rate를 37.5%, 17.5%를 아래와 같이 달성합니다. </li>
+</ul>
+<center><img src="/gallery/alexnet_7.png" width="400"></center>
+
+<ul>
+<li>또한 ILSVRC-2012에도 출전해서는 ImageNet 2011 Fall 데이터에 pre-trained된 모델 두 개와 5개의 다른 CNN 모델들의 예측에 평균을 취하는 방법으로 top-5 error rate 15.3%를 기록하며 2등 기록인 26.2%보다 10% 이상 높은 성능으로 1위를 차지합니다.</li>
+</ul>
+<center><img src="/gallery/alexnet_8.png" width="500"></center>
+
+
+
+<hr>
+
+<ul>
+<li>여기까지, AlexNet 리뷰를 마치도록 하겠습니다. 다음 포스팅에서는 ZFNet 리뷰를 하겠습니다. 읽어주셔서 감사합니다. <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f647.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f647.png?v8">🙇</span></li>
+<li>이 글은 <a href="http://datacrew.tech/alexnet/" rel="external nofollow noopener noreferrer" target="_blank">DataCrew</a>에서도 보실 수 있습니다. </li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>AlextNet <a href="https://arxiv.org/pdf/1704.04861.pdf" rel="external nofollow noopener noreferrer" target="_blank">Paper</a></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+        
+        
+        <div id="bmc" align="center">
+            <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#000000 !important;background-color:#FFDD00 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#000000 !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/petercha" rel="external nofollow noopener noreferrer"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+        </div>
+        
+        
+            <p><br></p>
+            <div class="level is-size-7 is-uppercase">
+                <div class="level-start">
+                    <div class="level-item">
+                        <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                        <a class="has-link-grey -link" href="/tags/AlexNet/">AlexNet</a>, <a class="has-link-grey -link" href="/tags/deep-learning/">deep_learning</a>, <a class="has-link-grey -link" href="/tags/ml/">ml</a>
+                    </div>
+                </div>
+            </div>
+            
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Natural -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4926107872672843" data-ad-slot="1904278923" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <br>
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5d32dc3eba941200129ff9a8&amp;product=custom-share-buttons" async="async"></script>
+
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/06/LeNet/">
+                <span class="level-item">LeNet</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://www.stand-firm-peter.me/2020/07/09/AlexNet/';
+        this.page.identifier = '2020/07/09/AlexNet/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'petercha90' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Deep-Learning-paper/">
+            <span class="level-start">
+                <span class="level-item">Deep Learning paper</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Machine-Learning/">
+            <span class="level-start">
+                <span class="level-item">Machine Learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Tutorial/">
+            <span class="level-start">
+                <span class="level-item">Tutorial</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/07/09/AlexNet/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/alexnet.jpg" alt="AlexNet">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-09T07:44:56.000Z">2020-07-09</time></div>
+                    <a href="/2020/07/09/AlexNet/" class="has-link-black-ter is-size-6">AlexNet</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Deep-Learning-paper/">Deep Learning paper</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/07/06/LeNet/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/lenet.jpg" alt="LeNet">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-06T07:44:56.000Z">2020-07-06</time></div>
+                    <a href="/2020/07/06/LeNet/" class="has-link-black-ter is-size-6">LeNet</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Deep-Learning-paper/">Deep Learning paper</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/06/28/tensorflow_object_detection_with_tpu_5/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_5.jpg" alt="Running a pretrained model on Android with TPU (5)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-27T15:00:00.000Z">2020-06-28</time></div>
+                    <a href="/2020/06/28/tensorflow_object_detection_with_tpu_5/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (5)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/06/21/tensorflow_object_detection_with_tpu_4/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_4.jpg" alt="Running a pretrained model on Android with TPU (4)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-20T15:00:00.000Z">2020-06-21</time></div>
+                    <a href="/2020/06/21/tensorflow_object_detection_with_tpu_4/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (4)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/06/09/tensorflow_object_detection_with_tpu_3/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/gallery/tpu_3.jpg" alt="Running a pretrained model on Android with TPU (3)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-08T15:00:00.000Z">2020-06-09</time></div>
+                    <a href="/2020/06/09/tensorflow_object_detection_with_tpu_3/" class="has-link-black-ter is-size-6">Running a pretrained model on Android with TPU (3)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Tutorial/">Tutorial</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/AlexNet/" style="font-size: 10px;">AlexNet</a> <a href="/tags/Back-propagation/" style="font-size: 10px;">Back propagation</a> <a href="/tags/Batch/" style="font-size: 10px;">Batch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/Colab/" style="font-size: 10px;">Colab</a> <a href="/tags/Docker/" style="font-size: 12.86px;">Docker</a> <a href="/tags/Epoch/" style="font-size: 10px;">Epoch</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/Google-Cloud-Platform/" style="font-size: 10px;">Google Cloud Platform</a> <a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a> <a href="/tags/L1/" style="font-size: 10px;">L1</a> <a href="/tags/L2/" style="font-size: 10px;">L2</a> <a href="/tags/Lasso/" style="font-size: 10px;">Lasso</a> <a href="/tags/LeNet/" style="font-size: 10px;">LeNet</a> <a href="/tags/Loss-function/" style="font-size: 10px;">Loss function</a> <a href="/tags/Optimizer/" style="font-size: 10px;">Optimizer</a> <a href="/tags/Padding/" style="font-size: 10px;">Padding</a> <a href="/tags/Pooling/" style="font-size: 10px;">Pooling</a> <a href="/tags/Ridge/" style="font-size: 10px;">Ridge</a> <a href="/tags/TPU/" style="font-size: 15.71px;">TPU</a> <a href="/tags/basic/" style="font-size: 11.43px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/container-ssh/" style="font-size: 10px;">container ssh</a> <a href="/tags/convex-optimisation/" style="font-size: 10px;">convex_optimisation</a> <a href="/tags/dataframe/" style="font-size: 10px;">dataframe</a> <a href="/tags/deep-learning/" style="font-size: 20px;">deep_learning</a> <a href="/tags/docker/" style="font-size: 12.86px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/keras/" style="font-size: 10px;">keras</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/logarithm/" style="font-size: 10px;">logarithm</a> <a href="/tags/loss/" style="font-size: 10px;">loss</a> <a href="/tags/machine-learning/" style="font-size: 12.86px;">machine-learning</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine_learning</a> <a href="/tags/ml/" style="font-size: 18.57px;">ml</a> <a href="/tags/mobilenet/" style="font-size: 10px;">mobilenet</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pseudo-label/" style="font-size: 10px;">pseudo-label</a> <a href="/tags/regularization/" style="font-size: 10px;">regularization</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tensorflow/" style="font-size: 11.43px;">tensorflow</a> <a href="/tags/tensorflow-object-detection-api/" style="font-size: 14.29px;">tensorflow object detection api</a> <a href="/tags/tensorpack/" style="font-size: 10px;">tensorpack</a> <a href="/tags/transfer-learning/" style="font-size: 15.71px;">transfer learning</a> <a href="/tags/tutorial/" style="font-size: 17.14px;">tutorial</a> <a href="/tags/useful-info/" style="font-size: 15.71px;">useful-info</a>
+    </div>
+</div>
+
+    
+    
+    <br>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Natural -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4926107872672843" data-ad-slot="1904278923" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/dog.jpg" alt="AlexNet" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Peter Cha&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus" rel="external nofollow noopener noreferrer">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

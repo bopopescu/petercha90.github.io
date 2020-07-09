@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>http://www.stand-firm-peter.me/2020/07/06/LeNet/</loc>
+        <lastmod>2020-07-09T03:17:31.845Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/2020/07/09/AlexNet/</loc>
+        <lastmod>2020-07-09T03:16:46.653Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.stand-firm-peter.me/2020/01/31/tensorflow_object_detection_with_tpu_2/</loc>
         <lastmod>2020-07-03T11:55:19.274Z</lastmod>
         <changefreq>weekly</changefreq>

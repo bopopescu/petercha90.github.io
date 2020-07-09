@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>http://www.stand-firm-peter.me/tags/LeNet/</loc>
+        <lastmod>2020-07-09T03:17:31.845Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/deep-learning/</loc>
+        <lastmod>2020-07-09T03:17:31.845Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/ml/</loc>
+        <lastmod>2020-07-09T03:17:31.845Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.stand-firm-peter.me/tags/AlexNet/</loc>
+        <lastmod>2020-07-09T03:16:46.653Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://www.stand-firm-peter.me/tags/tensorflow-object-detection-api/</loc>
         <lastmod>2020-07-03T11:55:19.274Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -11,13 +39,6 @@
 
     <url>
         <loc>http://www.stand-firm-peter.me/tags/transfer-learning/</loc>
-        <lastmod>2020-07-03T11:55:19.274Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/deep-learning/</loc>
         <lastmod>2020-07-03T11:55:19.274Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -95,13 +116,6 @@
 
     <url>
         <loc>http://www.stand-firm-peter.me/tags/keras/</loc>
-        <lastmod>2019-08-25T08:05:55.906Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.stand-firm-peter.me/tags/ml/</loc>
         <lastmod>2019-08-25T08:05:55.906Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
